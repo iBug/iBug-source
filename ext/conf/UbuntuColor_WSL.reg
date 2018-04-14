@@ -1,0 +1,28 @@
+Windows Registry Editor Version 5.00
+
+; Values stored as 00-BB-GG-RR
+[HKEY_CURRENT_USER\Console\%SystemRoot%_system32_bash.exe]
+; BLACK DGRAY
+"ColorTable00"=dword:00240A30
+"ColorTable08"=dword:00535755
+; BLUE LBLUE
+"ColorTable01"=dword:00a46534
+"ColorTable09"=dword:00cf9f72
+; GREEN LGREEN
+"ColorTable02"=dword:00069a4e
+"ColorTable10"=dword:0034e28a
+; CYAN LCYAN
+"ColorTable03"=dword:009a9806
+"ColorTable11"=dword:00e2e234
+; RED LRED
+"ColorTable04"=dword:000000cc
+"ColorTable12"=dword:002929ef
+; MAGENTA LMAGENTA
+"ColorTable05"=dword:007b5075
+"ColorTable13"=dword:00a87fad
+; YELLOW LYELLOW
+"ColorTable06"=dword:0000a0c4
+"ColorTable14"=dword:004fe9fc
+; LGRAY WHITE
+"ColorTable07"=dword:00cfd7d3
+"ColorTable15"=dword:00eceeee

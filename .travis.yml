@@ -1,0 +1,9 @@
+language: ruby
+cache: bundler
+sudo: false
+
+#install: bundle install
+script:
+  - bundle exec jekyll build
+  - .travis/patch.sh
+after_success: .travis/deploy.sh

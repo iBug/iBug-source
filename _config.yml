@@ -1,0 +1,59 @@
+theme: jekyll-theme-cayman
+
+title: iBug @ GitHub
+description: The small personal site for iBug
+url: https://ibug.github.io
+
+author: iBug
+index_url: /blog
+permalink: /blog/:year/:month/:title.html
+
+#date_format: "%b %-d, %Y at %-H:%M"
+date_format: "%b %-d, %Y"
+
+plugins:
+  # Class 1: Default plugins on GitHub Pages
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+
+  # Class 2: Optional plugins on GitHub Pages
+  - jekyll-redirect-from
+  - jekyll-mentions
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+tag_page_layout: tag_page
+tag_page_dir: tags
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      author: iBug
+      layout: default
+  -
+    scope:
+      path: "_posts"
+      type: pages
+    values:
+      author: iBug
+      layout: post
+    
+social:
+  links:
+    - https://stackoverflow.com/users/5958455
+  lang: en_US
+
+google_analytics: UA-115907213-1

@@ -1,0 +1,231 @@
+<!-- link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/all.css" -->
+<style type='text/css'>
+html,body,div,h1,h2,h3,p,a,em,strong,sub,i,ol,ul,li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+body {
+    line-height: 1
+}
+ol,ul {
+    list-style: none
+}
+sub {
+    font-size: 80%;
+    vertical-align: sub;
+    line-height: 1
+}
+.has-error .textarea-with-counter textarea:not(:focus) {
+    border-color: #dc3d4c;
+    border-bottom: 0
+}
+ul,ol,li {
+    margin: 0;
+    padding: 0
+}
+ul,ol {
+    margin-left: 30px;
+    margin-bottom: 1em
+}
+ul {
+    list-style-type: disc
+}
+ol {
+    list-style-type: decimal
+}
+a {
+    color: #07C;
+    text-decoration: none;
+    cursor: pointer
+}
+a:hover,a:active {
+    color: #3af;
+    text-decoration: none
+}
+strong {
+    font-weight: bold
+}
+i,em {
+    font-style: italic
+}
+sub {
+    font-size: 80%
+}
+p {
+    clear: both;
+    margin-bottom: 1em;
+    margin-top: 0
+}
+h1,h2,h3 {
+    line-height: 1.3;
+    margin: 0 0 1em
+}
+h1 {
+    font-size: 22px
+}
+h2 {
+    font-size: 18px
+}
+
+h3 {
+    font-size: 15px
+}
+.sidebar-element .list li::first-child {
+    margin-top: 0
+}
+html {
+    height: 100%;
+    min-width: 1060px
+}
+body {
+    min-height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 1.3em;
+    color: #242729;
+    background: #FFF;
+    min-width: 1075px
+}
+.content-page {
+    padding: 20px 0
+}
+.content-page h2 {
+    margin-bottom: 10px;
+    font-size: 140%;
+    font-weight: bold
+}
+.content-page h3 {
+    margin-bottom: 10px;
+    font-size: 120%;
+    font-weight: bold
+}
+#mainbar h2,#mainbar h3 {
+    font-weight: 400
+}
+#mainbar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: middle;
+    width: 728px;
+    padding: 0
+}
+.subheader {
+    clear: both;
+    margin-bottom: 10px;
+    height: 40px;
+    border-bottom: 1px solid #e4e6e8
+}
+.subheader h1 {
+    float: left;
+    margin-bottom: 0;
+    font-weight: normal
+}
+.subheader h1 {
+    color: #242729;
+    font-size: 18px;
+    line-height: 2.22
+}
+
+@media screen {
+
+    .spoiler:not(:hover) {
+        color: rgba(255,248,220,0)
+    }
+    .spoiler:not(:hover)>* {
+        opacity: 0
+    }
+    .diffs .spoiler:not(:hover),.body-diffs .spoiler:not(:hover) {
+        color: rgba(255,248,220,0.003)
+    }
+    .diffs .spoiler:not(:hover)>*,.body-diffs .spoiler:not(:hover)>* {
+        opacity: .3
+    }
+}
+
+@media print {
+    * {
+        position: relative
+    }
+    body {
+        font-size: 10pt !important;
+        overflow: visible !important;
+        overflow-y: visible !important;
+        height: auto
+    }
+    #mainbar {
+        float: none !important;
+        width: 100%;
+        overflow: visible !important
+    }
+    #mainbar {
+        margin: 0
+    }
+}
+</style>
+<div id="mainbar" class="help-center">
+    <!--
+    <div class="subheader">
+        <h1><a href="https://stackoverflow.com/help">Help Center</a> &gt; <a href="https://stackoverflow.com/help/asking">Asking</a></h1>
+    </div>
+    -->
+    <div class="content-page">
+        <h1>How to create a Minimal, Complete, and Verifiable example</h1>
+        <div id="help-post-body" class="col-section"><p>When asking a question about a problem caused by your code, you will get much better answers if you provide code people can use to reproduce the problem. That code should be…</p>
+
+<ul>
+<li>…Minimal – Use as little code as possible that still produces the same problem</li>
+<li>…Complete – Provide all parts needed to reproduce the problem</li>
+<li>…Verifiable – Test the code you're about to provide to make sure it reproduces the problem</li>
+</ul>
+
+<h2>Minimal</h2>
+
+<p>The more code there is to go through, the less likely people can find your problem. Streamline your example in one of two ways:</p>
+
+<ol>
+<li><strong>Restart from scratch.</strong> Create a new program, adding in only what is needed to see the problem.  This can be faster for vast systems where you think you already know the source of the problem. Also useful if you can't post the original code publicly for legal or ethical reasons.</li>
+<li><strong>Divide and conquer.</strong> When you have a small amount of code, but the source of the problem is entirely unclear, start removing code a bit at a time until the problem disappears – then add the last part back. </li>
+</ol>
+
+<h3>Minimal <em>and</em> readable</h3>
+
+<p>Minimal does not mean <em>terse</em> – don't sacrifice communication to brevity. Use consistent naming and indentation, and include comments if needed to explain portions of the code.  Most code editors have a shortcut for formatting code – find it, and <em>use it!</em> Also, <strong>don't use tabs</strong> – they may look good in your editor, but they'll just make a mess on Stack Overflow.</p>
+
+<h2>Complete</h2>
+
+<p>Make sure all information necessary to reproduce the problem is included:</p>
+
+<ul>
+<li>Some people might be prepared to load the parts up, and actually try them to test the answer they're about to post.</li>
+<li>The problem might not be in the part you suspect it is, but another part entirely.</li>
+</ul>
+
+<p>If the problem requires some server-side code as well as an XML-based configuration file, include them both.  If a web page problem requires HTML, some JavaScript and a stylesheet, include all three.</p>
+
+<h2>Verifiable</h2>
+
+<p>To help you solve your problem, others will need to verify that it <em>exists:</em></p>
+
+<ul>
+<li><p><strong>Describe the problem.</strong> "It doesn't work" is not a problem statement.  Tell us what the expected behavior should be.  Tell us what the exact wording of the error message is, and which line of code is producing it.  Put a brief summary of the problem in the title of your question.</p></li>
+<li><p><strong>Eliminate any issues that aren't relevant to the problem.</strong> If your question isn’t <em>about</em> a compiler error, ensure that there are no compile-time errors. Use a program such as <a href="https://www.jslint.com/">JSLint</a> to validate interpreted languages. <a href="https://validator.w3.org/">Validate</a> any HTML or XML. </p></li>
+<li><p><strong>Ensure that the example actually reproduces the problem!</strong> If you inadvertently fixed the problem while composing the example but didn't test it again, you'd want to know that before asking someone else to help.</p></li>
+</ul>
+
+<p>It might help to shut the system down and restart it, or transport the example to a fresh machine to confirm it really does provide an example of the problem.</p>
+
+<p>For more information on how to debug your program so you can create a minimal example, <a href="https://stackoverflow.com/users/88656/eric-lippert">Eric Lippert</a> has a fantastic blog post on the subject: <i><a href="https://ericlippert.com/2014/03/05/how-to-debug-small-programs/">How to debug small programs</a></i>.</p>
+
+<p><sub>You may have been told to include an MCVE by some helpful commentary, or perhaps even an MVCE if they were rushed; sorry for the initialisms, this is what they were referring to.</sub></p>
+</div>
+    </div>
+</div>
