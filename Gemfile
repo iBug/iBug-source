@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 gem "github-pages"
-gem "jekyll-tagging"
 
 group :jekyll_plugins do
-    gem 'octopress-minify-html'
+    gem "jekyll-tagging"
+    #gem 'octopress-minify-html'
+    gem 'jekyll-assets'
 end
