@@ -59,12 +59,16 @@ Done? Done. Now run `bundle exec jekyll build` and have some coffee. Jekyll shou
 Oh yes, there's another small change to apply. Add these lines to your `_config.yml` if they aren't present. These settings are safe and won't change your site if you push them directly to GitHub, but will correct some errors (if present) in later builds.
 
 ```yaml
-url: https://<your-name>.github.io
+url: https://{yourname}.github.io
 baseurl: /
 ```
 
 
 # 2. Setting up Travis CI build {#setup-travis}
+
+To set up Travis CI, we need to first register, and then tell Travis what to do. If you have already set up Travis CI for your other projects, you can skip the registering part.
+
+Open <https://travis-ci.org> and click on the top-right corner. Select *Sign in with GitHub*.
 
 To be continued...
 

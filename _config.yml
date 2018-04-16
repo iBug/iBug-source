@@ -7,7 +7,7 @@ baseurl: ""
 
 author: iBug
 index_url: /blog
-permalink: /blog/:year-:month/:title.html
+permalink: /blog/:year/:month/:title.html
 
 #date_format: "%b %-d, %Y at %-H:%M"
 date_format: "%b %-d, %Y"
