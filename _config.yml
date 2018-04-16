@@ -16,7 +16,7 @@ plugins:
   # Class 1: Default plugins on GitHub Pages
   - jekyll-gist
   - jekyll-github-metadata
-  #- jekyll-paginate
+  - jekyll-paginate
   - jekyll-relative-links
   - jekyll-optional-front-matter
   - jekyll-readme-index

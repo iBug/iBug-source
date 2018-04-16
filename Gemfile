@@ -4,7 +4,7 @@ gem "github-pages"
 
 group :jekyll_plugins do
     #gem "jekyll-liquify"
-    gem "jekyll-paginate-v2"
+    #gem "jekyll-paginate-v2"
     gem "jekyll-tagging"
     #gem "octopress-minify-html"
     gem "jekyll-minifier"
