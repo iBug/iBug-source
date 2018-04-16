@@ -11,4 +11,9 @@ no_footer: true
 
 	<dt>Git revision</dt>
 	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code></a> {{ site.git.last_commit.commit_name }}: <i>{{ site.git.last_commit.message }}</i></dd>
+
+	{% if site.env.TRAVIS_BUILD_NUMBER %}
+	<dt>Travis CI</dt>
+	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source">Travis CI</a> build number {{ site.env.TRAVIS_BUILD_NUMBER}}</dd>
+	{% endif %}
 </dl>
