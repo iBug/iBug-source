@@ -16,7 +16,7 @@ plugins:
   # Class 1: Default plugins on GitHub Pages
   - jekyll-gist
   - jekyll-github-metadata
-  - jekyll-paginate
+  #- jekyll-paginate
   - jekyll-relative-links
   - jekyll-optional-front-matter
   - jekyll-readme-index
@@ -31,8 +31,16 @@ plugins:
 
   # Class 3: Not supported by GitHub Pages
 
-paginate: 5
-paginate_path: "/blog/page:num/"
+#paginate: 5
+#paginate_path: "/blog/page:num/"
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "/blog/page:num/"
+  title: :title - :num of :max
+  trail:
+    before: 3
+    after: 3
 
 tag_page_layout: tag_page
 tag_page_dir: tags

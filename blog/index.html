@@ -18,6 +18,22 @@ buttons:
   </div>
 {% endfor %}
 
+<!-- Paginate V2 trail -->
+
+{% if paginator.page_trail %}
+<div class="pagination-trail">
+	<ul>
+		{% for trail in paginator.page_trail %}
+		<li{% if page.url == trail.path %} class="selected"{% endif %}>
+			<a href="{{ trail.path | prepend: site.baseurl }}" title="{{ trail.title }}">{{ trail.num }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+<!-- Old paginate -->
+
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
