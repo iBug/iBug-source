@@ -6,7 +6,12 @@ git:
   depth: 1
 
 #install: bundle install
+
+before_script:
+  - .travis/prepare.sh
+
 script:
   - bundle exec jekyll build
   - .travis/patch.sh
+
 after_success: .travis/deploy.sh
