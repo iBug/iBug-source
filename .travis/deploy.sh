@@ -3,6 +3,7 @@
 set -e
 
 SRC=_site
+LOCAL=remote
 
 e_info() {
   echo -e "\x1B[36;1m[Info]\x1B[0m $*" >&2
@@ -21,10 +22,17 @@ if [ -z "${GH_TOKEN}" ]; then
   exit 1
 fi
 
-cd "${SRC}"
+e_info "Cloning from GitHub"
+git clone --depth=1 --branch=master "https://${GH_TOKEN}@github.com/iBug/iBug.github.io.git" "$LOCAL" >/dev/null 2>&1
 
-e_info "Initializing empty git repository at $PWD"
-git init >/dev/null 2>&1
+e_info "Cleaning up local working directory"
+cd "$LOCAL"
+git rm -rf . >/dev/null 2>&1
+cd ..
+
+e_info "Moving generated site to git working directory"
+mv -f "$SRC/"* "$LOCAL"
+cd "$LOCAL"
 
 e_info "Adding commit info"
 #git config user.name "Travis CI"
@@ -36,6 +44,6 @@ git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER}" >
 
 e_info "Pushing to GitHub"
 git remote add deploy "https://${GH_TOKEN}@github.com/iBug/iBug.github.io.git" >/dev/null 2>&1
-git push --force --set-upstream deploy master >/dev/null 2>&1
+git push --force deploy master >/dev/null 2>&1
 
 e_info "Successfully deployed to GitHub Pages"
