@@ -14,6 +14,6 @@ no_footer: true
 
 	{% if site.env.TRAVIS_BUILD_ID %}
 	<dt>Travis CI</dt>
-	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/jobs/{{ site.env.TRAVIS_BUILD_ID}}">Travis CI build number {{ site.env.TRAVIS_BUILD_NUMBER}}</a></dd>
+	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}</a></dd>
 	{% endif %}
 </dl>
