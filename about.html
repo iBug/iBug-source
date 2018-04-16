@@ -1,7 +1,14 @@
 ---
 layout: default
-title: About
-description: ""
+title: Site Meta
+tagline: ""
+no_footer: true
 ---
 
-<p>Build time: {{ site.time | date: "%B %-d, %Y at %H:%m:%sZ" }}</p>
+<dl>
+	<dt>Build time</dt>
+	<dd>{{ site.time | date: "%B %-d, %Y at %H:%m:%sZ" }}</dd>
+
+	<dt>Git revision</dt>
+	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code></a> {{ site.git.last_commit.commit_name }}: <i>{{ site.git.last_commit.message }}</i></dd>
+</dl>
