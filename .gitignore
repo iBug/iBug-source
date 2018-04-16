@@ -1,5 +1,14 @@
 .svn
-Gemfile.lock
 .sass-cache
 
+# Bundler
+Gemfile.lock
+
+# Jekyll
 _site
+
+# Jekyll Plugins
+.git-metadata
+
+# Travis CI
+vendor

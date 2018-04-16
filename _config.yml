@@ -16,10 +16,10 @@ plugins:
   # Class 1: Default plugins on GitHub Pages
   - jekyll-gist
   - jekyll-github-metadata
-  - jekyll-paginate
+  #- jekyll-paginate
   - jekyll-relative-links
   - jekyll-optional-front-matter
-  - jekyll-readme-index
+  #- jekyll-readme-index
   - jekyll-default-layout
   - jekyll-titles-from-headings
 
@@ -37,7 +37,9 @@ pagination:
   enabled: true
   per_page: 5
   permalink: "/blog/page:num/"
-  title: :title - :num of :max
+  title: ":title - :num of :max"
+  sort_field: "date"
+  sort_reverse: true
   trail:
     before: 3
     after: 3
