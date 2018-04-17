@@ -5,3 +5,9 @@ layout: default
 <div>
 	{{ content }}
 </div>
+
+<footer class="site-footer">
+	<span class="site-footer-credits">
+		<a href="{{ site.url }}{{ site.baseurl }}/about.html">Build time: {{ site.time | date: "%B %-d, %Y at %H:%M:%S" }}</a>
+	</span>
+</footer>
