@@ -52,7 +52,7 @@ group :jekyll_plugins do
 end
 ```
 
-After that, run `bundle install` to set up your GitHub Pages build environment. Bundler should not require root privileges so you don't need to prefix the command with `sudo`.
+If you use another gem-based Jekyll theme for your site, add it in the `group` block as a gem. After that, run `bundle install` to set up your GitHub Pages build environment. Bundler should not require root privileges so you don't need to prefix the command with `sudo`.
 
 Done? Done. Now run `bundle exec jekyll build` and have some coffee. Jekyll should generate your site under the `_site` folder. You can also try it live with `bundle exec jekyll serve` and open `http://localhost:4000` in a browser. It's really simple, isn't it?
 
@@ -74,7 +74,7 @@ Open <https://travis-ci.org> and click on the top-right corner. Select *Sign in 
 
 You can also go to the settings page of your repo and try them out. It's recommended that you turn on the option *Build only if .travis.yml is present*. Make sure *Build pushed branches* is turned on.
 
-## Set up build settings
+## Set up build settings {#setup-build}
 
 Now you've set up Travis CI. You need to tell Travis how to build your site. Create a file named `.travis.yml` with the following content. Note the file name starts with a dot.
 
@@ -84,11 +84,14 @@ cache: bundler
 script: bundle exec jekyll build
 ```
 
+The first line tells Travis that building the site does not require root privileges. The second line tells Travis to cache Ruby Bundler's installation, so your subsequents builds will be faster as Bundler won't have to actually install anything - everything is correctly cached. The third line is your site's build script.
+
 Commit and push the file to GitHub, and go to Travis CI. You'll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don't haste.
 
 You'll see Travis's build log, including Jekyll's output. That's it. The site is built.
 
-# 3. Use Travis to deploy to GitHub
+
+# 3. Use Travis to deploy to GitHub {#deploy-travis}
 
 ## Generating access token for Travis CI
 
@@ -102,7 +105,7 @@ Click *Generate Token* below and you'll get your token. **Be careful not to expo
 
 Go to your build settings page on Travis CI. Scroll down and look for "Environment variables" section. Enter `GH_TOKEN` as the name, and your token as the value. Do **not** turn on "display value in build log".
 
-## Setting up deployment
+## Setting up deployment {#setup-deployment}
 
 We need a deploy script. It can be as simple as following:
 
@@ -134,9 +137,11 @@ Push the changes to GitHub and watch Travis CI. It'll build your site in a momen
 Voila! You can now push changes to your sources to GitHub, and let Travis CI build it and deploy it for you.
 
 
-# 4. Miscellaneous
+# 4. Miscellaneous {#miscellaneous}
 
 When building with Travis CI, it's much like a local environment. You are no longer restricted to use only [the supported plugins][5] on GitHub Pages. You can use an arbitrary RubyGems-based plugin by adding `gem "plugin-name"` into your Gemfile, in `group :jekyll_plugins`. Travis will fetch the plugins and build your site for you.
+
+[Here][6]'s a list of awesome gem-based Jekyll plugins that you can try.
 
 
 
