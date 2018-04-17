@@ -79,12 +79,14 @@ You can also go to the settings page of your repo and try them out. It's recomme
 Now you've set up Travis CI. You need to tell Travis how to build your site. Create a file named `.travis.yml` with the following content. Note the file name starts with a dot.
 
 ```yaml
-sudo: false
+language: ruby
 cache: bundler
+sudo: false
+
 script: bundle exec jekyll build
 ```
 
-The first line tells Travis that building the site does not require root privileges. The second line tells Travis to cache Ruby Bundler's installation, so your subsequents builds will be faster as Bundler won't have to actually install anything - everything is correctly cached. The third line is your site's build script.
+The first two lines tell Travis that the project uses Ruby, and cache Ruby Bundler's installation, so your subsequents builds will be faster as Bundler won't have to actually install anything - everything is correctly cached. The third line tells Travis that building the site does not require root privileges. The last line is your site's build script.
 
 Commit and push the file to GitHub, and go to Travis CI. You'll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don't haste.
 
