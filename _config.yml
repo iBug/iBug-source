@@ -47,6 +47,9 @@ pagination:
 tag_page_layout: tag_page
 tag_page_dir: tags
 
+assets:
+  compression: true
+
 defaults:
   -
     scope:
