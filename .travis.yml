@@ -7,9 +7,6 @@ git:
 
 #install: bundle install
 
-before_script:
-  - .travis/export_env.sh TRAVIS_BUILD_ID TRAVIS_BUILD_NUMBER
-
 script:
   - bundle exec jekyll build
   - .travis/patch.sh
