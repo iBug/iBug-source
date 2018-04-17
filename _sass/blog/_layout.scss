@@ -136,8 +136,9 @@
 	color: $grey-color;
 
 	.post-meta-tag {
-		display: inline-block;
+		padding: 0.15em 0.4em;
 		border-width: 0.8px;
+		font-size: 0.9em;
 	}
 }
 
