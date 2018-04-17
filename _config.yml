@@ -65,7 +65,9 @@ defaults:
     values:
       author: iBug
       layout: post
-    
+
+minify_html: true
+
 social:
   links:
     - https://stackoverflow.com/users/5958455
