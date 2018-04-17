@@ -134,6 +134,11 @@
 .post-meta {
 	font-size: $small-font-size;
 	color: $grey-color;
+
+	.post-meta-tag {
+		display: inline-block;
+		border-width: 0.8px;
+	}
 }
 
 .post-link {
