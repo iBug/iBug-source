@@ -480,6 +480,16 @@ a {
 	}
 }
 
+.site-footer-owner {
+	display: block;
+	font-weight: bold;
+}
+
+.site-footer-credits {
+	color: $blockquote-text-color;
+	font-size: 0.9em;
+}
+
 .site-footer {
 	padding-top: 2rem;
 	margin-top: 2rem;
@@ -494,29 +504,8 @@ a {
 	}
 
 	@include small {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		margin-bottom: 0.5rem;
-	}
-}
-
-.site-footer-owner {
-	display: block;
-	font-weight: bold;
-}
-
-.site-footer-credits {
-	color: $blockquote-text-color;
-}
-
-.site-footer {
-
-	@include large {
-	}
-
-	@include medium {
-	}
-
-	@include small {
 	}
 
 	.my-span-icon {
