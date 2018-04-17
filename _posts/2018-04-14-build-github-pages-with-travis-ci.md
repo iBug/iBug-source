@@ -66,11 +66,30 @@ baseurl: /
 
 # 2. Setting up Travis CI build {#setup-travis}
 
+## Set up Travis CI
+
 To set up Travis CI, we need to first register, and then tell Travis what to do. If you have already set up Travis CI for your other projects, you can skip the registering part.
 
-Open <https://travis-ci.org> and click on the top-right corner. Select *Sign in with GitHub*.
+Open <https://travis-ci.org> and click on the top-right corner. Select *Sign in with GitHub*. Grant permissions to Travis CI and you'll be redirected back to Travis. Flip the switch beside your repository name.
 
-To be continued...
+You can also go to the settings page of your repo and try them out. It's recommended that you turn on the option *Build only if .travis.yml is present*.
+
+## Set up build settings
+
+Now you've set up Travis CI. You need to tell Travis how to build your site. Create a file named `.travis.yml` with the following content. Note the file name starts with a dot.
+
+```yaml
+sudo: false
+cache: bundler
+script: bundle exec jekyll build
+```
+
+Commit and push the file to GitHub, and go to Travis CI. You'll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don't haste.
+
+You'll see Travis's build log, including Jekyll's output. That's it. The site is built.
+
+# 3. Use Travis to deploy to GitHub
+
 
 
 
