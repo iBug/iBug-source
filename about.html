@@ -8,10 +8,10 @@ redirect_from: /meta
 
 <dl>
 	<dt>Build time</dt>
-	<dd>{{ site.time | date: "%B %-d, %Y at %H:%M:%SZ" }}</dd>
+	<dd><time datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%B %-d, %Y at %H:%M:%SZ" }}</time></dd>
 
 	<dt>Git revision</dt>
-	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code></a> {{ site.git.last_commit.commit_name }}: <i>{{ site.git.last_commit.message }}</i></dd>
+	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> {{ site.git.last_commit.commit_name }}: <i>{{ site.git.last_commit.message }}</i></a></dd>
 
 	<dt>Travis CI</dt>
 	{% if site.env.TRAVIS_BUILD_ID %}
