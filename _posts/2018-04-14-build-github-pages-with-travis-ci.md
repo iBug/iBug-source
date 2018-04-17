@@ -68,11 +68,11 @@ baseurl: /
 
 ## Set up Travis CI
 
-To set up Travis CI, we need to first register, and then tell Travis what to do. If you have already set up Travis CI for your other projects, you can skip the registering part.
+To set up Travis CI, you need to first register, and then tell Travis what to do. If you have already set up Travis CI for your other projects, you can skip this part.
 
 Open <https://travis-ci.org> and click on the top-right corner. Select *Sign in with GitHub*. Grant permissions to Travis CI and you'll be redirected back to Travis. Flip the switch beside your repository name.
 
-You can also go to the settings page of your repo and try them out. It's recommended that you turn on the option *Build only if .travis.yml is present*.
+You can also go to the settings page of your repo and try them out. It's recommended that you turn on the option *Build only if .travis.yml is present*. Make sure *Build pushed branches* is turned on.
 
 ## Set up build settings
 
@@ -90,9 +90,59 @@ You'll see Travis's build log, including Jekyll's output. That's it. The site is
 
 # 3. Use Travis to deploy to GitHub
 
+## Generating access token for Travis CI
+
+Before you use Travis to deploy built site to GitHub directly, there's one thing to note: For user/organization pages, GitHub Pages can only be built from the `master` branch. Because of that, you need to push your sources to another branch like `source`, or another repository.
+
+If you've pushed your sources to another branch of the same repository, you don't need to change anything on Travis CI. If you've pushed your sources to another repository, go to Travis CI and turn on the switch for that repo (and probably turn off the switch for your GH Pages repo).
+
+To allow Travis to push to your repositories, we need to generate an access token for it. Go to [Personal Access Tokens][4] settings page and click *Generate new token*. Enter an identifiable name like "Travis CI", and tick the box beside `public_repo`. You can also tick other boxes but they won't be useful.
+
+Click *Generate Token* below and you'll get your token. **Be careful not to expose it** because anyont will have push access to all your public repositories (and other privileges, if you checked the boxes) with that token. You can revoke it at any time.
+
+Go to your build settings page on Travis CI. Scroll down and look for "Environment variables" section. Enter `GH_TOKEN` as the name, and your token as the value. Do **not** turn on "display value in build log".
+
+## Setting up deployment
+
+We need a deploy script. It can be as simple as following:
+
+```shell
+#!/bin/sh
+
+cd _site
+git init
+git config user.name "Travis CI"
+git config user.email "travis@travis-ci.org"
+git add --all
+git commit --message "Auto deploy from Travis CI build $TRAVIS_BUILD_NUMBER"
+git remote add deploy https://$GH_TOKEN@github.com/<yourname>/<yourname>.github.io.git >/dev/null 2>&1
+git push --force deploy master >/dev/null 2>&1
+```
+
+Replace `<yourname>` with your GitHub username in the above script. Name the script `deploy.sh` in your repository.
+
+Now tell Travis to call the deploy script after building your site. Add these lines to your `.travis.yml`:
+
+```yaml
+after_success:
+  - chmod 777 deploy.sh
+  - ./deploy.sh
+```
+
+Push the changes to GitHub and watch Travis CI. It'll build your site in a moment, and push the built site to your GitHub Pages repo.
+
+Voila! You can now push changes to your sources to GitHub, and let Travis CI build it and deploy it for you.
+
+
+# 4. Miscellaneous
+
+When building with Travis CI, it's much like a local environment. You are no longer restricted to use only [the supported plugins][5] on GitHub Pages. You can use an arbitrary RubyGems-based plugin by adding `gem "plugin-name"` into your Gemfile, in `group :jekyll_plugins`. Travis will fetch the plugins and build your site for you.
 
 
 
   [1]: https://en.wikipedia.org/wiki/Travis_CI
   [2]: https://en.wikipedia.org/wiki/Jekyll_(software)
   [3]: https://github.com/pages-themes
+  [4]: https://github.com/settings/tokens
+  [5]: https://help.github.com/articles/configuring-jekyll-plugins/
+  [6]: https://github.com/planetjekyll/awesome-jekyll-plugins
