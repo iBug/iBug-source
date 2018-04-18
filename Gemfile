@@ -4,6 +4,7 @@ gem "github-pages"
 
 group :jekyll_plugins do
     #gem "octopress-minify-html"
+    gem "jekyll-tidy"
     gem "jekyll-git_metadata"
     #gem "jekyll-assets"
     #gem "jekyll-liquify"
