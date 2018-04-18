@@ -41,7 +41,7 @@
 			<h3 class="project-date"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: site.date_format }}</time> &bull; {{ page.author | default: site.author }}</h3>
 		</section>
 
-		<section class="main-content">
+		<section class="main-content blog-post">
 			{{ content }}
 
 				{% if page.tags.size > 0 %}

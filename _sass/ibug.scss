@@ -190,6 +190,14 @@ a {
 	}
 }
 
+.blog-post {
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
 .page-header {
 	color: $header-heading-color;
 	text-align: center;
