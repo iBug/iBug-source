@@ -71,7 +71,7 @@
 						</span>
 					</div>
 					<div align="center">
-						<p><a href="{{ site.url }}{{ site.index_url}}"><b>Return to index</b></a></p>
+						<p><a href="{{ site.index_url }}"><b>Return to index</b></a></p>
 						{% for link in page.redirect_from %}
 							{% assign linkstart = link | slice: 0, 3 %}
 							{% if linkstart == '/p/' %}
