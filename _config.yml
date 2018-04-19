@@ -11,6 +11,7 @@ permalink: /blog/:year/:month/:title.html
 
 #date_format: "%b %-d, %Y at %-H:%M"
 date_format: "%b %-d, %Y"
+keep_files: [".git"]
 
 plugins:
   # Class 1: Default plugins on GitHub Pages

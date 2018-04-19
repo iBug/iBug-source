@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SRC=_site
+: ${SRC:=_site}
 
 e_success() {
   echo -e "\x1B[32;1m[Success]\x1B[0m $*" >&2
