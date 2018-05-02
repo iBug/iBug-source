@@ -13,7 +13,7 @@ redirect_from: /meta
 	<dt>Source Git revision</dt>
 	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <b>{{ site.git.last_commit.commit_name }}</b>: {{ site.git.last_commit.message }}</a></dd>
 
-	<dt>Travis CI</dt>
+	<dt>Travis CI <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" /></a></dt>
 	{% if site.env.TRAVIS_BUILD_ID %}
 	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}</a></dd>
 	{% else %}
