@@ -9,7 +9,7 @@ permalink: /blog/:year/:month/:title.html
 
 #date_format: "%b %-d, %Y at %-H:%M"
 date_format: "%b %-d, %Y"
-keep_files: [".git"]
+keep_files: [".git", ".nojekyll", "README.md"]
 
 plugins:
   # Class 1: Default plugins on GitHub Pages

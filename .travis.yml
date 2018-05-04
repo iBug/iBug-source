@@ -18,5 +18,5 @@ script:
   - bundle exec jekyll build
 
 after_success:
-  - .travis/patch.sh
+  # .travis/patch.sh
   - .travis/deploy.sh
