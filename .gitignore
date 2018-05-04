@@ -1,6 +1,9 @@
 .svn
 .sass-cache
 
+# From older revisions
+/ext
+
 # Bundler
 Gemfile.lock
 
@@ -11,4 +14,4 @@ _site
 .git-metadata
 
 # Travis CI
-vendor
+/vendor
