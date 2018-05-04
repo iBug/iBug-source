@@ -2,7 +2,6 @@
 layout: default
 title: About
 tagline: Meta information
-no_footer: true
 redirect_from: /meta
 ---
 
@@ -11,7 +10,7 @@ redirect_from: /meta
 	<dd><time datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%B %-d, %Y at %H:%M:%SZ" }}</time></dd>
 
 	<dt>Source Git revision</dt>
-	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <b>{{ site.git.last_commit.commit_name }}</b>: {{ site.git.last_commit.message }}</a></dd>
+	<dd><a href="https://github.com/iBug/iBug-source/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.commit_name }}</strong>: {{ site.git.last_commit.message }}</a></dd>
 
 	<dt>Travis CI <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" /></a></dt>
 	{% if site.env.TRAVIS_BUILD_ID %}
