@@ -18,12 +18,9 @@ e_error() {
   echo -e "\x1B[31;1m[Error]\x1B[0m $*" >&2
 }
 
-cd "$SRC"
-
 e_info "Patching generated site"
-touch .nojekyll
-cat > README.md <<%
-# Visit this site [here](https://ibug.github.io)!
-%
+
+touch "$SRC/.nojekyll"
+cat REMOTE_README.md > "$SRC/README.md"
 
 e_success "Patch complete"

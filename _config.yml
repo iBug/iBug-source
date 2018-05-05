@@ -10,6 +10,7 @@ permalink: /blog/:year/:month/:title.html
 
 #date_format: "%b %-d, %Y at %-H:%M"
 date_format: "%b %-d, %Y"
+exclude: ["Gemfile", "Gemfile.lock", "node_modules", "vendor/", "REMOTE_README.md"]
 keep_files: [".git", ".nojekyll", "README.md"]
 
 plugins:
