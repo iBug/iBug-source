@@ -33,6 +33,8 @@ body {
 	line-height: 1.5;
 	color: $body-text-color;
 	background-color: #FCFCFC;
+	background-image: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
+	background-repeat: repeat;
 }
 
 a {
