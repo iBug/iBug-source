@@ -5,7 +5,9 @@ tags: development github-pages
 redirect_from: /p/4
 ---
 
-I just set up my GitHub Pages to be built with Travis CI. It's amazing.
+I just set up my GitHub Pages to be built with Travis CI. It's amazing. &rarr; [<img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inherit;" />](https://travis-ci.org/iBug/iBug-source)
+
+This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the [source repository][src]. Some build information is available on an [About page][about] that I specifically designed for auditing purposes.
 
 **Previous state**: A site that's previously hosted on GitHub Pages, with source files directly put in **_username_.github.io**, and uses one of [GitHub's official themes][3].
 
@@ -86,7 +88,7 @@ sudo: false
 script: bundle exec jekyll build
 ```
 
-The first two lines tell Travis that the project uses Ruby, and cache Ruby Bundler's installation, so your subsequents builds will be faster as Bundler won't have to actually install anything - everything is correctly cached. The third line tells Travis that building the site does not require root privileges. The last line is your site's build script.
+The first two lines tell Travis that the project uses Ruby, and cache Ruby Bundler's installation, so your subsequent builds will be faster as Bundler won't have to actually install anything - it is correctly cached. The third line tells Travis that building the site does not require root privileges. The last line is your site's build script.
 
 Commit and push the file to GitHub, and go to Travis CI. You'll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don't haste.
 
@@ -103,7 +105,7 @@ If you've pushed your sources to another branch of the same repository, you don'
 
 To allow Travis to push to your repositories, we need to generate an access token for it. Go to [Personal Access Tokens][4] settings page and click *Generate new token*. Enter an identifiable name like "Travis CI", and tick the box beside `public_repo`. You can also tick other boxes but they won't be useful.
 
-Click *Generate Token* below and you'll get your token. **Be careful not to expose it** because anyont will have push access to all your public repositories (and other privileges, if you checked the boxes) with that token. You can revoke it at any time.
+Click *Generate Token* below and you'll get your token. **Be careful not to expose it** because anyone will have push access to all your public repositories (and other privileges, if you checked the boxes) with that token. You can revoke it at any time.
 
 Go to your build settings page on Travis CI. Scroll down and look for "Environment variables" section. Enter `GH_TOKEN` as the name, and your token as the value. Do **not** turn on "display value in build log".
 
@@ -153,3 +155,5 @@ When building with Travis CI, it's much like a local environment. You are no lon
   [4]: https://github.com/settings/tokens
   [5]: https://help.github.com/articles/configuring-jekyll-plugins/
   [6]: https://github.com/planetjekyll/awesome-jekyll-plugins
+  [src]: https://github.com/iBug/iBug-source
+  [about]: https://ibug.github.io/about
