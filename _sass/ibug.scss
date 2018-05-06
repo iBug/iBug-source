@@ -205,7 +205,9 @@ a {
 	color: $header-heading-color;
 	text-align: center;
 	background-color: $header-bg-color;
-	background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+	//background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+	background-image: url('/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+	background-attachment: fixed;
 
 	@include large {
 		padding: 4rem 5rem;
