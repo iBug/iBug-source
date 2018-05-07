@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -e
+. .travis/config.sh
+: ${SRC:=_site} ${BRANCH:=master}
 
-: ${SRC:=_site}
+set -e
 
 e_info() {
   echo -e "\x1B[36;1m[Info]\x1B[0m $*" >&2
@@ -35,6 +36,6 @@ git add --all
 git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-#}" &>/dev/null
 
 e_info "Pushing to GitHub"
-git push origin master &>/dev/null
+git push origin ${BRANCH:-master} &>/dev/null
 
 e_success "Successfully deployed to GitHub Pages"

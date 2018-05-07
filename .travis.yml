@@ -6,10 +6,6 @@ git:
   depth: 1
   submodules: false
 
-branches:
-  only:
-    - master
-
 #install: bundle install
 
 before_script:
