@@ -18,8 +18,10 @@ An old Flash plane-shooting game that I made when I was 13. ActionScript 2.0 (so
 
 ### [Human Resource Machine Programming Language](/HRM)
 
-### [Project Theme](/project-theme)
-The theme for my Project Pages
+### [Aurora Theme](/aurora-theme)
+Aurora is a clean, responsive Jekyll theme for GitHub Pages.
+
+And it's the theme for my Project Pages.
 
 ### [College Physics Experiments Toolbox](/CPE-Toolbox) (incomplete)
 A set of tools made to make College Physics Experiments easy!
