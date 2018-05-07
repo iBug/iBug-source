@@ -3,6 +3,7 @@ description: The small personal site for iBug
 url: https://ibug.github.io
 baseurl: ""
 source_url: https://github.com/iBug/iBug-source
+theme_color: "#159A34"
 
 author: iBug
 index_url: /blog
@@ -10,6 +11,7 @@ permalink: /blog/:year/:month/:title.html
 
 #date_format: "%b %-d, %Y at %-H:%M"
 date_format: "%b %-d, %Y"
+
 exclude: ["Gemfile", "Gemfile.lock", "node_modules", "vendor/", "REMOTE_README.md"]
 keep_files: [".git", ".nojekyll", "README.md"]
 
