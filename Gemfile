@@ -10,4 +10,5 @@ group :jekyll_plugins do
     #gem "jekyll-liquify"
     gem "jekyll-paginate-v2"
     gem "jekyll-tagging"
+    gem "jekyll-toc"
 end

@@ -43,16 +43,21 @@
 		</section>
 
 		<section class="main-content blog-post">
+			{% if page.toc %}
+			<div id="side-nav" class="side-nav">
+				{{ content | toc }}
+			</div>
+			{% endif %}
 			{{ content }}
 
-				{% if page.tags.size > 0 %}
-					<span class="post-tags">
-						<b>Tag{% if page.tags.size > 1 %}s{% endif %}: </b>
-						{% for tag in page.tags %}
-						<a href="/tags/{{ tag }}" class="tag">{{ tag }}</a>{% unless forloop.last %} {% endunless %}
-						{% endfor %}
-					</span>
-				{% endif %}
+			{% if page.tags.size > 0 %}
+			<span class="post-tags">
+				<b>Tag{% if page.tags.size > 1 %}s{% endif %}: </b>
+				{% for tag in page.tags %}
+				<a href="/tags/{{ tag }}" class="tag">{{ tag }}</a>  
+				{% endfor %}
+			</span>
+			{% endif %}
 			<footer class="site-footer">
 				<span class="site-footer-credits">
 					<div>
