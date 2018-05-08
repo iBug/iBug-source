@@ -64,7 +64,7 @@ defaults:
   -
     scope:
       path: "_posts"
-      type: pages
+      type: posts
     values:
       author: iBug
       layout: post
