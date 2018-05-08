@@ -1,8 +1,10 @@
 .svn
 .sass-cache
 
-# From older revisions
+# Other resources on GH Pages
+/cdn
 /ext
+/image
 
 # Bundler
 Gemfile.lock
