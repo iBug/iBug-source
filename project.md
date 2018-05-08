@@ -16,6 +16,9 @@ A good game automation that you *must* try and watch!
 ### [SpaceRider](/SpaceRider)
 An old Flash plane-shooting game that I made when I was 13. ActionScript 2.0 (so expect that it won't run very fluently on a low-end computer)
 
+### [Python Reversi](/PyReversi)
+An implementation of the classic Reversi / Othello game using Python and PyQt5. It has an intensive AI that's hard to beat.
+
 ### [Human Resource Machine Programming Language](/HRM)
 
 ### [Aurora Theme](/aurora-theme)
