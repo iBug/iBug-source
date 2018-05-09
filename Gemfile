@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "github-pages"
 
 group :jekyll_plugins do
+    gem "jekyll-environment-variables"
     #gem "octopress-minify-html"
     gem "jekyll-tidy"
     gem "jekyll-git_metadata"
