@@ -144,7 +144,7 @@ a {
 
 	.post-tag {
 		display: inline-block;
-		padding: 0.2em 0.5em;
+		padding: 0.22em 0.555em;
 		margin: 0 0.5em;
 		color: rgba(255, 255, 255, 0.7);
 		background-color: rgba(255, 255, 255, 0.1);
@@ -191,6 +191,12 @@ a {
 			text-decoration: none;
 			background-color: rgba(31, 153, 87, 0.2);
 		}
+	}
+}
+
+.post-meta {
+	.post-meta-tags {
+		margin-left: 1em;
 	}
 }
 
