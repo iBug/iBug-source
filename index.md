@@ -26,9 +26,9 @@ Here are my profiles on other websites:
 - [<img src="image/so-icon.png" width="16" height="16" /> Stack Overflow][so]
 
   [![Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers](https://stackoverflow.com/users/flair/5958455.png)][so]
-  
-  See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa]
-  
+
+  See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa].
+
 ---
 
 The correct way to handle exceptions in your development:

@@ -24,7 +24,7 @@ An implementation of the classic Reversi / Othello game using Python and PyQt5. 
 ### [Aurora Theme](/aurora-theme)
 Aurora is a clean, responsive Jekyll theme for GitHub Pages.
 
-And it's the theme for my Project Pages.
+And it's the theme for my Project Pages. I have published this theme [on RubyGems](https://rubygems.org/gems/aurora-theme).
 
 ### [College Physics Experiments Toolbox](/CPE-Toolbox) (incomplete)
 A set of tools made to make College Physics Experiments easy!
