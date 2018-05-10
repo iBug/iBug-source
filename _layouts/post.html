@@ -54,7 +54,7 @@
 			<span class="post-tags">
 				<b>Tag{% if page.tags.size > 1 %}s{% endif %}: </b>
 				{% for tag in page.tags %}
-				<a href="{{ "/tags" | append: tag | relative_url }}" class="tag">{{ tag }}</a>  
+				<a href="{{ "/tags/" | append: tag | relative_url }}" class="tag">{{ tag }}</a>  
 				{% endfor %}
 			</span>
 			{% endif %}
