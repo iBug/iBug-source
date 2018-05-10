@@ -40,7 +40,7 @@ plugins:
 pagination:
   enabled: true
   per_page: 5
-  permalink: "/blog/page:num/"
+  permalink: "/page:num/"
   title: ":title - :num of :max"
   sort_field: "date"
   sort_reverse: true

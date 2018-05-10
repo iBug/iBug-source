@@ -2,6 +2,7 @@
 @import "rouge-github";
 @import "variables";
 @import "blog";
+@import "pagination";
 
 @mixin large {
 	@media screen and (min-width: #{$large-breakpoint}) {
@@ -399,8 +400,7 @@ a {
 		}
 	}
 
-	.highlight pre,
-	pre {
+	.highlight pre, pre {
 		padding: 0.8rem;
 		overflow: auto;
 		font-size: 0.95em; // 0.9rem

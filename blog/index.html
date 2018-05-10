@@ -28,40 +28,30 @@ buttons:
 
 {% if paginator.page_trail %}
 <div class="pagination-trail">
-	<ul>
+	<ul class="pagination">
+		<li>
+			{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">&laquo; Previous</a>
+			{% else %}
+			<span class="disabled">&laquo; Previous</span>
+			{% endif %}
+		</li>
 		{% for trail in paginator.page_trail %}
-		<li{% if page.url == trail.path %} class="selected"{% endif %}>
-			<a href="{{ trail.path | prepend: site.baseurl }}" title="{{ trail.title }}">{{ trail.num }}</a>
+		<li>
+			{% if page.url == trail.path %}
+			<span title="{{ trail.title }}" class="active">{{ trail.num }}</span>
+			{% else %}
+			<a href="{{ trail.path | prepend: site.baseurl }}" title="{{ trail.title }}"}>{{ trail.num }}</a>
+			{% endif %}
 		</li>
 		{% endfor %}
+		<li>
+			{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next &raquo;</a>
+			{% else %}
+			<span class="disabled">Next &raquo;</span>
+			{% endif %}
+		</li>
 	</ul>
-</div>
-{% endif %}
-
-<!-- Old paginate -->
-
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <b>{{ page }}</b>
-    {% elsif page == 1 %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
 </div>
 {% endif %}

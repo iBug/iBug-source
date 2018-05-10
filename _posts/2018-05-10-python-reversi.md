@@ -2,10 +2,13 @@
 title: Making a Reversi game with Python
 description: ""
 tags: development
-hidden: true
+redirect_from: /p/6
 show_view: true
 view_name: GitHub
-view_url: https://github.com/iBug/PyReversi
+view_url: "https://github.com/iBug/PyReversi"
+hidden: true
 ---
 
-As a casual attempt
+As a casual attempt to accomplish a Grand Assignment, I created a Reversi game with Python. The project is open-source on GitHub and you can view it with the link above.
+
+TBA
