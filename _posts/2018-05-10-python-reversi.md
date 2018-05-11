@@ -11,4 +11,4 @@ hidden: true
 
 As a casual attempt to accomplish a Grand Assignment, I created a Reversi game with Python. The project is open-source on GitHub and you can view it with the link above.
 
-TBA
+![Screenshot](https://user-images.githubusercontent.com/7273074/39672148-558d8104-5157-11e8-9a48-040459eb8d89.png)
