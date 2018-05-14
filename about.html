@@ -18,7 +18,7 @@ buttons:
 
   <dt>Travis CI <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" /></a></dt>
   {% if site.env.TRAVIS_BUILD_ID %}
-  <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}</a></dd>
+	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI {% if site.env.TRAVIS_EVENT_TYPE == "cron" %}cron job {% endif %}build {{ site.env.TRAVIS_BUILD_NUMBER }}</a></dd>
   {% else %}
   <dd>This site is not deployed from Travis CI.</dd>
   {% endif %}
