@@ -19,7 +19,7 @@ The game implements the following functionality:
 
 The core functionality of the game is pretty simple, and should be easy for anyone familiar with the Reverso game. The code is in [`reversi.py`](https://github.com/iBug/PyReversi/blob/master/reversi.py).
 
-It's the GUI and the AI part that differentiates implementations of the Reversi game.
+It's the GUI and the AI part that differentiates implementations of the Reversi game. Since GUI isn't very hard to create with Qt, I'll focus on the AI algorithm here.
 
 As a general (and relatively easy) way to create an AI for the game, heuristic searching well balances between coding complexity and the competence of the resulting algorithm. Heuristic searching is basically a complete searching tree at limited depth, equipped with a heuristic evaluation function that determines the situation of the game board.
 
@@ -29,14 +29,14 @@ From my previous experiences in playing Reversi with others, I've learnt that it
 
 ```python
 SCORE = [
-    [500 ,-150,30  ,10  ,10  ,30  ,-150,500 ],
-    [-150,-250,0   ,0   ,0   ,0   ,-250,-150],
-    [30  ,0   ,1   ,2   ,2   ,1   ,0   ,30  ],
-    [10  ,0   ,2   ,16  ,16  ,2   ,0   ,30  ],
-    [10  ,0   ,2   ,16  ,16  ,2   ,0   ,30  ],
-    [30  ,0   ,1   ,2   ,2   ,1   ,0   ,30  ],
-    [-150,-250,0   ,0   ,0   ,0   ,-250,-150],
-    [500 ,-150,30  ,10  ,10  ,30  ,-150,500 ]
+    [  500, -150, 30, 10, 10, 30, -150,  500],
+    [ -150, -250,  0,  0,  0,  0, -250, -150],
+    [   30,    0,  1,  2,  2,  1,    0,   30],
+    [   10,    0,  2, 16, 16,  2,    0,   30],
+    [   10,    0,  2, 16, 16,  2,    0,   30],
+    [   30,    0,  1,  2,  2,  1,    0,   30],
+    [ -150, -250,  0,  0,  0,  0, -250, -150],
+    [  500, -150, 30, 10, 10, 30, -150,  500]
 ]
 ```
 
