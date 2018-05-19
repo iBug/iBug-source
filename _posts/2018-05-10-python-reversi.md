@@ -66,6 +66,8 @@ The final part is the side chess check ([code][2]). It checks if a corner may be
 
 A plain searching algorithm would be really plain. The black side wants the score to be as high as possible, while the white side wants the exact opposite.
 
+A pseudo-code of the algorithm is given below:
+
 ```javascript
 MAX = 999999
 
