@@ -34,6 +34,8 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 ---
 
+# About me
+
 Here are my profiles on other websites:
 
 - [<img src="/image/so-icon.png" width="16" height="16" /> Stack Overflow][so]
