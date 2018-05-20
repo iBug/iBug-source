@@ -201,28 +201,28 @@ a {
 	background: transparent;
 
 	@include large {
-		padding: 4rem 5rem;
+		padding: 4rem 5rem 3rem;
 	}
 
 	@include medium {
-		padding: 3rem 3rem;
+		padding: 3rem 3rem 2.5rem;
 	}
 
 	@include small {
-		padding: 2rem 1rem;
+		padding: 2rem 1rem 1.5rem;
 	}
 
 	&.home {
 		@include large {
-			padding: 6rem 5rem;
+			padding: 6rem 5rem 3rem;
 		}
 
 		@include medium {
-			padding: 4rem 3rem;
+			padding: 4rem 3rem 2.5rem;
 		}
 
 		@include small {
-			padding: 3rem 1rem;
+			padding: 3rem 1rem 2rem;
 		}
 	}
 }
