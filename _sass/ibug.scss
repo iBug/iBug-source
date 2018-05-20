@@ -17,9 +17,13 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 	color: $body-text-color;
-	background-color: #FCFCFC;
-	background-image: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
-	background-repeat: repeat;
+
+	background-color: $header-bg-color;
+	//background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+	background-image: url('/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 a {
@@ -212,6 +216,20 @@ a {
 
 	@include small {
 		padding: 2rem 1rem;
+	}
+
+	&.home {
+		@include large {
+			padding: 6rem 5rem;
+		}
+
+		@include medium {
+			padding: 4rem 3rem;
+		}
+
+		@include small {
+			padding: 3rem 1rem;
+		}
 	}
 }
 

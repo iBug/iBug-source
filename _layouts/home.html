@@ -15,7 +15,7 @@
 		<script type="text/javascript" src="/assets/js/love.js" ></script>
 	</head>
 	<body>
-		<section class="page-header">
+		<section class="page-header home">
 			<h1 class="project-name">{{ page.title | default: site.title }}</h1>
 			<h2 class="project-tagline">{{ page.tagline | default: page.description | default: site.description }}</h2>
 			{% for button in page.buttons %}
@@ -23,10 +23,10 @@
 			{% endfor %}
 		</section>
 
-		<section class="main-content">
+		<section class="main-content home">
 			{{ content }}
 
-			<footer class="site-footer">
+			<footer class="site-footer home">
 				<span class="site-footer-credits">
 					<a href="{{ site.baseurl }}/about.html">
 						Revision {{ site.git.last_commit.short_sha }}{% if site.env.TRAVIS_BUILD_NUMBER %}, Build {{ site.env.TRAVIS_BUILD_NUMBER }}{% endif %}
