@@ -17,7 +17,7 @@ buttons:
 	<dd id="current-time"></dd>
 
   <dt>Source Git revision</dt>
-  <dd><a href="{{ site.source_url }}/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.commit_name }}</strong>: {{ site.git.last_commit.message }}</a> (<a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}">Commit Diff</a>)</dd>
+  <dd><a href="{{ site.source_url }}/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.commit_name | xml_escape }}</strong>: {{ site.git.last_commit.message | xml_escape }}</a> (<a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}">Commit Diff</a>)</dd>
 
   <dt>Travis CI <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" /></a></dt>
   {% if site.env.TRAVIS_BUILD_ID %}
