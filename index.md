@@ -21,6 +21,18 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 ---
 
+# Latest blog post
+
+{% assign post = site.posts.first %}
+{% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
+
+> ### [{{ post.title }}]({{ post.url }})
+> <small><time>{{ post.date | date: site.date_format }}</time></small>
+>
+> {{ post_preview }}
+
+---
+
 Here are my profiles on other websites:
 
 - [<img src="image/so-icon.png" width="16" height="16" /> Stack Overflow][so]
