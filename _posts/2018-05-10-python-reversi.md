@@ -1,6 +1,7 @@
 ---
 title: Making a Reversi game with Python
-description: ""
+tagline: And creating an AI with heuristic searching
+description: The Reversi game is a Grand Assignment of the course "Program Design II". I'm giving it an attempt because the process of creating such a game would be interesting.
 tags: development
 redirect_from: /p/6
 show_view: true
