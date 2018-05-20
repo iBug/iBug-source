@@ -58,14 +58,12 @@ defaults:
   -
     scope:
       path: ""
-      type: pages
     values:
       author: iBug
       layout: default
   -
     scope:
       path: "_posts"
-      type: posts
     values:
       author: iBug
       layout: post
