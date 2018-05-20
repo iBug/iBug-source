@@ -54,21 +54,9 @@ tag_page_dir: tags
 assets:
   compression: true
 
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      author: iBug
-      layout: default
-  -
-    scope:
-      path: "_posts"
-    values:
-      author: iBug
-      layout: post
-
-#minify_html: true
+# Don't mistake this for Jekyll's "defaults" key!
+default:
+  post_tagline: "Brought to you by iBug"
 
 social:
   links:

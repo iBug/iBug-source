@@ -32,7 +32,7 @@
 				</span>
 			</div>
 			<h1 class="project-name">{{ page.title | default: site.title }}</h1>
-			<h2 class="project-tagline">{{ page.tagline | default: page.description | default: site.description }}</h2>
+			<h2 class="project-tagline">{{ page.tagline | default: page.description | default: site.default.post_tagline | default: site.description }}</h2>
 			{% if page.show_view %}
 				<a href="{{ page.view_url }}" class="btn">View on {{ page.view_name }}</a>
 			{% endif %}
