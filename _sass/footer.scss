@@ -1,0 +1,83 @@
+.site-footer-owner {
+	display: block;
+	font-weight: bold;
+}
+
+.site-footer-credits {
+	color: $blockquote-text-color;
+	font-size: 0.9em;
+}
+
+.site-footer {
+	padding-top: 1.8rem;
+	margin-top: 1.8rem;
+	border-top: solid 1px $hr-border-color;
+
+	@include large {
+		font-size: 1rem;
+	}
+
+	@include medium {
+		font-size: 1rem;
+	}
+
+	@include small {
+		font-size: 0.8rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.my-span-icon {
+
+		a {
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+
+		@include large {
+			padding: 0px 5px 0px 5px;
+		}
+
+		@include medium {
+			//font-size: 1rem;
+			padding: 0px 10px 10px 10px;
+		}
+
+		@include small {
+			padding: 0px 10px 10px 10px;
+		}
+	}
+
+	.my-svg-icon {
+
+		color: $body-text-color; // IE8
+		fill: $body-text-color; // IE8
+		width: 24px;
+		height: 24px;
+
+		&:hover {
+			text-decoration: none;
+			color: $section-headings-color; // IE8
+			fill: $section-headings-color;
+			transform: scale(1.25);
+			transition: color .5s, transform .2s ease-out
+		}
+
+		@include large {
+			width: 28px;
+			height: 28px;
+		}
+
+		@include medium {
+			width: 32px;
+			height: 32px;
+		}
+
+		@include small {
+			width: 36px;
+			height: 36px;
+		}
+
+	} // social-icons
+}

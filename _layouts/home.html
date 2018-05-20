@@ -27,11 +27,7 @@
 			{{ content }}
 
 			<footer class="site-footer home">
-				<span class="site-footer-credits">
-					<a href="{{ site.baseurl }}/about.html">
-						Revision {{ site.git.last_commit.short_sha }}{% if site.env.TRAVIS_BUILD_NUMBER %}, Build {{ site.env.TRAVIS_BUILD_NUMBER }}{% endif %}
-					</a>
-				</span>
+				{% include meta-footer.html %}
 			</footer>
 		</section>
 

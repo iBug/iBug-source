@@ -1,0 +1,6 @@
+<span class="site-footer-credits">
+	Designed by iBug with &hearts;
+	<a href="{{ site.baseurl }}/about.html" style="float: right;">
+		Revision {{ site.git.last_commit.short_sha }}{% if site.env.TRAVIS_BUILD_NUMBER %}, Build {{ site.env.TRAVIS_BUILD_NUMBER }}{% endif %}
+	</a>
+</span>
