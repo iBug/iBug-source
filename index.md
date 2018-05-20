@@ -18,7 +18,9 @@ top_nav: true
 <article>
   <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
   <p style="margin-top: 0.8em" class="post-meta">
-    <time>{{ post.date | date: site.date_format }}</time>
+    <span class="post-meta-date">
+      {{ post.date | date: site.date_format }}
+    </span>
     <span class="post-meta-tags">
       {% for tag in post.tags %} <a href="/tags/{{ tag }}" class="tag post-meta-tag">{{ tag }}</a> {% endfor %}
     </span>
