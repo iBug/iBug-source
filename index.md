@@ -21,7 +21,7 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 ---
 
-<h1><center>Latest blog post</center></h1>
+<h1><center><a href="/blog">Latest blogs</a></center></h1>
 
 {% assign post = site.posts.first %}
 {% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
