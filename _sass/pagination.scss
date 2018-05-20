@@ -39,13 +39,13 @@
 			color: #337AB7;
 			text-decoration: none;
 			background-color: #FFF;
-			border: 1px solid #7D8;
+			border: 1px solid $border-color;
 
 			&:focus, &:hover {
 				z-index: 2;
 				color: #237C52;
 				background-color: #EEE;
-				border-color: #7D8;
+				border-color: $border-color;
 				cursor: pointer;
 			}
 
