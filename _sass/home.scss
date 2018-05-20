@@ -13,11 +13,39 @@
 			width: 49%;
 
 			&:nth-child(2n - 1) {
-				border-right: 1px solid $border-color;
+				@include large {
+					border-right: 1px solid $border-color;
+				}
 			}
 
 			h1, h2, h3, h4, h5, h6 {
 				text-align: initial;
+			}
+		}
+
+		@include medium {
+			display: block;
+
+			article {
+				width: initial;
+
+				&:not(:first-child) {
+					border-top: 1px solid $border-color;
+				}
+			}
+		}
+
+		@include small {
+			display: block;
+
+			article {
+				padding: 0.8rem;
+				width: initial;
+
+				// Hide all except first on small screens
+				&:not(:first-child) {
+					display: none;
+				}
 			}
 		}
 	}
