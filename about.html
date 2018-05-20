@@ -13,6 +13,9 @@ buttons:
   <dt>Build time</dt>
   <dd><time datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%B %-d, %Y at %H:%M:%SZ" }}</time></dd>
 
+	<dt>Current time</dt>
+	<dd id="current-time"></dd>
+
   <dt>Source Git revision</dt>
   <dd><a href="{{ site.source_url }}/tree/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.commit_name }}</strong>: {{ site.git.last_commit.message }}</a> (<a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}">Commit Diff</a>)</dd>
 
@@ -23,3 +26,16 @@ buttons:
   <dd>This site is not deployed from Travis CI.</dd>
   {% endif %}
 </dl>
+
+<script type="text/javascript">
+	function zeropad(n) {
+		return n > 9 ? String(n) : "0" + String(n);
+	}
+	var showTimeContainer = document.getElementById("current-time");
+	function showTime() {
+		let t = new Date();
+		showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
+	}
+	var showTimeInterval = setInterval(showTime, 200);
+	showTime();
+</script>
