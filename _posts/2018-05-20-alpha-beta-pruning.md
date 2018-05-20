@@ -4,6 +4,7 @@ description: "An easy guide to understanding the alpha-beta pruning algorithm"
 tagline: "."
 redirect_from: /p/7
 hidden: true
+published: false
 ---
 
 Alpha-Beta pruning
