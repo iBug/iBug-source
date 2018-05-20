@@ -1,7 +1,7 @@
 @import "normalize";
 @import "rouge-ibug";
 @import "variables";
-@import "adaptive";
+@import "responsive";
 @import "blog";
 @import "page-header";
 @import "home";
@@ -21,12 +21,23 @@ body {
 	line-height: 1.5;
 	color: $body-text-color;
 
-	background-color: $header-bg-color;
-	background-image: url('https://ibug.github.io/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
+	@include large {
+		background-color: $header-bg-color;
+		background-image: url('https://ibug.github.io/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+	}
+
+	@include medium {
+		background-color: $header-bg-color;
+		background-image: url('https://ibug.github.io/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+	}
 }
 
 a {

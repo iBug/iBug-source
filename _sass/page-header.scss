@@ -13,6 +13,12 @@
 
 	@include small {
 		padding: 2rem 1rem 1.5rem;
+
+		background-image: url('https://ibug.github.io/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
 	}
 
 	&.home {
