@@ -1,5 +1,5 @@
 ---
-title: iBug's little site
+title: iBug on the Web
 layout: home
 redirect_from: 
   - /main
