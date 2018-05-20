@@ -3,6 +3,7 @@
 @import "variables";
 @import "adaptive";
 @import "blog";
+@import "page-header";
 @import "home";
 @import "main-content";
 @import "footer";
@@ -146,7 +147,7 @@ a {
 	padding: 0.2em 0.5em;
 	color: #1E6BB8;
 	border: 1px solid #155799;
-	border-radius: 1em;
+	border-radius: 3em;
 	background-color: rgba(31, 153, 87, 0.1);
 
 	&:hover {
@@ -167,7 +168,7 @@ a {
 		margin: 0.2em auto;
 		color: #1E6BB8;
 		border: 1px solid #155799;
-		border-radius: 1em;
+		border-radius: 3em;
 		background-color: rgba(31, 153, 87, 0.1);
 
 		&:hover {
@@ -195,108 +196,3 @@ a {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin: 0.2rem 0.2rem 0.4rem;
 }
-
-.page-header {
-	color: $header-heading-color;
-	text-align: center;
-	background: transparent;
-
-	@include large {
-		padding: 4rem 5rem 3rem;
-	}
-
-	@include medium {
-		padding: 3rem 3rem 2.5rem;
-	}
-
-	@include small {
-		padding: 2rem 1rem 1.5rem;
-	}
-
-	&.home {
-		@include large {
-			padding: 6rem 5rem 3rem;
-		}
-
-		@include medium {
-			padding: 4rem 3rem 2.5rem;
-		}
-
-		@include small {
-			padding: 3rem 1rem 2rem;
-		}
-	}
-}
-
-.page-header-nav {
-	@include large {
-		margin-top: -2rem;
-		height: 2rem;
-	}
-
-	@include medium {
-		margin-top: -1.8rem;
-		height: 1.8rem;
-	}
-
-	@include small {
-		margin-top: -1.5rem;
-		height: 1.5rem;
-	}
-}
-
-.project-name {
-	margin-top: 0;
-	margin-bottom: 0.1rem;
-
-	@include large {
-		font-size: 3.25rem;
-	}
-
-	@include medium {
-		font-size: 2.25rem;
-	}
-
-	@include small {
-		font-size: 1.75rem;
-	}
-}
-
-.project-tagline {
-	margin-bottom: 2rem;
-	font-weight: normal;
-	opacity: 0.7;
-
-	@include large {
-		font-size: 1.25rem;
-	}
-
-	@include medium {
-		font-size: 1.15rem;
-	}
-
-	@include small {
-		font-size: 1rem;
-	}
-}
-
-.project-date {
-	margin-bottom: 0rem;
-	font-weight: normal;
-	opacity: 0.7;
-	//font-style: italic;
-
-	@include large {
-		font-size: 1.0rem;
-	}
-
-	@include medium {
-		font-size: 0.95rem;
-	}
-
-	@include small {
-		font-size: 0.75rem;
-	}
-}
-
-
