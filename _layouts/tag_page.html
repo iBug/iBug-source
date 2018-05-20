@@ -1,17 +1,57 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+	<head>
+		<meta charset="UTF-8">
+		<!-- _layout: default -->
 
-<div id="tag-cloud" class="tag-cloud">
-  {{ site | tag_cloud }}
-</div>
+{% seo %}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="{{ site.theme_color | default: "#157878" }}">
+		<meta name="robots" content="noarchive">
+		<!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+		<link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+		<script type="text/javascript" src="/assets/js/love.js" ></script>
+	</head>
+	<body>
+		<section class="page-header">
+			{% if page.show_home %}
+			<div class="page-header-nav">
+				<span style="float:left;height:0px;">
+					<a href="{{ site.url }}{{ site.baseurl }}" class="btn-inline">Home</a>
+				</span>
+			</div>
+			{% endif %}
+			<h1 class="project-name">Tag: {{ page.tag }}</h1>
+			<h2 class="project-tagline">Posts tagged with {{ page.tag }}</h2>
+		</section>
 
-<h1>Tag: {{ page.tag }}</h1>
-<ul class="description-list">
-	{% for post in page.posts %}
-	<li>
-		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-		<p>{{ post.date | date: site.date_format }}, {{ post | tags }}</p>
-	</li>
-	{% endfor %}
-</ul>
+		<section class="main-content">
+			<div id="tag-cloud" class="tag-cloud">
+				{{ site | tag_cloud }}
+			</div>
+
+			<h1 align="center">Tagged posts</h1>
+			<ul class="description-list">
+				{% for post in page.posts %}
+				<li>
+					<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+					<p>{{ post.date | date: site.date_format }}, {{ post | tags }}</p>
+				</li>
+				{% endfor %}
+			</ul>
+
+			<footer class="site-footer">
+				<span class="site-footer-credits">
+					<p>
+						<a href="https://github.com/iBug">{% include gh-icon.html size="16px" %} iBug</a>
+						<a href="https://stackoverflow.com/u/5958455">{% include so-icon.html size="16px" %} iBug</a>
+					</p>
+				</span>
+			</footer>
+		</section>
+
+		{% include google_analytics.html %}
+	</body>
+</html>
