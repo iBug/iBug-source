@@ -3,9 +3,22 @@
 		text-align: center;
 	}
 
-	blockquote {
-		h1, h2, h3, h4, h5, h6 {
-			text-align: initial;
+	.post-panes {
+		display: flex;
+		background-color: rgba(255, 255, 255, 0.5);
+
+		article {
+			display: block;
+			padding: 1rem;
+			width: 49%;
+
+			&:nth-child(2n - 1) {
+				border-right: 1px solid $border-color;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				text-align: initial;
+			}
 		}
 	}
 }

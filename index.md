@@ -12,10 +12,10 @@ top_nav: true
 
 # [Latest blogs][blog]
 
-{% assign post = site.posts.first %}
+<section class="post-panes">
+{% for post in site.posts limit:2 %}
 {% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
-
-<blockquote>
+<article>
   <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
   <p style="margin-top: 0.8em" class="post-meta">
     <time>{{ post.date | date: site.date_format }}</time>
@@ -24,7 +24,9 @@ top_nav: true
     </span>
   </p>
   <p>{{ post_preview }}</p>
-</blockquote>
+</article>
+{% endfor %}
+</section>
 
 ---
 
