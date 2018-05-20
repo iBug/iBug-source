@@ -21,7 +21,7 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 ---
 
-# Latest blog post
+<h1 align="center">Latest blog post</h1>
 
 {% assign post = site.posts.first %}
 {% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
@@ -35,7 +35,7 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 Here are my profiles on other websites:
 
-- [<img src="image/so-icon.png" width="16" height="16" /> Stack Overflow][so]
+- [<img src="/image/so-icon.png" width="16" height="16" /> Stack Overflow][so]
 
   [![Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers](https://stackoverflow.com/users/flair/5958455.png)][so]
 
