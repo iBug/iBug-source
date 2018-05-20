@@ -1,8 +1,6 @@
 .main-content {
 	word-wrap: break-word;
-	background-color: #FCFCFC;
-	background-image: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
-	background-repeat: repeat;
+	background-color: rgba(255, 255, 255, 0.95);
 
 	:first-child {
 		margin-top: 0;
@@ -11,8 +9,9 @@
 	@include large {
 		max-width: 64rem;
 		padding: 3rem 6rem;
-		margin: 0 auto 3rem;
 		font-size: 1.1rem;
+		margin: 0 auto 3rem;
+		border-radius: 2rem;
 	}
 
 	@include medium {
