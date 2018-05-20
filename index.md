@@ -7,21 +7,10 @@ redirect_from:
   - /readme
 no_footer: true
 top_nav: true
-buttons:
-  -
-    url: /blog
-    text: View blog
-  -
-    url: /project
-    text: View project
 ---
 
 
-See [a good console Tetris game with AI playing][TetrisAI] of mine :)
-
----
-
-<h1><center><a href="/blog">Latest blogs</a></center></h1>
+# [Latest blogs][blog]
 
 {% assign post = site.posts.first %}
 {% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
@@ -36,6 +25,12 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
   </p>
   <p>{{ post_preview }}</p>
 </blockquote>
+
+---
+
+# [Featured Projects][pp]
+
+See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 ---
 
