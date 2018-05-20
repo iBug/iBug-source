@@ -26,10 +26,16 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 {% assign post = site.posts.first %}
 {% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
 
-> ### [{{ post.title }}]({{ post.url }})
-> <small><time>{{ post.date | date: site.date_format }}</time></small>
->
-> {{ post_preview }}
+<blockquote>
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <p style="margin-top: 0.8em" class="post-meta">
+    <time>{{ post.date | date: site.date_format }}</time>
+    <span class="post-meta-tags">
+      {% for tag in post.tags %} <a href="/tags/{{ tag }}" class="tag post-meta-tag">{{ tag }}</a> {% endfor %}
+    </span>
+  </p>
+  <p>{{ post_preview }}</p>
+</blockquote>
 
 ---
 
