@@ -107,9 +107,10 @@ That's the abstract of the searching procedure. There are a few things to do bef
 
 Both cases aren't too complex to be handled with a few lines of codes. And then, there's a performance concern: Why bother searching deeper when one move is bad enough that subsequent moves can't perform any better?
 
-Fortunately, with the help of [the Alpha-Beta Pruning algorithm][3], this is a solvable problem, which I will describe in a later article.
+Fortunately, with the help of [the Alpha-Beta Pruning algorithm][3], this is a solvable problem, which ~~~I will describe in a later article~~~ I have written [here][4].
 
 
   [1]: https://github.com/iBug/PyReversi/blob/master/ai.py#L13
   [2]: https://github.com/iBug/PyReversi/blob/master/ai.py#L110
   [3]: https://en.wikipedia.org/wiki/Alpha–beta_pruning
+  [4]: https://ibug.github.io/p/7

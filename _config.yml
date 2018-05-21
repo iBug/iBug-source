@@ -31,7 +31,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-mentions
   - jekyll-seo-tag
-  - jekyll-coffeescript
+  #- jekyll-coffeescript
 
   # Class 3: Not supported by GitHub Pages
   # Use Gemfile
@@ -58,6 +58,9 @@ assets:
 # Don't mistake this for Jekyll's "defaults" key!
 default:
   post_tagline: "Brought to you by iBug"
+
+kramdown:
+  math_engine: nil
 
 social:
   links:
