@@ -117,7 +117,7 @@ As seen in the image from Wikipedia:
 
 We can see that if the 2nd node at level 2 is examined earlier, the 1st node would have been pruned. We want to find a way to make pruning occur more often, further improving the performance of the algorithm.
 
-In most typical games, a partially good move often leads to better subsequences. This fact implies that we can sort the current steps we're going deep into, and search better moves first. Worse moves will likely be pruned more often. This leads to a small change in the code:
+In most typical games, a partially good move often leads to better subsequences, and vice versa. This fact implies that we can sort the current steps we're going deep into, and search better moves first. Worse moves will likely be pruned more often. This leads to a small change in the code:
 
 ```javascript
 function heuristicSearch(game, side, depth, alpha, beta)
