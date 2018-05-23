@@ -49,7 +49,9 @@
 				{{ content | toc }}
 			</div>
 			{% endif %}
-			{{ content }}
+			<article>
+				{{ content }}
+			</article>
 
 			{% if page.tags.size > 0 %}
 			<span class="post-tags">
