@@ -59,8 +59,10 @@ assets:
 default:
   post_tagline: "Brought to you by iBug"
 
+markdown: kramdown
+
 kramdown:
-  math_engine: nil
+  math_engine: mathjax
 
 social:
   links:

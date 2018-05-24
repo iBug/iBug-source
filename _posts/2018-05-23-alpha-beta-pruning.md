@@ -4,7 +4,7 @@ description: The boosting algorithm behind the heuristic searching in my Reversi
 tags: algorithm study-notes
 redirect_from: /p/7
 
-#published: false
+mathjax: true
 ---
 
 [As described in a previous article][1], *Alpha-Beta pruning* can be used to speed up minimax heuristic searching by pruning branches that will never be reached.
@@ -18,7 +18,7 @@ A quick glance from [Wikipedia][wk]:
 
 The alpha-beta pruning algorithm is based on the fact that one side wants to maximize the evaluated score, while the other wants to minimize it. Both sides are later referred to as Max and Min.
 
-The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the "worst state", i.e., &alpha;=-&infin; and &beta;=+&infin;. Whenever it goes to a point where &alpha;&gt;&beta;, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it's no better (or worse) than a known, assured branch.
+The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the "worst state", i.e., $$\alpha=-\infty$$ and $$\beta=+\infty$$. Whenever it goes to a point where $$\alpha\gt\beta$$, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it's no better (or worse) than a known, assured branch.
 
 This image from Wikipedia demonstrates it well:
 
