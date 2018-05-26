@@ -72,11 +72,11 @@ Friendly links:
 <!-- Links Section -->
 
   [TetrisAI]: https://ibug.github.io/TetrisAI
-  [blog]: https://ibug.github.io/blog
-  [pp]: https://ibug.github.io/project
+  [blog]: /blog
+  [pp]: /project
   [gh]: https://github.com/iBug
   [so]: https://stackoverflow.com/users/5958455/ibug "Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers"
   [so-q]: https://stackoverflow.com/users/5958455/ibug?tab=questions "iBug's questions on Stack Overflow"
   [so-a]: https://stackoverflow.com/users/5958455/ibug?tab=answers "iBug's answers on Stack Overflow"
-  [so-sq]: https://ibug.github.io/so/selected-questions
-  [so-sa]: https://ibug.github.io/so/selected-answers
+  [so-sq]: /so/selected-questions
+  [so-sa]: /so/selected-answers

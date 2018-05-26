@@ -36,7 +36,7 @@
 			padding: 6px 12px;
 			margin-left: -1px;
 			line-height: 1.4;
-			color: #337AB7;
+			color: #33b77a;
 			text-decoration: none;
 			background-color: #FFF;
 			border: 1px solid $border-color;
@@ -52,9 +52,9 @@
 			&.active {
 				font-weight: bold;
 				color: #FFF;
-				background-color: $header-bg-color-secondary;
-				border-top-color: $header-bg-color-secondary;
-				border-bottom-color: $header-bg-color-secondary;
+				background-color: $header-bg-color-dark;
+				border-top-color: $header-bg-color-dark;
+				border-bottom-color: $header-bg-color-dark;
 
 				&:focus, &:hover {
 					cursor: default;
