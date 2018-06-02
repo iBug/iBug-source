@@ -5,7 +5,7 @@ tags: development github-pages
 redirect_from: /p/4
 ---
 
-I just set up my GitHub Pages to be built with Travis CI. It's amazing. &rarr; [<img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inherit;" />](https://travis-ci.org/iBug/iBug-source)
+I just set up my GitHub Pages to be built with Travis CI. It's amazing. &rarr; [<img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;" />](https://travis-ci.org/iBug/iBug-source)
 
 This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the [source repository][src]. Some build information is available on an [About page][about] that I specifically designed for auditing purposes.
 
