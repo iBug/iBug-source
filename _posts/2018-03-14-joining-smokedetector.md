@@ -10,7 +10,7 @@ After a plain request, an administrator of the SmokeDetector project added me un
 
 # Starting off
 
-The whole [SmokeDetector] project is written in Python 3, and is currently the #2 starred repository [tagged `spam` on GitHub][gh-spam]. They use [flake8][flake] for coding convention enforcement, which makes the code pretty readable to anyone new to the project.
+The whole [SmokeDetector] project is written in Python 3, and is currently the #2 starred repository [tagged `spam` on GitHub][gh-spam]. They use flake8 for coding convention enforcement, which makes the code pretty readable to anyone new to the project.
 
 I started from reading the part of the code that I can understand, and making trivial changes like changing the content of string literals, as I usually do with unfamiliar code or learning a new programming language. [My first pull request][1st] that actually changed some functionality was a not-so-hard bug fix: In the reason *mostly dots in {}*, it used to attempt to strip `<code>` blocks after stripping all HTML tags, when there was no code blocks to strip anymore. This way a lot of dots inside code blocks that should have been stripped were wrongly left intact, and counted towards "total number of dots". A lot of false positives were generated because in some code blocks, the density of dots was particularly high.
 
@@ -18,7 +18,7 @@ It wasn't hard to copy that function down and try running it locally. I only add
 
 # Continuing more
 
-Sure. I kept submitting a steady stream of [pull requests][prs] since that, and most were small fixes/changes (excluding keyword list changes). They were mostly a few lines' changes or even only a few characters, yet they made sense. They vary from catching a missing keyword to [adding a handy new chat command][pr1634].
+Sure. I kept submitting a steady stream of [pull requests][prs] since then, and most were small fixes/changes. They were mostly a few lines' changes or even only a few characters, yet they made sense. They vary from catching a missing keyword to [adding a handy new chat command][pr1634].
 
 Some changes that I'm specifically proud of:
 
