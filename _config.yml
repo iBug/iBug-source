@@ -59,6 +59,13 @@ assets:
 default:
   post_tagline: "Brought to you by iBug"
 
+defaults:
+  -
+    scope:
+      path: "cn"
+    values:
+      lang: "zh-CN"
+
 markdown: kramdown
 
 kramdown:
