@@ -10,6 +10,13 @@ buttons:
 ### [OJSandbox](https://github.com/taoky/OJSandbox)
 An experimental sandbox for online judgers (OJ). I am a co-author.
 
+### [(Charcoal) Smoke Detector](https://github.com/Charcoal-SE/SmokeDetector)
+A community-driven chatbot that detects spam across the Stack Exchange Network and reports them, so they can be quickly removed.
+
+I joined the team in December 2017, and [was recognized as a developer](/p/3) in March 2018.
+
+This is the largest project in this page and also the first existing project that I've joined.
+
 ### [Tetris with AI](/TetrisAI)
 A good game automation that you *must* try and watch!
 
