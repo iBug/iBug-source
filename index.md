@@ -13,7 +13,11 @@ top_nav: true
 # [Latest blogs][blog]
 
 <section class="post-panes">
-{% for post in site.posts limit:2 %}
+{% assign post_count = 0 %}
+{% for post in site.posts %}
+{% if post.hidden %}
+{% continue %}
+{% endif %}
 {% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
 <article>
   <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
@@ -27,6 +31,10 @@ top_nav: true
   </p>
   <p>{{ post_preview }}</p>
 </article>
+{% assign post_count = post_count | plus: 1 %}
+{% if post_count >= 2 %}
+{% break %}
+{% endif %}
 {% endfor %}
 </section>
 
