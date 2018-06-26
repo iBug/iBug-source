@@ -171,9 +171,7 @@ a {
 	margin: auto;
 	text-align: center;
 
-	.set-1, .set-2, .set-3,
-	.set-4, .set-5, .set-6,
-	.set-7, .set-8, .set-9 {  // Post tags
+	.set-1, .set-2, .set-3, .set-4, .set-5 {  // Post tags
 		display: inline-block;
 		padding: 0.2em 0.5em;
 		margin: 0.2em auto;
@@ -186,6 +184,26 @@ a {
 			text-decoration: none;
 			background-color: rgba(31, 153, 87, 0.2);
 		}
+	}
+
+	.set-1 {
+		font-size: 1em;
+	}
+
+	.set-2 {
+		font-size: 1.3em;
+	}
+
+	.set-3 {
+		font-size: 1.5em;
+	}
+
+	.set-4 {
+		font-size: 1.7em;
+	}
+
+	.set-5 {
+		font-size: 2em;
 	}
 }
 
