@@ -53,8 +53,7 @@
 				font-weight: bold;
 				color: #FFF;
 				background-color: $header-bg-color-dark;
-				border-top-color: $header-bg-color-dark;
-				border-bottom-color: $header-bg-color-dark;
+				border-color: $header-bg-color-dark;
 
 				&:focus, &:hover {
 					cursor: default;
