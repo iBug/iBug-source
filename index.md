@@ -48,13 +48,15 @@ See [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 # About me
 
-Here are my profiles on other websites:
+My profile on Stack Overflow:
 
-- [<img src="/image/so-icon.png" width="16" height="16" /> Stack Overflow][so]
+<center>
+<a href="https://stackoverflow.com/users/5958455">
+<img alt="Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;"/>
+</a>
+</center>
 
-  [<img alt="Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;"/>][so]
-
-  See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa].
+See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa].
 
 ---
 
@@ -65,8 +67,7 @@ try {
     something
 }
 catch(e) {
-    window.location.href =
-    "stackoverflow.com/search?q=" + e.message;
+    window.open("stackoverflow.com/search?q=" + e.message);
 }
 ```
 
