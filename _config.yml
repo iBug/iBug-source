@@ -69,6 +69,7 @@ defaults:
 markdown: kramdown
 
 kramdown:
+  auto_ids: true
   math_engine: mathjax
   parse_block_html: true
 
