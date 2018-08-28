@@ -15,7 +15,7 @@ A community-driven chatbot that detects spam across the Stack Exchange Network a
 
 I joined the team in December 2017, and [was recognized as a developer](/p/3) in March 2018.
 
-This is the largest project in this page and also the first existing project that I've joined.
+This is the largest project in this page and also the first existing project that I've joined (all other projects are started from scratch).
 
 ### [Tetris with AI](/TetrisAI)
 A good game automation that you *must* try and watch!
