@@ -34,6 +34,9 @@
 			{% if page.show_download %}
 				<a href="{{ page.download_url }}" class="btn">Download</a>
 			{% endif %}
+			{% if page.other_version %}
+			<a href="{{ page.other_version_url }}" class="btn">{{ page.other_version }} version</a>
+			{% endif %}
 			<h3 class="project-date"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: site.date_format }}</time> &bull; {{ page.author | default: site.author }}</h3>
 		</section>
 
