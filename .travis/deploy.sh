@@ -33,7 +33,7 @@ e_info "Adding commit info"
 #git config user.name "Travis CI"
 #git config user.email "travis@travis-ci.org"
 git config user.name "iBug"
-git config user.email "7273074+iBug@users.noreply.github.com"
+git config user.email "iBug@users.noreply.github.com"
 git add --all
 git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-#}" --message "$source_msg" &>/dev/null
 
