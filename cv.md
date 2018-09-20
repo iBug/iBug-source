@@ -5,9 +5,11 @@ layout: default
 ---
 
 <dl>
-<dt>
-Jun 13, 2018
-</dt>
+<dt>Sep 17, 2018</dt>
+<dd>
+Reached 15k reputation on Stack Overflow.
+</dd>
+<dt>Jun 13, 2018</dt>
 <dd>
 Gain push access to [SmokeDetector][SmokeDetector], a spam detection bot written in Python.
 
