@@ -15,6 +15,14 @@ Gain push access to [SmokeDetector][SmokeDetector], a spam detection bot written
 
 See [this chat message from a project owner][2018-06-13/1]
 </dd>
+<dt>Feb 28, 2018</dt>
+<dd>
+Awarded `c++` silver tag badge on Stack Overflow.
+</dd>
+<dt>Feb 6, 2018</dt>
+<dd>
+Reached 10k reputation on Stack Overflow.
+</dd>
 </dl>
 
 [2018-06-13/1]: https://chat.stackexchange.com/transcript/message/45129909#45129909
