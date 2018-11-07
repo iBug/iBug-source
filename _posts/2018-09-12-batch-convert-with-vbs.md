@@ -11,9 +11,9 @@ view_url: "https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/MassCon
 show_download: false
 download_name: "Stack Overflow"
 download_url: "https://stackoverflow.com"
-
-published: false
 ---
+
+The **TL:DR** line: If you want my script, you can get it [here][1].
 
 This semester my Physics teacher released all his PowerPoint slideshows at the start of the semester.
 To make reading easier, I decided to convert all of them into 6-slide handouts and print them.
@@ -34,6 +34,14 @@ ActivePresentation.ExportAsFixedFormat CurrentFolder & FileName & ".pdf", _
 ```
 
 Very good! I copied it, replaced the constants from what I found on Microsoft Office Documentation (VBScript doesn't have them), and gave the script a try.
+
+Well, no. It didn't work and exited with an error dialog.
+
+I spent 3 hours debugging and couldn't find out what's wrong. *Good documentations, Microsoft!* I went on for another hour searching Google for a solution, only to find out that `ExportAsFixedFormat` does not accept empty parameters.
+
+I then fixed the issue and the script finally worked, converting all the given PowerPoint slideshows into PDF in the desired format and layout (6/page handout).
+
+You can find the final script [here][1].
 
 
   [1]: https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs
