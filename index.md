@@ -73,8 +73,9 @@ catch(e) {
 
 ---
 
-Friendly links:
+# Friendly links
 
+- [My Telegram channel](https://t.me/ibugthought)
 - My roommate, [TaoKY's personal site](https://taoky.github.io) (He writes Simplified Chinese, while I mostly prefer English)
 
 
