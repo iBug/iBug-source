@@ -1,5 +1,6 @@
 .main-content {
-	word-wrap: break-word;
+	word-wrap: break-word !important;
+	overflow-wrap: break-word !important;
 	background-color: rgba(255, 255, 255, 0.95);
 
 	:first-child {
@@ -11,7 +12,7 @@
 		padding: 3rem 6rem;
 		font-size: 1.1rem;
 		margin: 0 auto 3rem;
-		border-radius: 2rem;
+		border-radius: 6rem;
 	}
 
 	@include medium {
