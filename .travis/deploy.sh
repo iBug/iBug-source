@@ -28,7 +28,7 @@ fi
 
 source_msg="$(git log -1 --pretty="[%h] %B")"
 
-pushd "$SRC"
+pushd "$SRC" &>/dev/null
 e_info "Adding commit info"
 git config user.name "iBug"
 git config user.email "iBug@users.noreply.github.com"
@@ -38,5 +38,5 @@ git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}
 e_info "Pushing to GitHub"
 git push origin ${BRANCH:-master} &>/dev/null
 
-popd
+popd &>/dev/null
 e_success "Successfully deployed to GitHub Pages"
