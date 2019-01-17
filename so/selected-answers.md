@@ -14,3 +14,7 @@ tagline: My selected answers on Stack Overflow
 
 - [python converting strings in list to ints and floats](https://stackoverflow.com/a/48441455/5958455) (This is my **first** Python answer on Stack Overflow!)
 - [How Python assign multiple variables at one line works?](https://stackoverflow.com/a/52143588/5958455)
+
+# General
+
+- [Will printf still have a cost even if I redirect output to /dev/null?](https://stackoverflow.com/a/54196303/5958455)
