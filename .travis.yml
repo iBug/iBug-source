@@ -9,12 +9,12 @@ git:
   submodules: false
 
 before_script:
-  - .travis/prepare.sh
+  - .ci/prepare.sh
 
 script:
-  - ruby cv.rb
+  - ruby script/cv.rb
   - bundle exec jekyll build
 
 after_success:
-  - .travis/patch.sh
-  - .travis/deploy.sh
+  - .ci/patch.sh
+  - .ci/deploy.sh
