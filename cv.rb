@@ -12,7 +12,7 @@ front_matter = {
 data = YAML.load_file 'cv.yml'
 
 body = data['events'].sort.reverse.map do |date, text|
-  "<dt>#{date.strftime "%b %d, %Y"}<dt>\n<dd>\n#{text.strip}\n</dd>\n"
+  "<dt>#{date.strftime "%b %d, %Y"}</dt>\n<dd>\n#{text.strip}\n</dd>\n"
 end
 
 links = data['links'].sort.map do |k, v|
