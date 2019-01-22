@@ -1,0 +1,17 @@
+events:
+  2019-01-22: |
+    Reached 20k reputation on Stack Overflow
+  2018-09-17: |
+    Reached 15k reputation on Stack Overflow
+  2018-06-13: |
+    Gained push access to [SmokeDetector][SmokeDetector], a spam detection bot written in Python
+
+    See [this chat message from a project owner][2018-06-13/1]
+  2018-02-28:
+    Awarded `c++` silver tag badge on Stack Overflow.
+  2018-02-06:
+    Reached 10k reputation on Stack Overflow.
+
+links:
+  SmokeDetector: https://github.com/Charcoal-SE/SmokeDetector
+  2018-06-13/1: https://chat.stackexchange.com/transcript/message/45129909
