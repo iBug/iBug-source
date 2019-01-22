@@ -5,6 +5,10 @@ layout: default
 ---
 
 <dl>
+<dt>Jan 22, 2018</dt>
+<dd>
+Reached 20k reputation on Stack Overflow.
+</dd>
 <dt>Sep 17, 2018</dt>
 <dd>
 Reached 15k reputation on Stack Overflow.
