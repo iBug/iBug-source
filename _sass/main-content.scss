@@ -74,17 +74,19 @@
 		border-radius: 0.3rem;
 	}
 
-	pre {
-		overflow: scroll;
+	pre:not(.highlight) {
+		overflow: auto;
 		padding: 0.8rem;
 		margin-top: 0;
 		margin-bottom: 1rem;
+		line-height: 1.45;
 		font: 0.95em Consolas, "Liberation Mono", Menlo, Courier, monospace;
 		color: $code-text-color;
 		word-wrap: normal;
 		background-color: $code-bg-color;
 		border: solid 1px $border-color;
 		border-radius: 0.5rem;
+		-webkit-overflow-scrolling: touch;
 
 		> code {
 			padding: 0;
@@ -95,18 +97,6 @@
 			white-space: pre;
 			background: transparent;
 			border: 0;
-		}
-
-		@include small {
-			max-height: 20rem;
-		}
-
-		@include medium {
-			max-height: 25rem;
-		}
-
-		@include large {
-			max-height: 30rem;
 		}
 	}
 
@@ -119,13 +109,8 @@
 		}
 	}
 
-	.highlight pre, pre {
-		padding: 0.8rem;
-		overflow: auto;
-		font-size: 0.95em; // 0.9rem
-		line-height: 1.45;
-		border-radius: 0.5rem;
-		-webkit-overflow-scrolling: touch;
+	pre.highlight {
+		white-space: normal;
 	}
 
 	pre code,
@@ -188,6 +173,22 @@
 			padding: 0.5rem 1rem;
 			border: 1px solid $table-border-color;
 		}
+
+		&.rouge-table {
+			border-spacing: 0;
+
+			@include small {
+				max-height: 20rem;
+			}
+
+			@include medium {
+				max-height: 25rem;
+			}
+
+			@include large {
+				max-height: 30rem;
+			}
+		}
 	}
 
 	dl {
@@ -226,5 +227,39 @@
 		line-height: 10px;
 		padding: 3px 5px;
 		vertical-align: middle;
+	}
+
+	.highlight table {
+		th, td {
+			padding: 0;
+			border: none;
+		}
+	}
+
+	td.rouge-gutter {
+		pre {
+			padding: 0.8rem 0.4rem;
+
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-right: 0;
+			text-align: right;
+			color: #AADEBF;
+
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+	}
+
+	td.rouge-code {
+		width: 100%;
+
+		pre {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-left-width: 0.5px;
+		}
 	}
 }
