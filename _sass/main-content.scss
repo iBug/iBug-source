@@ -46,7 +46,7 @@
 			padding: inherit;
 			border: inherit;
 			word-wrap: inherit;
-			font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+			font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 		}
 	}
 
@@ -67,7 +67,7 @@
 	code {
 		padding: 2px 4px;
 		//font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-		font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace, serif;
+		font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace, serif;
 		font-size: 0.95em; // 0.9rem
 		color: $code-text-color;
 		background-color: $code-bg-color;
@@ -80,7 +80,8 @@
 		margin-top: 0;
 		margin-bottom: 1rem;
 		line-height: 1.45;
-		font: 0.95em Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		font-size: 0.95em;
+		font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 		color: $code-text-color;
 		word-wrap: normal;
 		background-color: $code-bg-color;
