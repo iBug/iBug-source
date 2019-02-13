@@ -12,7 +12,7 @@ show_download: false
 download_name: "Stack Overflow"
 download_url: "https://stackoverflow.com"
 
-published: false
+published: true
 ---
 
 Do you have a personal server at home but can't access it from work or travel because your home doesn't have a public IP? If so, then, this article is what you're looking for.
