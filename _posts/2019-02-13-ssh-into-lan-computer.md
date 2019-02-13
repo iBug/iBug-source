@@ -1,6 +1,6 @@
 ---
 title: "Access your Raspberry Pi remotely with SSH"
-#description: ""
+description: null
 tagline: "Remote control is fun"
 tags: geek
 redirect_from: /p/14

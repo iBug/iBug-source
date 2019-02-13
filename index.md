@@ -18,7 +18,7 @@ top_nav: true
 {% if post.hidden %}
 {% continue %}
 {% endif %}
-{% assign post_preview = post.description | default: post.tagline | default: post.excerpt %}
+{% assign post_preview = post.description | default: post.excerpt | strip_html %}
 <article>
   <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
   <p style="margin-top: 0.8em" class="post-meta">
