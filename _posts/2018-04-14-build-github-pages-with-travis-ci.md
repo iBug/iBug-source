@@ -22,6 +22,10 @@ From [Wikipedia][1]:
 
 You really should read the Wikipedia entry. It's comprehensive.
 
+# OK, but why do I need it?
+
+If you stand with [the small set of plugins][5] allowed on GitHub Pages and the limited functionality it provides, as well as the unavailability of any pre- or post-processing scripts put together by yourself, then you probably don't need this solution at all. **BUT**, if you need additional plugins, or have a custom script that you'd like to run before generating your Jekyll website, this is definitely an improvement over vanilla GitHub Pages.
+
 # 1. Setting up your workspace for local building {#setting-up}
 
 [Jekyll][2] is written in Ruby, so of course you need Ruby to run Jekyll. Some dependencies of Jekyll may require other libraries before they can run.
@@ -157,3 +161,4 @@ When building with Travis CI, it's much like a local environment. You are no lon
   [6]: https://github.com/planetjekyll/awesome-jekyll-plugins
   [src]: https://github.com/iBug/iBug-source
   [about]: https://ibug.github.io/about
+  [plugins]: https://github.com/iBug/iBug-source/blob/master/Gemfile
