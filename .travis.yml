@@ -9,12 +9,12 @@ git:
   submodules: false
 
 before_script:
-  - .ci/prepare.sh
+  - script/prepare.sh
 
 script:
   - ruby script/cv.rb
   - bundle exec jekyll build
 
 after_success:
-  - .ci/patch.sh
-  - .ci/deploy.sh
+  - script/patch.sh
+  - script/deploy.sh

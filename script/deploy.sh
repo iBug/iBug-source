@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. .travis/config.sh
+. ${0%/*}/config.sh
 : ${SRC:=_site} ${BRANCH:=master}
 
 set -e
