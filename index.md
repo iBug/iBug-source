@@ -15,26 +15,26 @@ top_nav: true
 <section class="post-panes">
 {% assign post_count = 0 %}
 {% for post in site.posts %}
-{% if post.hidden %}
-{% continue %}
-{% endif %}
-{% assign post_preview = post.description | default: post.excerpt | strip_html %}
-<article>
-  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-  <p style="margin-top: 0.8em" class="post-meta">
-    <span class="post-meta-date">
-      {{ post.date | date: site.date_format }}
-    </span>
-    <span class="post-meta-tags">
-      {% for tag in post.tags %} <a href="/tags/{{ tag }}" class="tag post-meta-tag">{{ tag }}</a> {% endfor %}
-    </span>
-  </p>
-  <p>{{ post_preview }}</p>
-</article>
-{% assign post_count = post_count | plus: 1 %}
-{% if post_count >= 2 %}
-{% break %}
-{% endif %}
+  {% if post.hidden %}
+    {% continue %}
+  {% endif %}
+  {% assign post_preview = post.description | default: post.excerpt | strip_html %}
+  <article>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p style="margin-top: 0.8em" class="post-meta">
+      <span class="post-meta-date">
+        {{ post.date | date: site.date_format }}
+      </span>
+      <span class="post-meta-tags">
+        {% for tag in post.tags %} <a href="/tags/{{ tag }}" class="tag post-meta-tag">{{ tag }}</a> {% endfor %}
+      </span>
+    </p>
+    <p>{{ post_preview }}</p>
+  </article>
+  {% assign post_count = post_count | plus: 1 %}
+  {% if post_count >= 2 %}
+    {% break %}
+  {% endif %}
 {% endfor %}
 </section>
 
