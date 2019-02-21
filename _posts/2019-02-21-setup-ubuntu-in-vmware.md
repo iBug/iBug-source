@@ -1,9 +1,14 @@
 ---
 title: "Setting up Ubuntu in VMware Workstation"
-description: null
-tagline: null
+description: "A quick guide for those wanting to get a running Ubuntu VM with minimal effort"
+tagline: ""
 tags: software
 redirect_from: /p/15
+
+show_view: false
+show_download: false
+
+published: true
 ---
 
 <!-- There's a Chinese version of this article! -->
@@ -26,7 +31,7 @@ Open your downloaded VMware Workstation installer (in `.exe` format). You need A
 
 ![](/image/setup-vmware/vm-1.png)
 
-Continue with \[Next\] and select an option to continue. For most people, you can safely proceed with **Typical**. Follow the guide to finish installation of VMware Workstation.
+Continue with **Next** and select an option to continue. For most people, you can safely proceed with **Typical**. Follow the guide to finish installation of VMware Workstation.
 
 Reboot your Windows machine after installing VMware Workstation &ndash; some components need a reboot before working properly.
 
@@ -92,10 +97,10 @@ If you need to open a terminal for shell commanding, just hit `Ctrl` + `Alt` + `
 
 ![](/image/setup-vmware/u-6.png)
 
-[1]: https://www.ubuntu.com/download/desktop
-[2]: https://launchpad.net/ubuntu/+cdmirrors
-[3]: https://mirrors.ustc.edu.cn/ubuntu-releases/bionic/
-[vmware-w]: https://www.vmware.com/go/getworkstation-win
-[vmware-m]: https://www.vmware.com/go/getfusion
-[vmware-l]: https://www.vmware.com/go/getworkstation-linux
-[kb]: https://kb.vmware.com/articleview?docid=2098121
+  [1]: https://www.ubuntu.com/download/desktop
+  [2]: https://launchpad.net/ubuntu/+cdmirrors
+  [3]: https://mirrors.ustc.edu.cn/ubuntu-releases/bionic/
+  [vmware-w]: https://www.vmware.com/go/getworkstation-win
+  [vmware-m]: https://www.vmware.com/go/getfusion
+  [vmware-l]: https://www.vmware.com/go/getworkstation-linux
+  [kb]: https://kb.vmware.com/articleview?docid=2098121
