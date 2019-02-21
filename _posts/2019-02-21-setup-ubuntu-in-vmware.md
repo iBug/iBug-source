@@ -1,7 +1,7 @@
 ---
 title: "Setting up Ubuntu in VMware Workstation"
-description: "A quick guide for those wanting to get a running Ubuntu VM with minimal effort"
-tagline: ""
+description: null
+tagline: "Step-by-step guide"
 tags: software
 redirect_from: /p/15
 
