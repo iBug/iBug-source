@@ -11,6 +11,7 @@
 
 # Bundler
 Gemfile.lock
+/vendor
 
 # Jekyll
 _site
@@ -18,6 +19,3 @@ _site
 # Jekyll Plugins
 .git-metadata
 .jekyll-metadata
-
-# Travis CI
-/vendor
