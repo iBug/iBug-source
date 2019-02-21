@@ -11,9 +11,9 @@ show_download: false
 published: true
 ---
 
-<!-- There's a Chinese version of this article! -->
-
 A quick step-by-step guide for those wanting to get in touch with Ubuntu in a virtual machine with minimal effort. For example, at the start of a semester of *Operating System Concepts* course.
+
+<!-- There's a Chinese version of this article! -->
 
 ![](/image/setup-vmware/vmware-splash.png)
 
