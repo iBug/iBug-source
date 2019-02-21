@@ -17,6 +17,6 @@ tagline: My selected answers on Stack Overflow
 - [How Python assign multiple variables at one line works?](https://stackoverflow.com/a/52143588/5958455)
 - [What does it mean to say "if n"?](https://stackoverflow.com/a/53920456/5958455)
 
-# General
+# Generic
 
 - [Will printf still have a cost even if I redirect output to /dev/null?](https://stackoverflow.com/a/54196303/5958455)
