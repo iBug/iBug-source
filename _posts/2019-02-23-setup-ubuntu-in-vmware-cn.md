@@ -22,6 +22,8 @@ hidden: true
 
 从 [ubuntu.com][1] 获取最新的 Ubuntu 桌面版，或者从你喜欢的[镜像站][2]下载（例如[科大镜像站][3]）。 从镜像站下载的时候注意文件名应该是 `ubuntu-{版本}-desktop-amd64.iso`，其中 `{版本}` 是 Ubuntu 版本号，例如 `18.04`。
 
+由于作者只有运行 Windows 的电脑，因此 macOS 下安装 VMware Fusion 及 VirtualBox 的教程委托朋友编写，你可以点击[这里](https://taoky.github.io/2019-02-23/installing-os-on-vm.html)阅读。
+
 # 1. 在 Windows 下安装 VMware Workstation
 
 打开下载好的 VMware Workstation 安装包（需要管理员权限）
