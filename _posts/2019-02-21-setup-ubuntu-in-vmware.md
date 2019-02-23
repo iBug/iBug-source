@@ -2,7 +2,7 @@
 title: "Setting up Ubuntu in VMware Workstation"
 description: null
 tagline: "Step-by-step guide"
-tags: software
+tags: software linux
 redirect_from: /p/15
 
 published: true

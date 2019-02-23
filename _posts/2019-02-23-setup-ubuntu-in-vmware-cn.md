@@ -2,7 +2,7 @@
 title: "在 VMware Workstation 中安装 Ubuntu"
 description: "快速上手"
 tagline: "快速上手"
-tags: software
+tags: software linux
 redirect_from: /p/15-cn
 
 hidden: true
