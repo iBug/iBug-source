@@ -98,11 +98,11 @@ curl -s https://raw.githubusercontent.com/iBug/shGadgets/master/quick-setup.sh |
 
 由于该脚本使用了 `sudo`，因此过程中会提示你输入密码。另外，如果你有 GitHub 用户名，脚本也会询问，并为你配置好 Git 的设置。
 
-    [1]: https://www.ubuntu.com/download/desktop
-    [2]: https://launchpad.net/ubuntu/+cdmirrors
-    [3]: https://mirrors.ustc.edu.cn/ubuntu-releases/bionic/
-    [vmware-w]: https://www.vmware.com/go/getworkstation-win
-    [vmware-m]: https://www.vmware.com/go/getfusion
-    [vmware-l]: https://www.vmware.com/go/getworkstation-linux
-    [kb]: https://kb.vmware.com/articleview?docid=2098121
-    [script]: https://github.com/iBug/shGadgets/blob/master/quick-setup.sh
+  [1]: https://www.ubuntu.com/download/desktop
+  [2]: https://launchpad.net/ubuntu/+cdmirrors
+  [3]: https://mirrors.ustc.edu.cn/ubuntu-releases/bionic/
+  [vmware-w]: https://www.vmware.com/go/getworkstation-win
+  [vmware-m]: https://www.vmware.com/go/getfusion
+  [vmware-l]: https://www.vmware.com/go/getworkstation-linux
+  [kb]: https://kb.vmware.com/articleview?docid=2098121
+  [script]: https://github.com/iBug/shGadgets/blob/master/quick-setup.sh
