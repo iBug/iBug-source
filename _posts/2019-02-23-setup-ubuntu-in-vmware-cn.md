@@ -82,7 +82,7 @@ hidden: true
 
 ![](/image/setup-vmware/u-4.png)
 
-进入桌面后，*Ubuntu 的新功能*会弹出来。你可以简单看一下，这里没有特别重要的信息。
+进入桌面后，*Ubuntu 的新特性*会弹出来。你可以简单看一下，这里没有特别重要的信息。
 
 ![](/image/setup-vmware/u-5.png)
 
