@@ -93,7 +93,7 @@ hidden: true
 最后，为了快速配置 Ubuntu 的生产力，我写了一个[快速配置脚本][script]，你可以用以下命令使用它：
 
 ```shell
-wget -qO - https://raw.githubusercontent.com/iBug/shGadgets/master/quick-setup.sh | bash
+wget -qO setup.sh https://raw.githubusercontent.com/iBug/shGadgets/master/quick-setup.sh && bash setup.sh
 ```
 
 由于该脚本使用了 `sudo`，因此过程中会提示你输入密码。另外，如果你有 GitHub 用户名，脚本也会询问，并为你配置好 Git 的设置。
