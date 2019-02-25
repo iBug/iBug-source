@@ -43,6 +43,8 @@ These kinds of small mostakes are very likely to happen during busily scrolling 
 
 As demonstrated above, manually typing the build commands might be feasible with projects with only one or two files, but you'll soon get tired typing them over and over again and start making mistakes if there are more files to be compiled and linked.
 
+# 2. Basic build automation - shell scripts
+
 You may feel that a script would be a better option and may come up with this:
 
 ```shell
@@ -72,9 +74,50 @@ The above script, despite being plain and simple, is *at least* better than manu
 Now you want to add a manpage and installation functionalities, and write them to the script:
 
 ```shell
+...
+
+build_manpage
 install_manpage
 ```
 
-and while it indeed is, it's still a bit distant from optimal. Here's when *Make* has its power:
-It follows a predefined build guideline, a *`Makefile`*, and builds your project.
-What's more, *Make* offers more than simple build automation, like checking for changed files and only re-build the changed files, eliminating redundant work spent on those unchanged files.
+That's a good move to add support for building manpage, but there's a serious caveat: there's probably no need to build the manpage and install it every time this build script is run, as well as everything else unchanged.
+
+So, while it indeed is a better option than typing commands manually, it's still a bit distant from optimal. Here's when *Make* has its power.
+
+# 3. Build automation with *Make*
+
+*Make* is a software designed specifically for build automation. It follows a predefined build guideline, a `Makefile`, and builds your project.
+What's more, Make offers more than simple build automation, like checking for changed files and only re-builds the changed files, eliminating redundant work spent on those unchanged files.
+
+The first thing to using Make is knowing how to write a `Makefile`. Here's a basic `Makefile` for a single-file project:
+
+```makefile
+hello:
+    gcc -o hello hello.c
+```
+
+And the command you'll run is just `make`. It will read your `Makefile` and compile `hello.c` into `hello` for you.
+
+If you run `make` again immediately, it won't compile `hello.c` again, but tells you instead:
+
+```text
+make: Nothing to be done for 'all'.
+```
+
+You can see that Make avoids redundant work by checking for up-to-date files and skipping them.
+
+An instruction to build a file is called a *rule* in Makefile. In the above example, `hello` is a rule and is the default rule in the Makefile. Of course, you can have multiple rules in one Makefile:
+
+```makefile
+hello:
+    gcc -o hello hello.c
+
+hello_debug:
+    gcc -g -o hello_debug hello.c
+```
+
+And when you run `make`, the first rule in the Makefile is the default rule. You can specify a rule that you want Make to build bu specifying it in the command line:
+
+```shell
+make hello_debug
+```
