@@ -4,8 +4,6 @@ description: null
 tagline: "Using build automation tool"
 tags: software development study-notes
 redirect_from: /p/16
-
-published: false
 ---
 
 Have C or C++ project to build? You may think, "Yeah this is very easy, I'll just call the compiler to do so", and yes, let's take a look at an example.
@@ -106,7 +104,7 @@ make: Nothing to be done for 'all'.
 
 You can see that Make avoids redundant work by checking for up-to-date files and skipping them.
 
-An instruction to build a file is called a *rule* in Makefile. In the above example, `hello` is a rule and is the default rule in the Makefile. Of course, you can have multiple rules in one Makefile:
+An instruction to build a file is called a *target* in Makefile. In the above example, `hello` is a target and is the default target in the Makefile. Of course, you can have multiple targets in one Makefile:
 
 ```makefile
 hello:
@@ -116,8 +114,63 @@ hello_debug:
     gcc -g -o hello_debug hello.c
 ```
 
-And when you run `make`, the first rule in the Makefile is the default rule. You can specify a rule that you want Make to build bu specifying it in the command line:
+And when you run `make`, the first target in the Makefile is the default target. You can specify a target that you want Make to build by specifying it on the command line:
 
 ```shell
 make hello_debug
 ```
+
+Without Make or some other kind of build automation tool, resolving and carefully managing the dependency relationships among source files and intermediate files are a pain. With Make, it does this job for you.
+
+A common type of dependency is linking object files into multiple output binaries. Here's an example that shows how Make manages dependencies:
+
+```makefile
+.PHONY: all
+
+all: hello world
+
+hello: library.o hello.o
+    gcc -o $@ $^
+
+world: library.o world.o
+    gcc -o $@ $^
+
+%.o: %.c
+    gcc -O3 -Wall -c -o $@ $^
+```
+
+In the above example, both output programs `hello` and `world` depends on `library.o`. When you run `make`, you'll see Make compiles `library.o` first, and only once, and uses it to link both binaries. The variables `$@` and `$^` are called [Automatic Variables][1]. Make is also capable of resolving complex dependencies, as long as they don't form a loop. The `.PHONY` target is a [Phony target][2], which will be built regardless of the existence of a file with the very name. That says, if you don't write `.PHONY: all` and have an up-to-date file named `all` in your directory, Make won't build the `all` target again.
+
+Make also supports variables so you don't have to write the same commands or arguments repeatedly. For example, the above `makefile` can be rewritten as follows:
+
+```makefile
+CFLAGS = -O3 -Wall
+
+.PHONY: all
+
+all: hello world
+
+hello: library.o hello.o
+    ${CC} -o $@ $^
+
+world: library.o world.o
+    ${CC} -o $@ $^
+
+%.o: %.c
+    ${CC} ${CFLAGS} -c -o $@ $^
+```
+
+`${CC}` is an automatic variable provided by Make and defaults to `cc`. You can use another compiler by overriding this variable when invoking `make`:
+
+```shell
+make CC=clang
+```
+
+Here, `CC` is overridden with value `clang`, and all `${CC}` in the Makefile is substituted with `clang`, effectively calling the Clang compiler to compile the project. There are various ways of assigning variables, such as `=`, `:=`, `?=` and `+=`, all of which have different effects and usages.
+
+You can find out more about Make by running `man make` on your system, or by referring to the [GNU `make` Manual][m] on GNU's website.
+
+
+  [1]: https://www.gnu.org/s/make/manual/html_node/Automatic-Variables.html
+  [2]: https://www.gnu.org/s/make/manual/html_node/Phony-Targets.html
+  [m]: https://www.gnu.org/software/make/manual/make.html
