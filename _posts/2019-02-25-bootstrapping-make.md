@@ -91,7 +91,7 @@ The first thing to using Make is knowing how to write a `Makefile`. Here's a bas
 
 ```makefile
 hello:
-    gcc -o hello hello.c
+	gcc -o hello hello.c
 ```
 
 And the command you'll run is just `make`. It will read your `Makefile` and compile `hello.c` into `hello` for you.
@@ -108,10 +108,10 @@ An instruction to build a file is called a *target* in Makefile. In the above ex
 
 ```makefile
 hello:
-    gcc -o hello hello.c
+	gcc -o hello hello.c
 
 hello_debug:
-    gcc -g -o hello_debug hello.c
+	gcc -g -o hello_debug hello.c
 ```
 
 And when you run `make`, the first target in the Makefile is the default target. You can specify a target that you want Make to build by specifying it on the command line:
@@ -130,13 +130,13 @@ A common type of dependency is linking object files into multiple output binarie
 all: hello world
 
 hello: library.o hello.o
-    gcc -o $@ $^
+	gcc -o $@ $^
 
 world: library.o world.o
-    gcc -o $@ $^
+	gcc -o $@ $^
 
 %.o: %.c
-    gcc -O3 -Wall -c -o $@ $^
+	gcc -O3 -Wall -c -o $@ $^
 ```
 
 In the above example, both output programs `hello` and `world` depends on `library.o`. When you run `make`, you'll see Make compiles `library.o` first, and only once, and uses it to link both binaries. The variables `$@` and `$^` are called [Automatic Variables][1]. Make is also capable of resolving complex dependencies, as long as they don't form a loop. The `.PHONY` target is a [Phony target][2], which will be built regardless of the existence of a file with the very name. That says, if you don't write `.PHONY: all` and have an up-to-date file named `all` in your directory, Make won't build the `all` target again.
@@ -151,13 +151,13 @@ CFLAGS = -O3 -Wall
 all: hello world
 
 hello: library.o hello.o
-    ${CC} -o $@ $^
+	${CC} -o $@ $^
 
 world: library.o world.o
-    ${CC} -o $@ $^
+	${CC} -o $@ $^
 
 %.o: %.c
-    ${CC} ${CFLAGS} -c -o $@ $^
+	${CC} ${CFLAGS} -c -o $@ $^
 ```
 
 `${CC}` is an automatic variable provided by Make and defaults to `cc`. You can use another compiler by overriding this variable when invoking `make`:
