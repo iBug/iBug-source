@@ -5,7 +5,7 @@ tagline: "How I replaced three text-processing commands with one"
 tags: study-notes
 redirect_from: /p/17
 
-published: false
+published: true
 ---
 
 It's again when I want to find out what packages I have manually installed (or by a script) from the output of `apt list`, with all output on one line.
@@ -20,7 +20,7 @@ tr '\n' ' '
 echo
 ```
 
-The last `echo` is there because the output from `tr` doesn't contain a newline at end, which would make your terminal look ugly. It's also not Unix-flavored because all output should end with a newline.
+The last `echo` is there because the output from `tr` doesn't contain a newline at end, which would make your terminal look ugly. It's also not well-Unix-styled because all output should end with a newline.
 
 I was in the middle of the desire to learn AWK when I faced this task, so I didbsome search and wrote this AWK script:
 
