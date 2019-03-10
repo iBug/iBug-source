@@ -113,4 +113,4 @@ Fortunately, with the help of [the Alpha-Beta Pruning algorithm][3], this is a s
   [1]: https://github.com/iBug/PyReversi/blob/master/ai.py#L13
   [2]: https://github.com/iBug/PyReversi/blob/master/ai.py#L110
   [3]: https://en.wikipedia.org/wiki/Alpha–beta_pruning
-  [4]: https://ibug.github.io/p/7
+  [4]: {{ site.url }}/p/7

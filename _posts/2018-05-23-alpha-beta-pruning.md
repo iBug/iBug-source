@@ -165,7 +165,7 @@ The whole project of the Python Reversi is [open-source at GitHub][3]. The AI al
 
 
   [wk]: https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
-  [1]: https://ibug.github.io/p/6
-  [2]: https://ibug.github.io/image/ab-pruning-wikipedia.png
+  [1]: /p/6
+  [2]: /image/ab-pruning-wikipedia.png
   [3]: https://github.com/iBug/PyReversi
   [4]: https://github.com/iBug/PyReversi/tree/e340e9609dfa3f61419f4e8cb9e03248be52e3bc/ai.py#L145
