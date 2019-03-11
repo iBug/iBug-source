@@ -42,7 +42,9 @@ top_nav: true
 
 # [Featured Projects][pp]
 
-See [a good console Tetris game with AI playing][TetrisAI] of mine :)
+[SmokeDetector][SmokeDetector], a community-driven bot that detects spam and reports it for rapid deletion.
+
+And [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 ---
 
@@ -81,6 +83,7 @@ catch(e) {
 
 <!-- Links Section -->
 
+  [SmokeDetector]: https://github.com/Charcoal-SE/SmokeDetector
   [TetrisAI]: https://ibug.github.io/TetrisAI
   [blog]: /blog
   [pp]: /project
