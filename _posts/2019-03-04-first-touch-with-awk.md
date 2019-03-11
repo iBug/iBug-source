@@ -22,7 +22,7 @@ echo
 
 The last `echo` is there because the output from `tr` doesn't contain a newline at end, which would make your terminal look ugly. It's also not well-Unix-styled because all output should end with a newline.
 
-I was in the middle of the desire to learn AWK when I faced this task, so I didbsome search and wrote this AWK script:
+I was in the middle of the desire to learn AWK when I faced this task, so I did some search and wrote this AWK script:
 
 ```awk
 #!/usr/bin/awk -f
