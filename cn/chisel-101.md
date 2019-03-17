@@ -67,10 +67,10 @@ sudo apt-get install default-jdk build-essential perl sbt verilator
 
 以上操作会添加 SBT 提供的 APT 源，然后刷新 APT 软件包列表，并安装 JDK, SBT 等需要的软件包。
 
-接下来解包附件 `chisel-101.tar.gz`，并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。
+接下来解包附件 `chisel-101.tar.gz` （见末尾），并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。
 
 ```shell
-tar zcvf chisel-101.tar.gz
+tar zxvf chisel-101.tar.gz
 cd chisel-101/
 sbt run
 ```
