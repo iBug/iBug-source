@@ -6,7 +6,7 @@ require 'time'
 front_matter = {
   'title' => 'Curriculum Vitae',
   'description' => "iBug's Timeline",
-  'layout' => "default",
+  'layout' => "cv",
 }
 
 data = YAML.load_file 'cv.yml'
