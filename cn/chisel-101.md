@@ -12,12 +12,8 @@ Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在�
 - Java 运行环境
 - Scala
   - SBT (Simple Build Tool)
-- (可选) Verilator
-  - (仅 Windows) Cygwin 环境
 
 ## 1.A Windows 环境配置
-
-如果系统为 Windows 10 v1607 或新版本，推荐在 Windows Subsystem for Linux 环境中配置，过程参见章节 1.B。尽管 WSL 的运行效率不如原生 Linux （在某些配置中，甚至比虚拟机还差一点），但是在原生 Windows 环境下的配置较为复杂，尤其是 Cygwin 部分。当然，一些方式可以让你摆脱 Verilator 的依赖，从而跳过 Cygwin 这个难题。
 
 ### 1.A.1 安装 Java
 
@@ -50,8 +46,6 @@ SBT 的安装也不复杂，双击 msi 安装包，一路点击 \[下一步\] �
 
 ![SBT Run](/image/chisel-intro/sbt-first-run.png)
 
-本来此处应该配置 Cygwin 和 Verilator 的，但是考虑到步骤非常复杂，而且后期可以规避这个依赖，这里就不再介绍了。
-
 ## 1.B Linux 环境配置 (Ubuntu)
 
 Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。
@@ -60,7 +54,7 @@ Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 sudo apt-get update
-sudo apt-get install default-jdk build-essential perl sbt verilator
+sudo apt-get install default-jdk build-essential perl sbt
 ```
 
 参考链接：[Installing sbt on Linux](https://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html)
@@ -81,7 +75,7 @@ sbt run
 
 保留好附件 `chisel-101.tar.gz` 或者解包出来的文件夹 `chisel-101`，后面我们会经常用到它。
 
-请注意，本文不是教你如何编辑 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用[官方的教程仓库](https://github.com/ucb-bar/chisel-tutorial)，因此避开了 Verilator 的依赖。
+请注意，本文不是教你如何编辑 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用[官方的教程仓库](https://github.com/ucb-bar/chisel-tutorial)，因此避开了 Verilator 的依赖（它相当不好配置）。
 
 ### 2.1 第一个组合逻辑电路
 
