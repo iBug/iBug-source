@@ -8,14 +8,8 @@
 		{% include common-scripts-head.html %}
 	</head>
 	<body>
+		{% include nav.html %}
 		<section class="page-header">
-			{% if page.show_home %}
-			<div class="page-header-nav">
-				<span style="float:left;height:0px;">
-					<a href="{{ site.url }}{{ site.baseurl }}" class="btn-inline">Home</a>
-				</span>
-			</div>
-			{% endif %}
 			<h1 class="project-name">Tag: {{ page.tag }}</h1>
 			<h2 class="project-tagline">Posts tagged with {{ page.tag }}</h2>
 		</section>

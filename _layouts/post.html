@@ -11,22 +11,6 @@
 	<body>
 		{% include nav.html %}
 		<section class="page-header">
-			<div class="page-header-nav">
-				<span style="float:left;height:0px;">
-					{% if page.previous %}
-					<a href="{{ page.previous.url }}" class="btn-inline">&laquo; Previous</a>
-					{% else %}
-					<!-- <a class="btn-inline disabled">&laquo; Previous</a> -->
-					{% endif %}
-				</span>
-				<span style="float:right;height:0px;">
-					{% if page.next %}
-					<a href="{{ page.next.url }}" class="btn-inline">Next &raquo;</a>
-					{% else %}
-					<!-- <a class="btn-inline disabled">Next &raquo;</a> -->
-					{% endif %}
-				</span>
-			</div>
 			<h1 class="project-name">{{ page.title | default: site.title }}</h1>
 			<h2 class="project-tagline">{{ page.tagline | default: page.description | default: site.default.post_tagline | default: site.description }}</h2>
 			{% if page.show_view %}

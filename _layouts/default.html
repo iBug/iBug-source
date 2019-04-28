@@ -11,11 +11,6 @@
 		{% include nav.html %}
 		<section class="page-header">
 			{% if page.show_home %}
-			<div class="page-header-nav">
-				<span style="float:left;height:0px;">
-					<a href="{{ site.url }}{{ site.baseurl }}" class="btn-inline">Home</a>
-				</span>
-			</div>
 			{% endif %}
 			<h1 class="project-name">{{ page.title | default: site.title }}</h1>
 			<h2 class="project-tagline">{{ page.tagline | default: page.description | default: site.description }}</h2>

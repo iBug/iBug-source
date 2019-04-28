@@ -5,12 +5,25 @@
 			<div class="nav-item">
 				<strong><a href="/">{{ site.title }}</a></strong>
 			</div>
-			<div class="nav-item verbose">
-				<a href="https://stackoverflow.com/users/5958455">Stack Overflow</a>
-			</div>
-			<div class="nav-item verbose">
-				<a href="https://github.com/iBug">GitHub</a>
-			</div>
+			{% if page.layout == "post" %}
+				{% if page.previous %}
+					<div class="nav-item">
+						<a href="{{ page.previous.url }}">&laquo; Previous</a>
+					</div>
+				{% endif %}
+				{% if page.next %}
+					<div class="nav-item">
+						<a href="{{ page.next.url }}">Next &raquo;</a>
+					</div>
+				{% endif %}
+			{% else %}
+				<div class="nav-item verbose">
+					<a href="https://stackoverflow.com/users/5958455">Stack Overflow</a>
+				</div>
+				<div class="nav-item verbose">
+					<a href="https://github.com/iBug">GitHub</a>
+				</div>
+			{% endif %}
 		</div>
 		<div class="nav-right">
 			<div class="nav-item">

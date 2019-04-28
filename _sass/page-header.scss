@@ -4,15 +4,15 @@
 	background: transparent;
 
 	@include large {
-		padding: 4rem 5rem 3rem;
+		padding: 6rem 5rem 3rem;
 	}
 
 	@include medium {
-		padding: 3rem 3rem 2.5rem;
+		padding: 4.5rem 3rem 2.5rem;
 	}
 
 	@include small {
-		padding: 2rem 1rem 1.5rem;
+		padding: 3rem 1rem 1.5rem;
 
 		background-image: url('https://ibug.github.io/image/bg.jpg'), linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
 		background-repeat: no-repeat;
@@ -23,33 +23,16 @@
 
 	&.home {
 		@include large {
-			padding: 6rem 5rem 3rem;
+			padding: 8rem 5rem 3rem;
 		}
 
 		@include medium {
-			padding: 4rem 3rem 2.5rem;
+			padding: 5.5rem 3rem 2.5rem;
 		}
 
 		@include small {
-			padding: 3rem 1rem 2rem;
+			padding: 4rem 1rem 2rem;
 		}
-	}
-}
-
-.page-header-nav {
-	@include large {
-		margin-top: -2rem;
-		height: 2rem;
-	}
-
-	@include medium {
-		margin-top: -1.8rem;
-		height: 1.8rem;
-	}
-
-	@include small {
-		margin-top: -1.5rem;
-		height: 1.5rem;
 	}
 }
 
