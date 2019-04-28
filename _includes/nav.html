@@ -2,36 +2,28 @@
 	<div class="nav-bg"></div>
 	<div class="nav-content">
 		<div class="nav-left">
-			<div class="nav-item">
-				<strong><a href="/">{{ site.title }}</a></strong>
-			</div>
+			<a href="/" class="nav-item">
+				<b>{{ site.title }}</b>
+			</a>
 			{% if page.layout == "post" %}
 				{% if page.previous %}
-					<div class="nav-item">
-						<a href="{{ page.previous.url }}">&laquo; Previous</a>
-					</div>
+					<a href="{{ page.previous.url }}" class="nav-item">
+							&laquo; Previous
+					</a>
 				{% endif %}
 				{% if page.next %}
-					<div class="nav-item">
-						<a href="{{ page.next.url }}">Next &raquo;</a>
-					</div>
+					<a href="{{ page.next.url }}" class="nav-item">
+						Next &raquo;
+					</a>
 				{% endif %}
 			{% else %}
-				<div class="nav-item verbose">
-					<a href="https://stackoverflow.com/users/5958455">Stack Overflow</a>
-				</div>
-				<div class="nav-item verbose">
-					<a href="https://github.com/iBug">GitHub</a>
-				</div>
+			<a href="https://stackoverflow.com/users/5958455" class="nav-item">Stack Overflow</a>
+			<a href="https://github.com/iBug" class="nav-item">GitHub</a>
 			{% endif %}
 		</div>
 		<div class="nav-right">
-			<div class="nav-item">
-				<a href="/blog">Articles</a>
-			</div>
-			<div class="nav-item">
-				<a href="/project">Projects</a>
-			</div>
+			<a href="/blog" class="nav-item">Articles</a>
+			<a href="/project" class="nav-item">Projects</a>
 		</div>
 	</div>
 </nav>

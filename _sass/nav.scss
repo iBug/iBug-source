@@ -32,6 +32,7 @@ nav {
 		transform: translate(-50%, -50%);
 		z-index: 2;
 		//padding: 3px;
+
 	}
 
 	.nav-left {
@@ -44,21 +45,21 @@ nav {
 		display: flex;
 	}
 
+	a {
+		color: $body-text-color;
+		transition: color 0.3s linear;
+
+		&:hover {
+			color: #000;
+			text-decoration: none;
+		}
+	}
+
 	.nav-item {
 		display: inline-block;
 		padding: 1rem 0.7rem;
 
 		transition: background 0.3s ease-in-out;
-
-		a {
-			color: $body-text-color;
-			transition: color 0.3s linear;
-
-			&:hover {
-				color: #000;
-				text-decoration: none;
-			}
-		}
 
 		&:hover {
 			background-color: rgba(64, 255, 192, 0.5);
