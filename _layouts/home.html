@@ -8,6 +8,7 @@
 		{% include common-scripts-head.html %}
 	</head>
 	<body>
+		{% include nav.html %}
 		<section class="page-header home">
 			<h1 class="project-name">{{ page.title | default: site.title }}</h1>
 			<h2 class="project-tagline">{{ page.tagline | default: page.description | default: site.description }}</h2>
