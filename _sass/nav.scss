@@ -36,10 +36,12 @@ nav {
 
 	.nav-left {
 		float: left;
+		display: flex;
 	}
 
 	.nav-right {
 		float: right;
+		display: flex;
 	}
 
 	.nav-item {
