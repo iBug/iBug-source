@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make the configuration
-. .travis/config.sh || true
+. script/config.sh || true
 : ${GH_REPO:=iBug/iBug.github.io} ${BRANCH:=master}
 
 set -e
