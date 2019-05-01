@@ -14,7 +14,7 @@ It's a pretty easy task if you're familiar with Unix command utilities for text 
 
 ```shell
 apt list |
-grep -F [installed] |
+grep -F '[installed]' |
 cut -d/ -f1 |
 tr '\n' ' '
 echo
