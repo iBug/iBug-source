@@ -2,13 +2,11 @@
 	<div class="nav-bg"></div>
 	<div class="nav-content">
 		<div class="nav-left">
-			<a href="/" class="nav-item">
-				<b>{{ site.title }}</b>
-			</a>
+			<a href="/" class="nav-item home">{{ site.title }}</a>
 			{% if page.layout == "post" %}
 				{% if page.previous %}
 					<a href="{{ page.previous.url }}" class="nav-item">
-							&laquo; Previous
+						&laquo; Previous
 					</a>
 				{% endif %}
 				{% if page.next %}

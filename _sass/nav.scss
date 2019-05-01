@@ -72,6 +72,11 @@ nav {
 			background-color: rgba(64, 255, 192, 0.5);
 		}
 
+		&.home {
+			//background-color: rgba(64, 255, 192, 0.5);
+			font-weight: bold;
+		}
+
 		&.verbose {
 			@include small {
 				display: none;
