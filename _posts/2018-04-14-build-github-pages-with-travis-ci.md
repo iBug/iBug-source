@@ -160,5 +160,5 @@ When building with Travis CI, it's much like a local environment. You are no lon
   [5]: https://help.github.com/articles/configuring-jekyll-plugins/
   [6]: https://github.com/planetjekyll/awesome-jekyll-plugins
   [src]: https://github.com/iBug/iBug-source
-  [about]: https://ibug.github.io/about
+  [about]: {{ site.url }}/about
   [plugins]: https://github.com/iBug/iBug-source/blob/master/Gemfile

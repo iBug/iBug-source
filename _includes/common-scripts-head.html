@@ -2,9 +2,9 @@
 
 {% if page.mathjax %}
 {% if site.mathjax.cdn == "github-pages" %}
-<script type="text/javascript" src="https://ibug.github.io/cdn/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
+	<script type="text/javascript" src="{{ site.url }}/cdn/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
 {% else %}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
 {% endif %}
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
