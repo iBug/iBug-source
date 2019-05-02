@@ -2,6 +2,7 @@
 title: iBug on the Web
 layout: home
 redirect_from: 
+  - /about
   - /main
   - /master
   - /readme
@@ -50,7 +51,24 @@ And [a good console Tetris game with AI playing][TetrisAI] of mine :)
 
 # About me
 
-My profile on Stack Overflow / Stack Exchange:
+CS student and hobby programmer. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and SysAdmin.
+
+- **Primary languages<sup>1</sup>**: Python, C++, C, Bash (also my top few tags on Stack Overflow)
+- **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
+- **Minor languages<sup>1</sup> and learning**: SQL, PHP, AWK
+- Favorite VCS: Git (and proficient with it)
+- Favorite automation: Shell scripts, Make, Cron
+- Favorite text editor: `<ESC>:wq` ([get my config](https://ibug.github.io/ext/conf/vimrc))
+- Daily environment: Windows Subsystem for Linux (Ubuntu 18.04), with virtual machines for additional requirements
+
+MSI produces high-performance laptops with *very* comfortable keyboards. Must buy!
+
+Personally:
+
+- **Primary languages**: Chinese and English
+- **Secondary languages**: French, Spanish and Italian (all read-only)
+
+My profile on Stack Overflow:
 
 <center>
 <a href="https://stackoverflow.com/users/5958455">
