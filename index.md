@@ -56,10 +56,10 @@ CS student and hobby programmer. Primarily a developer, often a DevOps engineer 
 - **Primary languages<sup>1</sup>**: Python, C++, C, Bash (also my top few tags on Stack Overflow)
 - **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
 - **Minor languages<sup>1</sup> and learning**: SQL, PHP, AWK
-- Favorite VCS: Git (and proficient with it)
-- Favorite automation: Shell scripts, Make, Cron
-- Favorite text editor: `<ESC>:wq` ([get my config](https://ibug.github.io/ext/conf/vimrc))
-- Daily environment: Windows Subsystem for Linux (Ubuntu 18.04), with virtual machines for additional requirements
+- **Favorite VCS**: Git (and proficient with it)
+- **Favorite automation**: Shell scripts, Make, Cron
+- **Favorite text editor**: `<ESC>:wq` ([get my config](/ext/conf/vimrc))
+- **Daily environment**: Windows Subsystem for Linux (Ubuntu 18.04), with virtual machines for additional requirements
 
 MSI produces high-performance laptops with *very* comfortable keyboards. Must buy!
 
