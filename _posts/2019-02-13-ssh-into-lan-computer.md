@@ -2,7 +2,7 @@
 title: "Access your Raspberry Pi remotely with SSH"
 description: null
 tagline: "Remote control is fun"
-tags: geek networking
+tags: linux networking
 redirect_from: /p/14
 
 show_view: false
