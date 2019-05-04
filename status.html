@@ -35,6 +35,5 @@ buttons:
 		let t = new Date();
 		showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
 	}
-	var showTimeInterval = setInterval(showTime, 200);
-	showTime();
+	var showTimeInterval = setInterval(showTime, 100);
 </script>
