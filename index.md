@@ -65,8 +65,8 @@ MSI produces high-performance laptops with *very* comfortable keyboards. Must bu
 
 Personally:
 
-- **Primary languages**: Chinese and English
-- **Secondary languages**: French, Spanish and Italian (all read-only)
+- **Primary languages<sup>2</sup>**: Chinese and English
+- **Secondary languages<sup>2</sup>**: French, Spanish and Italian (all read-only)
 
 My profile on Stack Overflow:
 
