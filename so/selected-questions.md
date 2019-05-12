@@ -18,3 +18,8 @@ tagline: My selected questions on Stack Overflow
 # General
 
 - [Why are loops always compiled into “do…while” style (tail jump)?](https://stackoverflow.com/q/47783926/5958455)
+
+# Other
+
+- [How do antivirus softwares conflict with each other?](https://superuser.com/q/1274329/688600) (Super User)
+- [What exactly is “UEFI with CSM” boot mode?](https://superuser.com/q/1284392/688600)
