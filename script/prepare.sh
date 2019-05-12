@@ -27,7 +27,7 @@ e_info "Cloning from GitHub:$GH_REPO.git, branch=$BRANCH"
 if [ -n "$SSH_KEY_E" ]; then  # Prefer SSH key
   base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
   SSH_AUTH_SOCK=none \
-  GIT_SSH_COMMAND="ssh -i ~/.id_rsa" \
+  GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" \
   git clone --depth=3 --branch=$BRANCH --single-branch "git@github.com:$GH_REPO.git" _site
 elif [ -n "$GH_TOKEN" ]; then
   # Suppress output to protect token
