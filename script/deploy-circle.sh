@@ -38,7 +38,7 @@ git commit --message "Auto deploy from CircleCI build ${CIRCLE_BUILD_NUM:-?}" --
 e_info "Pushing to GitHub"
 SSH_AUTH_SOCK=none \
 GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" \
-git push origin +${BRANCH:-master}
+git push origin ${BRANCH:-master}
 
 popd &>/dev/null
 e_success "Successfully deployed to GitHub Pages"
