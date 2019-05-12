@@ -21,8 +21,8 @@ e_error() {
   echo -e "\x1B[31;1m[Error]\x1B[0m $*" >&2
 }
 
-if [ -z "${GH_TOKEN}" ]; then
-  e_error "GitHub token not set, not deploying"
+if [ -z "${SSH_KEY_E}" ]; then
+  e_error "No SSH key present in environment, not pushing."
   exit 1
 fi
 
@@ -33,10 +33,12 @@ e_info "Adding commit info"
 git config user.name "iBug"
 git config user.email "iBug@users.noreply.github.com"
 git add --all
-git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
+git commit --message "Auto deploy from CircleCI build ${CIRCLE_BUILD_NUM:-?}" --message "$source_msg" &>/dev/null
 
 e_info "Pushing to GitHub"
-git push origin ${BRANCH:-master} &>/dev/null
+SSH_AUTH_SOCK=none \
+GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" \
+git push origin +${BRANCH:-master}
 
 popd &>/dev/null
 e_success "Successfully deployed to GitHub Pages"

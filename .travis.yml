@@ -17,4 +17,4 @@ script:
 
 after_success:
   - script/patch.sh
-  - script/deploy.sh
+  - script/deploy-travis.sh

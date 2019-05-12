@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3-stretch
+    steps:
+      - checkout
+      - restore_cache:
+        keys:
+          - bundler-{{ .Branch }}
+          - bundler-master
+      - run:
+          name: Install dependencies
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
+      - save_cache:
+        key: bundler-{{ .Branch }}
+        paths:
+          - vendor/bundle
+          - ~/.bundle
+      - run:
+          name: Prepare build
+          command: bash script/prepare.sh
+      - run:
+          name: Generate missing pages
+          command: ruby script/cv.rb
+      - run:
+          name: Build with Jekyll
+          command: bundle exec jekyll build
+      - run:
+          name: Add required files
+          command: script/patch.sh
+      - run:
+          name: Deploy
+          command: bash script/deploy-circle.sh
