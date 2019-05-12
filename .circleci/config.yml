@@ -6,17 +6,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - bundler-{{ .Branch }}
-          - bundler-master
+          keys:
+            - bundler-{{ .Branch }}
+            - bundler-master
       - run:
           name: Install dependencies
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
       - save_cache:
-        key: bundler-{{ .Branch }}
-        paths:
-          - vendor/bundle
-          - ~/.bundle
+          key: bundler-{{ .Branch }}
+          paths:
+            - vendor/bundle
+            - ~/.bundle
       - run:
           name: Prepare build
           command: bash script/prepare.sh
