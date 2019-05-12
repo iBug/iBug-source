@@ -36,7 +36,9 @@ git add --all
 git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
 
 e_info "Pushing to GitHub"
-git push --quiet origin ${BRANCH:-master} &>/dev/null
+if [ "$TRAVIS_EVENT_TYPE" != "push" ]; then
+  git push --quiet origin ${BRANCH:-master} &>/dev/null
+fi
 
 popd &>/dev/null
 e_success "Successfully deployed to GitHub Pages"
