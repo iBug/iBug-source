@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -33,6 +33,7 @@ jobs:
           name: Deploy
           command: bash script/deploy-circle.sh
 workflows:
+  version: 2
   daily-build:
     triggers:
       - schedule:
