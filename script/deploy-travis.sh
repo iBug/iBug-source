@@ -37,7 +37,7 @@ git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}
 
 e_info "Pushing to GitHub"
 if [ "$TRAVIS_EVENT_TYPE" != "push" ]; then
-  git push --quiet origin ${BRANCH:-master} &>/dev/null
+  : git push --quiet origin ${BRANCH:-master} &>/dev/null
 fi
 
 popd &>/dev/null
