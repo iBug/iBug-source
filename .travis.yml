@@ -8,6 +8,10 @@ git:
   depth: 1
   submodules: false
 
+env:
+  - JEKYLL_ENV=production
+  - LC_ALL=C.UTF-8
+
 before_script:
   - script/prepare.sh
 

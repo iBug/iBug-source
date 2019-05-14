@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch
+    environment:
+      JEKYLL_ENV: production
+      LC_ALL: C.UTF-8
     steps:
       - checkout
       - restore_cache:
