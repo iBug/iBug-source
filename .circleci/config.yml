@@ -32,3 +32,18 @@ jobs:
       - run:
           name: Deploy
           command: bash script/deploy-circle.sh
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+  daily:
+    triggers:
+      - schedule:
+          cron: "0 8,20 * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - build:
+          context: cron
