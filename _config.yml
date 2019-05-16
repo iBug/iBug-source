@@ -216,7 +216,7 @@ kramdown:
   #smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
   math_engine: mathjax
-  parse_block_html: true
+  parse_block_html: false # true
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: 'highlight'

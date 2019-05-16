@@ -1,72 +1,65 @@
 ---
-title: null
-layout: single
-classes: wide
-author_profile: true
-redirect_from:
-  - /main
-  - /master
-  - /readme
+title: "Splash Page"
+layout: splash
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.0"
+  overlay_image: "https://ibugone.com/image/splash-mm.jpg"
+  #actions:
+  #  - label: "Hmm"
+  #    url: "https://github.com/mmistakes/minimal-mistakes/"
+  caption: "Photo credit: Emilee R. Ligons"
+excerpt: "Bacon ipsum dolor sit amet salami ham hock ham, hamburger corned beef short ribs kielbasa biltong t-bone drumstick tri-tip tail sirloin pork chop."
+intro:
+  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
+feature_row:
+  - image_path: assets/images/unsplash-gallery-image-1-th.jpg
+    alt: "placeholder image 1"
+    title: "Placeholder 1"
+    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
+    alt: "placeholder image 2"
+    title: "Placeholder 2"
+    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    url: "#test-link"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/unsplash-gallery-image-3-th.jpg
+    title: "Placeholder 3"
+    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+feature_row2:
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "placeholder image 2"
+    title: "Placeholder Image Left Aligned"
+    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Left aligned with `type="left"`'
+    url: "#test-link"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+feature_row3:
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "placeholder image 2"
+    title: "Placeholder Image Right Aligned"
+    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Right aligned with `type="right"`'
+    url: "#test-link"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+feature_row4:
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "placeholder image 2"
+    title: "Placeholder Image Center Aligned"
+    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Centered with `type="center"`'
+    url: "#test-link"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
 ---
 
-# [Latest blog][blog]
+{% include feature_row id="intro" type="center" %}
 
-<section class="post-panes">
-{% for post in site.posts %}
-  {% if post.hidden %}
-    {% continue %}
-  {% endif %}
-  {% assign post_preview = post.description | default: post.excerpt | strip_html %}
-<article>
-<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-<p style="margin-top: 0.8em" class="post-meta">
-  <span class="post-meta-date">
-    {{ post.date | date: site.date_format }}
-  </span>
-  <span class="post-meta-tags">
-    {% for tag in post.tags %} <a href="/tags/{{ tag }}" class="tag post-meta-tag">{{ tag }}</a> {% endfor %}
-  </span>
-</p>
-<p>{{ post_preview }}</p>
-</article>
-  {% break %}
-{% endfor %}
-</section>
+{% include feature_row %}
 
----
+{% include feature_row id="feature_row2" type="left" %}
 
-# [Featured Projects][pp]
+{% include feature_row id="feature_row3" type="right" %}
 
-[SmokeDetector][SmokeDetector], a community-driven bot that detects spam and reports it for rapid deletion.
-
-And [a good console Tetris game with AI playing][TetrisAI] of mine :)
-
----
-
-The correct way to handle exceptions in your development:
-
-```javascript
-try {
-    something
-}
-catch(e) {
-    window.open("stackoverflow.com/search?q=" + e.message);
-}
-```
-
----
-
-# Friendly links
-
-- [My Telegram channel](https://t.me/ibugthought), although updated infrequently
-- My roommate, [TaoKY's personal site](https://taoky.github.io) (He writes Simplified Chinese, while I mostly prefer English)
-
-
-<!-- Links Section -->
-
-  [SmokeDetector]: https://github.com/Charcoal-SE/SmokeDetector
-  [TetrisAI]: https://ibug.github.io/TetrisAI
-  [blog]: /blog
-  [pp]: /project
-  [gh]: https://github.com/iBug
-  [so]: https://stackoverflow.com/users/5958455/ibug "Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers"
+{% include feature_row id="feature_row4" type="center" %}
