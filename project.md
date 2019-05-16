@@ -1,10 +1,7 @@
 ---
 title: Projects
 description: A list of iBug's projects
-buttons:
-  -
-    url: /
-    text: Return to home
+author_profile: true
 ---
 
 ### [OJSandbox](https://github.com/taoky/OJSandbox)

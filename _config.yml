@@ -25,7 +25,7 @@ baseurl                  : ""
 repository               : "iBug/iBug.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : "iBug" # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : null # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -110,7 +110,7 @@ author:
   avatar           : "https://avatars0.githubusercontent.com/u/7273074" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "CS amateur, indie developer"
   location         : "China"
-  email            : "ibug.github@outlook.com"
+  email            : null # "mailto:ibug.github@outlook.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -263,6 +263,7 @@ plugins:
   # Class 1: Default plugins on GitHub Pages
   - jekyll-gist
   - jekyll-github-metadata
+  - jekyll-sitemap
   #- jekyll-paginate
   #- jekyll-feed
   #- jemoji
@@ -270,7 +271,7 @@ plugins:
   - jekyll-optional-front-matter
   #- jekyll-readme-index
   - jekyll-default-layout
-  - jekyll-titles-from-headings
+  #- jekyll-titles-from-headings
 
   # Class 2: Optional plugins on GitHub Pages
   - jekyll-redirect-from
@@ -285,11 +286,11 @@ plugins:
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
+  #- jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
-  - jemoji
+  #- jekyll-feed
+  #- jemoji
   - jekyll-include-cache
 
 
