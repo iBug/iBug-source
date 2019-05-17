@@ -457,7 +457,7 @@ sbt run Sequential
 
 更多样例代码可以在 GitHub 仓库 [chisel-tutorial](https://github.com/ucb-bar/chisel-tutorial) 中找到。
 
-# 附录
+## 附录
 
 - 附件 `chisel-101.tar.gz` 下载： <https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz>
 - 包含三个样例代码的 `chisel-101-with-examples.tar.gz` 下载： <https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz>
