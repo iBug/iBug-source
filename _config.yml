@@ -247,7 +247,7 @@ timezone: "Asia/Shanghai" # https://en.wikipedia.org/wiki/List_of_tz_database_ti
 date_format: "%b %-d, %Y" # "%b %-d, %Y at %-H:%M"
 
 #paginate: 5
-#paginate_path: "/blog/page:num/"
+paginate_path: "/blog/page:num/"
 pagination:
   enabled: true
   per_page: 5
