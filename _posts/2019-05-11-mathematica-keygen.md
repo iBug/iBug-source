@@ -14,7 +14,7 @@ Input your MathID (xxxx-xxxxx-xxxxx) and press **Generate**.
 
 <input type="text" id="mathId"/>
 
-<button id="generate">Generate</button>
+<button id="generate" class="btn btn--primary">Generate</button>
 
 <p id="result">Press <b>Generate</b>!</p>
 

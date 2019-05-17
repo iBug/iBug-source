@@ -6,7 +6,7 @@ header:
   overlay_filter: "0.0"
   overlay_image: "https://ibugone.com/image/mm/splash.jpg"
   actions:
-    - label: "More"
+    - label: "<i class='fas fa-user-circle'></i> More"
       url: "/about"
   caption: "Photo credit: Emilee R. Ligons"
 excerpt: "The little personal website of iBug"
@@ -18,7 +18,7 @@ feature_row:
     title: "Blogs"
     excerpt: "iBug is a casual, yet lazy blogger, and he occasionally writes something about his new discoveries."
     url: "/blog"
-    btn_label: "Read"
+    btn_label: "<i class='fas fa-book-reader'></i> Read"
     btn_class: "btn--primary"
   - image_path: "https://ibugone.com/image/mm/projects.jpg"
     #image_caption: ""
@@ -26,7 +26,7 @@ feature_row:
     title: "Projects"
     excerpt: "Projects that iBug has led or participated and proudly wanting to present you with."
     url: "/project"
-    btn_label: "Explore"
+    btn_label: "<i class='fas fa-globe'></i> Explore"
     btn_class: "btn--primary"
   - image_path: "https://ibugone.com/image/mm/chinese.jpg"
     alt: "chinese language"
@@ -35,7 +35,7 @@ feature_row:
       Looking for Chinese content?  
       寻找中文内容？
     url: "/cn"
-    btn_label: "查看"
+    btn_label: "<i class='fas fa-th-list'></i> 查看"
     btn_class: "btn--primary"
 ---
 

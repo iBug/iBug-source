@@ -1,6 +1,4 @@
 ---
-layout: single
-type: posts
 title: "Chisel 配置及入门"
 tagline: "从配置到生成 Verilog"
 tags: study-notes

@@ -27,6 +27,9 @@ jobs:
           name: Generate missing pages
           command: ruby script/cv.rb
       - run:
+          name: Create Algolia search index
+          command: '[ -z "$CRON" ] && bundle exec jekyll algolia'
+      - run:
           name: Build with Jekyll
           command: bundle exec jekyll build
       - run:
