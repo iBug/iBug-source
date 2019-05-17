@@ -310,10 +310,10 @@ whitelist:
 #  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path/my-awesome-category/index.html ~> path: /
 category_archive:
-  type: liquid
+  type: jekyll-archives # liquid
   path: /categories/
 tag_archive:
-  type: liquid
+  type: jekyll-archives # liquid
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
 jekyll-archives:
@@ -374,3 +374,21 @@ defaults:
       toc_label: "目录"
       toc_icon: "th-list"
       toc_sticky: true
+  - scope:
+      path: ""
+      type: tag
+    values:
+      author_profile: true
+      read_time: false
+      comments: false
+      share: true
+      related: false
+  - scope:
+      path: ""
+      type: category
+    values:
+      author_profile: true
+      read_time: false
+      comments: false
+      share: true
+      related: false
