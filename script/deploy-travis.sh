@@ -1,26 +1,12 @@
 #!/bin/bash
 
 . ${0%/*}/config.sh
+. ${0%/*}/util.sh
 : ${SRC:=_site} ${BRANCH:=master}
 
 set -e
 
-e_info() {
-  echo -e "\x1B[36;1m[Info]\x1B[0m $*" >&2
-}
-
-e_success() {
-  echo -e "\x1B[32;1m[Success]\x1B[0m $*" >&2
-}
-
-e_warning() {
-  echo -e "\x1B[33;1m[Warning]\x1B[0m $*" >&2
-}
-
-e_error() {
-  echo -e "\x1B[31;1m[Error]\x1B[0m $*" >&2
-}
-
+# Prepare SSH stuff
 if [ -z "$SSH_KEY_E" ]; then
   e_error "SSH key not found, not deploying"
   exit 1
@@ -29,10 +15,15 @@ base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
 export SSH_AUTH_SOCK=none GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa"
 ssh-keyscan -H "git.dev.tencent.com" >> ~/.ssh/known_hosts
 
-source_msg="$(git log -1 --pretty="[%h] %B")"
 
+# Fetch extra necessary things
 pushd "$SRC" &>/dev/null
-rm CNAME
+git clone --depth=1 --branch=master https://github.com/iBug/image.git image
+rm -rf image/.git CNAME
+
+
+# Prepare Git stuff
+source_msg="$(git log -1 --pretty="[%h] %B")"
 
 e_info "Adding commit info"
 # Since we're pushing to another host, we want to torch the history
