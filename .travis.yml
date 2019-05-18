@@ -16,7 +16,7 @@ before_script:
 
 script:
   - ruby script/cv.rb
-  - bundle exec jekyll build
+  - bundle exec jekyll build --config "_config.yml,_extra.yml"
 
 after_success:
   - script/patch.sh

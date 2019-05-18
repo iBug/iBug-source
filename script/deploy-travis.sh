@@ -21,24 +21,31 @@ e_error() {
   echo -e "\x1B[31;1m[Error]\x1B[0m $*" >&2
 }
 
-if [ -z "${GH_TOKEN}" ]; then
-  e_error "GitHub token not set, not deploying"
+if [ -z "$SSH_KEY_E" ]; then
+  e_error "SSH key not found, not deploying"
   exit 1
 fi
+base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
+export SSH_AUTH_SOCK=none GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa"
+ssh-keyscan -H "git.dev.tencent.com" >> ~/.ssh/known_hosts
 
 source_msg="$(git log -1 --pretty="[%h] %B")"
 
 pushd "$SRC" &>/dev/null
+rm CNAME
+
 e_info "Adding commit info"
+# Since we're pushing to another host, we want to torch the history
+rm -rf .git
+git init
+git remote add origin "git@git.dev.tencent.com:iBugOne/iBugOne.coding.me.git"
 git config user.name "iBug"
 git config user.email "iBug@users.noreply.github.com"
 git add --all
-git commit --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
+git commit --quiet --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
 
-e_info "Pushing to GitHub"
-if [ "$TRAVIS_EVENT_TYPE" != "push" ]; then
-  : git push --quiet origin ${BRANCH:-master} &>/dev/null
-fi
+e_info "Pushing to Coding.net"
+git push origin +${BRANCH:-master} &>/dev/null
 
 popd &>/dev/null
-e_success "Successfully deployed to GitHub Pages"
+e_success "Successfully deployed to Coding Pages"
