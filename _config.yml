@@ -199,6 +199,7 @@ keep_files:
   - .nojekyll
   - README.md
   - CNAME
+  - image/
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
@@ -347,7 +348,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: false
+      comments: true
       share: true
       related: true
       toc: true

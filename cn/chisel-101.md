@@ -1,7 +1,10 @@
 ---
+type: posts
 title: "Chisel 配置及入门"
 tagline: "从配置到生成 Verilog"
 tags: study-notes
+comments: true
+author_profile: true
 ---
 
 Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。
