@@ -261,6 +261,11 @@ pagination:
     before: 3
     after: 3
 
+collections:
+  cn:
+    output: true
+    permalink: /:collection/:path
+
 #tag_page_layout: tag_page
 #tag_page_dir: tags
 
@@ -343,6 +348,10 @@ defaults:
   # _posts
   - scope:
       path: ""
+    values:
+      toc_sticky: true
+  - scope:
+      path: ""
       type: posts
     values:
       layout: single
@@ -354,19 +363,17 @@ defaults:
       toc: true
       #toc_label: "On this page"
       #toc_icon: "file-alt"
-      toc_sticky: true
   - scope:
       path: ""
       type: pages
     values:
       layout: single
       author_profile: false
-      read_time: false
-      comments: false
       share: true
       related: false
   - scope:
-      path: "cn"
+      path: ""
+      type: cn
     values:
       lang: "zh-CN"
       locale: "zh-CN"
@@ -375,14 +382,12 @@ defaults:
       toc: true
       toc_label: "目录"
       toc_icon: "th-list"
-      toc_sticky: true
   - scope:
       path: ""
       type: tag
     values:
       author_profile: true
       read_time: false
-      comments: false
       share: true
       related: false
   - scope:
@@ -390,7 +395,5 @@ defaults:
       type: category
     values:
       author_profile: true
-      read_time: false
-      comments: false
       share: true
       related: false
