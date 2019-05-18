@@ -21,9 +21,9 @@ It's latest release, version 11.5.0.239, has just come out. Registering this ver
 
 You need an older version of Advanced SystemCare 11 for this method to work. I recommend [version 11.0.3.169][old] because it's known to be working.
 
-<div style="text-align: center;">
-**[Download Advanced SystemCare 11.0.3.169][old]**
-</div>
+<p style="text-align: center;">
+<b><a href="https://advanced-systemcare-free.en.uptodown.com/windows/download/1672942">Download Advanced SystemCare 11.0.3.169</a></b>
+</p>
 
 Download the old version and install it. After installation, copy out this file from your system and save it. Note the file is at different locations between 32-bit and 64-bit systems.
 
@@ -49,6 +49,6 @@ Now return to the main screen and click Enter Code on the bottom-right corner. G
 If you find this article useful, don't forget to share it! The permalink to this article is <{{ site.url }}/p/11>.
 
 
-  [self]: {{ site.url }}/p/11
+  [self]: /p/11
   [asc]: https://www.iobit.com/en/advancedsystemcarefree.php
   [old]: https://advanced-systemcare-free.en.uptodown.com/windows/download/1672942
