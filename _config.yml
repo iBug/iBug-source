@@ -98,7 +98,7 @@ social:
 
 # Analytics
 analytics:
-  provider               : google # false (default), "google", "google-universal", "custom"
+  provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          : "UA-115907213-1"
     anonymize_ip         : false # true, false (default)
@@ -164,6 +164,7 @@ include:
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
+  - "*.yml"
   - vendor
   - .asset-cache
   - .bundle
@@ -175,22 +176,22 @@ exclude:
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
-  - Capfile
-  - CHANGELOG
-  - config
+  # Capfile
+  # CHANGELOG
+  # config
   - ext/
   - Gemfile
   - Gemfile.lock
-  - Gruntfile.js
-  - gulpfile.js
+  # Gruntfile.js
+  # gulpfile.js
   - LICENSE
-  - log
-  - node_modules
-  - package.json
-  - Rakefile
+  # log
+  # node_modules
+  # package.json
+  # Rakefile
   - README.md
   - REMOTE_README.md
-  - tmp
+  # tmp
   - /script
 keep_files:
   - .git

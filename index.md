@@ -3,13 +3,13 @@ title: "iBug on the Web"
 layout: splash
 header:
   overlay_color: "#000"
-  overlay_filter: "0.0"
+  overlay_filter: "0"
   overlay_image: "https://ibugone.com/image/mm/splash.jpg"
   actions:
     - label: "<i class='fas fa-user-circle'></i> More"
       url: "/about"
-  caption: "Photo credit: Emilee R. Ligons"
-excerpt: "The little personal website of iBug. Still in BETA"
+  #caption: "Photo credit?"
+excerpt: "The little personal website of iBug. Still in BETA  \n&nbsp;"
 #intro:
 #  - excerpt: "Not applicable"
 feature_row:
