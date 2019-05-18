@@ -12,8 +12,7 @@ if [ -z "$SSH_KEY_E" ]; then
   exit 1
 fi
 base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
-export SSH_AUTH_SOCK=none GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa"
-ssh-keyscan -H "git.dev.tencent.com" >> ~/.ssh/known_hosts
+export SSH_AUTH_SOCK=none GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa"
 
 
 # Fetch extra necessary things
@@ -29,7 +28,7 @@ e_info "Adding commit info"
 # Since we're pushing to another host, we want to torch the history
 rm -rf .git
 git init
-git remote add origin "git@git.dev.tencent.com:iBugOne/iBugOne.coding.me.git"
+git remote add origin "${ORIGIN:-git@git.dev.tencent.com:iBugOne/iBugOne.coding.me.git}"
 git config user.name "iBug"
 git config user.email "iBug@users.noreply.github.com"
 git add --all
