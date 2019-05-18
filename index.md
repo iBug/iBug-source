@@ -4,7 +4,7 @@ layout: splash
 header:
   overlay_color: "#000"
   overlay_filter: "0"
-  overlay_image: "https://ibugone.com/image/mm/splash.jpg"
+  overlay_image: "/image/mm/splash.jpg"
   actions:
     - label: "<i class='fas fa-user-circle'></i> More"
       url: "/about"
@@ -13,14 +13,14 @@ excerpt: "The little personal website of iBug. Still in BETA  \n&nbsp;"
 #intro:
 #  - excerpt: "Not applicable"
 feature_row:
-  - image_path: "https://ibugone.com/image/mm/blog.jpg"
+  - image_path: "/image/mm/blog.jpg"
     alt: "blog title"
     title: "Blogs"
     excerpt: "iBug is a casual, yet lazy blogger, and he occasionally writes something about his new discoveries."
     url: "/blog"
     btn_label: "<i class='fas fa-book-reader'></i> Read"
     btn_class: "btn--primary"
-  - image_path: "https://ibugone.com/image/mm/projects.jpg"
+  - image_path: "/image/mm/projects.jpg"
     #image_caption: ""
     alt: "project image"
     title: "Projects"
@@ -28,7 +28,7 @@ feature_row:
     url: "/project"
     btn_label: "<i class='fas fa-globe'></i> Explore"
     btn_class: "btn--primary"
-  - image_path: "https://ibugone.com/image/mm/chinese.jpg"
+  - image_path: "/image/mm/chinese.jpg"
     alt: "chinese language"
     title: "Chinese Content 中文内容"
     excerpt: |
@@ -38,7 +38,7 @@ feature_row:
     btn_label: "<i class='fas fa-th-list'></i> 查看"
     btn_class: "btn--primary"
 stack_overflow:
-  - image_path: "https://ibugone.com/image/stack-overflow.jpg"
+  - image_path: "/image/stack-overflow.jpg"
     alt: "Stack Overflow"
     title: "Stack Overflow Activity"
     excerpt: "iBug is an avid user on Stack Overflow and has asked and answers a lot of questions. You're highly encouraged to checkout his profile on Stack Overflow."
