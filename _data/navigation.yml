@@ -1,0 +1,17 @@
+main: # Top nav bar
+  - title: "About"
+    url: /about
+  - title: "Blog"
+    url: /blog
+  - title: "Projects"
+    url: /project
+  - title: "GitHub"
+    url: https://github.com/iBug
+  - title: "Site Status"
+    url: /status
+
+sidebar:
+  - title: "iBug"
+    children:
+      - title: "Main Page"
+        url: /

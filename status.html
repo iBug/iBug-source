@@ -1,16 +1,12 @@
 ---
-layout: default
+layout: single
 title: Status
 tagline: Site information
-buttons:
-  -
-    url: /
-    text: Return to Home
 ---
 
 <dl>
   <dt>Build time</dt>
-  <dd><time datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%B %-d, %Y at %H:%M:%SZ" }}</time></dd>
+  <dd><time datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%B %-d, %Y at %H:%M:%S" }}</time></dd>
 
 	<dt>Current time</dt>
 	<dd id="current-time"></dd>

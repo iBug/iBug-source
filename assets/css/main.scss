@@ -1,0 +1,12 @@
+---
+---
+
+$serif      : Georgia, Times, serif;
+$sans-serif : -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", "Microsoft YaHei", Arial, sans-serif;
+$monospace  : Monaco, Consolas, "Lucida Console", monospace;
+
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials

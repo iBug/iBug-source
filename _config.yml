@@ -1,43 +1,255 @@
-title: "iBug ①"
-description: The small personal site for iBug
-url: https://ibugone.com
-baseurl: ""
-source_url: https://github.com/iBug/iBug-source
-theme_color: "#159A34"
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve`. If you change this file, please restart the server process.
 
-author: iBug
+# Theme Settings
+#
+# Review documentation to determine if you should use `theme` or `remote_theme`
+# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
+
+theme                    : "minimal-mistakes-jekyll"
+# remote_theme           : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "default", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Site Settings
+locale                   : "en-US"
+title                    : "iBug ①"
+title_separator          : "-"
+name                     : "iBug"
+description              : "The little personal site for iBug"
+url                      : "https://ibugone.com"
+baseurl                  : ""
+repository               : "iBug/iBug.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "/assets/favicon.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+masthead_title           : "iBug" # overrides the website title displayed in the masthead, use " " for no title
+breadcrumbs              : false # true, false (default)
+words_per_minute         : 200
+comments:
+  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  disqus:
+    shortname            : "ibugone" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+  discourse:
+    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
+  facebook:
+    # https://developers.facebook.com/docs/plugins/comments
+    appid                :
+    num_posts            : # 5 (default)
+    colorscheme          : # "light" (default), "dark"
+  utterances:
+    theme                : # "github-light" (default), "github-dark"
+    issue_term           : # "pathname" (default)
+staticman:
+  allowedFields          : # ['name', 'email', 'url', 'message']
+  branch                 : # "master"
+  commitMessage          : # "New comment by {fields.name}"
+  filename               : # comment-{@timestamp}
+  format                 : # "yml"
+  moderation             : # true
+  path                   : # "/_data/comments/{options.slug}" (default)
+  requiredFields         : # ['name', 'email', 'message']
+  transforms:
+    email                : # "md5"
+  generatedFields:
+    date:
+      type               : # "date"
+      options:
+        format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+  endpoint               : # URL of your own deployment with trailing slash, will fallback to the public instance
+reCaptcha:
+  siteKey                :
+  secret                 :
+atom_feed:
+  path                   : # blank (default) uses feed.xml
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
+search_provider          : algolia # lunr (default), algolia, google
+algolia:
+  application_id         : "14DZKASAEJ"
+  index_name             : "iBug_website"
+  search_only_api_key    : "a0d8cb9da2d6ad0d17dcd40c58c72a56"
+  powered_by             : true # true (default), false
+google:
+  search_engine_id       : # YOUR_SEARCH_ENGINE_ID
+  instant_search         : # false (default), true
+# SEO Related
+google_site_verification : "5_jn7a-vZslUtLJO-BkY-cPDGgah5JP49RGgeOBmYSk"
+bing_site_verification   :
+yandex_site_verification :
+naver_site_verification  :
+
+# Social Sharing
+twitter:
+  username               :
+facebook:
+  username               :
+  app_id                 :
+  publisher              :
+og_image                 : # Open Graph/Twitter default site image
+# For specifying social profiles
+# - https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : Person # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+
+# Analytics
+analytics:
+  provider               : "google" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : "UA-115907213-1"
+    anonymize_ip         : false # true, false (default)
+
+
+# Site Author
+author:
+  name             : "iBug"
+  avatar           : "/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "CS amateur, indie developer"
+  location         : null # "China"
+  email            : null # "mailto:ibug.github@outlook.com"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:ibug.github@outlook.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      # url: "https://ibugone.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      # url: "https://twitter.com/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      # url: "https://facebook.com/"
+    - label: "Stack Overflow"
+      icon: "fab fa-fw fa-stack-overflow"
+      url: "https://stackoverflow.com/users/5958455/ibug"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/iBug"
+    - label: "Telegram Channel"
+      icon: "fab fa-fw fa-telegram-plane"
+      url: "https://t.me/ibugthought"
+
+# Site Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      # url:
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      # url:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/iBug"
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      # url:
+    - label: "Bitbucket"
+      icon: "fab fa-fw fa-bitbucket"
+      # url:
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      # url:
+
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - "*.yml"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .circleci/
+  - .git-metadata
+  - .jekyll-assets-cache
+  - .sass-cache
+  - .travis.yml
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  # Capfile
+  # CHANGELOG
+  # config
+  - ext/
+  - Gemfile
+  - Gemfile.lock
+  # Gruntfile.js
+  # gulpfile.js
+  - LICENSE
+  # log
+  # node_modules
+  # package.json
+  # Rakefile
+  - README.md
+  - REMOTE_README.md
+  # tmp
+  - /script
+keep_files:
+  - .git
+  - .circleci
+  - .nojekyll
+  - README.md
+  - CNAME
+  - image/
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  #smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  math_engine: mathjax
+  parse_block_html: false # true
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      #start_line: 1
+
+
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+
+# Outputting
+source_url: "https://github.com/iBug/iBug-source"
 index_url: /blog
 permalink: /blog/:year/:month/:title.html
-
-#date_format: "%b %-d, %Y at %-H:%M"
-date_format: "%b %-d, %Y"
-timezone: UTC
-
-exclude: ["Gemfile", "Gemfile.lock", "node_modules", "vendor/", "README.md", "REMOTE_README.md"]
-keep_files: [".git", ".nojekyll", "README.md", "CNAME"]
-
-plugins:
-  # Class 1: Default plugins on GitHub Pages
-  - jekyll-gist
-  - jekyll-github-metadata
-  #- jekyll-paginate
-  - jekyll-relative-links
-  - jekyll-optional-front-matter
-  #- jekyll-readme-index
-  - jekyll-default-layout
-  - jekyll-titles-from-headings
-
-  # Class 2: Optional plugins on GitHub Pages
-  - jekyll-redirect-from
-  - jekyll-mentions
-  - jekyll-seo-tag
-  #- jekyll-coffeescript
-
-  # Class 3: Not supported by GitHub Pages
-  # Use Gemfile
+timezone: "Asia/Shanghai" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+date_format: "%b %-d, %Y" # "%b %-d, %Y at %-H:%M"
 
 #paginate: 5
-#paginate_path: "/blog/page:num/"
+paginate_path: "/blog/page:num/"
 pagination:
   enabled: true
   per_page: 5
@@ -49,44 +261,139 @@ pagination:
     before: 3
     after: 3
 
-tag_page_layout: tag_page
-tag_page_dir: tags
+collections:
+  cn:
+    output: true
+    permalink: /:collection/:path
 
-assets:
-  compression: true
+#tag_page_layout: tag_page
+#tag_page_dir: tags
 
-# Don't mistake this for Jekyll's "defaults" key!
-default:
-  post_tagline: "Brought to you by iBug"
 
+# Plugins (previously gems:)
+plugins:
+  # Class 1: Default plugins on GitHub Pages
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-sitemap
+  #- jekyll-paginate
+  #- jekyll-feed
+  #- jemoji
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  #- jekyll-readme-index
+  - jekyll-default-layout
+  #- jekyll-titles-from-headings
+
+  # Class 2: Optional plugins on GitHub Pages
+  - jekyll-redirect-from
+  - jekyll-mentions
+  - jekyll-seo-tag
+  #- jekyll-coffeescript
+  - jekyll-include-cache
+
+  # Class 3: Not supported by GitHub Pages
+  # Use Gemfile
+
+
+# mimic GitHub Pages with --safe
+whitelist:
+  #- jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  #- jekyll-feed
+  #- jemoji
+  - jekyll-include-cache
+
+
+# Archives
+#  Type
+#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
+#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
+#  Path (examples)
+#  - Archive page should exist at path when using Liquid method or you can
+#    expect broken links (especially with breadcrumbs enabled)
+#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
+#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
+#  - <base_path/my-awesome-category/index.html ~> path: /
+category_archive:
+  type: jekyll-archives # liquid
+  path: /categories/
+tag_archive:
+  type: jekyll-archives # liquid
+  path: /tags/
+# https://github.com/jekyll/jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+
+# HTML Compression
+# - http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+
+# Defaults
 defaults:
-  -
-    scope:
-      path: "cn"
+  # _posts
+  - scope:
+      path: ""
+    values:
+      toc_sticky: true
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      toc: true
+      #toc_label: "On this page"
+      #toc_icon: "file-alt"
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+      share: true
+      related: false
+  - scope:
+      path: ""
+      type: cn
     values:
       lang: "zh-CN"
-
-markdown: kramdown
-highlighter: rouge
-
-kramdown:
-  auto_ids: true
-  math_engine: mathjax
-  parse_block_html: true
-
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
-
-social:
-  links:
-    - https://stackoverflow.com/users/5958455
-  lang: en_US
-
-google_analytics: UA-115907213-1
+      locale: "zh-CN"
+      layout: single
+      author_profile: true
+      toc: true
+      toc_label: "目录"
+      toc_icon: "th-list"
+  - scope:
+      path: ""
+      type: tag
+    values:
+      author_profile: true
+      read_time: false
+      share: true
+      related: false
+  - scope:
+      path: ""
+      type: category
+    values:
+      author_profile: true
+      share: true
+      related: false
