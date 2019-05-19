@@ -41,7 +41,7 @@ stack_overflow:
   - image_path: "/image/stack-overflow.jpg"
     alt: "Stack Overflow"
     title: "Stack Overflow Activity"
-    excerpt: "iBug is an avid user on Stack Overflow and has asked and answers a lot of questions. You're highly encouraged to checkout his profile on Stack Overflow."
+    excerpt: "iBug is an avid user on Stack Overflow and has asked and answered a lot of questions. You're highly encouraged to checkout his profile on Stack Overflow."
     url: "https://stackoverflow.com/users/5958455/ibug"
     btn_label: "Go <i class='fas fa-arrow-circle-right'></i>"
     btn_class: "btn--primary"

@@ -16,6 +16,7 @@ before_script:
 
 script:
   - ruby script/cv.rb
+  - bundle exec jekyll algolia
   - bundle exec jekyll build --config "_config.yml,_extra.yml"
 
 after_success:
