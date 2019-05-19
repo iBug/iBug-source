@@ -4,6 +4,7 @@ require 'yaml'
 require 'time'
 
 data = YAML.load_file 'cv.yml'
+options = '{::options parse_block_html="true" /}'
 
 body = data['events'].sort.reverse.map do |date, text|
   "<dt>#{date.strftime "%b %e, %Y"}</dt>\n<dd>\n#{text.strip}\n</dd>\n"
@@ -14,5 +15,5 @@ links = data['links'].sort.map do |k, v|
 end
 
 File.open "cv.md", "w" do |f|
-  f.write "#{data['front_matter'].to_yaml}---\n\n<dl>\n#{body.join "\n"}</dl>\n\n#{links.join "\n"}\n"
+  f.write "#{data['front_matter'].to_yaml}---\n\n#{options}\n\n<dl>\n#{body.join "\n"}</dl>\n\n#{links.join "\n"}\n"
 end
