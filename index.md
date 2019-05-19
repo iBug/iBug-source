@@ -43,9 +43,6 @@ stack_overflow:
     url: "https://stackoverflow.com/users/5958455/ibug"
     btn_label: "Go <i class='fas fa-arrow-circle-right'></i>"
     btn_class: "btn--primary"
-link_section:
-  - title: "Friendly links"
-    excerpt: "[My telegram channel](https://t.me/ibugthought) where I share random ideas  \n\nMy roommate, [TaoKY's personal site](https://blog.taoky.moe/) (He writes Simplified Chinese, while I prefer English)"
 ---
 
 {% comment %}
@@ -71,7 +68,12 @@ feature_row4:
 
 {% include feature_row id="stack_overflow" type="left" %}
 
-{% include feature_row id="link_section" %}
+### Friendly links
+
+[My telegram channel](https://t.me/ibugthought) where I share random ideas
+
+My roommate, [TaoKY's personal site](https://blog.taoky.moe/)  
+(He writes Simplified Chinese, while I prefer English)
 
 {% comment %}
 
