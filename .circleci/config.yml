@@ -29,7 +29,7 @@ jobs:
           command: ruby script/cv.rb
       - run:
           name: Create Algolia search index
-          command: '[ -z "$CRON" ] && bundle exec jekyll algolia'
+          command: 'if [ -z "$CRON" ]; then bundle exec jekyll algolia; fi'
       - run:
           name: Build with Jekyll
           command: bundle exec jekyll build
