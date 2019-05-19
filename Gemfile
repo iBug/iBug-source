@@ -9,7 +9,7 @@ group :jekyll_plugins do
     gem "jekyll-git_metadata"
     gem "jekyll-assets"
     gem "jekyll-algolia"
-    gem "jekyll-archives"
+    gem "jekyll-archives", '= 2.1.1'
     #gem "jekyll-liquify"
     gem "jekyll-paginate-v2"
     #gem "jekyll-tagging"
