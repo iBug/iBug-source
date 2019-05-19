@@ -1,3 +1,9 @@
+front_matter:
+  title: "Curriculum Vitae"
+  description: "iBug's Timeline"
+  layout: single
+  author_profile: true
+
 events:
   2019-01-22: |
     Reached 20k reputation on Stack Overflow

@@ -3,12 +3,6 @@
 require 'yaml'
 require 'time'
 
-front_matter = {
-  'title' => 'Curriculum Vitae',
-  'description' => "iBug's Timeline",
-  'layout' => "single",
-}
-
 data = YAML.load_file 'cv.yml'
 
 body = data['events'].sort.reverse.map do |date, text|
@@ -20,5 +14,5 @@ links = data['links'].sort.map do |k, v|
 end
 
 File.open "cv.md", "w" do |f|
-  f.write "#{front_matter.to_yaml}---\n\n<dl>\n#{body.join "\n"}</dl>\n\n#{links.join "\n"}\n"
+  f.write "#{data['front_matter'].to_yaml}---\n\n<dl>\n#{body.join "\n"}</dl>\n\n#{links.join "\n"}\n"
 end
