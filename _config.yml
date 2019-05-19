@@ -72,6 +72,10 @@ algolia:
   index_name             : "iBug_website"
   search_only_api_key    : "a0d8cb9da2d6ad0d17dcd40c58c72a56"
   powered_by             : true # true (default), false
+  files_to_exclude:
+    - index.md
+    - index.html
+    - _posts/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
