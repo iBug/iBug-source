@@ -10,8 +10,6 @@ header:
       url: "/about"
   #caption: "Photo credit?"
 excerpt: "The little personal website of iBug  \n&nbsp;"
-#intro:
-#  - excerpt: "Not applicable"
 feature_row:
   - image_path: "/image/mm/blog.jpg"
     alt: "blog title"
@@ -45,6 +43,9 @@ stack_overflow:
     url: "https://stackoverflow.com/users/5958455/ibug"
     btn_label: "Go <i class='fas fa-arrow-circle-right'></i>"
     btn_class: "btn--primary"
+link_section:
+  - title: "Friendly links"
+    excerpt: "[My telegram channel](https://t.me/ibugthought) where I share random ideas  \n\nMy roommate, [TaoKY's personal site](https://blog.taoky.moe/) (He writes Simplified Chinese, while I prefer English)"
 ---
 
 {% comment %}
@@ -64,14 +65,13 @@ feature_row4:
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
----
-
-{% include feature_row id="intro" type="center" %}
 {% endcomment %}
 
 {% include feature_row %}
 
 {% include feature_row id="stack_overflow" type="left" %}
+
+{% include feature_row id="link_section" %}
 
 {% comment %}
 
