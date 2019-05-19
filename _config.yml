@@ -383,6 +383,7 @@ defaults:
       locale: "zh-CN"
       layout: single
       author_profile: true
+      read_time: true
       toc: true
       toc_label: "目录"
       toc_icon: "th-list"
