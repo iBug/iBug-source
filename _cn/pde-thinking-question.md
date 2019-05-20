@@ -257,7 +257,7 @@ Plot3D[u[t, x], {x, 0, 10}, {t, 0, 60}]
 
 ### 4.3 动态图像
 
-通过将一维波形用动态图像展示出来可以很直观地看出不同的 $\omega = \cfrac {n\pi a}l$ 对弦的自由振动的影响。以下几张图分别取 $n=\cfrac 12,1,2,4$ 绘制。如果无法查看 PDF 中的动态图像，请在这里查看：[1](https://ibugone.com/image/PDE/a1.gif), [2](https://ibugone.com/image/PDE/a2.gif), [3](https://ibugone.com/image/PDE/a3.gif), [4](https://ibugone.com/image/PDE/a4.gif)。
+通过将一维波形用动态图像展示出来可以很直观地看出不同的 $\omega = \cfrac {n\pi a}l$ 对弦的自由振动的影响。以下几张图分别取 $n=\cfrac 12,1,2,4$ 绘制。
 
 当 $n = \cfrac 12$ 时，右端的受迫振动看起来与弦并不和谐，振幅维持在 $1$ 以下：
 
