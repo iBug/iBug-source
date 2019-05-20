@@ -1,5 +1,5 @@
 ---
-title: "数理方程选做题"
+title: "数理方程思考题"
 mathjax: true
 tags: study-notes
 comments: true
@@ -133,7 +133,7 @@ $$
 
 设一根张力为 $T$，密度 $\cfrac{\mathrm{d}m}{\mathrm{d}l}=\rho$ 的理想弦作自由振动，取其在惯性参考系下的一个波峰附近的一个微元，如图
 
-![image](0.png)
+![image](/image/PDE/0.png)
 
 设这一小段弦的曲率半径为 $R$，则该段微元对应的加速度
 
@@ -161,7 +161,7 @@ F_\bot = -2T\theta = \rho \cdot 2R\theta\left(-\cfrac {v^2}{R}\right)
 \therefore v = \sqrt{\cfrac T\rho}
 $$
 
-这时候我们发现，弦上的波速 $v$ 就是一位波动方程的参数 $a$。但是这有什么意义呢？
+这时候我们发现，弦上的波速 $v$ 就是一维波动方程的参数 $a$。但是这有什么意义呢？
 
 ### 3.3 驻波与固有频率
 
