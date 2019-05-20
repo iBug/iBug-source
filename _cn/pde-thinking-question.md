@@ -89,7 +89,8 @@ comments: true
 > 相加可得
 >
 > $$
-> u(t,x) = \cfrac {\sin\cfrac{\omega x}a}{\color{red}{\sin \cfrac{\omega l}a}}\sin\omega t + 2\omega al\sum_{n=1}^{+\infty}\cfrac{(-1)^{n+1}}{\color{red}{(\omega l)^2-(n\pi a)^2}}\sin\cfrac{n\pi at}l\sin\cfrac{n\pi x}l
+> u(t,x) = \cfrac {\sin\cfrac{\omega x}a}{\color{red}{\sin \cfrac{\omega l}a}}\sin\omega t + \\
+> \qquad 2\omega al\sum_{n=1}^{+\infty}\cfrac{(-1)^{n+1}}{\color{red}{(\omega l)^2-(n\pi a)^2}}\sin\cfrac{n\pi at}l\sin\cfrac{n\pi x}l
 > $$
 
 这就是原问题的解。
