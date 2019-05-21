@@ -21,6 +21,8 @@ Grading scale mechanism:
 However, since I'm only an amateur CS student without too many years of *solid* development experiences (without the word *solid*, I'd say **8**, but with it, I'd go with **5**, being conservative), I'm very hesitant give myself a single 5 score on anything, because I still need to check manuals and documentations on almost every technology I work with.
 For this reason, instead of numbers, I'll show the scores with stars. One &starf; means one score (and it's also more intuitive to look at).
 
+Not necessarily ordered in any ranking.
+
 {::options parse_block_html="true" /}
 
 ### Programming languages
@@ -50,13 +52,42 @@ Also long-term contributor to [SmokeDetector](https://github.com/Charcoal-SE/Smo
 [Stack Overflow activity](https://stackoverflow.com/search?q=user%3A5958455+%5Bbash%5D)
 </dd>
 
+<dt>VBScript #3#</dt>
+<dd>
+[A vicious project](https://github.com/iBug/Vira-2) and [some gadgets](https://github.com/iBug/vbsGadgets).
+</dd>
+
+<dt>SQL #1#</dt>
+<dd>
+Merely touched and played with. Built some projects with MariaDB. SQLite CLI utility is good for tampering game saves :)
+</dd>
+
+<dt>Ruby #1#</dt>
+<dd>
+</dd>
+
+<dt>Verilog #1#</dt>
+<dd>
+Learned from school courses "Digital Circuit labs" and "Computer Organization and Design labs".
+</dd>
+
+<dt>Flash ActionScript #2#</dt>
+<dd>
+[A very addictive plane-shooting game](https://github.com/iBug/SpaceRider) when I wrote back when I was 14. ([Project home page](/SpaceRider))
+</dd>
+
+<dt>The Web Trilogy (HTML/CSS/JavaScript) #2#</dt>
+<dd>
+[The ugly "previous" website](https://classic.ibugone.com) that I designed and wrote on my own. Also a few pages on this site contains short JS snippets serving for various purposes.
+</dd>
+
 <dt>Regular expressions #5#</dt>
 <dd>
 The only item on this page that I dare claiming solid knowledge on. Still learned and practiced in the SmokeDetector project linked above.
 </dd>
 </dl>
 
-### Tools and others
+### Tools and technologies
 
 <dl class="rating-table">
 <dt>Git #3#</dt>
@@ -65,18 +96,18 @@ I was about to give myself a score of 5 on this when I realized that Ciro Santil
 Then I reevaluated myself and gave a score of only 3 - I can't even write a fifth of Ciro's tutorial.
 </dd>
 
-<dt>SQL #1#</dt>
+<dt>Linux CLI Usage #3#</dt>
 <dd>
-Merely touched and played with. SQLite CLI utility is good for tampering game saves :)
+Daily working environment (WSL) with enough supporting knowledge. Ironically, I don't have a preferred desktop environment because I mostly work in CLI.
+
+What about checking out [my tmux config](/ext/conf/tmux.conf)?
 </dd>
 
-<dt>Linux #3#</dt>
+<dt>Make #1#</dt>
 <dd>
-Daily working environment (WSL) with enough supporting knowledge.
+My preferred build automation system. Usually writes `Makefile` for personal projects.
 </dd>
 </dl>
-
-More TBA...
 
 <!-- Working around kramdown not recognizing &star; and &starf; -->
 
