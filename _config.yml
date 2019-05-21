@@ -73,8 +73,13 @@ algolia:
   search_only_api_key    : "a0d8cb9da2d6ad0d17dcd40c58c72a56"
   powered_by             : true # true (default), false
   files_to_exclude:
+    - 404.md
     - index.md
     - index.html
+    - old-index.md
+    - README.md
+    - REMOTE_README.md
+    - status.html
     - _posts/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
