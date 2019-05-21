@@ -24,6 +24,7 @@ Personally:
   - Chinese (Native speaker)
   - English (Proficient as a foreign language)
 - **Secondary languages<sup>2</sup>**: French, Spanish and Italian (all read-only)
+- Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 
 My profile on Stack Overflow:
 
