@@ -2,6 +2,8 @@
 title: "Toutes les histoires"
 tags: miscellaneous
 redirect_from: /p/20
+
+published: true
 ---
 
 Toutes les histoires commencent pareil,
