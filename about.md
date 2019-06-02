@@ -30,10 +30,10 @@ My profile on Stack Overflow:
 
 <p>
 <center>
-<a href="https://stackoverflow.com/users/5958455">
+<a href="https://stackoverflow.com/users/5958455" style="text-decoration: initial;">
 <img alt="Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;"/>
 </a>
-<a href="https://stackexchange.com/users/7886663">
+<a href="https://stackexchange.com/users/7886663" style="text-decoration: initial;">
 <img alt="Profile for iBug at Stack Exchange" src="https://stackexchange.com/users/flair/7886663.png" class="card" style="margin-top: 0.2rem;"/>
 </a>
 </center>
