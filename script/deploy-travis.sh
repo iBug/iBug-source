@@ -35,7 +35,7 @@ git add --all
 git commit --quiet --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
 
 e_info "Pushing to Coding.net"
-git push origin +${BRANCH:-master} &>/dev/null
+#git push origin +${BRANCH:-master} &>/dev/null
 
 popd &>/dev/null
 e_success "Successfully deployed to Coding Pages"
