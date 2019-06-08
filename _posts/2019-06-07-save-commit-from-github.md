@@ -3,7 +3,7 @@ title: "How I saved a lost commit from GitHub"
 tags: git github study-notes
 redirect_from: /p/20
 
-published: false
+published: true
 ---
 
 Earlier today I force-pushed to my repository [USTC-RV-Chisel](https://github.com/iBug/USTC-RV-Chisel) for testing purposes,
