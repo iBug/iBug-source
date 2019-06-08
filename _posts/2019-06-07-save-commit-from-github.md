@@ -14,15 +14,15 @@ Fortunately, I haven't closed my terminal yet, so there's at least some place to
 
 ![image](/image/git-restore/1.png)
 
-From the terminal log, I knew that the SHA of the lost commit begins with `b3c3b36`, so it appeared very intuitive for me to just try fetching the commit, but no lock:
+From the terminal log, I knew that the SHA of the lost commit begins with `b3c3b36`, so it appeared very intuitive for me to just try fetching the commit, but no luck:
 
 ![image](/image/git-restore/2.png)
 
-I recall that GitHub can show commits with only first 7 digits of its SHA, so I constructed the URL <https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36> and followed it:
+I recalled that GitHub can show commits with only first 7 digits of its SHA, so I constructed the URL <https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36> and followed it:
 
 ![image](/image/git-restore/3.png)
 
-Now try it again with the full SHA that's easily retrieved from the web page:
+Now trying it again with the full SHA that's easily retrieved from the web page:
 
 ![image](/image/git-restore/4.png)
 
@@ -34,17 +34,15 @@ Thinking around for ideas, I decided to give it a try to rebuild the commit.
 
 First, I prepare my working directory with
 
-```shell
-git add -A
-git stash
-git reset --hard ee216e3  # This is the parent commit of the lost commit
-```
+    git add -A
+    git stash
+    git reset --hard ee216e3  # This is the parent commit of the lost commit
 
 Then, I need the full content of the tree of the commit.
 
 While GitHub offers ZIP archive download at the tree page <https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36>, ZIP isn't good for this job - it doesn't preserve POSIX file modes, so I looked around for the TAR archive (tarball). It wasn't on the page.
 
-Thinking around again, I recall working with the GitHub API, and there's an endpoint to get a tarball.
+Thinking around again, I recalled working with the GitHub API, and there's an endpoint to get a tarball.
 It wasn't hard to construct the desired GitHub API call URL:
 
     curl -v https://api.github.com/repos/iBug/USTC-RV-Chisel/tarball/b3c3b3683a6f5961dcde2d6c5312c31d9f382865
