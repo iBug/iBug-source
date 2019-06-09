@@ -14,3 +14,20 @@ $monospace  : Monaco, Consolas, "Lucida Console", monospace;
 blockquote {
 	font-style: normal;
 }
+
+html {
+	box-sizing: border-box;
+	font-size: 14px;
+
+	@include breakpoint($medium) {
+		font-size: 16px;
+	}
+
+	@include breakpoint($large) {
+		font-size: 18px;
+	}
+
+	@include breakpoint($x-large) {
+		font-size: 20px;
+	}
+}
