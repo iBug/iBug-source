@@ -5,4 +5,6 @@ permalink: /cn/
 collection: cn
 author_profile: true
 classes: wide
+pagination:
+  enabled: true
 ---
