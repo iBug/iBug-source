@@ -1,5 +1,6 @@
 ---
 title: "数理方程思考题"
+date: 2019-05-20
 mathjax: true
 tags: study-notes
 comments: true

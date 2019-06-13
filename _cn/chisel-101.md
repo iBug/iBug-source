@@ -1,5 +1,6 @@
 ---
 title: "Chisel 配置及入门"
+date: 2018-12-19
 tagline: "从配置到生成 Verilog"
 tags: study-notes
 comments: true
