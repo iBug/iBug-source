@@ -253,22 +253,27 @@ sass:
 # Outputting
 source_url: "https://github.com/iBug/iBug-source"
 index_url: /blog
-permalink: /blog/:year/:month/:title.html
+permalink: /blog/:year/:month/:title/
 timezone: "Asia/Shanghai" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 date_format: "%b %-d, %Y" # "%b %-d, %Y at %-H:%M"
 
-#paginate: 5
-paginate_path: "/blog/page:num/"
+paginate: null
+paginate_path: null
 pagination:
   enabled: true
   per_page: 5
-  permalink: "/page:num/"
+  permalink: "/:num/"
   title: ":title - :num of :max"
+  limit: 0
   sort_field: "date"
   sort_reverse: true
   trail:
     before: 3
     after: 3
+
+autopages:
+  collections:
+    enabled: true
 
 collections:
   cn:
@@ -307,7 +312,7 @@ plugins:
 
 # mimic GitHub Pages with --safe
 whitelist:
-  #- jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   #- jekyll-feed
