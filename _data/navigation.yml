@@ -7,8 +7,8 @@ main: # Top nav bar
     url: /project
   - title: "GitHub"
     url: https://github.com/iBug
-  - title: "Site Status"
-    url: /status
+  - title: "中文内容"
+    url: /cn
 
 sidebar:
   - title: "iBug"
