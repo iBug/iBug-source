@@ -4,8 +4,7 @@ description: "Another JavaScript project"
 tagline: ""
 tags: keygen
 redirect_from: /p/19
-
-published: true
+toc: false
 ---
 
 **Supports Wolfram Mathematica 12.0**

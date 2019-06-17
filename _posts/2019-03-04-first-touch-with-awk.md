@@ -4,8 +4,7 @@ description: null
 tagline: "How I replaced three text-processing commands with one"
 tags: study-notes
 redirect_from: /p/17
-
-published: true
+toc: false
 ---
 
 It's again when I want to find out what packages I have manually installed (or by a script) from the output of `apt list`, with all output on one line.

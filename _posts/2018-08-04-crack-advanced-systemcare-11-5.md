@@ -4,10 +4,10 @@ description: "Advanced SystemCare is a software that's really easy to crack.\nGe
 tagline: "The most interesting software registration, ever."
 tags: software
 redirect_from: /p/11
-
-kramdown:
-  parse_block_html: true
+toc: false
 ---
+
+{::options parse_block_html="true" /}
 
 [Advanced SystemCare][asc] offers **Full Optimization & Protection for Cleaner, Faster and More Secured PC**.
 

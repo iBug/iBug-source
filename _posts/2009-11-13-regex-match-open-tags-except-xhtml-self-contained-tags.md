@@ -7,6 +7,7 @@ show_view: true
 view_name: Stack Overflow
 view_url: https://stackoverflow.com/a/1732454/5958455
 redirect_from: /p/5
+toc: false
 ---
 
 Original post: **[RegEx match open tags except XHTML self-contained tags](https://stackoverflow.com/a/1732454/5958455)** by [bobince](https://stackoverflow.com/u/18936) on Stack Overflow

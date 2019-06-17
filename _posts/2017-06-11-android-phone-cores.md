@@ -7,8 +7,8 @@ tags: stack-exchange android
 show_view: true
 view_name: Android Enthusiasts
 view_url: https://android.stackexchange.com/a/176503/205764
-redirect_from:
-  - /p/2
+redirect_from: /p/2
+toc: false
 ---
 
 Laptops have usually at most four cores, and dualcores are probably more common. I have recently switched from quadcore to dualcore and I can confirm there is a limited number of use cases for quadcore, even with CPU intensive tasks.

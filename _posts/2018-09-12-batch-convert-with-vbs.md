@@ -4,13 +4,7 @@ description: "It could be a nightmare to process 30+ files by hand, opening each
 tagline: "How scripting eases your work"
 tags: development microsoft-office
 redirect_from: /p/12
-
-show_view: true
-view_name: "GitHub"
-view_url: "https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/MassConv_PPTX-PDF.vbs"
-show_download: false
-download_name: "Stack Overflow"
-download_url: "https://stackoverflow.com"
+toc: false
 ---
 
 The **TL:DR** line: If you want my script, you can get it [here][1].
@@ -44,5 +38,5 @@ I then fixed the issue and the script finally worked, converting all the given P
 You can find the final script [here][1].
 
 
-  [1]: https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs
+  [1]: https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/MassConv_PPTX-PDF.vbs
   [2]: https://www.thespreadsheetguru.com/the-code-vault/powerpoint-vba-save-presentation-as-pdf-in-same-folder

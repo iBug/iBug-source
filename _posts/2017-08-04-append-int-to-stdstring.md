@@ -7,8 +7,8 @@ tags: stack-overflow development
 show_view: true
 view_name: Stack Overflow
 view_url: https://stackoverflow.com/a/45505795/5958455
-redirect_from:
-  - /p/1
+redirect_from: /p/1
+toc: false
 ---
 
 For people new to template resolution and template type deduction in C++, they may have written this code and get confused why it doesn't compile:
