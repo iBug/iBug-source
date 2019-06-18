@@ -6,7 +6,7 @@ header:
   overlay_filter: "0"
   overlay_image: "/image/mm/splash.jpg"
   actions:
-    - label: "<i class='fas fa-user-circle'></i> More"
+    - label: "<i class='fas fa-user-circle'></i> About"
       url: "/about"
   #caption: "Photo credit?"
 excerpt: "The little personal website of iBug  \n&nbsp;"
