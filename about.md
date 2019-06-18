@@ -6,17 +6,17 @@ author_profile: true
 comments: true
 ---
 
-CS student and hobby programmer. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and SysAdmin.
+CS student and hobbist programmer. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and Linux SysAdmin.
 
 - **Primary languages<sup>1</sup>**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
 - **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
-- **Minor languages<sup>1</sup> and learning**: SQL, PHP, AWK, Perl
+- **Other languages<sup>1</sup> and technologies**: Nginx, SQL (MySQL / MariaDB), PHP, AWK, Perl
 - **Favorite VCS**: Git (and proficient with it)
-- **Favorite automation**: Shell scripts, Make, Cron
+- **Favorite automation**: Shell scripts, Make, Cron, At
 - **Favorite text editor**: `<ESC>:wq` ([get my config](/ext/conf/vimrc))
-- **Daily environment**: Windows Subsystem for Linux (Ubuntu 18.04), with virtual machines to satisfy additional needs
+- **Daily environment**: Windows Subsystem for Linux (Ubuntu 19.04 Disco Dingo), with virtual machines and VPS's to satisfy additional needs
 
-MSI produces high-performance laptops with *very* comfortable keyboards. Must buy!
+MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
 
 Personally:
 
