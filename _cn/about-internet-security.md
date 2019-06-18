@@ -154,7 +154,7 @@ XcodeGhost 事件中大量国产应用程序受影响，其中不乏多个知名
 ## 参考资料
 
 1. 「网络安全基础及应用」课程第 1 章 PPT，<http://staff.ustc.edu.cn/~hsi/nsea/ch01.pdf>
-2. Virus:DOS/CIH Description | F-Secure Labs，<https://www.f-secure.com/v-descs/cih.shtml>
+2. Virus:DOS/CIH Description \| F-Secure Labs，<https://www.f-secure.com/v-descs/cih.shtml>
 3. CIH 作者陈盈豪在 HITCON 2013 上的演讲：兴趣执着和专注力让我与众不同，<https://bbs.pediy.com/thread-176361.htm>
 4. 李俊的人生病毒：靠熊猫烧香成毒王 网赌 7000 万二进宫，<https://news.ifeng.com/a/20180101/54713980_0.shtml>
 5. "熊猫烧香"作者被抓获 灰色资产成幕后元凶，<http://money.163.com/07/0213/02/3767TGC8002524SC.html>
