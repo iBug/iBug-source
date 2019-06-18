@@ -410,5 +410,6 @@ defaults:
       type: category
     values:
       author_profile: true
+      read_time: false
       share: true
       related: false
