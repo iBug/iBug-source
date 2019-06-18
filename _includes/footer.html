@@ -20,6 +20,8 @@
 	&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
 	{% if site.env.CIRCLE_BUILD_NUM %}
 	<br>
+	All content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a>.
+	<br>
 	Site version {{ site.env.CIRCLE_BUILD_NUM }}
 	{% endif %}
 </div>
