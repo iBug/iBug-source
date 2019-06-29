@@ -96,11 +96,16 @@ I was about to give myself a score of 5 on this when I realized that Ciro Santil
 Then I reevaluated myself and gave a score of only 3 - I can't even write a fifth of Ciro's tutorial.
 </dd>
 
-<dt>Linux CLI Usage #3#</dt>
+<dt>Linux CLI #3#</dt>
 <dd>
 Daily working environment (WSL) with enough supporting knowledge. Ironically, I don't have a preferred desktop environment because I mostly work in CLI.
 
-What about checking out [my tmux config](/ext/conf/tmux.conf)?
+What about checking out [my tmux config](https://ibug.github.io/ext/conf/tmux.conf)?
+</dd>
+
+<dt>Docker #1#</dt>
+<dd>
+My favorite application deployment solution, but haven't got much experience with it.
 </dd>
 
 <dt>Make #1#</dt>
