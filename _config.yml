@@ -32,33 +32,6 @@ comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
     shortname            : "ibugone" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    # https://developers.facebook.com/docs/plugins/comments
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-  utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
-staticman:
-  allowedFields          : # ['name', 'email', 'url', 'message']
-  branch                 : # "master"
-  commitMessage          : # "New comment by {fields.name}"
-  filename               : # comment-{@timestamp}
-  format                 : # "yml"
-  moderation             : # true
-  path                   : # "/_data/comments/{options.slug}" (default)
-  requiredFields         : # ['name', 'email', 'message']
-  transforms:
-    email                : # "md5"
-  generatedFields:
-    date:
-      type               : # "date"
-      options:
-        format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
-  endpoint               : # URL of your own deployment with trailing slash, will fallback to the public instance
 reCaptcha:
   siteKey                :
   secret                 :
@@ -102,7 +75,7 @@ og_image                 : # Open Graph/Twitter default site image
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : Person # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
+  name                   : iBug # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
 # Analytics
@@ -116,10 +89,10 @@ analytics:
 # Site Author
 author:
   name             : "iBug"
-  avatar           : "/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "https://ibugone.com/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "CS amateur, indie developer"
   location         : null # "China"
-  email            : null # "mailto:ibug.github@outlook.com"
+  email            : null # "mailto:contact@ibugone.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -280,9 +253,6 @@ collections:
     output: true
     permalink: "/:collection/:path/"
 
-#tag_page_layout: tag_page
-#tag_page_dir: tags
-
 
 # Plugins (previously gems:)
 plugins:
@@ -290,20 +260,20 @@ plugins:
   - jekyll-gist
   - jekyll-github-metadata
   - jekyll-sitemap
-  #- jekyll-paginate
-  #- jekyll-feed
-  #- jemoji
+  # jekyll-paginate
+  # jekyll-feed
+  # jemoji
   - jekyll-relative-links
   - jekyll-optional-front-matter
-  #- jekyll-readme-index
+  # jekyll-readme-index
   - jekyll-default-layout
-  #- jekyll-titles-from-headings
+  # jekyll-titles-from-headings
 
   # Class 2: Optional plugins on GitHub Pages
   - jekyll-redirect-from
   - jekyll-mentions
   - jekyll-seo-tag
-  #- jekyll-coffeescript
+  # jekyll-coffeescript
   - jekyll-include-cache
 
   # Class 3: Not supported by GitHub Pages
@@ -315,8 +285,8 @@ whitelist:
   - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
-  #- jekyll-feed
-  #- jemoji
+  # jekyll-feed
+  # jemoji
   - jekyll-include-cache
 
 
