@@ -10,8 +10,16 @@ main: # Top nav bar
   - title: "中文内容"
     url: /cn
 
-sidebar:
-  - title: "iBug"
+home:
+  - title: "iBug on the Web"
     children:
-      - title: "Main Page"
-        url: /
+      - title: "Home"
+        url: "/"
+      - title: "About iBug"
+        url: "/about/"
+      - title: "Skills"
+        url: "/skill/"
+      - title: "Projects"
+        url: "/project/"
+      - title: "CV (beta)"
+        url: "/cv/"
