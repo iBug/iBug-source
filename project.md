@@ -14,21 +14,19 @@ I joined the team in December 2017, and [was recognized as a developer](/p/3) in
 
 This is the largest project in this page and also the first existing project that I've joined (all other projects are started from scratch).
 
-### [Tetris with AI](/TetrisAI)
+### [Tetris with AI](https://github.com/iBug/TetrisAI)
 A good game automation that you *must* try and watch!
 
-### [SpaceRider](/SpaceRider)
+### [SpaceRider](https://github.com/iBug/SpaceRider)
 An old Flash plane-shooting game that I made when I was 13. ActionScript 2.0 (so expect that it won't run very fluently on a low-end computer)
 
-### [Python Reversi](/PyReversi)
+### [Python Reversi](https://github.com/iBug/PyReversi)
 An implementation of the classic Reversi / Othello game using Python and PyQt5. It has an intensive AI that's hard to beat.
 
-### [Human Resource Machine Programming Language](/HRM)
-
-### [Aurora Theme](/aurora-theme)
+### [Aurora Theme](https://ibugone.com/aurora-theme)
 Aurora is a clean, responsive Jekyll theme for GitHub Pages.
 
 And it's the theme for my Project Pages. I have published this theme [on RubyGems](https://rubygems.org/gems/aurora-theme).
 
-### [College Physics Experiments Toolbox](/CPE-Toolbox) (incomplete)
+### [College Physics Experiments Toolbox](https://ibugone.com/CPE-Toolbox) (incomplete)
 A set of tools made to make College Physics Experiments easy!
