@@ -25,9 +25,6 @@ jobs:
           name: Prepare build
           command: bash script/prepare.sh
       - run:
-          name: Generate missing pages
-          command: ruby script/cv.rb
-      - run:
           name: Build with Jekyll
           command: bundle exec jekyll build
       - run:

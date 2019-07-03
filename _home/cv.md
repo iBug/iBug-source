@@ -1,27 +1,38 @@
-front_matter:
-  title: "Curriculum Vitae"
-  description: "iBug's Timeline"
-  layout: single
-  author_profile: true
+---
+title: "Curriculum Vitae"
+description: "iBug's Achievements & Timeline"
 
 events:
   2019-01-22: |
     Reached 20k reputation on Stack Overflow
   2019-01-15: |
     Awarded [`c` silver tag badge][c-2] on Stack Overflow.
+
+      [c-2]: https://stackoverflow.com/help/badges/52/c?userid=5958455
   2018-09-17: |
     Reached 15k reputation on Stack Overflow
   2018-06-13: |
     Gained push access to [SmokeDetector][SmokeDetector], a spam detection bot written in Python
 
     See [this chat message from a project owner][2018-06-13/1]
+
+      [SmokeDetector]: https://github.com/Charcoal-SE/SmokeDetector
+      [2018-06-13/1]: https://chat.stackexchange.com/transcript/message/45129909
   2018-02-27: |
     Awarded [`c++` silver tag badge][c++-2] on Stack Overflow.
+
+      [c++-2]: https://stackoverflow.com/help/badges/48/c?userid=5958455
   2018-02-06: |
     Reached 10k reputation on Stack Overflow.
+---
 
-links:
-  SmokeDetector: https://github.com/Charcoal-SE/SmokeDetector
-  2018-06-13/1: https://chat.stackexchange.com/transcript/message/45129909
-  c++-2: https://stackoverflow.com/help/badges/48/c?userid=5958455
-  c-2: https://stackoverflow.com/help/badges/52/c?userid=5958455
+{% assign events = page.events %}
+
+<dl>
+{% for event in events %}
+<dt>{{ event[0] }}</dt>
+<dd>
+{{ event[1] | markdownify }}
+</dd>
+{% endfor %}
+</dl>
