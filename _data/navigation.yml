@@ -17,9 +17,11 @@ home:
         url: "/"
       - title: '<i class="fas fa-smile"></i> About iBug'
         url: "/about/"
+      - title: '<i class="fas fa-book"></i> Blog'
+        url: "/blog/"
       - title: '<i class="fas fa-wrench"></i> Skills'
         url: "/skills/"
       - title: '<i class="fas fa-puzzle-piece"></i> Projects'
         url: "/project/"
-      - title: '<i class="far fa-address-card"></i> CV (beta)'
+      - title: '<i class="fas fa-address-card"></i> CV (beta)'
         url: "/cv/"
