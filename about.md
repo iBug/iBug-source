@@ -1,5 +1,13 @@
 ---
 title: "About iBug"
+layout: single
+classes: wide
+author_profile: true
+comments: true
+share: true
+related: false
+sidebar:
+  nav: home
 ---
 
 CS student and hobbist programmer. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and Linux SysAdmin.

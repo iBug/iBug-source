@@ -357,18 +357,6 @@ defaults:
       related: false
   - scope:
       path: ""
-      type: home
-    values:
-      layout: ibug_home
-      classes: wide
-      author_profile: true
-      comments: true
-      share: true
-      related: false
-      sidebar:
-        nav: home
-  - scope:
-      path: ""
       type: cn
     values:
       lang: "zh-CN"

@@ -1,6 +1,14 @@
 ---
 title: Projects
 description: A list of iBug's projects
+layout: single
+classes: wide
+author_profile: true
+comments: true
+share: true
+related: false
+sidebar:
+  nav: home
 ---
 
 ### [OJSandbox](https://github.com/taoky/OJSandbox)

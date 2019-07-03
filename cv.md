@@ -1,6 +1,14 @@
 ---
 title: "Curriculum Vitae"
 description: "iBug's Achievements & Timeline"
+layout: single
+classes: wide
+author_profile: true
+comments: true
+share: true
+related: false
+sidebar:
+  nav: home
 
 events:
   2019-01-22: |

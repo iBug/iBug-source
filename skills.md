@@ -1,5 +1,13 @@
 ---
 title: "Skills"
+layout: single
+classes: wide
+author_profile: true
+comments: true
+share: true
+related: false
+sidebar:
+  nav: home
 ---
 
 Grading scale mechanism:
