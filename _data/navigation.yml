@@ -13,13 +13,13 @@ main: # Top nav bar
 home:
   - title: "iBug on the Web"
     children:
-      - title: "Home"
+      - title: '<i class="fas fa-home"></i> Home'
         url: "/"
-      - title: "About iBug"
+      - title: '<i class="fas fa-smile"></i> About iBug'
         url: "/about/"
-      - title: "Skills"
-        url: "/skill/"
-      - title: "Projects"
+      - title: '<i class="fas fa-wrench"></i> Skills'
+        url: "/skills/"
+      - title: '<i class="fas fa-puzzle-piece"></i> Projects'
         url: "/project/"
-      - title: "<i class=\"far fa-address-card\"></i> CV (beta)"
+      - title: '<i class="far fa-address-card"></i> CV (beta)'
         url: "/cv/"
