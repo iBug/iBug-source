@@ -158,6 +158,7 @@ exclude:
   # Capfile
   # CHANGELOG
   # config
+  - Dockerfile
   - ext/
   - Gemfile
   - Gemfile.lock
