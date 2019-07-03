@@ -25,3 +25,5 @@ home:
         url: "/project/"
       - title: '<i class="fas fa-address-card"></i> CV (beta)'
         url: "/cv/"
+      - title: '<i class="fas fa-yin-yang"></i> Chinese Content'
+        url: "/cn/"

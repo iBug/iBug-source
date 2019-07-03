@@ -9,4 +9,6 @@ pagination:
   enabled: true
   collection: cn
   permalink: "/:num/"
+sidebar:
+  nav: "home"
 ---
