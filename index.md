@@ -1,6 +1,7 @@
 ---
 title: "iBug on the Web"
 layout: splash
+classes: ["landing"]
 header:
   overlay_color: "#000"
   overlay_filter: "0"
