@@ -21,6 +21,11 @@ I joined the team in December 2017, and [was recognized as a developer](/p/3) in
 
 This is the largest project in this page and also the first existing project that I've joined (all other projects are started from scratch).
 
+### [Chisel RISC-V](https://github.com/iBug/USTC-RV-Chisel)
+A Chisel implementation of the RISC-V CPU aiming to pave the way for its application in school teaching, across several courses, including *Introduction to Computer Systems (ICS)*, *Computer Organization and Design (COD)* and more. It consists of a RISC-V-based SoC design (hardware) and a full set of toolchain to compile C programs for the SoC.
+
+It is currently under development.
+
 ### [Tetris with AI](https://github.com/iBug/TetrisAI)
 A good game automation that you *must* try and watch!
 
