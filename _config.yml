@@ -54,9 +54,6 @@ algolia:
     - REMOTE_README.md
     - status.html
     - _posts/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md
-google:
-  search_engine_id       : # YOUR_SEARCH_ENGINE_ID
-  instant_search         : # false (default), true
 # SEO Related
 google_site_verification : "5_jn7a-vZslUtLJO-BkY-cPDGgah5JP49RGgeOBmYSk"
 bing_site_verification   :

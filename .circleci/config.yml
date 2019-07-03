@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch
+      - image: circleci/ruby:2.6
     environment:
       JEKYLL_ENV: production
       LC_ALL: C.UTF-8
