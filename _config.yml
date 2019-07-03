@@ -246,6 +246,9 @@ autopages:
     enabled: true
 
 collections:
+  home:
+    output: true
+    permalink: "/:path/"
   cn:
     output: true
     permalink: "/:collection/:path/"
@@ -326,7 +329,6 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
   - scope:
       path: ""
     values:
@@ -352,6 +354,18 @@ defaults:
       author_profile: false
       share: true
       related: false
+  - scope:
+      path: ""
+      type: home
+    values:
+      layout: single
+      classes: wide
+      author_profile: true
+      comments: true
+      share: true
+      related: false
+      sidebar:
+        nav: home
   - scope:
       path: ""
       type: cn
