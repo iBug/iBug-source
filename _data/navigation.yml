@@ -1,14 +1,14 @@
 main: # Top nav bar
   - title: "About"
-    url: /about
+    url: /about/
   - title: "Blog"
-    url: /blog
+    url: /blog/
   - title: "Projects"
-    url: /project
+    url: /projects/
   - title: "GitHub"
-    url: https://github.com/iBug
+    url: "https://github.com/iBug"
   - title: "中文内容"
-    url: /cn
+    url: /cn/
 
 home:
   - title: "iBug on the Web"
@@ -22,7 +22,7 @@ home:
       - title: '<i class="fas fa-wrench"></i> Skills'
         url: "/skills/"
       - title: '<i class="fas fa-puzzle-piece"></i> Projects'
-        url: "/project/"
+        url: "/projects/"
       - title: '<i class="fas fa-user-friends"></i> Friends'
         url: "/friends/"
       - title: '<i class="fas fa-address-card"></i> CV (beta)'
