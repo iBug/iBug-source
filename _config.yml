@@ -255,39 +255,14 @@ collections:
     permalink: "/:collection/:path/"
 
 
-# Plugins (previously gems:)
-plugins:
-  # Class 1: Default plugins on GitHub Pages
-  - jekyll-gist
-  - jekyll-github-metadata
-  - jekyll-sitemap
-  # jekyll-paginate
-  # jekyll-feed
-  # jemoji
-  - jekyll-relative-links
-  - jekyll-optional-front-matter
-  # jekyll-readme-index
-  - jekyll-default-layout
-  # jekyll-titles-from-headings
-
-  # Class 2: Optional plugins on GitHub Pages
-  - jekyll-redirect-from
-  - jekyll-mentions
-  - jekyll-seo-tag
-  # jekyll-coffeescript
-  - jekyll-include-cache
-
-  # Class 3: Not supported by GitHub Pages
-  # Use Gemfile
+# Plugins have been moved to Gemfile
 
 
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate-v2
   - jekyll-sitemap
-  - jekyll-gist
-  # jekyll-feed
-  # jemoji
+  - jekyll-feed
   - jekyll-include-cache
 
 
