@@ -22,8 +22,12 @@ Grading scale mechanism:
 
 (Copied from <https://www.cirosantilli.com/skills/>, thanks Ciro!)
 
-However, since I'm only an amateur CS student without too many years of *solid* development experiences (without the word *solid*, I'd say **8**, but with it, I'd go with **5**, being conservative), I'm very hesitant give myself a single 5 score on anything, because I still need to check manuals and documentations on almost every technology I work with.
-For this reason, instead of numbers, I'll show the scores with stars. One &starf; means one score (and it's also more intuitive to look at).
+However, since I'm only an amateur CS student without too many years of *solid* development experiences
+(without the word *solid*, I may say 8 years, but with it, I'd go with only 5 years, being conservative),
+I'm very hesitant give myself a single 5 score on anything,
+because I still need to occasionally check manuals and documentations on many technologies I work with.
+For this reason, instead of numbers, I'll show the scores with stars.
+One &starf; means one score (and it's also more intuitive to look at).
 
 Not necessarily ordered in any ranking.
 
