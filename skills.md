@@ -67,16 +67,22 @@ Also long-term contributor to [SmokeDetector](https://github.com/Charcoal-SE/Smo
 
 <dt>SQL #1#</dt>
 <dd>
-Merely touched and played with. Built some projects with MariaDB. SQLite CLI utility is good for tampering game saves :)
+Merely touched and played with. Built some projects with MariaDB. SQLite3 CLI utility is good for tampering game saves :)
 </dd>
 
 <dt>Ruby #1#</dt>
 <dd>
+Barely touched Ruby, write short snippets to aid existing Ruby projects (my Jekyll website or other Rails apps)
 </dd>
 
 <dt>Verilog #1#</dt>
 <dd>
-Learned from school courses "Digital Circuit labs" and "Computer Organization and Design labs".
+Learned from school courses *Digital Circuit labs* and *Computer Organization and Design labs*. Not practiced much
+</dd>
+
+<dt>Scala / Chisel #1#</dt>
+<dd>
+Assigned a research on Chisel for performing particularly well in *Digital Circuit labs*, and have worked on a few entry-level projects ([my COD <i class="fab fa-github"></i> repo](https://github.com/iBug/COD-2019) and [this RISC-V project](https://github.com/iBug/USTC-RV-Chisel)).
 </dd>
 
 <dt>Flash ActionScript #2#</dt>
