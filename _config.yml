@@ -247,10 +247,10 @@ autopages:
     enabled: true
 
 collections:
-  home:
-    output: true
-    permalink: "/:path/"
   cn:
+    output: true
+    permalink: "/:collection/:path/"
+  project:
     output: true
     permalink: "/:collection/:path/"
 
