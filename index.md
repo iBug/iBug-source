@@ -26,7 +26,7 @@ feature_row:
     alt: "project image"
     title: "Projects"
     excerpt: "Projects that iBug has led or participated and proudly wanting to present you with."
-    url: "/project"
+    url: "/projects"
     btn_label: "<i class='fas fa-globe'></i> Explore"
     btn_class: "btn--primary"
   - image_path: "/image/mm/chinese.jpg"
