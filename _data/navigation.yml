@@ -13,19 +13,19 @@ main: # Top nav bar
 home:
   - title: "iBug on the Web"
     children:
-      - title: '<i class="fas fa-home"></i> Home'
+      - title: '<i class="fas fa-fw fa-home"></i> Home'
         url: "/"
-      - title: '<i class="fas fa-smile"></i> About iBug'
+      - title: '<i class="fas fa-fw fa-smile"></i> About iBug'
         url: "/about/"
-      - title: '<i class="fas fa-book"></i> Blog'
+      - title: '<i class="fas fa-fw fa-book"></i> Blog'
         url: "/blog/index.html"
-      - title: '<i class="fas fa-wrench"></i> Skills'
+      - title: '<i class="fas fa-fw fa-wrench"></i> Skills'
         url: "/skills/"
-      - title: '<i class="fas fa-puzzle-piece"></i> Projects'
+      - title: '<i class="fas fa-fw fa-puzzle-piece"></i> Projects'
         url: "/projects/"
-      - title: '<i class="fas fa-user-friends"></i> Friends'
+      - title: '<i class="fas fa-fw fa-user-friends"></i> Friends'
         url: "/friends/"
-      - title: '<i class="fas fa-address-card"></i> CV (beta)'
+      - title: '<i class="fas fa-fw fa-address-card"></i> CV (beta)'
         url: "/cv/"
-      - title: '<i class="fas fa-yin-yang"></i> Chinese Content'
+      - title: '<i class="fas fa-fw fa-yin-yang"></i> Chinese Content'
         url: "/cn/index.html"

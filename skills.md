@@ -41,7 +41,7 @@ Reason for not giving a fourth score: I'm not particularly familiar with STL and
 
 <dt>C #4#</dt>
 <dd>
-[Stack Overflow activity](https://stackoverflow.com/search?q=user%3A5958455+%5Bc%5D) (also my second top tag as of May 2019)
+[Stack Overflow activity](https://stackoverflow.com/search?q=user%3A5958455+%5Bc%5D) (also my second top tag as of May 2019) and [my <i class="fab fa-github"></i> repositories](https://github.com/search?utf8=%E2%9C%93&q=user%3AiBug+language%3Ac)
 </dd>
 
 <dt>Python #4#</dt>
@@ -53,7 +53,7 @@ Also long-term contributor to [SmokeDetector](https://github.com/Charcoal-SE/Smo
 
 <dt>Bash #3#</dt>
 <dd>
-[Stack Overflow activity](https://stackoverflow.com/search?q=user%3A5958455+%5Bbash%5D)
+[Stack Overflow activity](https://stackoverflow.com/search?q=user%3A5958455+%5Bbash%5D) and [a collection of my gadgets](https://github.com/iBug/shGadgets) written in Bash or POSIX `sh`.
 </dd>
 
 <dt>VBScript #3#</dt>
