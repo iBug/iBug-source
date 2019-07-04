@@ -110,9 +110,9 @@ I was about to give myself a score of 5 on this when I realized that Ciro Santil
 Then I reevaluated myself and gave a score of only 3 - I can't even write a fifth of Ciro's tutorial.
 </dd>
 
-<dt>Linux CLI #3#</dt>
+<dt>Linux #3#</dt>
 <dd>
-Daily working environment (WSL) with enough supporting knowledge. Ironically, I don't have a preferred desktop environment because I mostly work in CLI.
+Daily working environment (WSL) with enough supporting knowledge. Ironically, I don't have a preferred desktop environment because I mostly work in CLI. I have a few Ubuntu and Debian servers that I maintain personally, including a <i class="fab fa-raspberry-pi"></i> Raspberry Pi.
 
 What about checking out [my tmux config](https://ibug.github.io/ext/conf/tmux.conf)?
 </dd>
