@@ -27,7 +27,7 @@ However, since I'm only an amateur CS student without too many years of *solid* 
 I'm very hesitant give myself a single 5 score on anything,
 because I still need to occasionally check manuals and documentations on many technologies I work with.
 For this reason, instead of numbers, I'll show the scores with stars.
-One &starf; means one score (and it's also more intuitive to look at).
+One ★ means one score (and it's also more intuitive to look at).
 
 Not necessarily ordered in any ranking.
 
