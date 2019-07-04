@@ -14,7 +14,7 @@ sidebar:
 ### [OJSandbox](https://github.com/taoky/OJSandbox)
 An experimental sandbox for online judgers (OJ). I am a co-author.
 
-### [(Charcoal) Smoke Detector](https://github.com/Charcoal-SE/SmokeDetector)
+### [(Charcoal) Smoke Detector](https://github.com/Charcoal-SE/SmokeDetector) ([<i class="fas fa-globe-americas"></i> Website](https://charcoal-se.org/))
 A community-driven chatbot that detects spam across the Stack Exchange Network and reports them, so they can be quickly removed.
 
 I joined the team in December 2017, and [was recognized as a developer](/p/3) in March 2018.
