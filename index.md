@@ -59,4 +59,4 @@ stack_overflow:
 My roommate, [TaoKY's personal site](https://blog.taoky.moe/)  
 (He writes Simplified Chinese, while I prefer English)
 
-And [<i class="fas fa-globe-americas"></i>websites](/friends) of my friends.
+And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
