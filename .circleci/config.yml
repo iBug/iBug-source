@@ -15,8 +15,7 @@ jobs:
             - bundler-master
       - run:
           name: Install dependencies
-          #command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
-          command: bundle update
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
       - save_cache:
           key: bundler-{{ .Branch }}-{{ checksum "Gemfile" }}
           paths:
