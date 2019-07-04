@@ -209,7 +209,7 @@ $$
 
 首先将 $u(t,x)$ 的解导入软件，定义为函数：
 
-```ruby
+```mathematica
 u[t_, x_] := 
  2*a*l*\[Omega]*
    Sum[
@@ -232,7 +232,7 @@ $$
 
 如图，当 $\omega = 0.5$ 时，$\omega$ 与任意固有频率都有足够的偏差，此时得到的波形较为随机：
 
-```ruby
+```mathematica
 l = 10; a = 1; \[Omega] = 0.5;
 Plot3D[u[t, x], {x, 0, 10}, {t, 0, 50}]
 ```
@@ -241,7 +241,7 @@ Plot3D[u[t, x], {x, 0, 10}, {t, 0, 50}]
 
 当 $\omega$ 接近基频 (即 $n=1$) 时，可以看出发生了共振现象，振幅随时间不断增大。这里考虑到计算机不能处理分母为零的情况，因此参数 $\omega$ 不能取基频 $\cfrac\pi{10}$，而必须与该值有微小差别，因此我取了 $0.31$。
 
-```ruby
+```mathematica
 l = 10; a = 1; \[Omega] = 0.31;
 Plot3D[u[t, x], {x, 0, 10}, {t, 0, 200}]
 ```
@@ -250,7 +250,7 @@ Plot3D[u[t, x], {x, 0, 10}, {t, 0, 200}]
 
 而当 $\omega$ 接近基频的某个整数倍时，同样能观察到共振现象，但驻波的数量不是一个，而是 $n$ 个。下图取 $n=3$ 绘制：
 
-```ruby
+```mathematica
 l = 10; a = 1; \[Omega] = 3*Pi/10 + 1/1000;
 Plot3D[u[t, x], {x, 0, 10}, {t, 0, 60}]
 ```
@@ -263,7 +263,7 @@ Plot3D[u[t, x], {x, 0, 10}, {t, 0, 60}]
 
 当 $n = \cfrac 12$ 时，右端的受迫振动看起来与弦并不和谐，振幅维持在 $1$ 以下：
 
-```ruby
+```mathematica
 l = 10; a = 1; \[Omega] = 0.15;
 Animate[
  Plot[u[t, x], {x, 0, 10}, PlotRange -> {-5, 5}], {t, 0, 300}, 
@@ -274,7 +274,7 @@ Animate[
 
 当 $n=1$ 时，右端受迫振动与弦的基频相吻合，弦的自由振动的振幅随右端受迫振动的影响而不断增大：
 
-```ruby
+```mathematica
 l = 10; a = 1; \[Omega] = 0.31;
 Animate[
  Plot[u[t, x], {x, 0, 10}, PlotRange -> {-5, 5}], {t, 0, 120, 0.4}, 
@@ -294,7 +294,7 @@ Animate[
 
 ![image](https://ibugone.com/image/PDE/a3.gif)
 
-```ruby
+```mathematica
 l = 10; a = 1; \[Omega] = 1.257;
 Animate[
  Plot[u[t, x], {x, 0, 10}, PlotRange -> {-5, 5}], {t, 0, 120, 0.4}, 
