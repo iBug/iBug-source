@@ -29,7 +29,7 @@ Not necessarily ordered in any ranking.
 
 {::options parse_block_html="true" /}
 
-### Programming languages
+## Programming languages
 
 <dl class="rating-table">
 <dt>C++ #3#</dt>
@@ -91,7 +91,7 @@ The only item on this page that I dare claiming solid knowledge on. Still learne
 </dd>
 </dl>
 
-### Tools and technologies
+## Tools and technologies
 
 <dl class="rating-table">
 <dt>Git #3#</dt>
