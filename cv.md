@@ -46,7 +46,7 @@ links:
 {% for event in events %}
 <dt>{{ event[0] | date: "%b %-d, %Y" }}</dt>
 <dd>
-{{ event[1] | append: link_text |  markdownify }}
+{{ event[1] | append: link_text | markdownify }}
 </dd>
 {% endfor %}
 </dl>

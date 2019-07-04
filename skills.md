@@ -141,3 +141,10 @@ function defer(method) {
 }
 defer(replaceStars);
 </script>
+
+<!-- 0.75em size is hurting, must override -->
+<style>
+dl.rating-table dd {
+  font-size: 1em;
+}
+</style>
