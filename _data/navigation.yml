@@ -23,6 +23,8 @@ home:
         url: "/skills/"
       - title: '<i class="fas fa-puzzle-piece"></i> Projects'
         url: "/project/"
+      - title: '<i class="fas fa-user-friends"></i> Friends'
+        url: "/friends/"
       - title: '<i class="fas fa-address-card"></i> CV (beta)'
         url: "/cv/"
       - title: '<i class="fas fa-yin-yang"></i> Chinese Content'
