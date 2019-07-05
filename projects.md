@@ -12,7 +12,7 @@ sidebar:
 ---
 
 ### [OJSandbox](https://github.com/taoky/OJSandbox)
-An experimental sandbox for online judgers (OJ). I am a co-author.
+An experimental sandbox for online judgers (OJ) utilizing multiple Linux features, including rlimit, cgroup and chroot. I am a co-author.
 
 ### [(Charcoal) Smoke Detector](https://github.com/Charcoal-SE/SmokeDetector) ([<i class="fas fa-globe-americas"></i> Website](https://charcoal-se.org/))
 A community-driven chatbot that detects spam across the Stack Exchange Network and reports them, so they can be quickly removed.
