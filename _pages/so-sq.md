@@ -1,6 +1,7 @@
 ---
 title: Selected Questions
 tagline: My selected questions on Stack Overflow
+permalink: /so/selected-questions/
 ---
 
 # C++

@@ -1,6 +1,7 @@
 ---
 title: Selected Answers
 tagline: My selected answers on Stack Overflow
+permalink: /so/selected-answers/
 ---
 
 # C++
