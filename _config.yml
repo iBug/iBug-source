@@ -89,11 +89,11 @@ author:
   avatar           : "https://ibugone.com/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "CS amateur, indie developer"
   location         : null # "China"
-  email            : null # "mailto:contact@ibugone.com"
+  email            : null # "mailto:i@ibugone.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:contact@ibugone.com"
+      url: "mailto:i@ibugone.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://ibugone.com"
