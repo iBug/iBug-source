@@ -147,32 +147,5 @@ My specialty in CTF competitions.
 </dl>
 
 <!-- Working around kramdown not recognizing &star; and &starf; -->
-
-<script type="text/javascript">
-function replaceStars() {
-    $('dl.rating-table dt').each(function (item) {
-        let text = $(this).text(), stars = parseInt(text.match(/#(\d+)#/)[1]), i, s = "";
-        for (i = 0; i < stars; i++)
-            s += "\u2605";
-        for (; i < 5; i++)
-            s += "\u2606";
-        $(this).text(text.replace(/#\d+#/, s));
-    });
-}
-
-function defer(method) {
-    // Poll for jQuery
-    if (window.jQuery)
-        method();
-    else
-        setTimeout(() => defer(method), 50);
-}
-defer(replaceStars);
-</script>
-
-<!-- 0.75em size is hurting, must override -->
-<style>
-dl.rating-table dd {
-  font-size: 1em;
-}
-</style>
+<!-- Moved, focus on content in this file -->
+{% include skills_script.html %}
