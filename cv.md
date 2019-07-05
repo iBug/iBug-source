@@ -1,5 +1,5 @@
 ---
-title: "Curriculum Vitae"
+title: "Curriculum Vitae (Beta)"
 description: "iBug's Achievements & Timeline"
 layout: single
 classes: wide
