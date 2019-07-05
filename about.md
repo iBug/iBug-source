@@ -10,11 +10,28 @@ sidebar:
   nav: home
 ---
 
-CS student and hobbist programmer. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and Linux SysAdmin.
+Undergraduate CS student at USTC, hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and Linux SysAdmin.
+
+My Stack Overflow profile:
+
+<p><center>
+<a href="https://stackoverflow.com/users/5958455" style="text-decoration: initial;">
+<img alt="Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;"/>
+</a>
+<a href="https://stackexchange.com/users/7886663" style="text-decoration: initial;">
+<img alt="Profile for iBug at Stack Exchange" src="https://stackexchange.com/users/flair/7886663.png" class="card" style="margin-top: 0.2rem;"/>
+</a>
+</center></p>
+
+See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa].
+
+## Quick facts
+
+On the techie side:
 
 - **Primary languages<sup>1</sup>**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
 - **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
-- **Other languages<sup>1</sup> and technologies**: Nginx, SQL (MySQL / MariaDB), PHP, AWK, Perl
+- **Minor languages<sup>1</sup> and technologies**: Nginx, SQL (MySQL / MariaDB), PHP, AWK, Perl
 - **Favorite VCS**: Git (and proficient with it)
 - **Favorite automation**: Shell scripts, Make, Cron, At
 - **Favorite text editor**: `<ESC>:wq` ([get my config](/ext/conf/vimrc))
@@ -29,21 +46,6 @@ Personally:
   - English (Proficient as a foreign language)
 - **Secondary languages<sup>2</sup>**: French, Spanish and Italian (all read-only)
 - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
-
-My profile on Stack Overflow:
-
-<p>
-<center>
-<a href="https://stackoverflow.com/users/5958455" style="text-decoration: initial;">
-<img alt="Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;"/>
-</a>
-<a href="https://stackexchange.com/users/7886663" style="text-decoration: initial;">
-<img alt="Profile for iBug at Stack Exchange" src="https://stackexchange.com/users/flair/7886663.png" class="card" style="margin-top: 0.2rem;"/>
-</a>
-</center>
-</p>
-
-See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa].
 
 
   [so-q]: https://stackoverflow.com/users/5958455/ibug?tab=questions "iBug's questions on Stack Overflow"
