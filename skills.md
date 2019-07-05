@@ -124,9 +124,9 @@ Long since I was 12 I began to learn various configurations and tweaks (primaril
 Still using a Windows laptop (by MSI) for day-to-day working, yet heavily relies on WSL.
 </dd>
 
-<dt>Docker #1#</dt>
+<dt>Docker #2#</dt>
 <dd>
-My favorite application deployment solution, but haven't got much experience with it.
+My favorite application deployment solution, but haven't got much experience with it. I also have private CIs running in Docker containers.
 </dd>
 
 <dt>Make #1#</dt>
@@ -151,7 +151,7 @@ My specialty in CTF competitions.
 <script type="text/javascript">
 function replaceStars() {
     $('dl.rating-table dt').each(function (item) {
-        let text = $(this).text(), stars = parseInt(text.match(/#(\d+)/)[1]), i, s = "";
+        let text = $(this).text(), stars = parseInt(text.match(/#(\d+)#/)[1]), i, s = "";
         for (i = 0; i < stars; i++)
             s += "\u2605";
         for (; i < 5; i++)
