@@ -23,5 +23,11 @@
 	{% if site.env.CIRCLE_BUILD_NUM %}
 	<br>
 	Site version <a href="/status">{{ site.env.CIRCLE_BUILD_NUM }}</a>
+	{% if site.url == "https://ibugone.com" %}
+	<br>
+	<p>Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a></p>
+	{% elsif site.url == "https://cn.ibugone.com" %}
+	<br>
+	<p>Proudly hosted by <a href="https://coding.net/pages">Coding Pages</a></p>
 	{% endif %}
 </div>
