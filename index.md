@@ -56,7 +56,13 @@ stack_overflow:
 
 [My telegram channel](https://t.me/ibugthought) where I share random ideas
 
-My roommate, [TaoKY's personal site](https://blog.taoky.moe/)  
+My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
 (He writes Simplified Chinese, while I prefer English)
 
 And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
+
+{% if jekyll.environment == "production" %}
+{% unless site.china %}
+If you're visiting from China, you can go to [this mirror site](https://cn.ibugone.com) for a better browsing experience.
+{% endunless %}
+{% endif %}
