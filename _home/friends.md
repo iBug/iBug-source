@@ -29,13 +29,11 @@ net_friends:
 *Ordered randomly*
 
 {% for item in page.friends %}
-  {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
-
+- {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
 {% endfor %}
 
 Other good folks online:
 
 {% for item in page.net_friends %}
-  {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
-
+- {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
 {% endfor %}
