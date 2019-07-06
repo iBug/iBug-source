@@ -20,11 +20,22 @@ friends:
     link: https://i-yu.me/
   - name: ksqsf
     link: https://ksqsf.moe/
+
+net_friends:
+  - name: ArtOfCode
+    link: https://artofcode.co.uk/
 ---
 
 *Ordered randomly*
 
 {% for item in page.friends %}
+  {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
+
+{% endfor %}
+
+Other good folks online:
+
+{% for item in page.net_friends %}
   {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
 
 {% endfor %}
