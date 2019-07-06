@@ -37,3 +37,8 @@ Other good folks online:
 {% for item in page.net_friends %}
 - {{ item.name }}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
 {% endfor %}
+
+<style type="text/css">
+ul { list-style-type: none; }
+.page__content li p { margin-bottom: 0; }
+</style>
