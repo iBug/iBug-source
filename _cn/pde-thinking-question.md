@@ -237,7 +237,7 @@ l = 10; a = 1; \[Omega] = 0.5;
 Plot3D[u[t, x], {x, 0, 10}, {t, 0, 50}]
 ```
 
-![image](https://ibugone.com/image/PDE/1.png)
+![image](/image/PDE/1.png)
 
 当 $\omega$ 接近基频 (即 $n=1$) 时，可以看出发生了共振现象，振幅随时间不断增大。这里考虑到计算机不能处理分母为零的情况，因此参数 $\omega$ 不能取基频 $\cfrac\pi{10}$，而必须与该值有微小差别，因此我取了 $0.31$。
 
@@ -246,7 +246,7 @@ l = 10; a = 1; \[Omega] = 0.31;
 Plot3D[u[t, x], {x, 0, 10}, {t, 0, 200}]
 ```
 
-![image](https://ibugone.com/image/PDE/3.png)
+![image](/image/PDE/3.png)
 
 而当 $\omega$ 接近基频的某个整数倍时，同样能观察到共振现象，但驻波的数量不是一个，而是 $n$ 个。下图取 $n=3$ 绘制：
 
@@ -255,7 +255,7 @@ l = 10; a = 1; \[Omega] = 3*Pi/10 + 1/1000;
 Plot3D[u[t, x], {x, 0, 10}, {t, 0, 60}]
 ```
 
-![image](https://ibugone.com/image/PDE/5.png)
+![image](/image/PDE/5.png)
 
 ### 4.3 动态图像
 
@@ -270,7 +270,7 @@ Animate[
  AnimationRate -> 30]
 ```
 
-![image](https://ibugone.com/image/PDE/a1.gif)
+![image](/image/PDE/a1.gif)
 
 当 $n=1$ 时，右端受迫振动与弦的基频相吻合，弦的自由振动的振幅随右端受迫振动的影响而不断增大：
 
@@ -281,7 +281,7 @@ Animate[
  AnimationRate -> 30]
 ```
 
-![image](https://ibugone.com/image/PDE/a2.gif)
+![image](/image/PDE/a2.gif)
 
 而当 $n$ 取大于 $1$ 的整数时，受迫振动的频率与弦的某个非基固有频率相吻合，结果是出现了多个驻波，且它们的振幅仍然不断增大：
 
@@ -292,7 +292,7 @@ Animate[
  AnimationRate -> 30]
 ```
 
-![image](https://ibugone.com/image/PDE/a3.gif)
+![image](/image/PDE/a3.gif)
 
 ```mathematica
 l = 10; a = 1; \[Omega] = 1.257;
@@ -301,6 +301,6 @@ Animate[
  AnimationRate -> 30]
 ```
 
-![image](https://ibugone.com/image/PDE/a4.gif)
+![image](/image/PDE/a4.gif)
 
 以上就是我对 $\omega \to \frac{n\pi a}l,\;n=1,2,\ldots$ 的时候的理想弦的自由振动的非齐次混合问题的研究。

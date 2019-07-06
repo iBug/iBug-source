@@ -86,7 +86,7 @@ analytics:
 # Site Author
 author:
   name             : "iBug"
-  avatar           : "https://ibugone.com/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "CS amateur, indie developer"
   location         : null # "China"
   email            : null # "mailto:i@ibugone.com"
