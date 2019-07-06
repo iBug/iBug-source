@@ -44,7 +44,7 @@ links:
 
 <dl>
 {% for event in events %}
-<dt>{{ event[0] | date: "%b %-d, %Y" }}</dt>
+<dt>{{ event[0] | date: "%b %Y" }}</dt>
 <dd>
 {{ event[1] | append: link_text | markdownify }}
 </dd>

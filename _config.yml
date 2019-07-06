@@ -247,6 +247,9 @@ autopages:
     enabled: true
 
 collections:
+  home:
+    output: true
+    permalink: "/:path/"
   cn:
     output: true
     permalink: "/:collection/:path/"
@@ -322,6 +325,17 @@ defaults:
       toc: true
       #toc_label: "On this page"
       #toc_icon: "file-alt"
+  - scope:
+      path: ""
+      type: home
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      related: false
+      sidebar:
+        nav: home
+      no_pagination: true
   - scope:
       path: ""
       type: pages
