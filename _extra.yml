@@ -1,3 +1,4 @@
 url: "https://cn.ibugone.com"
 timezone: "Asia/Shanghai"
 date_format: "%Y 年 %-m 月 %-d 日"
+china: true
