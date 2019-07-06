@@ -16,6 +16,10 @@ friends:
     link: https://0x01.me/
   - name: Mingliang Zeng
     link: https://mlzeng.com/
+  - name: cvhc
+    link: https://i-yu.me/
+  - name: ksqsf
+    link: https://ksqsf.moe/
 ---
 
 *Ordered randomly*
