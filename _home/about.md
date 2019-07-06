@@ -1,13 +1,5 @@
 ---
 title: "About iBug"
-layout: single
-classes: wide
-author_profile: true
-comments: true
-share: true
-related: false
-sidebar:
-  nav: home
 ---
 
 Undergraduate CS student at USTC, hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and Linux SysAdmin.

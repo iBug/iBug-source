@@ -1,13 +1,7 @@
 ---
 title: "Friends"
-layout: single
-classes: wide
-author_profile: true
 comments: false
 share: false
-related: false
-sidebar:
-  nav: home
 
 friends:
   - name: taoky

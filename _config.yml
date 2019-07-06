@@ -330,7 +330,9 @@ defaults:
       type: home
     values:
       layout: single
+      classes: wide
       author_profile: true
+      comments: true
       share: true
       related: false
       sidebar:
