@@ -5,7 +5,7 @@ cd "$(dirname "$0")"/..
 update() {
   git remote update
   git reset --hard origin/master
-  bundle check || bundle install
+  bundle check || bundle update
 }
 
 build() {

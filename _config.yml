@@ -45,6 +45,38 @@ algolia:
   index_name             : "iBug_website"
   search_only_api_key    : "a0d8cb9da2d6ad0d17dcd40c58c72a56"
   powered_by             : true # true (default), false
+  settings:
+    searchableAttributes:
+      - title
+      - hierarchy.lvl0
+      - hierarchy.lvl1
+      - hierarchy.lvl2
+      - hierarchy.lvl3
+      - hierarchy.lvl4
+      - hierarchy.lvl5
+      - unordered(content)
+      - collection,categories,tags
+    customRanking:
+      - desc(date)
+      - desc(weight.heading)
+      - asc(weight.position)
+    attributesToHighlight:
+      - title
+      - hierarchy.lvl0
+      - hierarchy.lvl1
+      - hierarchy.lvl2
+      - hierarchy.lvl3
+      - hierarchy.lvl4
+      - hierarchy.lvl5
+      - content
+      - html
+      - collection
+      - categories
+      - tags
+    attributesForFaceting:
+      - searchable(tags)
+      - searchable(type)
+      - searchable(title)
   files_to_exclude:
     - 404.md
     - index.md
