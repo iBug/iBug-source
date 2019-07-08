@@ -1,6 +1,6 @@
 ---
-title: "iBug on the Web"
-excerpt: "The little personal website of iBug"
+title: "iBug"
+excerpt: "Developer, system administrator, geek"
 layout: splash
 classes: ["landing"]
 header:
