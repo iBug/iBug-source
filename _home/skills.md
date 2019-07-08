@@ -12,7 +12,7 @@ Grading scale mechanism:
 | 3 - 4 | Comfortable working with this, have to check manual on some things. |
 | 1 - 2 | Have worked with it previously but either not much, or rusty. |
 
-(Copied from <https://www.cirosantilli.com/skills/>, thanks Ciro!)
+(Copied from <https://www.cirosantilli.com/skills>, thanks Ciro!)
 
 However, since I'm only an amateur CS student without too many years of *solid* development experiences
 (without the word *solid*, I may say 8 years, but with it, I'd go with only 5 years, being conservative),
