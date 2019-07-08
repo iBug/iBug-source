@@ -20,8 +20,6 @@ source_msg="$(git log -1 --pretty="[%h] %B")"
 
 # Fetch extra necessary things
 pushd "$SRC" &>/dev/null
-git clone --depth=1 --branch=master https://github.com/iBug/image.git image
-rm -rf image/.git CNAME
 
 e_info "Adding commit info"
 # Since we're pushing to another host, we want to torch the history

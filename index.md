@@ -12,7 +12,7 @@ header:
     - label: "<i class='fas fa-wrench'></i> Skills"
       url: "/skills"
   #caption: "Photo credit?"
-excerpt: "The little personal website of iBug  \n&nbsp;"
+excerpt: "The little personal website of iBug  \n&nbsp;  \n&nbsp;"
 feature_row:
   - image_path: "/image/mm/blog.jpg"
     alt: "blog title"
