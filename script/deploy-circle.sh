@@ -16,7 +16,7 @@ source_msg="$(git log -1 --pretty="[%h] %B")"
 pushd "$SRC" &>/dev/null
 e_info "Adding commit info"
 git config user.name "iBug"
-git config user.email "iBug@users.noreply.github.com"
+git config user.email "git@ibugone.com"
 git add --all
 git commit --message "Auto deploy from CircleCI build ${CIRCLE_BUILD_NUM:-?}" --message "$source_msg" &>/dev/null
 
