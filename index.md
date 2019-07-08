@@ -1,9 +1,10 @@
 ---
 title: "iBug on the Web"
+excerpt: "The little personal website of iBug"
 layout: splash
 classes: ["landing"]
 header:
-  overlay_color: "#000"
+  overlay_color: "#EEE"
   overlay_filter: "0"
   overlay_image: "/image/mm/splash.jpg"
   actions:
@@ -12,7 +13,6 @@ header:
     - label: "<i class='fas fa-wrench'></i> Skills"
       url: "/skills"
   #caption: "Photo credit?"
-excerpt: "The little personal website of iBug  \n&nbsp;  \n&nbsp;"
 feature_row:
   - image_path: "/image/mm/blog.jpg"
     alt: "blog title"
