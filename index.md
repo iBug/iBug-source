@@ -54,12 +54,12 @@ stack_overflow:
 
 ### Other links
 
-[My telegram channel](https://t.me/ibugthought) where I share random ideas
+- [My telegram channel](https://t.me/ibugthought) where I share random ideas
 
-My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
-(He writes Simplified Chinese, while I prefer English)
+- My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
+  (He writes Simplified Chinese, while I prefer English)
 
-And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
+- And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
 
 {% if jekyll.environment == "production" %}
 {% unless site.china %}

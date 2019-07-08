@@ -40,5 +40,4 @@ Other good folks online:
 
 <style type="text/css">
 ul { list-style-type: none; }
-.page__content li p { margin-bottom: 0; }
 </style>
