@@ -2,7 +2,7 @@
 title: "About iBug"
 ---
 
-Undergraduate CS student at USTC, hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer (infrastructure maintainer) and Linux SysAdmin.
+Undergraduate CS student at [USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
 
 My Stack Overflow profile:
 
@@ -26,7 +26,7 @@ On the techie side:
 - **Minor languages<sup>1</sup> and technologies**: Nginx, SQL (MySQL / MariaDB), PHP, AWK, Perl
 - **Favorite VCS**: Git (and proficient with it)
 - **Favorite automation**: Shell scripts, Make, Cron, At
-- **Favorite text editor**: `<ESC>:wq` ([get my config](/ext/conf/vimrc))
+- **Favorite text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
 - **Daily environment**: Windows Subsystem for Linux (Ubuntu 19.04 Disco Dingo), with virtual machines and VPS's to satisfy additional needs
 
 MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
@@ -40,6 +40,7 @@ Personally:
 - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 
 
+  [USTC]: https://en.ustc.edu.cn/
   [so-q]: https://stackoverflow.com/users/5958455/ibug?tab=questions "iBug's questions on Stack Overflow"
   [so-a]: https://stackoverflow.com/users/5958455/ibug?tab=answers "iBug's answers on Stack Overflow"
   [so-sq]: /so/selected-questions

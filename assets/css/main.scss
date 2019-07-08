@@ -33,13 +33,26 @@ html {
   margin-bottom: 0;
 }
 
-.landing {
+body.landing {
+	//background-color: #EEE;
+	//background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
+	div.masthead {
+		background: none;
+		border-bottom: none;
+	}
+
 	div.page__hero--overlay {
 		text-align: center;
 		padding: 6em 0 4em;
 		@include breakpoint($medium) { padding: 10.5em 0 5.5em; }
-		@include breakpoint($large) { padding: 12.5em 0 7.5em; }
-		@include breakpoint($x-large) { padding: 15.5em 0 10.5em; }
+		@include breakpoint($large) {
+			padding: 12.5em 0 7.5em;
+			background-attachment: fixed;
+		}
+		@include breakpoint($x-large) {
+			padding: 15.5em 0 10.5em;
+			background-attachment: fixed;
+		}
 	}
 
 	p.page__lead {
