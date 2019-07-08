@@ -43,14 +43,14 @@ body.landing {
 
 	div.page__hero--overlay {
 		text-align: center;
-		padding: 6em 0 4em;
+		padding: 7em 0 3em;
 		@include breakpoint($medium) { padding: 10.5em 0 5.5em; }
 		@include breakpoint($large) {
-			padding: 12.5em 0 7.5em;
+			padding: 16em 0 4em;
 			background-attachment: fixed;
 		}
 		@include breakpoint($x-large) {
-			padding: 15.5em 0 10.5em;
+			padding: 16em 0 10em;
 			background-attachment: fixed;
 		}
 	}
