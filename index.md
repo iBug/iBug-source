@@ -8,7 +8,7 @@ header:
   overlay_filter: "0"
   overlay_image: "/image/mm/splash.jpg"
   actions:
-    - label: "<i class='fas fa-user-circle'></i> About iBug"
+    - label: "<i class='fas fa-user-circle'></i> About"
       url: "/about"
     - label: "<i class='fas fa-wrench'></i> Skills"
       url: "/skills"
