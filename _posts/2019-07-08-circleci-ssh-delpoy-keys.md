@@ -55,7 +55,7 @@ Just like most other CLI utilities, SSH respects command-line arguments loyally.
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa'
 ```
 
-![image](/image/circleci/working.png)
+![image](/image/circleci/solution.png)
 
 And I don't even know what's going on behind the scenes, but it just works.
 
