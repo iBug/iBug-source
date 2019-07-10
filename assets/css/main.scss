@@ -63,4 +63,34 @@ body.landing {
 	#page-title {
 		text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 	}
+
+	img.avatar {
+		position: absolute;
+		border: 2px solid rgba(238, 238, 238, 0.6);
+		border-radius: 50%;
+		padding: 0.5rem;
+
+		width: calc(60px + 1rem);
+		height: calc(60px + 1rem);
+		top: calc(50% - 120px);
+		left: calc(50% - 30px - 0.5rem);
+		@include breakpoint($medium) {
+			width: calc(120px + 1rem);
+			height: calc(120px + 1rem);
+			top: calc(50% - 184px);
+			left: calc(50% - 60px - 0.5rem);
+		}
+		@include breakpoint($large) {
+			width: calc(160px + 1rem);
+			height: calc(160px + 1rem);
+			top: calc(50% - 184px);
+			left: calc(50% - 80px - 0.5rem);
+		}
+		@include breakpoint($x-large) {
+			width: calc(160px + 1rem);
+			height: calc(160px + 1rem);
+			top: calc(50% - 250px);
+			left: calc(50% - 80px - 0.5rem);
+		}
+	}
 }
