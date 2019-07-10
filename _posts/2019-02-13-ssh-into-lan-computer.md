@@ -4,15 +4,6 @@ description: null
 tagline: "Remote control is fun"
 tags: linux networking
 redirect_from: /p/14
-
-show_view: false
-view_name: "Stack Overflow"
-view_url: "https://stackoverflow.com"
-show_download: false
-download_name: "Stack Overflow"
-download_url: "https://stackoverflow.com"
-
-published: true
 ---
 
 Do you have a personal server at home but can't access it from work or travel because your home doesn't have a public IP? If so, then, this article is what you're looking for.

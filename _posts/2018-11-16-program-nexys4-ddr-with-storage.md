@@ -4,15 +4,6 @@ description: "A way to permanently write your Verilog design to the Nexys4 DDR b
 tagline: "Standalone demo board, yay!"
 tags: development study-notes
 redirect_from: /p/13
-
-show_view: false
-view_name: "Stack Overflow"
-view_url: "https://stackoverflow.com"
-show_download: false
-download_name: "Stack Overflow"
-download_url: "https://stackoverflow.com"
-
-published: true
 ---
 
 This semester I have the course "Experiments of Digital Circuits", the content of which is designing digital circuits using Vivado software, and writing Verilog code. Most of the lab papers require generating bitstream for the project and downloading it to Nexys4 DDR board to verify the functionality. Most of the times we just sit in front of the computer, with the board plugged in, and downloading the bitstream.
