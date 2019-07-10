@@ -21,17 +21,17 @@ function loadPage(url) {
   });
 }
 
-var main = document.querySelector('body');
+var main = document.querySelector('html');
 
 function changePage() {
   var url = window.location.href;
 
   loadPage(url).then(function(responseText) {
-    var wrapper = document.createElement('div');
+    var wrapper = document.createElement('html');
         wrapper.innerHTML = responseText;
 
-    var oldContent = document.querySelector('.initial-content');
-    var newContent = wrapper.querySelector('.initial-content');
+    var oldContent = document.querySelector('body');
+    var newContent = wrapper.querySelector('body');
 
     main.appendChild(newContent);
     animate(oldContent, newContent);
@@ -39,18 +39,26 @@ function changePage() {
 }
 
 function animate(oldContent, newContent) {
-  oldContent.style.position = 'absolute';
+  oldContent.style['z-index'] = '1000';
+  oldContent.style['float'] = 'right';
+  oldContent.style['overflow'] = 'visible';
+  oldContent.style['position'] = 'absolute';
+  oldContent.style['width'] = '100%';
+  oldContent.style['height'] = '0';
+  oldContent.style['top'] = '0';
 
   var fadeOut = oldContent.animate({
     opacity: [1, 0]
-  }, 333);
+  }, 1000);
 
   var fadeIn = newContent.animate({
     opacity: [0, 1]
-  }, 333);
+  }, 1000);
 
   fadeIn.onfinish = function() {
     oldContent.parentNode.removeChild(oldContent);
+  };
+  fadeOut.onfinish = function() {
   };
 }
 
