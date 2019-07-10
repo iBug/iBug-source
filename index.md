@@ -16,7 +16,7 @@ header:
 feature_row:
   - image_path: "/image/mm/blog.jpg"
     alt: "blog title"
-    title: "Blogs"
+    title: "Blog"
     excerpt: "iBug is a casual, yet lazy blogger, and he occasionally writes something about his new discoveries."
     url: "/blog"
     btn_label: "<i class='fas fa-book-reader'></i> Read"
