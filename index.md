@@ -4,8 +4,6 @@ excerpt: "Developer, system administrator, geek"
 layout: splash
 classes: ["landing"]
 header:
-  overlay_color: "#EEE"
-  overlay_filter: "0"
   overlay_image: "/image/mm/splash.jpg"
   actions:
     - label: "<i class='fas fa-user-circle'></i> About"
