@@ -343,16 +343,16 @@ defaults:
   - scope:
       path: ""
     values:
+      author_profile: true
+      share: true
+      comments: true
       toc_sticky: true
   - scope:
       path: ""
       type: posts
     values:
       layout: single
-      author_profile: true
       read_time: true
-      comments: true
-      share: true
       related: true
       toc: true
       #toc_label: "On this page"
@@ -363,20 +363,26 @@ defaults:
     values:
       layout: single
       classes: wide
-      author_profile: true
-      comments: true
-      share: true
       related: false
       sidebar:
         nav: home
       no_pagination: true
   - scope:
       path: ""
+      type: share
+    values:
+      layout: single
+      classes: wide
+      related: true
+      sidebar:
+        nav: home
+  - scope:
+      path: ""
       type: pages
     values:
       layout: single
       author_profile: false
-      share: true
+      comments: false
       related: false
   - scope:
       path: ""
@@ -385,7 +391,6 @@ defaults:
       lang: "zh-CN"
       locale: "zh-CN"
       layout: single
-      author_profile: true
       read_time: true
       toc: true
       toc_label: "目录"
@@ -394,15 +399,13 @@ defaults:
       path: ""
       type: tag
     values:
-      author_profile: true
+      comments: false
       read_time: false
-      share: true
       related: false
   - scope:
       path: ""
       type: category
     values:
-      author_profile: true
+      comments: false
       read_time: false
-      share: true
       related: false
