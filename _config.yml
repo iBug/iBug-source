@@ -284,10 +284,10 @@ collections:
     permalink: "/:path/"
   cn:
     output: true
-    permalink: "/:collection/:path/"
   project:
     output: true
-    permalink: "/:collection/:path/"
+  share:
+    output: true
 
 
 # Plugins have been moved to Gemfile
