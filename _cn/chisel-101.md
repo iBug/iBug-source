@@ -448,7 +448,7 @@ object Nested extends App {
 请注意，这时候由于我们有三个入口，因此直接运行 `sbt run` 的时候将无法编译。我们需要指定一个入口：
 
 ```shell
-sbt run Sequential
+sbt 'runMain example.Sequential'
 ```
 
 运行上面的命令后，可以看到模块 `EnableShiftRegister` 被编译，生成了 `EnableShiftRegister.v`，而其他模块并没有生成对应的 Verilog 文件。
