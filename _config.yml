@@ -320,13 +320,14 @@ tag_archive:
 # https://github.com/jekyll/jekyll-archives
 jekyll-archives:
   enabled:
+    - year
     - categories
     - tags
-  layouts:
-    category: archive-taxonomy
-    tag: archive-taxonomy
+  layout: archive-taxonomy
+  layouts: {}
   permalinks:
-    category: /categories/:name/
+    year: /year/:year/
+    category: /category/:name/
     tag: /tags/:name/
 
 
