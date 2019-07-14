@@ -347,6 +347,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      related: false
       toc_sticky: true
   - scope:
       path: ""
@@ -364,7 +365,6 @@ defaults:
     values:
       layout: single
       classes: wide
-      related: false
       sidebar:
         nav: home
       no_pagination: true
