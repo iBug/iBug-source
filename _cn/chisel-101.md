@@ -15,7 +15,7 @@ Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在�
 - Scala (由 SBT 提供)
   - SBT (Simple Build Tool)
 
-考虑到 Java 平台对内存的高需求，我们建议主机至少配备 8 GB 内存 (Windows) 或 4 GB 内存 (Linux)。
+考虑到 [Java 平台对内存的高需求](https://me.me/i/java-java-yes-user-hogging-ram-no-user-telling-lies-05097ba0beb84d6e8cca690c1f5a0690)，我们建议主机至少配备 8 GB 内存 (Windows) 或 4 GB 内存 (Linux)。
 
 ## 1.A Windows 环境配置
 
