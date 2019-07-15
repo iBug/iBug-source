@@ -6,30 +6,33 @@ tags: study-notes
 comments: true
 ---
 
-Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。
+Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序，通过 Chisel 提供的库进行硬件构建。
 
 ## 1. 系统需求
 
-- Java 运行环境
-- Scala
+- Windows 7 / Windows 10, macOS 或 Linux 操作系统 (本文不保证 CentOS 兼容性，推荐 Ubuntu 18.04 或 Debian 10)
+- Java 运行环境 (JDK 8)
+- Scala (由 SBT 提供)
   - SBT (Simple Build Tool)
+
+考虑到 Java 平台对内存的高需求，我们建议主机至少配备 8 GB 内存 (Windows) 或 4 GB 内存 (Linux)。
 
 ## 1.A Windows 环境配置
 
 ### 1.A.1 安装 Java
 
-Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 191。
+Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 211。
 
-- [下载 JDK 8u191 Windows 32位](https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-i586.exe)
-- [下载 JDK 8u191 Windows 64位](https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-x64.exe)
+- [下载 JDK 8 Windows 32位](https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-windows-i586.exe)
+- [下载 JDK 8 Windows 64位](https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-windows-x64.exe)
 
 安装过程直接点击 \[下一步\] 直到完成即可。
 
 ### 1.A.2 安装 Scala 及 SBT
 
-Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。编写本文时，SBT 的最新版本为 1.2.7，可以通过以下链接下载。
+Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。本文最近更新时，SBT 的最新版本为 1.2.8，可以通过以下链接下载。
 
-- [下载 SBT 1.2.7 Windows](https://piccolo.link/sbt-1.2.7.msi)
+- [下载 SBT 1.2.8 Windows](https://piccolo.link/sbt-1.2.8.msi)
 
 SBT 的安装也不复杂，双击 msi 安装包，一路点击 \[下一步\] 即可。
 
@@ -37,7 +40,7 @@ SBT 的安装也不复杂，双击 msi 安装包，一路点击 \[下一步\] �
 
 ### 1.A.3 准备 Chisel 依赖
 
-安装好 SBT 之后，我们所有的准备工作都将借助 SBT 完成。
+安装好 SBT 之后，我们接下来所有的准备工作都将借助 SBT 完成。
 
 首先解压附件 `chisel-101.tar.gz` 并打开文件夹 `chisel-101`，然后在该文件夹中打开命令提示符。Windows 7 下可以按住 Shift 键并在文件夹空白处点右键，此时的菜单中会有 “在此处打开命令提示符” 的选项，如图：
 
@@ -49,18 +52,22 @@ SBT 的安装也不复杂，双击 msi 安装包，一路点击 \[下一步\] �
 
 ## 1.B Linux 环境配置 (Ubuntu)
 
+### 1.B.1 安装 Java 及 SBT
+
 Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。
 
 ```shell
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 sudo apt-get update
-sudo apt-get install default-jdk build-essential perl sbt
+sudo apt-get -y install default-jdk build-essential perl sbt
 ```
 
 参考链接：[Installing sbt on Linux](https://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html)
 
 以上操作会添加 SBT 提供的 APT 源，然后刷新 APT 软件包列表，并安装 JDK, SBT 等需要的软件包。
+
+### 1.B.2 准备 Chisel 依赖
 
 接下来解包附件 `chisel-101.tar.gz` （见末尾），并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。
 
@@ -76,11 +83,11 @@ sbt run
 
 保留好附件 `chisel-101.tar.gz` 或者解包出来的文件夹 `chisel-101`，后面我们会经常用到它。
 
-请注意，本文不是教你如何编辑 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用[官方的教程仓库](https://github.com/ucb-bar/chisel-tutorial)，因此避开了 Verilator 的依赖（它相当不好配置）。
+请注意，本文不是教你如何编写 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用[官方的教程仓库](https://github.com/ucb-bar/chisel-tutorial)，因此避开了 Verilator 的依赖（它在 Windows 上极难配置）。
 
 ### 2.1 第一个组合逻辑电路
 
-用文本编辑器或者 IDE (例如 IntelliJ IDEA) 打开 `src/main/scala/example/hello.scala`，观察内容：
+用文本编辑器或者 IDE (例如 [IntelliJ IDEA](https://www.jetbrains.com/idea/)) 打开 `src/main/scala/example/hello.scala`，观察内容：
 
 ```scala
 package example
@@ -191,12 +198,12 @@ class EnableShiftRegister extends Module {
   val r1 = Reg(UInt())
   val r2 = Reg(UInt())
   val r3 = Reg(UInt())
-  when(reset.toBool) {
+  when (reset.toBool) {
     r0 := 0.U(4.W)
     r1 := 0.U(4.W)
     r2 := 0.U(4.W)
     r3 := 0.U(4.W)
-  } .elsewhen(io.shift) {
+  } .elsewhen (io.shift) {
     r0 := io.in
     r1 := r0
     r2 := r1
@@ -457,7 +464,7 @@ sbt 'runMain example.Sequential'
 
 ---
 
-更多样例代码可以在 GitHub 仓库 [chisel-tutorial](https://github.com/ucb-bar/chisel-tutorial) 中找到。
+更多样例代码可以在 Chisel 的官方教程仓库 [chisel-tutorial](https://github.com/ucb-bar/chisel-tutorial) 中找到。
 
 ## 附录
 
@@ -465,4 +472,4 @@ sbt 'runMain example.Sequential'
 - 包含三个样例代码的 `chisel-101-with-examples.tar.gz` 下载： <https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz>
 
 - Chisel 官方网站： <https://chisel.eecs.berkeley.edu/>
-- GitHub 教程仓库： <https://github.com/freechipsproject/chisel3/>
+- GitHub 仓库参考： <https://github.com/freechipsproject/chisel3/>
