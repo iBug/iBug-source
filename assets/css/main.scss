@@ -29,6 +29,10 @@ html {
 	@include breakpoint($x-large) { font-size: 20px; }
 }
 
+#main {
+	@include breakpoint($x-large) { max-width: 1440px; }
+}
+
 .page__content li p {
   margin-bottom: 0;
 }
