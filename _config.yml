@@ -364,7 +364,7 @@ defaults:
       type: home
     values:
       layout: single
-      classes: wide
+      #classes: wide
       sidebar:
         nav: home
       no_pagination: true
@@ -373,7 +373,7 @@ defaults:
       type: share
     values:
       layout: single
-      classes: wide
+      #classes: wide
       related: true
       sidebar:
         nav: home
