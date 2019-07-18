@@ -1,5 +1,5 @@
 ---
-title: 'Creating Templated Systemd Services'
+title: 'Creating templated Systemd services'
 tags: linux
 redirect_from: /p/22
 ---

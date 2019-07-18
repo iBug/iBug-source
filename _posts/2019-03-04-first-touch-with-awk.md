@@ -1,5 +1,5 @@
 ---
-title: "Filter Manually Installed Packages from APT with AWK"
+title: "Filter manually installed packages from APT with AWK"
 description: null
 tagline: "How I replaced three text-processing commands with one"
 tags: study-notes
