@@ -6,6 +6,7 @@ jobs:
     environment:
       JEKYLL_ENV: production
       LC_ALL: C.UTF-8
+      RUBYOPT: --jit
     steps:
       - checkout
       - restore_cache:
