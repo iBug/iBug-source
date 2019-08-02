@@ -8,6 +8,8 @@ friends:
     link: https://blog.taoky.moe/
   - name: Volltin
     link: https://volltin.com/
+  - name: maglee
+    link: https://breakingdevil.github.io/
   - name: Zihan Zheng
     link: https://zhengzihan.com/
   - name: Sirius
