@@ -52,7 +52,7 @@ stack_overflow:
 
 ### Other links
 
-- [My telegram channel](https://t.me/ibugthought) where I share random ideas
+{%comment%}- [My telegram channel](https://t.me/ibugthought) where I share random ideas{%endcomment%}
 
 - My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
   (He writes Simplified Chinese, while I prefer English)
