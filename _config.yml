@@ -143,7 +143,7 @@ author:
       url: "https://github.com/iBug"
     - label: "Telegram Channel"
       icon: "fab fa-fw fa-telegram-plane"
-      url: "https://t.me/ibugthought"
+      #url: "https://t.me/ibugthought"
 
 # Site Footer
 footer:
