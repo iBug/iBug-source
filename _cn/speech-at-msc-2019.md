@@ -3,6 +3,7 @@ title: "我在微软夏令营 2019 的分享"
 date: 2019-08-14
 tags: speech
 comments: true
+redirect_from: /p/24-en
 ---
 
 大家好，我来自中国科学技术大学，又名 iBug。今天我给大家介绍一下关于参与开源项目的一些经验和技巧。
@@ -142,3 +143,5 @@ comments: true
 - <https://opensource.guide/>
 
 本次演讲我使用的幻灯片可以从[此处](https://github.com/iBug/Archive/releases/download/Release/iBug-Handout.pdf)获取。
+
+For comments, please head to [the Chinese version](/p/24) of this post.
