@@ -8,6 +8,10 @@ redirect_from:
   - /p/24-cn
 ---
 
+[本文在微软学术合作官方微信公众号上的推送](https://mp.weixin.qq.com/s/obnlrJjOg7Tq-H92BkFjkA)
+
+---
+
 大家好，我来自中国科学技术大学，又名 iBug。今天我给大家介绍一下关于参与开源项目的一些经验和技巧。
 
 ## 1. 什么是开源软件
