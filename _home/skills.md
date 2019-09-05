@@ -116,17 +116,25 @@ Long since I was 12 I began to learn various configurations and tweaks (primaril
 Still using a Windows laptop (by MSI) for day-to-day working, yet heavily relies on WSL.
 </dd>
 
+<dt>NGINX #2#</dt>
+<dd>
+Preferred HTTP server over Apache. Have some experiences configuring and tuning it, as well as web optimization. Best paired with Docker.
+</dd>
+
 <dt>Docker #2#</dt>
 <dd>
 My favorite application deployment solution, but haven't got much experience with it. I also have private CIs running in Docker containers.
+</dd>
+
+<dt>LXD (Linux Containers) #2#</dt>
+<dd>
+Did [a project](/project/vlab) organizing LXD containers as VMs for students to do their course experiments on. Wrote a Django frontent with the help of `pylxd` library. Also manages a small cluster of LXD containers for own and friends' use.
 </dd>
 
 <dt>Make #1#</dt>
 <dd>
 My preferred build automation system. Usually writes `Makefile` for personal projects.
 </dd>
-
-<dt>NGINX #1#</dt>
 </dl>
 
 ## Other
