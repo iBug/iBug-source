@@ -23,9 +23,11 @@ On the techie side:
 
 - **Primary languages<sup>1</sup>**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
 - **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
-- **Minor languages<sup>1</sup> and technologies**: Nginx, SQL (MySQL / MariaDB), PHP, AWK, Perl
-- **Favorite VCS**: Git (and proficient with it)
-- **Favorite automation**: Shell scripts, Make, Cron, At
+- **Minor languages<sup>1</sup>**: SQL (MySQL / MariaDB), PHP, AWK, Perl
+- **Technologies**: Nginx, Docker, LXD, Systemd, ZFS, LVM
+- **Frameworks**: Jekyll, Flask, Django, Electron, Sinatra, <del>Rails</del>, Twitter Bootstrap, jQuery, Chisel
+- **Favorite VCS**: Git (and good at it)
+- **Favorite automation**: Shell scripts, Make, Cron, At, Systemd Services, plus Docker
 - **Favorite text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
 - **Daily environment**: Windows Subsystem for Linux (Ubuntu 19.04 Disco Dingo), with virtual machines and VPS's to satisfy additional needs
 
