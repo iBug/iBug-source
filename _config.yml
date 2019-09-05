@@ -393,6 +393,7 @@ defaults:
       locale: "zh-CN"
       layout: single
       read_time: true
+      words_per_minute: 500
       toc: true
       toc_label: "目录"
       toc_icon: "th-list"
