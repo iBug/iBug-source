@@ -146,7 +146,7 @@ I assembled several desktop computers, and I maintain all my hardware on my own,
 
 - I disassembled new laptop even on day 1 of puechase, usually for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (Dec 2018)
 - I replaced a broken screen of an old phone manually. (Oct 2016)
-- I dismantaled a HDD to learn how it worked. (April 2016)
+- I dismantled a HDD to learn how it worked. (April 2016)
 - I assembled my first desktop computer from parts. (May 2014)
 </dd>
 
