@@ -4,7 +4,11 @@ title: "About iBug"
 
 Undergraduate CS student at [USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
 
-My Stack Overflow profile:
+## In action
+
+I'm an active contributor on GitHub across various repositories. You can see a list of all my pull requests [using GitHub search][all-prs].
+
+I'm also an avid user on Stack Overflow and here's my profile:
 
 <p><center>
 <a href="https://stackoverflow.com/users/5958455" style="text-decoration: initial;">
@@ -47,3 +51,4 @@ Personally:
   [so-a]: https://stackoverflow.com/users/5958455/ibug?tab=answers "iBug's answers on Stack Overflow"
   [so-sq]: /so/selected-questions
   [so-sa]: /so/selected-answers
+  [all-prs]: https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3AiBug+archived%3Afalse "All of iBug's pull requests on GitHub"
