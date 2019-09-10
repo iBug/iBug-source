@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "jekyll", '~> 3.8.6'
 gem "minimal-mistakes-jekyll", '~> 4.16.4'
+gem "liquid-c", '~> 4.0'
 
 group :jekyll_plugins do
   # Class 1: Default plugins on GitHub Pages
