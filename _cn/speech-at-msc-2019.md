@@ -8,7 +8,7 @@ redirect_from:
   - /p/24-cn
 ---
 
-[本文在微软学术合作官方微信公众号上的推送](https://mp.weixin.qq.com/s/obnlrJjOg7Tq-H92BkFjkA)
+[English Version](/p/24-en) and [本文在微软学术合作官方微信公众号上的推送](https://mp.weixin.qq.com/s/obnlrJjOg7Tq-H92BkFjkA)
 
 ---
 
