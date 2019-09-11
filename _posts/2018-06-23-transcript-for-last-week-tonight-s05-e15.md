@@ -3,15 +3,13 @@ title: "Xi Jinping: Last Week Tonight with John Oliver (HBO)"
 description: "Transcript for Last Week Tonight S05E15"
 tags: miscellaneous
 redirect_from: /p/10
-
-show_view: true
-view_name: YouTube
-view_url: "https://www.youtube.com/watch?v=OubM8bD9kck"
+toc: false
 
 hidden: true
 ---
 
 I worked this out on my own, so it may contain mistakes.
+[Here](https://www.youtube.com/watch?v=OubM8bD9kck) is the original video on YouTube.
 
 ---
 
@@ -115,7 +113,7 @@ And Xi carefully presents a man-of-the-people image,
 his origin story is famous in China.
 Born into an elite family,
 his father fell from grace
-and like many during Mao's Cultural Revolution,
+and like many during [Mao's Cultural Revolution](https://en.wikipedia.org/wiki/Cultural_Revolution),
 Xi was sent to work in a rural village,
 a place which has now become a tourist attract.
 
@@ -171,7 +169,7 @@ So for many in China, things are going undeniably well.
 But Xi has even greater ambitions
 and I'd like to focus on two massive signature projects,
 one global and one domestic.
-First there's his so-called *Belt and Road* initiative,
+First there's his so-called [*Belt and Road* initiative](https://en.wikipedia.org/wiki/Belt_and_Road_Initiative),
 a plan which is absolutely gigantic in scope,
 basically involves China spending a trillion dollars
 on infrastructure projects in more than 60 countries.
@@ -199,7 +197,7 @@ Until now...
 
 OK, stop, stop stop stop stop, stop
 I can't take it anymore, either.
-They basically made *Kommunist Kars 4 Kids*
+They basically made *Kommunist Kars 4 Kids*[^1]
 That is UN-FOR-GIV-ABLE!
 
 Now, it is too early to say
@@ -222,7 +220,7 @@ being invited to electrocute prisoners
 in a government-issued game.
 That is the most entertaining way to package something disturbing
 since FDR smash-hit board game
-*Candyland Just Kidding*
+*[Candyland](https://en.wikipedia.org/wiki/Candy_Land) Just Kidding*
 *It's a Japanese-American internment camp*
 And this,
 this is where we reach the point of the story
@@ -441,3 +439,5 @@ the kind of rounds out the picture.
 
 \[Music\]
 \[Applause\]
+
+[^1]: Kars4Kids is a nonprofit car donation organization. <https://en.wikipedia.org/wiki/Kars4Kids>
