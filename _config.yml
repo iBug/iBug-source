@@ -275,8 +275,19 @@ pagination:
     after: 3
 
 autopages:
+  enabled: true
+  categories: 
+    layouts: ['category.html']
+    title: 'Posts in category :cat'
+    permalink: '/category/:cat'
   collections:
-    enabled: true
+    layouts: ['collection.html']
+    title: 'Posts in collection :coll'
+    permalink: '/collection/:coll'
+  tags:
+    layouts: ['tags.html']
+    title: 'Posts tagged with :tag'
+    permalink: '/tag/:tag'
 
 collections:
   home:
