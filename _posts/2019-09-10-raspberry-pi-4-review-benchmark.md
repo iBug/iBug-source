@@ -3,6 +3,21 @@ title: "Raspberry Pi 4 B Review and Benchmark - What's improved over Pi 3 B+"
 tags: raspberry-pi review benchmark
 redirect_from: /p/26
 
+content_1:
+  - image_path: /image/rpi4/box.jpg
+    alt: "Package of Raspberry Pi 4"
+  - image_path: /image/rpi4/box-bottom.jpg
+    alt: "Bottom of the package"
+  - image_path: /image/rpi4/box-open.jpg
+    alt: "The package is open"
+content_2:
+  - image_path: /image/rpi4/overview.jpg
+    alt: "Overview of Raspberry Pi 4"
+  - image_path: /image/rpi4/overview-usb.jpg
+    alt: "Raspberry Pi 4 on top of the box, showing the USB ports and the Ethernet port"
+  - image_path: /image/rpi4/overview-side-ports.jpg
+    alt: "Focusing on the USB Type-C port and the HDMI ports"
+
 published: false
 ---
 
@@ -14,9 +29,13 @@ So let's take a look at the new Pi 4.
 
 ## Overview
 
+{% include feature_row id="content_1" %}
+
 The new Pi 4 is wrapped in a box similar to that of Pi 3 B+, with a white outline of the Pi 4 in 1:1 scale on a red background. Unlike Pi 3 B, neither 3 B+ and 4 has a electrostatic-proof bag around them in the box. This isn't anything of a problem, though.
 
 The new Pi 4 has a similar form factor as its predecessors, with a few noticeable differences, among which the USB 3.0 ports is the first to spot, as they're marked blue. As you inspect the USB 3.0 ports, you probably have noticed that the Ethernet port changed its position as well, which is likely due to the upgrade to a true gigabit port.
+
+{% include feature_row id="content_2" %}
 
 Some smaller ports, namely the power supply and the video output, have changed as well. The Pi 4 now requires a Type-C cable for power, and the requirement has raised to 5V / 3A. It's unknown whether the Pi 4 accepts advanced charging protocols like Qualcomm Quick Charge or USB PD, but user reports goes against such assumptions. The standard-size HDMI on older models has also been replaced by micro-HDMI port, pardon, *ports*. Yes, there are two, and both of them supports 4K @ 60 fps output, at the same time. While I'm planning to use this Pi as a headless server, people who use it as a desktop may find it favorable.
 
@@ -52,7 +71,7 @@ My Pi 3 B was sold soon after I got a 3 B+, so unfortunately there isn't one par
 
 ## My setup {#setup}
 
-![Both Rasoberry Pis, powered through their GPIO pins](/image/rpi4/rpis-powered.jpg)
+![Both Raspberry Pis, powered through their GPIO pins](/image/rpi4/rpis-powered.jpg)
 
 As seen above, both Pis are set up as headless servers, with only power and ethernet connected. You're probably wondering why they look so strange, which is because my laboratory provides a lot of these power supplies rated 5V / 6A, so I just took one and use it to power both Pis through GPIO. The two Pis are rated 5V / 2.5A and 5V / 3A each (peak), which this single power supply should be able to handle without difficulty.
 
@@ -66,3 +85,26 @@ The Pis have static IP assigned and all operation is done over SSH. Operating sy
 
 SysBench is a benchmark suite that allows you to quickly get an impression of system performance. Here I use SysBench for CPU and Memory tests.
 
+![SysBench CPU test result chart](/image/rpi4/chart/sysbench-cpu.png)
+
+As shown in the chart, the Pi 4 has a decent improvement over Pi 3 B+ in terms of CPU performance, taking 19.3% less time to complete the SysBench test in all scenarios.
+
+### 2. SysBench memory test
+
+The memory test is a little bit complicated, and some unexpected results uncovers.
+
+![SysBench memory test result chart](/image/rpi4/chart/sysbench-memory.png)
+
+It's very surprising to see the new DDR4 performs worse than the decades-old DDR2 memory, and even astonishing to see that multithreading makes the gap bigger. The only thing reasonable to me is that when a single block goes to 1 MiB, the Pi 4 outperforms the Pi 3 B+ slightly.
+
+There's one interesting thing, though, that why I didn't include a "1 MiB Read MT" column. SysBench reported a read speed of over 200 GB/s on both boards, and the results can sometimes go up to 500 GB/s, which is ridiculous to be taken seriously, so I just dropped that result.
+
+### 3. FIO microSD card speed test
+
+This test may depend on the microSD card, so I took out my (known) fastest cards for the Pis, the Lexar 667x 128 GB microSD card, which looks like below:
+
+![The microSD card](/image/rpi4/microsd-card.png)
+
+I use `fio` as.
+
+![FIO microSD test result chart](/image/rpi4/chart/fio-microsd.png)
