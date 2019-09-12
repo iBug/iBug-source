@@ -7,7 +7,6 @@ gem "liquid-c", '~> 4.0'
 group :jekyll_plugins do
   # Class 1: Default plugins on GitHub Pages
   #gem "jekyll-gist"
-  gem "jekyll-github-metadata"
   gem "jekyll-sitemap"
   #gem "jekyll-paginate"
   gem "jekyll-feed"
@@ -17,6 +16,7 @@ group :jekyll_plugins do
   #gem "jekyll-readme-index"
   #gem "jekyll-default-layout"
   #gem "jekyll-titles-from-headings"
+  gem "jekyll-github-metadata" if ENV['CI'] == 'true'
 
   # Class 2: Optional plugins on GitHub Pages
   gem "jekyll-redirect-from"
