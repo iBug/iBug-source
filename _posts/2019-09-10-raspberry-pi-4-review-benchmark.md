@@ -169,6 +169,10 @@ The Pi 4 upgraded the 300 Mbps Ethernet port to a true 1 Gbps port, which is a g
 
 This one is simple: Use cURL to download a file from a LAN machine and see the speed.
 
+![cURL download speed chart](/image/rpi4/chart/cURL.png)
+
+The result isn't as expected: The Pi 4 failed to run at its true Gbps speed, while my x86 Linux box right beside it made it.
+
 #### 6.2 NGINX performance test
 
 Another common use case is to serve web content with NGINX (sorry, no Apache). I installed NGINX on both Pis, set `access_log off` and use Siege 4.0.4 on my x86 box to benchmark the servers.
