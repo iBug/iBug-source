@@ -4,19 +4,31 @@ tags: raspberry-pi review benchmark
 redirect_from: /p/26
 
 content_1:
-  - image_path: /image/rpi4/box.jpg
+  - url: /image/rpi4/box.jpg
+    image_path: /image/rpi4/box.jpg
     alt: "Package of Raspberry Pi 4"
-  - image_path: /image/rpi4/box-bottom.jpg
+    title: "Package of Raspberry Pi 4"
+  - url: /image/rpi4/box-bottom.jpg
+    image_path: /image/rpi4/box-bottom.jpg
     alt: "Bottom of the package"
-  - image_path: /image/rpi4/box-open.jpg
+    title: "Bottom of the package"
+  - url: /image/rpi4/box-open.jpg
+    image_path: /image/rpi4/box-open.jpg
     alt: "The package is open"
+    title: "Opening the package"
 content_2:
-  - image_path: /image/rpi4/overview.jpg
+  - url: /image/rpi4/overview.jpg
+    image_path: /image/rpi4/overview.jpg
     alt: "Overview of Raspberry Pi 4"
-  - image_path: /image/rpi4/overview-usb.jpg
+    title: "Overview of Raspberry Pi 4"
+  - url: /image/rpi4/overview-usb.jpg
+    image_path: /image/rpi4/overview-usb.jpg
     alt: "Raspberry Pi 4 on top of the box, showing the USB ports and the Ethernet port"
-  - image_path: /image/rpi4/overview-side-ports.jpg
+    title: "The USB ports and the Ethernet port"
+  - url: /image/rpi4/overview-side-ports.jpg
+    image_path: /image/rpi4/overview-side-ports.jpg
     alt: "Focusing on the USB Type-C port and the HDMI ports"
+    title: "The USB Type-C port and the HDMI ports"
 ---
 
 Lately I've finally received my Raspberry Pi 4 (4 GB model), and I couldn't resist the temptation to give it a try and see all the improvements that's been reported for months.
@@ -27,13 +39,13 @@ So let's take a look at the new Pi 4.
 
 ## Overview
 
-{% include feature_row id="content_1" %}
+{% include gallery id="content_1" %}
 
 The new Pi 4 is wrapped in a box similar to that of Pi 3 B+, with a white outline of the Pi 4 in 1:1 scale on a red background. Unlike Pi 3 B, neither 3 B+ and 4 has a electrostatic-proof bag around them in the box. This isn't anything of a problem, though.
 
 The new Pi 4 has a similar form factor as its predecessors, with a few noticeable differences, among which the USB 3.0 ports is the first to spot, as they're marked blue. As you inspect the USB 3.0 ports, you probably have noticed that the Ethernet port changed its position as well, which is likely due to the upgrade to a true gigabit port.
 
-{% include feature_row id="content_2" %}
+{% include gallery id="content_2" %}
 
 Some smaller ports, namely the power supply and the video output, have changed as well. The Pi 4 now requires a Type-C cable for power, and the requirement has raised to 5V / 3A. It's unknown whether the Pi 4 accepts advanced charging protocols like Qualcomm Quick Charge or USB PD, but user reports goes against such assumptions. The standard-size HDMI on older models has also been replaced by micro-HDMI port, pardon, *ports*. Yes, there are two, and both of them supports 4K @ 60 fps output, at the same time. While I'm planning to use this Pi as a headless server, people who use it as a desktop may find it favorable.
 
