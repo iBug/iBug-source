@@ -117,7 +117,7 @@ There's one interesting thing, though, that why I didn't include a "1 MiB Read M
 
 This test may depend on the microSD card, so I took out my (known) fastest cards for the Pis, the Lexar 667x 128 GB microSD card, which looks like below:
 
-![The microSD card](/image/rpi4/microsd-card.png)
+![The microSD card](/image/rpi4/microsd-card.jpg)
 
 I use `fio` for the disk (microSD card) I/O performance testing tool. Because I'm familiar with Crystal DiskMark, I tuned the command-line options of `fio` to match the specs of CDM.
 
