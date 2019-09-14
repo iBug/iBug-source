@@ -2,6 +2,7 @@
 title: "Raspberry Pi 4 B Review and Benchmark - What's improved over Pi 3 B+"
 tags: raspberry-pi review benchmark
 redirect_from: /p/26-test
+hidden: true
 
 content_1:
   - image_path: /image/rpi4/box.jpg
