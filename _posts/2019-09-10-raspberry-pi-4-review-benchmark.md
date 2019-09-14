@@ -216,9 +216,17 @@ Wait, that doesn't mean the Pi 4 would be a good platform for your bigger Python
 
 ### 8. USB I/O performance
 
-TL;DR first, this test failed due to power issues.
+I took out my USB 3.1 SSD (assembled with a LiteOn L9M 512 GB and an enclosure case with VL716 SATA-to-USB adapter chip). However, as soon as I plug the SSD into either Pi, it powers down immediately. This later turns out to be the issue with power supply (GPIO pins can't pass enough power), so I came back the day after and started the Pis with power supply from the Micro USB / Type-C port. This time the Pi 3 B+ works correctly and ran through the `fio` test. The Pi 4, however, drops the SSD during the test due to power supply, *again*. I ended up powering the Pi through **both** Type-C and GPIO only to allow it to run the test on the SSD without power failure.
 
-I took out my USB 3.1 SSD (assembled with a LiteOn L9M 512 GB and an enclosure case with VL716 SATA-to-USB adapter chip). However, as soon as I plug the SSD into either Pi, it powers down immediately. I set up an additional power supply but still failed to get it working, so I had to give up the USB performance test.
+The power is a real issue this time, but putting it aside, let's look at the results:
+
+```shell
+fio --loops=5 --size=1g --filename=fiotest.tmp --stonewall --ioengine=libaio --direct=1 --name=SeqRead --bs=1m --rw=read --name=SeqWrite --bs=1m --rw=write
+```
+
+![FIO USB test result chart](/image/rpi4/chart/fio-usb.png)
+
+That's impressive! The ever-upgraded USB 3.0 ports, even if not running at its top speed, is an exceptional lead over previous generations of Raspberry Pi. But before enjoying the turbo speed of the new USB ports, let's emphasize again that you need to take special care for your USB peripherals, especially those requiring just a little bit more power than others, like hard drives and SSDs. Rest assured, if the power issue is properly taken care of, utilizing these two ultra-speed USB ports would be a great benefit to your Pi-based NAS setup or whatever storage extension.
 
 ## Bottom line
 
