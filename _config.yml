@@ -125,7 +125,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:i@ibugone.com"
+      url: "mailto:%69@ibugone.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://ibugone.com"
