@@ -29,6 +29,11 @@ content_2:
     image_path: /image/rpi4/overview-side-ports.jpg
     alt: "Focusing on the USB Type-C port and the HDMI ports"
     title: "The USB Type-C port and the HDMI ports"
+content_3:
+  - url: /image/rpi4/rpis-powered.jpg
+    image_path: /image/rpi4/rpis-powered.jpg
+    alt: "Both Raspberry Pis, powered through their GPIO pins"
+    title: "Both Raspberry Pis, powered through their GPIO pins"
 ---
 
 Lately I've finally received my Raspberry Pi 4 (4 GB model), and I couldn't resist the temptation to give it a try and see all the improvements that's been reported for months.
@@ -81,7 +86,7 @@ My Pi 3 B was sold soon after I got a 3 B+, so unfortunately there isn't one par
 
 ## My setup {#setup}
 
-![Both Raspberry Pis, powered through their GPIO pins](/image/rpi4/rpis-powered.jpg)
+{% include gallery id="content_3" layout="" %}
 
 As seen above, both Pis are set up as headless servers, with only power and ethernet connected. You're probably wondering why they look so strange, which is because my laboratory provides a lot of these power supplies rated 5V / 6A, so I just took one and use it to power both Pis through GPIO. The two Pis are rated 5V / 2.5A and 5V / 3A each (peak), which this single power supply should be able to handle without difficulty.
 
