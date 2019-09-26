@@ -10,7 +10,7 @@ This post originated from Lab 1 of course *Compilers: Principles* that I'm curre
 
 I'll assume you've already drawn a DFA for the multiline-comment structure, so here it is:
 
-{% include figure image_path="/image/dfa_comment.png" alt="DFA for the multiline comment" %}
+{% include figure image_path="/image/dfa-comment.png" alt="DFA for the multiline comment" %}
 
 We're first going to turn it into "state transformation equations", so it looks like this:
 $$
