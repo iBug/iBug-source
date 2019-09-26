@@ -6,8 +6,6 @@ redirect_from: /p/27
 mathjax: true
 ---
 
-## Forewords
-
 This post originated from Lab 1 of course *Compilers: Principles* that I'm currently taking, in which we were required to write a `flex` program to parse a subset of the C language. The multiline comment `/* */` was the most troublesome to handle for most of us (excluding me, for sure).
 
 ## The process
