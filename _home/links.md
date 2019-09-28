@@ -10,3 +10,4 @@ share: true
 - 《编译原理》李诚（公告板）：<http://210.45.114.30/gbxu/notice_board/issues/1>
 - 《算法基础》徐云：<http://staff.ustc.edu.cn/~xuyun/algcs.htm>
 - 《计算机网络》杨盘隆：<http://home.ustc.edu.cn/~chenzi/>
+- 《Web 信息处理与应用》徐童：<http://staff.ustc.edu.cn/~tongxu/webinfo>
