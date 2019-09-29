@@ -106,7 +106,7 @@ body.landing {
 }
 
 a.site-logo, div.author__avatar {
-	& > img {
+	&:hover > img {
 		animation: spin-periodically 5000ms infinite ease-in-out;
 	}
 }
