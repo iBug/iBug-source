@@ -105,8 +105,10 @@ body.landing {
 	}
 }
 
-a.site-logo > img {
-	animation: spin-periodically 5000ms infinite ease-in-out;
+a.site-logo, div.author__avatar {
+	& > img {
+		animation: spin-periodically 5000ms infinite ease-in-out;
+	}
 }
 
 section.page__content {
