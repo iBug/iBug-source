@@ -14,12 +14,17 @@ fi
 base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
 export SSH_AUTH_SOCK=none GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa"
 
-
 # Prepare Git stuff
 source_msg="$(git log -1 --pretty="[%h] %B")"
 
 # Fetch extra necessary things
 pushd "$SRC" &>/dev/null
+
+# Don't index this site
+cat > robots.txt << EOF
+User-Agent: *
+Disallow: /
+EOF
 
 e_info "Adding commit info"
 # Since we're pushing to another host, we want to torch the history
