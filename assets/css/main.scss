@@ -105,10 +105,8 @@ body.landing {
 	}
 }
 
-a.site-logo, div.author__avatar {
-	&:hover > img {
-		animation: spin-periodically 5000ms infinite ease-in-out;
-	}
+a.site-logo > img, div.author__avatar:hover > img {
+	animation: spin-periodically 5000ms infinite ease-in-out;
 }
 
 section.page__content {
