@@ -76,6 +76,8 @@ body.landing {
 		border-radius: 50%;
 		padding: 0.5rem;
 
+		animation: spin-periodically 5000ms infinite ease-in-out;
+
 		width: calc(60px + 1rem);
 		height: calc(60px + 1rem);
 		top: calc(50% - 120px);
@@ -101,6 +103,10 @@ body.landing {
 	}
 }
 
+a.site-logo > img {
+	animation: spin-periodically 5000ms infinite ease-in-out;
+}
+
 section.page__content {
 	h1, h2, h3, h4, h5, h6 {
 		.header-link {
@@ -124,4 +130,11 @@ p img.block {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/********** Animations **********/
+
+@keyframes spin-periodically {
+    80% { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
