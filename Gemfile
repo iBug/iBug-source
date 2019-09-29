@@ -4,6 +4,9 @@ gem "jekyll", '~> 3.8.6'
 gem "minimal-mistakes-jekyll", '~> 4.16.4'
 gem "liquid-c", '~> 4.0'
 
+# 0.16 has bugs
+gem "faraday", '~> 0.15.4'
+
 group :jekyll_plugins do
   # Class 1: Default plugins on GitHub Pages
   #gem "jekyll-gist"
