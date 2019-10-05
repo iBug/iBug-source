@@ -10,4 +10,5 @@ pagination:
   permalink: "/:num/"
 sidebar:
   nav: "home"
+words_per_minute: 500
 ---
