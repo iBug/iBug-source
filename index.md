@@ -61,10 +61,4 @@ stack_overflow:
 
 - And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
 
-{% if jekyll.environment == "production" %}
-{% unless site.china %}
-If you're visiting from China, you can go to [this mirror site](https://cn.ibugone.com) for faster loading.
-{% endunless %}
-{% endif %}
-
 <script>document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>
