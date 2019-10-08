@@ -34,6 +34,6 @@ group :jekyll_plugins do
   gem "jekyll-git_metadata"
   gem "jekyll-assets"
   gem "jekyll-algolia"
-  gem "jekyll-archives", '= 2.1.1'
+  gem "jekyll-archives", '2.2.1'
   gem "jekyll-paginate-v2"
 end
