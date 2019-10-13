@@ -5,7 +5,7 @@ main: # Top nav bar
     url: /blog/
   - title: "Projects"
     url: /projects/
-  - title: "GitHub"
+  - title: 'GitHub <i class="fa fas fa-xs fa-external-link-alt"></i>'
     url: "https://github.com/iBug"
   - title: "中文内容"
     url: /cn/
