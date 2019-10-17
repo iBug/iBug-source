@@ -23,7 +23,7 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a sele
 
 ## Quick facts
 
-On the techie side:
+On the techie side (more about my skills [here](/skills)):
 
 - **Primary languages<sup>1</sup>**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
 - **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
