@@ -35,8 +35,9 @@ On the techie side (more about my skills [here](/skills)):
 - **Favorite text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
 - **Preferred automation**: Shell scripts, Make, Cron, At, Systemd Services, plus Docker
 - **Daily working environment**
-    - Physical machine in office: Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
-    - Ubuntu 19.04, Docker, LXC, KVM
+  - Physical machine in office (headless):  
+    Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
+  - Ubuntu 19.04, Docker, LXD, KVM
 
 MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
 
@@ -46,7 +47,9 @@ Personally:
   - Chinese (Native speaker)
   - English (Proficient as a foreign language)
 - **Secondary languages<sup>2</sup>**: French, Spanish and Italian (all read-only)
-- Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
+  - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
+- [My blog](/blog)
+- [My entertainment](/entertainment)
 
 
   [USTC]: https://en.ustc.edu.cn/
