@@ -1,12 +1,12 @@
 ---
 title: "Privacy Policy"
-sidebar: null
-author_profile: null
-comments: null
-share: null
-related: null
-toc: null
-read_time: null
+sidebar: false
+author_profile: false
+comments: false
+share: false
+related: false
+toc: false
+read_time: false
 ---
 
 This website is completely static, and does not collect any information on its own.
