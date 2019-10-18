@@ -29,7 +29,7 @@ On the techie side (more about my skills [here](/skills)):
 - **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
 - **Minor languages<sup>1</sup>**: SQL (MySQL / MariaDB), PHP, AWK, Perl
 - **Technologies**: Nginx, Docker, LXD, Systemd, ZFS, LVM
-- **Frameworks**: Jekyll, Flask, Django, Electron, Sinatra, <del>Rails</del>, Twitter Bootstrap, jQuery, Chisel
+- **Frameworks**: [Jekyll](https://jekyllrb.com), Flask, Django, [Electron](https://electronjs.org), [Sinatra](http://sinatrarb.com), <s>Rails</s>, Twitter Bootstrap, jQuery, [Chisel](https://www.chisel-lang.org)
 - **Favorite distros**: Ubuntu (desktop / workstation) and Debian (servers)
 - **Favorite VCS**: Git (and good at it)
 - **Favorite text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
@@ -37,7 +37,7 @@ On the techie side (more about my skills [here](/skills)):
 - **Daily working environment**
   - Physical machine in office (headless):  
     Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
-  - Ubuntu 19.04, Docker, LXD, KVM
+  - Ubuntu 19.04, Docker, LXD, KVM (libvirt)
 
 MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
 
