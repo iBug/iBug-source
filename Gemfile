@@ -7,6 +7,8 @@ gem "liquid-c", '~> 4.0'
 # 0.16 has bugs
 gem "faraday", '~> 0.15.4'
 
+gem "classifier-reborn"
+
 group :jekyll_plugins do
   # Class 1: Default plugins on GitHub Pages
   #gem "jekyll-gist"
