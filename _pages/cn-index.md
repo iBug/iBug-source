@@ -12,3 +12,5 @@ sidebar:
   nav: "home"
 words_per_minute: 500
 ---
+
+Note: these articles are often written for another task and generally aren't maintained anymore.
