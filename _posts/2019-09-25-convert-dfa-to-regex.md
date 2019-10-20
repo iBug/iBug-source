@@ -69,4 +69,4 @@ C = \/\*([^*]|\*+[^*/])*\*+\/
 
 ---
 
-Now can you imagine how to use regular expressions to match multiples of 3 (base 10)? Yes, it's entirely possible. See [this fantastic article](https://www.quaxio.com/triple/) for details, which uses essentially the same techniques to convert a DFA (or a finite-state machine) to a regular expression that does the job.
+Now can you imagine how to use regular expressions to match multiples of 3 (base 10)? Yes, it's entirely possible. See [this fantastic article <i class="fa fas fa-xs fa-external-link-alt"></i>](https://www.quaxio.com/triple/) for details, which uses essentially the same techniques to convert a DFA (or a finite-state machine) to a regular expression that does the job.
