@@ -25,9 +25,9 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a sele
 
 On the techie side (more about my skills [here](/skills)):
 
-- **Primary languages<sup>1</sup>**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
-- **Secondary languages<sup>1</sup>**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
-- **Minor languages<sup>1</sup>**: SQL (MySQL / MariaDB), PHP, AWK, Perl
+- **Advanced knowledge**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
+- **Intermediate knowledge**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
+- **Basic knowledge**: SQL (MySQL / MariaDB), PHP, AWK, Perl
 - **Technologies**: Nginx, Docker, LXD, Systemd, ZFS, LVM
 - **Frameworks**: [Jekyll](https://jekyllrb.com), Flask, Django, [Electron](https://electronjs.org), [Sinatra](http://sinatrarb.com), <s>Rails</s>, Twitter Bootstrap, jQuery, [Chisel](https://www.chisel-lang.org)
 - **Favorite distros**: Ubuntu (desktop / workstation) and Debian (servers)
@@ -43,11 +43,17 @@ MSI produces high-performance laptops with *very* comfortable and beautiful keyb
 
 Personally:
 
-- **Primary languages<sup>2</sup>**:
-  - Chinese (Native speaker)
-  - English (Proficient as a foreign language)
-- **Secondary languages<sup>2</sup>**: French, Spanish and Italian (all read-only)
+- **Primary languages**:
+  - Chinese
+    - Native to Simplified (written) and Mandarin (oral)
+    - Reads Traditional without problem but limited in writing
+  - English (Proficient as a foreign language, prefer American flavor)
+- **Secondary languages**: French (advancing), Spanish (limited vocabulary)
+- **Minor language(s)**: Italian (can read with a dictionary)
+  - Also identify a wide range of languages written in Latin script, though without understanding a single word.
+<!--
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
+-->
 - [My blog](/blog)
 - [My entertainment](/entertainment)
 
