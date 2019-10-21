@@ -51,9 +51,9 @@ Personally:
 - **Secondary languages**: French (advancing), Spanish (limited vocabulary)
 - **Minor language(s)**: Italian (can read with a dictionary)
   - Also identify a wide range of languages written in Latin script, though without understanding a single word.
-<!--
+{% comment %}
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
--->
+{% endcomment %}
 - [My blog](/blog)
 - [My entertainment](/entertainment)
 
