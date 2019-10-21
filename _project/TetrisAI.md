@@ -7,7 +7,7 @@ A simple Tetris game with AI play mode. You can watch the program play the game 
 
 It uses Windows API so only runs on Windows.
 
-# Screenshot
+## Screenshots
 
 ![Screenshot 1](/image/TetrisAI/1.png)
 
