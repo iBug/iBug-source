@@ -28,7 +28,7 @@ It consists of a RISC-V-based SoC design (hardware) and a full set of toolchain 
 
 It is currently under development.
 
-### [Tetris with AI](https://github.com/iBug/TetrisAI) {#TetrisAI}
+### [Tetris with AI](/project/TetrisAI) {#TetrisAI}
 A good game automation that you *must* try and watch!
 
 ### [SpaceRider](https://github.com/iBug/SpaceRider) {#SpaceRider}
@@ -40,7 +40,7 @@ An implementation of the classic Reversi / Othello game using Python and PyQt5. 
 ### [Aurora Theme](https://ibugone.com/aurora-theme) {#Aurora}
 Aurora is a clean, responsive Jekyll theme for GitHub Pages.
 
-And it's the theme for my Project Pages. I have published this theme [on RubyGems](https://rubygems.org/gems/aurora-theme).
+It was the theme for my Project Pages before I moved completely to Minimal Mistakes. I have published this theme [on RubyGems](https://rubygems.org/gems/aurora-theme).
 
 ### [College Physics Experiments Toolbox](https://ibugone.com/CPE-Toolbox) (incomplete) {#invalid}
 A set of tools made to make College Physics Experiments easy!

@@ -301,8 +301,6 @@ collections:
     permalink: "/:path/"
   cn:
     output: true
-  project:
-    output: true
   share:
     output: true
 
