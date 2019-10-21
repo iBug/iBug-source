@@ -27,7 +27,7 @@ jobs:
           command: bash script/prepare.sh
       - run:
           name: Build with Jekyll
-          command: bundle exec jekyll build --profile
+          command: bundle exec jekyll build --profile --trace
       - run:
           name: Add required files
           command: script/patch.sh
