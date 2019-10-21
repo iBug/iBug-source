@@ -33,7 +33,8 @@ jobs:
           command: script/patch.sh
       - run:
           name: Deploy
-          command: bash script/deploy-circle.sh
+          command: |-
+            if [ "$CIRCLE_BRANCH" = master ]; then bash script/deploy-circle.sh; fi
 workflows:
   version: 2
   commit:
