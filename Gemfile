@@ -5,7 +5,7 @@ gem "minimal-mistakes-jekyll", '~> 4.17'
 gem "liquid-c", '~> 4.0'
 
 # Bug fixes
-gem "faraday", '~> 0.15.4' # 0.16 has bugs
+gem "faraday", '~> 0.17.0' # 0.16 has bugs
 gem "sprockets", '~> 3.7' # 4.0 is incompatible
 
 #gem "classifier-reborn" # Required for LSI, too slow however
