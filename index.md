@@ -15,7 +15,7 @@ feature_row:
   - image_path: "/image/mm/blog.jpg"
     alt: "blog title"
     title: "Blog"
-    excerpt: "iBug is a casual, yet lazy blogger, and he occasionally writes something about his new discoveries."
+    excerpt: "iBug is a casual blogger, and he occasionally writes something about his new discoveries."
     url: "/blog"
     btn_label: "<i class='fas fa-book-reader'></i> Read"
     btn_class: "btn--primary"
