@@ -33,7 +33,7 @@ group :jekyll_plugins do
   # Class 3: Extras
   gem "jekyll-environment-variables"
   gem "jekyll-tidy"
-  #gem "jekyll-git_metadata"
+  gem "jekyll-last-modified"
   gem "jekyll-assets"
   gem "jekyll-algolia"
   gem "jekyll-archives", '= 2.2.1'
