@@ -301,6 +301,8 @@ collections:
     permalink: "/:path/"
   cn:
     output: true
+  project:
+    output: true
   share:
     output: true
 
@@ -359,6 +361,7 @@ defaults:
   - scope:
       path: ""
     values:
+      layout: single
       author_profile: true
       share: true
       comments: true
@@ -368,7 +371,6 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
       read_time: true
       related: true
       toc: true
@@ -378,7 +380,6 @@ defaults:
       path: ""
       type: home
     values:
-      layout: single
       #classes: wide
       sidebar:
         nav: home
@@ -387,16 +388,20 @@ defaults:
       path: ""
       type: share
     values:
-      layout: single
       #classes: wide
       related: true
       sidebar:
         nav: home
   - scope:
       path: ""
+      type: project
+    values:
+      related: false
+      toc: true
+  - scope:
+      path: ""
       type: pages
     values:
-      layout: single
       author_profile: false
       comments: false
       related: false
@@ -406,7 +411,6 @@ defaults:
     values:
       lang: "zh-CN"
       locale: "zh-CN"
-      layout: single
       read_time: true
       words_per_minute: 500
       sidebar:
@@ -419,12 +423,10 @@ defaults:
       type: tag
     values:
       comments: false
-      read_time: false
       related: false
   - scope:
       path: ""
       type: category
     values:
       comments: false
-      read_time: false
       related: false
