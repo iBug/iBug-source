@@ -87,6 +87,11 @@ Assigned a research on Chisel for performing particularly well in *Digital Circu
 [The ugly "previous" website](https://classic.ibugone.com) that I designed and wrote on my own. Also a few pages on this site contains short JS snippets serving for various purposes. jQuery included.
 </dd>
 
+<dt>Go #1#</dt>
+<dd>
+Touched a little bit.
+</dd>
+
 <dt>Regular expressions #5#</dt>
 <dd>
 The only item on this page that I dare claiming solid knowledge on. Still learned and practiced in the SmokeDetector project linked above.
@@ -116,6 +121,11 @@ Long since I was 12 I began to learn various configurations and tweaks (primaril
 Still using a Windows laptop (by MSI) for day-to-day working, yet heavily relies on WSL.
 </dd>
 
+<dt>Vim #3#</dt>
+<dd>
+My most-used text editor. With Vim coding is just so easy and I've always wondered why one would need VSCode or JetBrains stuff.
+</dd>
+
 <dt>NGINX #2#</dt>
 <dd>
 Preferred HTTP server over Apache. Have some experiences configuring and tuning it, as well as web optimization. Best paired with Docker.
@@ -140,6 +150,11 @@ My preferred build automation system. Usually writes `Makefile` for personal pro
 ## Other
 
 <dl class="rating-table">
+<dt>DNS #4#</dt>
+<dd>
+Have a deep understanding of how DNS works, and set up and maintained different kinds of DNS services (local recursive `dnsmasq` / authoritative `bind9`), and manages more than 8 domains and some servee clusters on my own.
+</dd>
+
 <dt>Hardware maintenance #3#</dt>
 <dd>
 I assembled several desktop computers, and I maintain all my hardware on my own, ranging from my laptop to my phones. I send them to repair shops only when I identify that I can't repair or replace it by myself.

@@ -25,23 +25,38 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a sele
 
 On the techie side (more about my skills [here](/skills)):
 
-- **Advanced knowledge**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
-- **Intermediate knowledge**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
-- **Basic knowledge**: SQL (MySQL / MariaDB), PHP, AWK, Perl
-- **Technologies**: Nginx, Docker, LXD, Systemd, ZFS, LVM
-- **Frameworks**: [Jekyll](https://jekyllrb.com), Flask, Django, [Electron](https://electronjs.org), [Sinatra](http://sinatrarb.com), <s>Rails</s>, Twitter Bootstrap, jQuery, [Chisel](https://www.chisel-lang.org)
-- **Favorite distros**: Ubuntu (desktop / workstation) and Debian (servers)
-- **Favorite VCS**: Git (and good at it)
-- **Favorite text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
-- **Preferred automation**: Shell scripts, Make, Cron, At, Systemd Services, plus Docker
-- **Daily working environment**
-  - Physical machine in office (headless):  
-    Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
-  - Ubuntu 19.04, Docker, LXD, KVM (libvirt)
+- **Advanced knowledge**
+  - **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
+  - **Software**: Git, Jekyll, OpenSSH
+  - **Technology**: HTTP, DNS
+- **Intermediate knowledge**
+  - **Programming**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
+  - **Framework**: Flask, Electron, Twitter Bootstrap, jQuery, Chisel
+  - **Software**: Vim, Nginx, Docker, Make, LXD, Systemd, Singularity (Container)
+  - **Service**: Travis CI, CircleCI, Amazon EC2, Cloudflare CDN
+- **Basic knowledge**
+  - **Programming**: SQL (MySQL / MariaDB), PHP, Go, AWK, Perl
+  - **Framework**: Django, [Sinatra](https://sinatrarb.com), Rails
+  - **Software**: ZFS, Linux LVM
+  - **Technology**: RDMA, eBPF
+
+### Preferences
+
+- **Linux distro**: Ubuntu (desktop / workstation) and Debian (servers)
+- **Version control**: Git (and good at it)
+- **Text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
+- **Automation**: Shell scripts, Make, Cron / At, Systemd Services, and Docker
+
+### Working environment
+
+Physical machine in office (headless):  
+
+- Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
+- Ubuntu 19.04, Docker, LXD, KVM (libvirt)
 
 MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
 
-Personally:
+## Personally
 
 - **Primary languages**:
   - Chinese
@@ -50,7 +65,7 @@ Personally:
   - English (Proficient as a foreign language, prefer American flavor)
 - **Secondary languages**: French (advancing), Spanish (limited vocabulary)
 - **Minor language(s)**: Italian (can read with a dictionary)
-  - Also identify a wide range of languages written in Latin script, though without understanding a single word.
+  - Also identify a wide range of Latin-script languages, though without understanding a single word.
 {% comment %}
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 {% endcomment %}
