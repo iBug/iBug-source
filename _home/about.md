@@ -1,5 +1,6 @@
 ---
 title: "About iBug"
+toc: true
 ---
 
 Undergraduate CS student at [USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
