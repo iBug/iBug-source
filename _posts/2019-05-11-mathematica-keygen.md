@@ -11,7 +11,7 @@ toc: false
 
 Input your MathID (xxxx-xxxxx-xxxxx) and press **Generate**.
 
-<input type="text" id="mathId"/>
+<input type="text" id="mathId" placeholder="xxxx-xxxxx-xxxxx" />
 
 <button id="generate" class="btn btn--primary">Generate</button>
 
@@ -92,7 +92,10 @@ document.getElementById("generate").addEventListener("click", function () {
         }
         var magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
         var password = genPassword(mathId + "$1&" + activationKey, magicNumbers.getRandom());
-        document.getElementById("result").innerText += "Activation Key: " + activationKey + "\nPassword: " + password;
+        document.getElementById("result").innerText +=
+            "Activation Key: " + activationKey + "\n" +
+            "Password: " + password + "\n\n" +
+            "Don't forget to leave a comment if this works for you. Thanks for using!"
     }
 });
 </script>
