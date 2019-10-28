@@ -48,17 +48,21 @@ body.landing {
 	//background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
 	div.masthead {
 		border-bottom: none;
-		background-image: url('/image/mm/splash.jpg');
-		background-attachment: fixed;
-		background-size: cover;
-		background-position: center;
+		background: none;
 
-		nav#site-nav {
-			background: transparent;
-		}
+		@media screen and (min-width: $large) {
+			background-image: url('/image/mm/splash.jpg');
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center;
 
-		.greedy-nav a, .search__toggle {
-			color: white !important;
+			nav#site-nav {
+				background: transparent;
+			}
+
+			.greedy-nav a, .search__toggle {
+				color: white !important;
+			}
 		}
 	}
 
