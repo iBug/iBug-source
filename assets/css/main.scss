@@ -138,24 +138,6 @@ p img.block {
 	margin-right: auto;
 }
 
-footer {
-	div.footer-col {
-		float: left;
-		width: 33.33%;
-
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
-	}
-
-	/* Clear floats after the columns */
-	div.footer-row:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
-
 /********** Animations **********/
 
 @keyframes spin-periodically {
