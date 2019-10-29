@@ -63,6 +63,10 @@ body.landing {
 			.greedy-nav a, .search__toggle {
 				color: white !important;
 			}
+
+			.greedy-nav .visible-links a:before {
+				background: white;
+			}
 		}
 	}
 
