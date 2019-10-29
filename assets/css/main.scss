@@ -150,6 +150,10 @@ section.page__content {
 			opacity: 1;
 		}
 	}
+
+	a {
+		word-break: break-word;
+	}
 }
 
 p img.block {
