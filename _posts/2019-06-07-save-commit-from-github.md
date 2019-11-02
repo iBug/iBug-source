@@ -5,7 +5,7 @@ redirect_from: /p/20
 
 toc: false
 header:
-  image: "/image/code.jpg"
+  overlay_image: "/image/code.jpg"
 ---
 
 Earlier today I force-pushed to my repository [USTC-RV-Chisel](https://github.com/iBug/USTC-RV-Chisel) for testing purposes,
