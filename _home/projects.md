@@ -1,6 +1,8 @@
 ---
 title: Projects
 description: A list of iBug's projects
+header:
+  overlay_image: "/image/header/water-2.jpg"
 ---
 
 ### [OJSandbox](https://github.com/taoky/OJSandbox) {#OJSandbox}
