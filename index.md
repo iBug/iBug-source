@@ -10,6 +10,7 @@ header:
       url: "/about"
     - label: "<i class='fas fa-wrench'></i> Skills"
       url: "/skills"
+  show_overlay_excerpt: true
   #caption: "Photo credit?"
 feature_row:
   - image_path: "/image/mm/blog.jpg"

@@ -367,6 +367,9 @@ defaults:
       comments: true
       related: false
       toc_sticky: true
+      header:
+        overlay_image: "/image/header/mountain-1.jpg"
+        show_overlay_excerpt: false
   - scope:
       path: ""
       type: posts
