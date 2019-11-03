@@ -389,7 +389,7 @@ defaults:
       no_pagination: true
       header:
         overlay_image: "/image/header/water-1.jpg"
-        overlay_filter: 0.2
+        #overlay_filter: 0.2
   - scope:
       path: ""
       type: share
