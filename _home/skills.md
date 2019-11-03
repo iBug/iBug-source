@@ -1,5 +1,7 @@
 ---
 title: "Skills"
+toc: true
+toc_sticky: false
 ---
 
 Grading scale mechanism:

@@ -404,6 +404,8 @@ defaults:
     values:
       related: false
       toc: true
+      header:
+        overlay_image: "/image/header/water-2.jpg"
   - scope:
       path: ""
       type: pages
