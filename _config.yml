@@ -387,6 +387,9 @@ defaults:
       sidebar:
         nav: home
       no_pagination: true
+      header:
+        overlay_image: "/image/header/water-1.jpg"
+        overlay_filter: 0.2
   - scope:
       path: ""
       type: share
@@ -421,6 +424,9 @@ defaults:
       toc: true
       toc_label: "目录"
       toc_icon: "th-list"
+      header:
+        overlay_image: "/image/header/cloud-1.jpg"
+        overlay_filter: 0.2
   - scope:
       path: ""
       type: tag
