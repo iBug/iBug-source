@@ -1,24 +1,26 @@
 body.landing {
 	& {
 		h1.page__title {
-			transition: all 0.3s ease-in-out 0.3s;
+			transition: opacity 0.3s ease-in-out 0.3s, transform 0.3s ease-in-out 0.3s;
 			opacity: 0;
 			transform: translateY(1rem);
 		}
 
 		img.avatar {
-			transition: all 0.5s ease-in-out 0;
+			transition: opacity 0.5s ease-in-out 0;
 			opacity: 0;
 		}
 
 		p.page__lead {
-			transition: all 0.3s ease-in-out 0.6s;
+			transition: opacity 0.3s ease-in-out 0.6s, transform 0.3s ease-in-out 0.6s;
 			opacity: 0;
 			transform: translateY(1rem);
 		}
 
 		div.page__hero--overlay a.btn {
-			transition: all 0.3s ease-in-out 0.9s;
+			transition: opacity 0.3s ease-in-out 0.9s,
+			            transform 0.3s ease-in-out 0.9s,
+									background-color 0.2s ease-in-out;
 			opacity: 0;
 			transform: translateY(1rem);
 		}
