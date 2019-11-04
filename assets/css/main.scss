@@ -88,6 +88,11 @@ body.landing {
 			padding: 16em 0 10em;
 			background-attachment: fixed;
 		}
+
+		a.btn {
+			backdrop-filter: blur(1.5px);
+			background-color: rgba(255, 255, 255, 0.1);
+		}
 	}
 
 	p.page__lead {
