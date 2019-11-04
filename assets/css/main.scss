@@ -187,6 +187,8 @@ p img.block {
 
 /********** Animations **********/
 
+@import "loading-animation";
+
 @keyframes spin-periodically {
     80% { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
