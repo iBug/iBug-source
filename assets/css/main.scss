@@ -90,22 +90,26 @@ body.landing {
 		}
 
 		a.btn {
+			backdrop-filter: blur(1.5px);
 			@include breakpoint($large) {
-				//backdrop-filter: blur(1.5px);
-				position: relative;
+				backdrop-filter: none;
+			}
+			position: relative;
 
-				// Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
-				&::before {
-					content: '';
+			// Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
+			&::before {
+				content: '';
+				background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)) center / cover no-repeat fixed;
+				@include breakpoint($large) {
 					background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)), url('/image/mm/splash.jpg') center / cover no-repeat fixed;
-					filter: blur(1.5px);
-					position: absolute;
-					z-index: -1;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
 				}
+				filter: blur(1.5px);
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
 			}
 		}
 	}
