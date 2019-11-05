@@ -1,0 +1,109 @@
+body.landing {
+	//background-color: #EEE;
+	//background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
+	div.masthead {
+		border-bottom: none;
+		background: none;
+
+		@media screen and (min-width: $large) {
+			background-image: url('/image/mm/splash.jpg');
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center;
+
+			nav#site-nav {
+				background: transparent;
+			}
+
+			.greedy-nav a, .search__toggle {
+				color: white !important;
+			}
+
+			.greedy-nav .visible-links a:before {
+				background: white;
+			}
+		}
+	}
+
+	div.page__hero--overlay {
+		background-image: url('/image/mm/splash.jpg');
+		text-align: center;
+		padding: 7.5em 0 2.5em;
+		@include breakpoint($medium) { padding: 10.5em 0 5.5em; }
+		@include breakpoint($large) {
+			padding: 16em 0 4em;
+			background-attachment: fixed;
+		}
+		@include breakpoint($x-large) {
+			padding: 16em 0 10em;
+			background-attachment: fixed;
+		}
+
+		a.btn {
+			backdrop-filter: blur(1.5px);
+			@include breakpoint($large) {
+				backdrop-filter: none;
+			}
+			position: relative;
+
+			// Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
+			&::before {
+				content: '';
+				background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)) center / cover no-repeat fixed;
+				@include breakpoint($large) {
+					background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)), url('/image/mm/splash.jpg') center / cover no-repeat fixed;
+				}
+				filter: blur(1.5px);
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+	}
+
+	p.page__lead {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#page-title {
+		text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+	}
+
+	img.avatar {
+		position: absolute;
+		border: 2px solid rgba(238, 238, 238, 0.6);
+		border-radius: 50%;
+		padding: 0.5rem;
+
+		width: calc(60px + 1rem);
+		height: calc(60px + 1rem);
+		top: calc(50% - 120px);
+		left: calc(50% - 30px - 0.5rem);
+		@include breakpoint($medium) {
+			width: calc(120px + 1rem);
+			height: calc(120px + 1rem);
+			top: calc(50% - 184px);
+			left: calc(50% - 60px - 0.5rem);
+		}
+		@include breakpoint($large) {
+			width: calc(160px + 1rem);
+			height: calc(160px + 1rem);
+			top: calc(50% - 184px);
+			left: calc(50% - 80px - 0.5rem);
+		}
+		@include breakpoint($x-large) {
+			width: calc(160px + 1rem);
+			height: calc(160px + 1rem);
+			top: calc(50% - 250px);
+			left: calc(50% - 80px - 0.5rem);
+		}
+
+		&:hover {
+			animation: spin-periodically 5000ms infinite ease-in-out;
+		}
+	}
+}
