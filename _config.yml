@@ -46,46 +46,11 @@ algolia:
   search_only_api_key    : "a0d8cb9da2d6ad0d17dcd40c58c72a56"
   powered_by             : true # true (default), false
   settings:
-    searchableAttributes:
-      - title
-      - hierarchy.lvl0
-      - hierarchy.lvl1
-      - hierarchy.lvl2
-      - hierarchy.lvl3
-      - hierarchy.lvl4
-      - hierarchy.lvl5
-      - unordered(content)
-      - collection,categories,tags
-    customRanking:
-      - desc(date)
-      - desc(weight.heading)
-      - asc(weight.position)
-    attributesToHighlight:
-      - title
-      - hierarchy.lvl0
-      - hierarchy.lvl1
-      - hierarchy.lvl2
-      - hierarchy.lvl3
-      - hierarchy.lvl4
-      - hierarchy.lvl5
-      - content
-      - html
-      - collection
-      - categories
-      - tags
-    attributesForFaceting:
-      - searchable(tags)
-      - searchable(type)
-      - searchable(title)
-  files_to_exclude:
-    - 404.md
-    - index.md
-    - index.html
-    - old-index.md
-    - README.md
-    - REMOTE_README.md
-    - status.html
-    - _posts/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md
+    searchableAttributes: ["title", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "hierarchy.lvl4", "hierarchy.lvl5", "unordered(content)", "collection,categories,tags"]
+    customRanking: ["desc(date)", "desc(weight.heading)", "asc(weight.position)"]
+    attributesToHighlight: ["title", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "hierarchy.lvl4", "hierarchy.lvl5", "content", "html", "collection", "categories", "tags"]
+    attributesForFaceting: ["searchable(tags)", "searchable(type)", "searchable(title)"]
+  files_to_exclude: ["404.md", "index.md", "index.html", "old-index.md", "README.md", "REMOTE_README.md", "status.html", "_posts/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md"]
 # SEO Related
 google_site_verification : "5_jn7a-vZslUtLJO-BkY-cPDGgah5JP49RGgeOBmYSk"
 bing_site_verification   :
@@ -175,9 +140,7 @@ footer:
 
 
 # Reading Files
-include:
-  - .htaccess
-  - _pages
+include: ["_pages"]
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -211,13 +174,7 @@ exclude:
   - REMOTE_README.md
   # tmp
   - /script
-keep_files:
-  - .git
-  - .circleci
-  - .nojekyll
-  - README.md
-  - CNAME
-  - image
+keep_files: [".git", ".circleci", ".nojekyll", "README.md", "CNAME", "image"]
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
@@ -225,7 +182,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # Conversion
 markdown: kramdown
 highlighter: rouge
-lsi: false
+lsi: false  # *Very* slow
 excerpt_separator: "\n\n"
 incremental: false
 
