@@ -27,6 +27,8 @@ My website is a Jekyll-generated static site, hosted with [GitHub Pages](https:/
   ...
   ```
 
+  The `TYO` key indicates that my request went through Fastly's Tokyo endpoint.
+
 ### Custom behavior of HTTP response
 
 If you host your site on vanilla GitHub Pages, there's not much you can do with HTTP response, like cache control and redirects. By default, GitHub Pages sets all expiration times for static assets to 10 minutes, but for sure you may want certain files to be cached for longer. Like me, I would like all images on my site to be cached for as long as possible, which is not possible with GitHub Pages on its own.
@@ -39,13 +41,29 @@ Now instead of fetching an identical copy from GitHub Pages' origin server, brow
 
 ### More secure HTTPS settings
 
-Some time ago, GitHub Pages didn't support HTTPS with custom domains, which was quite a downside for such a popular service. At that time, Cloudflare was almost the only option to add HTTPS support to your website. While now that this is no longer the case, there're still some weaknesses and limitations, for example the lack of support for HSTS and the occasional failure of renewing an SSL certificate. With Cloudflare you can add HSTS headers to all responses coming from your website, further improving security.
+Some time ago, GitHub Pages didn't support HTTPS with custom domains, which was quite a downside for such a popular service. At that time, Cloudflare was almost the only option to add HTTPS support to your website. While now this is no longer the case, there're still some weaknesses and limitations, for example the lack of support for HSTS and the occasional failure of renewing an SSL certificate. With Cloudflare you can add HSTS headers to all responses coming from your website, further improving security.
 
 ## The setup
 
 ### Get your custom domain onto Cloudflare
 
 Besides CDN, Cloudflare is also a fantastic DNS provider. To get started with Cloudflare, you'll first move your domain's DNS to Cloudflare. [Sign up](https://dash.cloudflare.com/sign-up) if you don't already have an account.
+
+Next, you'll be prompted for the domain you want to add to Cloudflare. Enter the domain and Cloudflare will perform a quick scan of all records, and you can manually review them and add missing records, if any.
+
+To enable Cloudflare CDN for domains under which you run a website, click the grey cloud icon so it becomes orange. This means that website will be proxied and delivered via Cloudflare, and its DNS record will instead resolve to some of Cloudflare's IPs.
+
+That's all, isn't it simple? But wait, there's more that Cloudflare provides, and you can now explore all of them and see which fits your needs.
+
+![Apps that Cloudflare provides](/image/cloudflare/apps.png)
+
+### Get the best out of Cloudflare
+
+For newer webmasters, you might want to ensure **SSL / TLS** works as expected. The **Full** mode makes Cloudflare fetch original content from your website via HTTPS without validating the certificate on your server. For GitHub Pages this is the option you generally want, as GitHub Pages presents its default certificate for `*.github.io` if it doesn't have a certificate for your domain. This is good enough for your website behind Cloudflare.
+
+You can also enable better security by enabling latest security features in **Edge Certificates** tab of the **SSL / TLS** app, where you can set the minimum SSL version (TLS 1.2 recommended) and enable automatic HTTPS redirection. This will not only make your website more secure to visitors, but also give you a boost in SEO, as modern search engines favor HTTPS websites over HTTP ones.
+
+You may also want to tune your website for better performance by changing the settings under the **Speed** app, for example enabling HTTP/2 and auto minifying.
 
 ## Further reading
 
