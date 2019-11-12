@@ -7,7 +7,8 @@ body.landing {
 		}
 
 		img.avatar {
-			transition: opacity 0.7s ease-in-out 0.2s;
+			transition: opacity 0.7s ease-in-out 0.2s,
+			            box-shadow 0.3s ease-in-out;
 			opacity: 0;
 		}
 
