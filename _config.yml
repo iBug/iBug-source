@@ -94,7 +94,7 @@ author:
   name             : "iBug"
   avatar           : "/image/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Developer, System Administrator, Geek"
-  location         : null # "China"
+  location         : '<a href="https://en.wikipedia.org/wiki/University_of_Science_and_Technology_of_China" style="display: initial">USTC</a>'
   email            : null # "mailto:i@ibugone.com"
   links:
     - label: "Email"
