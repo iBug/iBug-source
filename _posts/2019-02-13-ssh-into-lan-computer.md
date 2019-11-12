@@ -125,7 +125,7 @@ After=network.target
 StartLimitIntervalSec=0
 
 [Service]
-Type=simple
+Type=idle
 Restart=always
 RestartSec=1
 User=pi
