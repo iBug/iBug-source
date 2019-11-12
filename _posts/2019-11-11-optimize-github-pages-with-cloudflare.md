@@ -2,8 +2,6 @@
 title: "Make your GitHub Pages website faster with Cloudflare"
 tags: github-pages cloudflare
 redirect_from: /p/28
-
-published: false
 ---
 
 This September I employed Cloudflare to optimize my website (<https://ibugone.com>) in various aspects. It turned out to be a brilliant move and Cloudflare has proved to be a great service to have.
@@ -29,7 +27,7 @@ My website is a Jekyll-generated static site, hosted with [GitHub Pages](https:/
 
   The `TYO` key indicates that my request went through Fastly's Tokyo endpoint.
 
-### Custom behavior of HTTP response
+### Custom behavior of HTTP response {#http-settings}
 
 If you host your site on vanilla GitHub Pages, there's not much you can do with HTTP response, like cache control and redirects. By default, GitHub Pages sets all expiration times for static assets to 10 minutes, but for sure you may want certain files to be cached for longer. Like me, I would like all images on my site to be cached for as long as possible, which is not possible with GitHub Pages on its own.
 
@@ -59,9 +57,15 @@ That's all, isn't it simple? But wait, there's more that Cloudflare provides, an
 
 ### Using Page Rules
 
-TBA
+Let's turn our focus onto the Page Rules app. With Page Rules you can configure Cloudflare behavior on specific "routes", or URL patterns. One common use case is to create a permanent redirect from your `www` domain to your apex domain, or in the reverse direction.
 
-### Get the best out of Cloudflare
+For example, if I want to create a permanent redirect from `www.ibugone.com` to `ibugone.com`, I would create a Page Rule like this:
+
+![Page Rule for 301 redirection from www.ibugone.com to ibugone.com](/image/cloudflare/page-rule-301.png)
+
+And there's an aggressive image caching setting [described before](#http-settings). There are many Page Rule options for you to explore, and there are always one or more that fits your needs.
+
+### Get the best out of Cloudflare {#more-features}
 
 For newer webmasters, you might want to ensure **SSL / TLS** works as expected. The **Full** mode makes Cloudflare fetch original content from your website via HTTPS without validating the certificate on your server. For GitHub Pages this is the option you generally want, as GitHub Pages presents its default certificate for `*.github.io` if it doesn't have a certificate for your domain. This is good enough for your website behind Cloudflare.
 
