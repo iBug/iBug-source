@@ -57,11 +57,17 @@ That's all, isn't it simple? But wait, there's more that Cloudflare provides, an
 
 ![Apps that Cloudflare provides](/image/cloudflare/apps.png)
 
+### Using Page Rules
+
+TBA
+
 ### Get the best out of Cloudflare
 
 For newer webmasters, you might want to ensure **SSL / TLS** works as expected. The **Full** mode makes Cloudflare fetch original content from your website via HTTPS without validating the certificate on your server. For GitHub Pages this is the option you generally want, as GitHub Pages presents its default certificate for `*.github.io` if it doesn't have a certificate for your domain. This is good enough for your website behind Cloudflare.
 
-You can also enable better security by enabling latest security features in **Edge Certificates** tab of the **SSL / TLS** app, where you can set the minimum SSL version (TLS 1.2 recommended) and enable automatic HTTPS redirection. This will not only make your website more secure to visitors, but also give you a boost in SEO, as modern search engines favor HTTPS websites over HTTP ones.
+You can also enable better security by enabling latest security features in **Edge Certificates** tab of the **SSL / TLS** app, where you can set the minimum SSL version (TLS 1.2 recommended) and enable automatic HTTPS redirection. This will not only make your website more secure to visitors, but also give you a boost in SEO, as modern search engines favor HTTPS websites over HTTP ones. Though, you might not want to jump straight to HSTS before you're absolutely ready (see [Cloudflare article](https://support.cloudflare.com/hc/en-us/articles/204183088-Understanding-HSTS-HTTP-Strict-Transport-Security-)).
+
+- I have moved the entire `ibugone.com` domain onto HSTS and get it preloaded because I'm confident I can handle it.
 
 You may also want to tune your website for better performance by changing the settings under the **Speed** app, for example enabling HTTP/2 and auto minifying.
 
