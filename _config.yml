@@ -293,8 +293,8 @@ whitelist:
 #  - Archive page should exist at path when using Liquid method or you can
 #    expect broken links (especially with breadcrumbs enabled)
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path/my-awesome-category/index.html ~> path: /
+#  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
+#  - <base_path>/my-awesome-category/index.html ~> path: /
 category_archive:
   type: jekyll-archives # liquid
   path: /category/
@@ -402,9 +402,13 @@ defaults:
     values:
       comments: false
       related: false
+      header:
+        overlay_image: "/image/header/mountain-2.jpg"
   - scope:
       path: ""
       type: category
     values:
       comments: false
       related: false
+      header:
+        overlay_image: "/image/header/mountain-2.jpg"
