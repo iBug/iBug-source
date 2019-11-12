@@ -1,5 +1,4 @@
 @import "landing"; // Special layout for landing page
-//@import "masthead"; // Colored masthead
 
 blockquote {
 	font-style: normal;
@@ -24,8 +23,6 @@ html {
 }
 
 #main {
-	background: $background-color !important;
-	padding-bottom: 3em;
 	@include breakpoint($x-large) { max-width: 1440px; }
 }
 
@@ -51,8 +48,14 @@ section.page__content {
 p img.block {
 	display: block;
 	margin-left: auto;
+	margin-right: auto;
 }
 
-.page__footer {
-	margin-top: 0;
+/********** Animations **********/
+
+@import "loading-animation";
+
+@keyframes spin-periodically {
+    80% { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
