@@ -10,6 +10,8 @@ header:
       url: "/about"
     - label: "<i class='fas fa-wrench'></i> Skills"
       url: "/skills"
+    - label: "<i class='fab fa-github'></i> GitHub"
+      url: "https://github.com/iBug"
   show_overlay_excerpt: true
   #caption: "Photo credit?"
 feature_row:
