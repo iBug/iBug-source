@@ -372,7 +372,7 @@ defaults:
       related: false
       toc: true
       header:
-        overlay_image: "/image/header/water-2.jpg"
+        overlay_image: "/image/header/mountain-2.jpg"
   - scope:
       path: ""
       type: pages
@@ -403,7 +403,7 @@ defaults:
       comments: false
       related: false
       header:
-        overlay_image: "/image/header/mountain-2.jpg"
+        overlay_image: "/image/header/water-2.jpg"
   - scope:
       path: ""
       type: category
@@ -411,4 +411,4 @@ defaults:
       comments: false
       related: false
       header:
-        overlay_image: "/image/header/mountain-2.jpg"
+        overlay_image: "/image/header/water-2.jpg"
