@@ -1,0 +1,17 @@
+div.masthead {
+	border-bottom: none;
+  background: url("/image/header/thin/whimsical.png") center/cover no-repeat;
+	//background: #0078d4;
+
+	nav#site-nav {
+		background: transparent;
+	}
+
+	.greedy-nav a, .search__toggle {
+		color: white !important;
+	}
+
+	.greedy-nav .visible-links a:before {
+		background: white;
+	}
+}

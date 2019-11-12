@@ -2,14 +2,12 @@ body.landing {
 	//background-color: #EEE;
 	//background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
 	div.masthead {
-		border-bottom: none;
-		background: none;
-
 		@media screen and (min-width: $large) {
 			background-image: url('/image/mm/splash.jpg');
 			background-attachment: fixed;
 			background-size: cover;
 			background-position: center;
+			border-bottom: none !important;
 
 			nav#site-nav {
 				background: transparent;
