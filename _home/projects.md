@@ -32,6 +32,12 @@ It consists of a RISC-V-based SoC design (hardware) and a full set of toolchain 
 
 It is currently under development.
 
+### [Jekyll Environment Variables](https://github.com/iBug/jekyll-environment-variables) {#jekyll-environment-variables}
+A Jekyll plugin that enables the use of environment variables in Liquid templates.
+I have published it [on RubyGems](https://rubygems.org/gems/jekyll-environment-variables) and it has accumulated a total download of 25k,
+which IMO indicates its non-trivial impact to the Jekyll community.
+It also gathered some discussion on its [issue board](https://github.com/iBug/jekyll-environment-variables/issues?utf8=%E2%9C%93&q=is%3Aissue).
+
 ### [Tetris with AI](/project/TetrisAI) {#TetrisAI}
 A good game automation that you *must* try and watch!
 
