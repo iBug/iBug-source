@@ -27,6 +27,8 @@ My website is a Jekyll-generated static site, hosted with [GitHub Pages](https:/
 
   The `TYO` key indicates that my request went through Fastly's Tokyo endpoint.
 
+Interestingly, the version of Fastly CDN uses the same technology as Cloudflare that I'm introducing below, which is [Anycast](https://en.wikipedia.org/wiki/Anycast). What makes Cloudflare stand out is [its global points of presence](https://www.codeinwp.com/blog/maxcdn-vs-cloudflare-vs-cloudfront-vs-akamai-edge-vs-fastly/#locations) - virtually everywhere and goes behind only Akamai.
+
 ### Custom behavior of HTTP response {#http-settings}
 
 If you host your site on vanilla GitHub Pages, there's not much you can do with HTTP response, like cache control and redirects. By default, GitHub Pages sets all expiration times for static assets to 10 minutes, but for sure you may want certain files to be cached for longer. Like me, I would like all images on my site to be cached for as long as possible, which is not possible with GitHub Pages on its own.
