@@ -3,6 +3,8 @@ title: Projects
 description: A list of iBug's projects
 header:
   overlay_image: "/image/header/mountain-2.jpg"
+toc: true
+toc_sticky: false
 ---
 
 ### [OJSandbox](https://github.com/taoky/OJSandbox) {#OJSandbox}
