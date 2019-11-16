@@ -1,6 +1,9 @@
 ---
 title: Tetris with AI
-last_modified_at: 2019-10-21T16:12:51+0800
+header:
+  actions:
+    - label: "<i class='fab fa-github'></i> GitHub"
+      url: "https://github.com/iBug/TetrisAI"
 ---
 
 A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee `:)`
