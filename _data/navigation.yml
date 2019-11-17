@@ -18,7 +18,7 @@ home:
       - title: '<i class="fas fa-fw fa-smile"></i> About iBug'
         url: "/about/"
       - title: '<i class="fas fa-fw fa-book"></i> Blog'
-        url: "/blog/index.html"
+        url: "/blog/"
       - title: '<i class="fas fa-fw fa-wrench"></i> Skills'
         url: "/skills/"
       - title: '<i class="fas fa-fw fa-puzzle-piece"></i> Projects'
