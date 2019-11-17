@@ -388,7 +388,7 @@ defaults:
       locale: "zh-CN"
       read_time: true
       comments: true
-      words_per_minute: 500
+      words_per_minute: 350
       sidebar:
         nav: home
       toc: true
