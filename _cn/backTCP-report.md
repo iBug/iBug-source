@@ -7,6 +7,8 @@ header:
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/backTCP
+    - label: "<i class='fas fa-file-alt'></i> 实验文档"
+      url: https://github.com/iBug/backTCP-python/files/3818860/V2.0.pdf
 ---
 
 # 一、实验内容
