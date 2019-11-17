@@ -1,8 +1,8 @@
 ---
 title: "backTCP 实验报告"
 date: 2019-11-17
+excerpt: "backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务"
 tags: null
-comments: true
 ---
 
 ## 一、实验内容

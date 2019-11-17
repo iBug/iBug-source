@@ -2,7 +2,6 @@
 title: "我在微软夏令营 2019 的分享"
 date: 2019-08-14
 tags: speech
-comments: true
 redirect_from:
   - /p/24
   - /p/24-cn
