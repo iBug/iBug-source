@@ -28,4 +28,4 @@ home:
       - title: '<i class="fas fa-fw fa-user-friends"></i> Friends'
         url: "/friends/"
       - title: '<i class="fas fa-fw fa-yin-yang"></i> Chinese Content'
-        url: "/cn/index.html"
+        url: "/cn/"
