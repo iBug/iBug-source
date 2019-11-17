@@ -47,6 +47,18 @@ section.page__content {
 	a {
 		word-break: break-word;
 	}
+
+	h1 {
+		margin-top: 0;
+	}
+
+	h2, h3, h4, h5, h6 {
+		margin-top: 1.5em;
+	}
+
+	h4.nav__title {
+		margin-top: 0;
+	}
 }
 
 p img.block {
