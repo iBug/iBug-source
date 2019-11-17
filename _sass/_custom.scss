@@ -33,6 +33,10 @@ html {
 div.page__hero--overlay {
 	text-align: center;
 	margin-bottom: 1em;
+
+	a.btn {
+		backdrop-filter: blur(1.5px);
+	}
 }
 
 a.site-logo > img, div.author__avatar:hover > img {
