@@ -228,7 +228,7 @@ sass:
 
 # Outputting
 source_url: "https://github.com/iBug/iBug-source"
-index_url: /blog
+index_url: /blog/
 permalink: /blog/:year/:month/:title/
 timezone: "Etc/UTC" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 date_format: "%b %-d, %Y" # "%b %-d, %Y at %-H:%M"
