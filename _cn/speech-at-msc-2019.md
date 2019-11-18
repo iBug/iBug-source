@@ -5,6 +5,10 @@ tags: speech
 redirect_from:
   - /p/24
   - /p/24-cn
+header:
+  actions:
+    - label: "<i class='fas fa-file-powerpoint'></i> 获取幻灯片"
+      url: https://github.com/iBug/Archive/releases/download/Release/iBug-Handout.pdf
 ---
 
 [English Version](/p/24-en) and [本文在微软学术合作官方微信公众号上的推送](https://mp.weixin.qq.com/s/obnlrJjOg7Tq-H92BkFjkA)
@@ -146,5 +150,3 @@ redirect_from:
 
 - <https://dev.to/kerryja/getting-started-with-open-source-3o23>
 - <https://opensource.guide/>
-
-本次演讲我使用的幻灯片可以从[此处](https://github.com/iBug/Archive/releases/download/Release/iBug-Handout.pdf)获取。
