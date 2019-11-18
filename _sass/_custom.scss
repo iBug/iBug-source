@@ -10,10 +10,6 @@ blockquote {
 	margin: 0.2rem 0.2rem 0.4rem;
 }
 
-.page__content a:not(.btn):not(#goog-wm-sb):hover img.card {
-	box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
-}
-
 html {
 	box-sizing: border-box;
 	font-size: 14px;
@@ -24,10 +20,6 @@ html {
 
 #main {
 	@include breakpoint($x-large) { max-width: 1440px; }
-}
-
-.page__content li p {
-  margin-bottom: 0;
 }
 
 div.page__hero--overlay {
@@ -71,12 +63,20 @@ section.page__content {
 		margin-left: auto;
 		margin-right: auto;
 	}
-}
 
-p img.block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	li p {
+		margin-bottom: 0;
+	}
+
+	a:not(.btn):not(#goog-wm-sb):hover img.card {
+		box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	p img.block {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 /********** Animations **********/
