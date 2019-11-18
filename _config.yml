@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "default",
 
 # Site Settings
 locale                   : "en-US"
-title                    : "iBug's Website"
+title                    : "iBug One"
 title_separator          : "-"
 name                     : "iBug"
 description              : "The little personal site for iBug"
