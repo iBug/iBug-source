@@ -37,6 +37,11 @@ div.page__hero--overlay {
 	a.btn {
 		backdrop-filter: blur(1.5px);
 	}
+
+	p.page__lead {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 a.site-logo > img, div.author__avatar:hover > img {
