@@ -81,6 +81,15 @@ section.page__content {
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+	p.notice,
+	p.notice--primary,
+	p.notice--info,
+	p.notice--warning,
+	p.notice--success,
+	p.notice--danger {
+		font-size: 0.91em !important;
+	}
 }
 
 /********** Animations **********/
