@@ -342,6 +342,7 @@ defaults:
       type: posts
     values:
       read_time: true
+      show_date: true
       related: true
       toc: true
       #toc_label: "On this page"
@@ -387,6 +388,7 @@ defaults:
       lang: "zh-CN"
       locale: "zh-CN"
       read_time: true
+      show_date: true
       comments: true
       words_per_minute: 350
       sidebar:
