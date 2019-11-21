@@ -3,6 +3,9 @@ title: "PAC 生成器"
 date: 2019-11-20
 tags: generators
 toc: false
+show_date: false
+read_time: false
+
 hidden: true
 ---
 
