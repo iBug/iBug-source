@@ -24,7 +24,7 @@ hidden: true
 
 <script type="text/javascript">
 function toHex(number) {
-  return "0x" + ("00000000", number.toString(16).toUpperCase()).slice(-8);
+  return "0x" + ("00000000" + number.toString(16).toUpperCase()).slice(-8);
 }
 
 function buildPac() {
@@ -36,13 +36,15 @@ function buildPac() {
       const lines = data.split("\n");
       for (let i = 0; i < lines.length; i++) {
         let content = lines[i].split("/");
-        let addr = content[0].split(".").map(parseInt);
+        if (content.length !== 2)
+          continue;
+          let addr = content[0].split(".").map(x => parseInt(x));
         let addrNum = 0;
-        for (let j = 0; j < addr.length; j++) {
+        for (let j = 0; j < 4; j++) {
           addrNum += addr[j] << (24 - 8 * j);
         }
         let maskNum = (0xFFFFFFFF << parseInt(32 - content[1])) >>> 0;
-        output += "  [" + toHex(addrNum) + ", " + toHex(maskNum);
+        output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
         if (i > 0) {
           output += ",";
         }
@@ -58,7 +60,7 @@ function buildPac() {
 </script>
 
 <pre id="code-template" style="display: none;">
-// Author: iBug <ibugone.com>
+// Author: iBug &lt;ibugone.com&gt;
 
 function belongsToSubnet(host, list) {
   var ip = host.split(".");
@@ -93,7 +95,7 @@ function isLan(host) {
 
 function FindProxyForURL(url, host) {
   var remote = dnsResolve(host);
-  if (isChina(remote) || isLan(remote)) {
+  if (isLan(remote) || isChina(remote)) {
       return "DIRECT";
   }
   return "__PROXY__";
