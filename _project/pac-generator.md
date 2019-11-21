@@ -1,8 +1,7 @@
 ---
 title: "PAC 生成器"
 toc: false
-show_date: false
-read_time: false
+comments: true
 redirect_from:
   - /cn/pac-generator/
 
