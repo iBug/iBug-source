@@ -8,7 +8,7 @@ hidden: true
 <div id="result" markdown="1">
 
 ```
-生成的 PAC 将出现在这里，请稍候
+点下面的 [生成] 按钮
 ```
 
 <a id="generate" class="btn btn--success" href="#" onclick="buildPac()">生成</a>
