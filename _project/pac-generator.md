@@ -11,11 +11,11 @@ hidden: true
 <div id="result" markdown="1">
 
 ```
-点下面的 [生成] 按钮
+点下面的 [生成] 按钮 / Press [Generate]
 ```
 
-<a id="generate" class="btn btn--success" href="#" onclick="buildPac()">生成</a>
-<a id="download" class="btn btn--primary disabled" download="pac.txt" href="#">下载</a>
+<a id="generate" class="btn btn--success" href="#" onclick="buildPac()">生成 / Generate</a>
+<a id="download" class="btn btn--primary disabled" download="pac.txt" href="#">下载 / Download</a>
 </div>
 <style>
 #result div.highlight {
@@ -31,7 +31,7 @@ function toHex(number) {
 }
 
 function buildPac() {
-  $("#result pre > code").text("请稍候 / Please wait...");
+  $("#result pre > code").text("请稍候 / Hang on...");
   $.get(
     "https://ibugone.com/get/?target=http%3A%2F%2Fwww.ipdeny.com%2Fipblocks%2Fdata%2Faggregated%2Fcn-aggregated.zone",
     function (data) {
