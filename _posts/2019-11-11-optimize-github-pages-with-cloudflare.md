@@ -16,16 +16,22 @@ While I haven't made strict benchmarks, people all over the world have reported 
 
 My website is a Jekyll-generated static site, hosted with [GitHub Pages](https://pages.github.com/). Currently (August 2019) GitHub provides 4 IPs that are actually behind Fastly CDN, making all GitHub Pages website rather fast already given Fastly's global point of presence (PoP).
 
-- You can examine the `X-Served-By` header of the response from GitHub Pages servers to see which edge location your website is served from. For example:
+<div class="notice--primary" markdown="1">
 
-  ```shell
-  $ curl -v https://ibug.github.io/ -H 'Host: ibugone.com'
-  ...
-  X-Served-By: cache-tyo19946-TYO
-  ...
-  ```
+#### Did you know
 
-  The `TYO` key indicates that my request went through Fastly's Tokyo endpoint.
+You can examine the `X-Served-By` header of the response from GitHub Pages servers to see which edge location your website is served from. For example:
+
+```shell
+$ curl -v https://ibug.github.io/ -H 'Host: ibugone.com'
+...
+X-Served-By: cache-tyo19946-TYO
+...
+```
+
+The `TYO` key indicates that my request went through Fastly's Tokyo endpoint.
+
+</div>
 
 Interestingly, the version of Fastly CDN uses the same technology as Cloudflare that I'm introducing below, which is [Anycast](https://en.wikipedia.org/wiki/Anycast). What makes Cloudflare stand out is [its global points of presence](https://www.codeinwp.com/blog/maxcdn-vs-cloudflare-vs-cloudfront-vs-akamai-edge-vs-fastly/#locations) - virtually everywhere and goes behind only Akamai.
 
