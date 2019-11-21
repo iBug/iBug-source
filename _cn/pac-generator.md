@@ -29,6 +29,7 @@ function toHex(number) {
 }
 
 function buildPac() {
+  $("#result pre > code").text("请稍候 / Please wait...");
   $.get(
     "https://ibugone.com/get/?target=http%3A%2F%2Fwww.ipdeny.com%2Fipblocks%2Fdata%2Faggregated%2Fcn-aggregated.zone",
     function (data) {
