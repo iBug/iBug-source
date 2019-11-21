@@ -82,13 +82,17 @@ section.page__content {
 		margin-right: auto;
 	}
 
-	p.notice,
-	p.notice--primary,
-	p.notice--info,
-	p.notice--warning,
-	p.notice--success,
-	p.notice--danger {
+	.notice,
+	.notice--primary,
+	.notice--info,
+	.notice--warning,
+	.notice--success,
+	.notice--danger {
 		font-size: 0.91em !important;
+
+		pre code {
+			background-color: inherit;
+		}
 	}
 }
 
