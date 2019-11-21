@@ -43,7 +43,8 @@ function buildPac() {
         for (let j = 0; j < 4; j++) {
           addrNum += addr[j] << (24 - 8 * j);
         }
-        let maskNum = (0xFFFFFFFF << parseInt(32 - content[1])) >>> 0;
+        addrNum = addrNum >>> 0;
+        let maskNum = (0xFFFFFFFF << (32 - parseInt(content[1], 10))) >>> 0;
         output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
         if (i > 0) {
           output += ",";
