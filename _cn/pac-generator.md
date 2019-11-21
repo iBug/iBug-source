@@ -34,7 +34,7 @@ function buildPac() {
     function (data) {
       let output = $("#code-template").text();
       output += "var CHINA = [\n";
-      const lines = data.split("\n");
+      const lines = data.trim().split("\n");
       for (let i = 0; i < lines.length; i++) {
         let content = lines[i].split("/");
         if (content.length !== 2)
@@ -47,7 +47,7 @@ function buildPac() {
         addrNum = addrNum >>> 0;
         let maskNum = (0xFFFFFFFF << (32 - parseInt(content[1], 10))) >>> 0;
         output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
-        if (i != lines.length - 2) {
+        if (i != lines.length - 1) {
           output += ",";
         }
         output += "\n";
