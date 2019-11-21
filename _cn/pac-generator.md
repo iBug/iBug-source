@@ -46,7 +46,7 @@ function buildPac() {
         addrNum = addrNum >>> 0;
         let maskNum = (0xFFFFFFFF << (32 - parseInt(content[1], 10))) >>> 0;
         output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
-        if (i > 0) {
+        if (i !== lines.length - 1) {
           output += ",";
         }
         output += "\n";
