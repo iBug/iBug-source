@@ -46,7 +46,7 @@ function buildPac() {
         addrNum = addrNum >>> 0;
         let maskNum = (0xFFFFFFFF << (32 - parseInt(content[1], 10))) >>> 0;
         output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
-        if (i !== lines.length - 1) {
+        if (i != lines.length - 2) {
           output += ",";
         }
         output += "\n";
@@ -54,7 +54,7 @@ function buildPac() {
       output += "];";
       $("#result pre > code").text(output);
       $("#download").removeClass("disabled");
-      $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output));
+      $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
     }
   );
 }
@@ -83,7 +83,7 @@ function belongsToSubnet(host, list) {
 
   // Match
   var masked = ip & list[x][1];
-  return (masked >>> 0) == (list[x][0] >>> 0);
+  return (masked ^ list[x][0]) == 0;
 }
 
 function isChina(host) {
