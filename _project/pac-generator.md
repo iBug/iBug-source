@@ -8,6 +8,10 @@ redirect_from:
 hidden: true
 ---
 
+本 PAC 生成器从 <http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone> 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见[这个 Issue](https://github.com/shadowsocks/shadowsocks-windows/issues/1873)。
+
+This PAC generator fetches latest IP address table from <http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone> and converts it into a PAC code suitable for proxies. For background, head over to [this issue](https://github.com/shadowsocks/shadowsocks-windows/issues/1873).
+
 <div id="result" markdown="1">
 
 ```
@@ -20,7 +24,7 @@ hidden: true
 <style>
 #result div.highlight {
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 10em;
 }
 </style>
