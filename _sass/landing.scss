@@ -27,6 +27,7 @@ body.landing {
 		background-image: url('/image/mm/splash.jpg');
 		text-align: center;
 		padding: 7.5em 0 2.5em;
+		max-height: calc(100vh - 4em);
 		@include breakpoint($medium) { padding: 10.5em 0 5.5em; }
 		@include breakpoint($large) {
 			padding: 16em 0 4em;
