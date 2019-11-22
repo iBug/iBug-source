@@ -3,8 +3,6 @@ title: "How to change email of your Nvidia account"
 tagline: "Very simple front-end manipulation in fact"
 tags: lifehack
 redirect_from: /p/29
-
-published: false
 ---
 
 I recently retired a few old email addresses, and am currently going in a row to change email for accounts associated with those emails. Everything else went smoothly, with my Nvidia account being an exception - There wasn't an option to change it!
