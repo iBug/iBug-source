@@ -1,8 +1,6 @@
 ---
 title: "About iBug"
 toc: true
-header:
-  overlay_image: "/image/header/forest-2.jpg"
 ---
 
 Undergraduate CS student at [USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
