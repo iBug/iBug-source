@@ -17,7 +17,6 @@ While I haven't made strict benchmarks, people all over the world have reported 
 My website is a Jekyll-generated static site, hosted with [GitHub Pages](https://pages.github.com/). Currently (August 2019) GitHub provides 4 IPs that are actually behind Fastly CDN, making all GitHub Pages website rather fast already given Fastly's global point of presence (PoP).
 
 <div class="notice--primary" markdown="1">
-
 #### Did you know
 
 You can examine the `X-Served-By` header of the response from GitHub Pages servers to see which edge location your website is served from. For example:
@@ -30,7 +29,6 @@ X-Served-By: cache-tyo19946-TYO
 ```
 
 The `TYO` key indicates that my request went through Fastly's Tokyo endpoint.
-
 </div>
 
 Interestingly, the version of Fastly CDN uses the same technology as Cloudflare that I'm introducing below, which is [Anycast](https://en.wikipedia.org/wiki/Anycast). What makes Cloudflare stand out is [its global points of presence](https://www.codeinwp.com/blog/maxcdn-vs-cloudflare-vs-cloudfront-vs-akamai-edge-vs-fastly/#locations) - virtually everywhere and goes behind only Akamai.
@@ -43,7 +41,7 @@ Cloudflare offers a variety of tweaks via Page Rules, so I could achieve my goal
 
 ![My Cloudflare setting for image caching](/image/cloudflare/image-caching.png)
 
-Now instead of fetching an identical copy from GitHub Pages' origin server, browsers will now cache all image on my website for a year, and Cloudflare's CDN servers will cache my images for up to 30 days. Other available options include redirection and performance optimizations, and it's up to you to explore them all.
+Instead of fetching an identical copy from GitHub Pages' origin server, browsers will now cache all image on my website for a year, and Cloudflare's CDN servers will cache my images for up to 30 days. Other available options include redirection and performance optimizations, and it's up to you to explore them all.
 
 ### More secure HTTPS settings
 
@@ -79,7 +77,9 @@ For newer webmasters, you might want to ensure **SSL / TLS** works as expected. 
 
 You can also enable better security by enabling latest security features in **Edge Certificates** tab of the **SSL / TLS** app, where you can set the minimum SSL version (TLS 1.2 recommended) and enable automatic HTTPS redirection. This will not only make your website more secure to visitors, but also give you a boost in SEO, as modern search engines favor HTTPS websites over HTTP ones. Though, you might not want to jump straight to HSTS before you're absolutely ready (see [Cloudflare article](https://support.cloudflare.com/hc/en-us/articles/204183088-Understanding-HSTS-HTTP-Strict-Transport-Security-)).
 
-- I have moved the entire `ibugone.com` domain onto HSTS and get it preloaded because I'm confident I can handle it.
+<div class="notice--primary" markdown="1">
+I have moved the entire domain `ibugone.com` onto HSTS and get it preloaded because I'm confident I can handle it.
+</div>
 
 You may also want to tune your website for better performance by changing the settings under the **Speed** app, for example enabling HTTP/2 and auto minifying.
 
