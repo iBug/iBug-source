@@ -1,16 +1,17 @@
 body.layout--home {
+	h3.archive__subtitle {
+		display: none;
+	}
+
 	div.archive {
 		div.list__item {
 			margin-top: 2.5em;
-			padding: 0.5em;
-			border: 1px solid #77C;
-			border-radius: 0.5em;
 
 			// Note: H2 itself has 1.25em
 			h2.archive__item-title {
-				margin: 0.3em -0.4em 0.25em;
-				padding: 0 0.4em 0.2em;
-				border-bottom: 1px solid #77C;
+				margin-top: 0.3em;
+				padding-bottom: 0.2em;
+				border-bottom: 1px solid #cecfd1;
 
 				a {
 					text-decoration: none;
