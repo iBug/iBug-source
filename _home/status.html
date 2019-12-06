@@ -25,6 +25,8 @@ share: false
 	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}{% if site.env.TRAVIS_EVENT_TYPE == "cron" %} &#9200;{% endif %}</a></dd>
   {% elsif site.env.CIRCLE_BUILD_NUM %}
 	<dd>This site is deployed from <a href="https://circleci.com/gh/iBug/iBug-source/{{ site.env.CIRCLE_BUILD_NUM }}">CircleCI build {{ site.env.CIRCLE_BUILD_NUM }}{% if site.env.CRON %} &#9200;{% endif %}</a></dd>
+  {% elsif site.env.GITHUB_ACTION %}
+	<dd>This site is deployed from <a href="https://github.com/features/actions">GitHub Actions</a></dd>
   {% else %}
   <dd>This site is not deployed from Continuous Integration.</dd>
   {% endif %}
