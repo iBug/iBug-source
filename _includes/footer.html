@@ -22,8 +22,10 @@
 	Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
 	<br>
 	<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
+	<br>
 	{% if site.env.CIRCLE_BUILD_NUM %}
-		<br>
 		Site version <a href="/status">{{ site.env.CIRCLE_BUILD_NUM }}</a>
+	{% else %}
+		Site version <a href="/status">{{ site.git.last_commit.short_sha }}</a>
 	{% endif %}
 </div>
