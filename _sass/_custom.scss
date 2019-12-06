@@ -102,6 +102,6 @@ section.page__content {
 @import "loading-animation";
 
 @keyframes spin-periodically {
-    80% { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    50% { transform: rotate(0deg); }
+    to { transform: rotate(4320deg); }
 }

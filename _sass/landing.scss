@@ -105,7 +105,7 @@ body.landing {
 
 		&:hover {
 			box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
-			animation: spin-periodically 5000ms infinite ease-in-out;
+			animation: spin-periodically 6s infinite cubic-bezier(0.45, 0, 0.55, 1);
 		}
 	}
 }
