@@ -9,6 +9,9 @@ jobs:
       SSH_KEY_E: ${{ secrets.SSH_KEY_E }}
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
     - name: Install dependencies
       run: bundle check || bundle install --path=vendor/bundle
     - name: Setup cache for Bundler
