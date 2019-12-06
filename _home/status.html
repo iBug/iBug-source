@@ -20,6 +20,7 @@ share: false
 		Continuous Integration
 		<a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Travis CI" /></a>
 		<a href="https://circleci.com/gh/iBug/iBug-source"><img src="https://circleci.com/gh/iBug/iBug-source.svg?style=shield" alt="CircleCI" /></a>
+		<img src="https://github.com/iBug/iBug-source/workflows/GitHub%20Actions/badge.svg" alt="GitHub Actions" />
 	</dt>
   {% if site.env.TRAVIS_BUILD_ID %}
 	<dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}{% if site.env.TRAVIS_EVENT_TYPE == "cron" %} &#9200;{% endif %}</a></dd>
