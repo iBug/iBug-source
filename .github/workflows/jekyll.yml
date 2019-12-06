@@ -1,0 +1,32 @@
+name: Build with GitHub Action
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SSH_KEY_E: ${{ secrets.SSH_KEY_E }}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: bundle check || bundle install --path=vendor/bundle
+    - name: Setup cache for Bundler
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-bundler-${{ hashFiles('Gemfile') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+    - name: Install dependencies
+      run: bundle install --path=vendor/bundle
+    - name: Prepare build
+      run: bash script/prepare.sh
+    - name: Build site
+      run: bundle exec jekyll build --trace --profile
+    - name: Post-build patches
+      run: bash script/patch.sh
+    - name: Deploy to GitHub
+      run: bash script/deploy-actions.sh
