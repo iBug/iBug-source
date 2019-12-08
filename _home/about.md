@@ -33,13 +33,13 @@ On the techie side (more about my skills [here](/skills)):
 - **Intermediate knowledge**
   - **Programming**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
   - **Framework**: Flask, Electron, Twitter Bootstrap, jQuery, Chisel
-  - **Software**: Vim, Nginx, Docker, Make, LXD, Systemd, Singularity (Container)
+  - **Software**: Vim, Nginx, Docker, Make, LXD, Systemd, [Singularity](https://sylabs.io/) (Container)
   - **Service**: Travis CI, CircleCI, Amazon EC2, Cloudflare CDN
 - **Basic knowledge**
   - **Programming**: SQL (MySQL / MariaDB), PHP, Go, AWK, Perl
   - **Framework**: Django, [Sinatra](https://sinatrarb.com), Rails
   - **Software**: ZFS, Linux LVM
-  - **Technology**: RDMA, eBPF
+  - **Technology**: <abbr title="Remove Direct Memory Access">RDMA</abbr>, <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
 
 ### Preferences
 
