@@ -15,8 +15,8 @@ before_script:
   - script/prepare.sh
 
 script:
-  - 'if [ $TRAVIS_EVENT_TYPE = cron ]; then bundle exec jekyll algolia; fi'
-  - bundle exec jekyll build --profile --trace --config "_config.yml,_extra.yml"
+  # 'if [ $TRAVIS_EVENT_TYPE = cron ]; then bundle exec jekyll algolia; fi'
+  - bundle exec jekyll build --profile --trace
 
 after_success:
   - script/patch.sh
