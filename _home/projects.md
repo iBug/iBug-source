@@ -51,3 +51,7 @@ An implementation of the classic Reversi / Othello game using Python and PyQt5. 
 Aurora is a clean, responsive Jekyll theme for GitHub Pages.
 
 It was the theme for my Project Pages before I moved completely to Minimal Mistakes. I have published this theme [on RubyGems](https://rubygems.org/gems/aurora-theme).
+
+---
+
+I have another set of [smaller projects](/small-projects) that I don't think is worth showing here, but you're free to explore them if you're interested.
