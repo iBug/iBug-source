@@ -1,6 +1,7 @@
 ---
 title: "How I saved a lost commit from GitHub"
 tags: git github study-notes
+keywords: [git, github, commit, restore, recovery]
 redirect_from: /p/20
 
 toc: false
