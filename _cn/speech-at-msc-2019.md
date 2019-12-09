@@ -2,6 +2,7 @@
 title: "我在微软夏令营 2019 的分享"
 date: 2019-08-14
 tags: speech
+keywords: [microsoft student club, speech, open source, 2019, ustc, 中科大, 微软学生俱乐部, 夏令营, 演讲, 开源, 开源软件]
 redirect_from:
   - /p/24
   - /p/24-cn
