@@ -2,8 +2,9 @@
 title: "数理方程思考题"
 excerpt: "2019 年春季中科大《数理方程》课程的一道思考题，最高可给总评加 5 分"
 date: 2019-05-20
-mathjax: true
 tags: study-notes
+keywords: [数理方程, 振动, 共振, 思考题]
+mathjax: true
 ---
 
 # 题目（P248 例 3）
