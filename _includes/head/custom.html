@@ -4,7 +4,11 @@
 <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 <meta name="theme-color" content="#EDEDED">
 <script type="text/javascript">
-window.addEventListener("DOMContentLoaded", () => document.querySelector("body").classList.add("loaded"));
+const funcOnPageLoad = () => document.querySelector("body").classList.add("loaded");
+if (document.readyState !== "loading")
+	funcOnPageLoad();
+else
+	document.addEventListener('DOMContentLoaded', funcOnPageLoad);
 </script>
 {% if page.mathjax %}
 <script type="text/x-mathjax-config">
