@@ -148,6 +148,11 @@ footer:
       # url:
 
 
+footer_scripts:
+  - /assets/js/main.min.js
+  - https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js
+
+
 # Reading Files
 include: ["_pages"]
 exclude:
