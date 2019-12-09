@@ -1,6 +1,7 @@
 ---
 title: "Converting DFA to Regular Expression"
 tags: study-notes regular-expression
+keywords: [regular expression, dfa, fsm]
 redirect_from: /p/27
 
 mathjax: true

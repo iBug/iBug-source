@@ -3,6 +3,7 @@ title: "Wolfram Mathematica 12 Key Generator"
 description: "Another JavaScript project"
 tagline: ""
 tags: keygen
+keywords: [mathematica, mathematica 12, crack, keygen]
 redirect_from: /p/19
 toc: false
 ---
