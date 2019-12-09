@@ -1,3 +1,6 @@
+{% if page.keywords -%}
+<meta name="keywords" content="{{ page.keywords | join: "," }}">
+{%- endif %}
 <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 <meta name="theme-color" content="#EDEDED">
 <script type="text/javascript">
