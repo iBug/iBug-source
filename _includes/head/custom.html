@@ -6,7 +6,7 @@
 <script type="text/javascript">
 const funcOnPageLoad = () => document.querySelector("body").classList.add("loaded");
 if (document.readyState !== "loading")
-	funcOnPageLoad();
+	setTimeout(funcOnPageLoad, 500);
 else
 	document.addEventListener('DOMContentLoaded', funcOnPageLoad);
 </script>
