@@ -27,6 +27,8 @@ jobs:
       run: bash script/prepare.sh
     - name: Build site
       run: bundle exec jekyll build --trace --profile
+      env:
+        JEKYLL_ENV: production
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
