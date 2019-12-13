@@ -1,7 +1,7 @@
 ---
 title: Projects
 layout: collection
-permalink: /project/
+permalink: /projects/
 collection: project
 entries_layout: grid
 author_profile: true
