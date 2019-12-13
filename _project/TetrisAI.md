@@ -1,6 +1,7 @@
 ---
 title: Tetris with AI
 header:
+  teaser: /image/project/teaser/tetris.jpg
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/TetrisAI

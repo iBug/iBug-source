@@ -97,6 +97,10 @@ section.page__content {
 	}
 }
 
+p.archive__item-excerpt {
+	word-break: break-word;
+}
+
 /********** Animations **********/
 
 @import "loading-animation";
