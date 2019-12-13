@@ -377,6 +377,7 @@ defaults:
       path: ""
       type: project
     values:
+      no_date: true
       related: false
       toc: true
       header:

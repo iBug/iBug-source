@@ -31,9 +31,11 @@
       {% endif %}
     </h2>
 		<p class="page__meta">
-			<span style="margin-right: 1em;">
-				<i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %d, %Y" }}
-			</span>
+		  {% unless post.no_date %}
+				<span style="margin-right: 1em;">
+					<i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %d, %Y" }}
+				</span>
+			{% endunless %}
 			{% if post.read_time %}
 				<i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
 			{% endif %}
