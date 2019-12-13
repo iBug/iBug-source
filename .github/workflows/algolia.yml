@@ -26,4 +26,4 @@ jobs:
     - name: Install dependencies
       run: bundle install --path=vendor/bundle
     - name: Update Algolia index
-      run: bundle exec jekyll algolia --trace
+      run: bundle exec jekyll algolia push --trace
