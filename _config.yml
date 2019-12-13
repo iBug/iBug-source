@@ -380,6 +380,7 @@ defaults:
       related: false
       toc: true
       header:
+        teaser: "/image/project/teaser/default.png"
         overlay_image: "/image/header/mountain-2.jpg"
   - scope:
       path: ""
