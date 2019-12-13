@@ -1,5 +1,6 @@
 ---
 title: Tetris with AI
+excerpt: "A Tetris game with AI playing mode I wrote when I was 14. It's very entertaining and relaxing to see the Tetris game plays on its own."
 header:
   teaser: /image/project/teaser/tetris.jpg
   actions:
