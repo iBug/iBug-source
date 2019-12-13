@@ -1,5 +1,6 @@
 @import "landing"; // Special layout for landing page
 @import "home";
+@import "archive";
 
 blockquote {
 	font-style: normal;
@@ -95,10 +96,6 @@ section.page__content {
 			background-color: inherit;
 		}
 	}
-}
-
-p.archive__item-excerpt {
-	word-break: break-word;
 }
 
 /********** Animations **********/
