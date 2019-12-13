@@ -1,13 +1,16 @@
 .grid__item {
-	@include breakpoint($medium) {
-		width: span(4 of 12);
-
+	@include breakpoint($small) {
 		&:nth-child(2n + 1) {
 			clear: none;
 		}
+	}
+
+	@include breakpoint($medium) {
+		width: span(4 of 12);
 
 		&:nth-child(3n + 1) {
 			clear: both;
+			margin-left: 0;
 		}
 
 		&:nth-child(3n + 2) {
@@ -39,7 +42,8 @@
 	}
 
 	p.archive__item-excerpt {
-		display: initial;
+		display: inline-block;
 		word-break: break-word;
+		line-height: 1.5em;
 	}
 }
