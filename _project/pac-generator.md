@@ -12,6 +12,14 @@ hidden: true
 
 This PAC generator fetches latest IP address table from <http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone> and converts it into a PAC code suitable for proxies. For background, head over to [this issue](https://github.com/shadowsocks/shadowsocks-windows/issues/1873).
 
+如果你有任何问题，欢迎在[项目主仓库的 Issue 列表](https://github.com/iBug/pac/issues)提出。
+
+Any issue is welcome at the [issue board of the master repository](https://github.com/iBug/pac/issues).
+
+### Update 1
+
+Added support for an alternative source: <https://github.com/17mon/china_ip_list>. See [this issue](https://github.com/iBug/pac/issues/6) for details.
+
 <div id="result" markdown="1">
 
 ```
@@ -20,7 +28,18 @@ This PAC generator fetches latest IP address table from <http://www.ipdeny.com/i
 
 <a id="generate" class="btn btn--success" href="#" onclick="buildPac()">生成 / Generate</a>
 <a id="download" class="btn btn--primary disabled" download="pac.txt" href="#">下载 / Download</a>
+
+选择数据源 / Select data source
+
+<input type="radio" name="data-source" checked
+  value="http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone" />
+  <http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone> <br>
+<input type="radio" name="data-source"
+  value="https://github.com/17mon/china_ip_list/raw/master/china_ip_list.txt" />
+  <https://github.com/17mon/china_ip_list>
+
 </div>
+
 <style>
 #result div.highlight {
   overflow-x: hidden;
@@ -36,9 +55,13 @@ function toHex(number) {
 
 function buildPac() {
   $("#result pre > code").text("请稍候 / Hang on...");
-  $.get(
-    "https://ibugone.com/get/?target=http%3A%2F%2Fwww.ipdeny.com%2Fipblocks%2Fdata%2Faggregated%2Fcn-aggregated.zone",
-    function (data) {
+  // Identify source
+  const dataSource = $("input[name='data-source']:checked").val();
+  $.ajax({
+    url: "https://ibugone.com/get/",
+    type: "GET",
+    data: {"target": dataSource},
+    success: function (data) {
       let output = $("#code-template").text();
       output += "var CHINA = [\n";
       const lines = data.trim().split("\n");
@@ -63,8 +86,11 @@ function buildPac() {
       $("#result pre > code").text(output);
       $("#download").removeClass("disabled");
       $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
+    },
+    error: function (err) {
+      $("#result pre > code").text("Unexpected error, see console log for details.");
     }
-  );
+  });
 }
 </script>
 
