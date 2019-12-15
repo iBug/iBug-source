@@ -27,6 +27,12 @@
 	.archive__item-teaser {
 		@include breakpoint($small) {
 			height: 200px;
+
+			img {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
 		}
 
 		@include breakpoint($medium) {
@@ -34,11 +40,6 @@
 			height: 160px;
 		}
 
-		img {
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
-		}
 	}
 
 	p.archive__item-excerpt {
