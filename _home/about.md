@@ -39,7 +39,7 @@ On the techie side (more about my skills [here](/skills)):
   - **Programming**: SQL (MySQL / MariaDB), PHP, Go, AWK, Perl
   - **Framework**: Django, [Sinatra](https://sinatrarb.com), Rails
   - **Software**: ZFS, Linux LVM
-  - **Technology**: <abbr title="Remove Direct Memory Access">RDMA</abbr>, <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
+  - **Technology**: <abbr title="Remote Direct Memory Access">RDMA</abbr>, <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
 
 ### Preferences
 
