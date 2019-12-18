@@ -80,7 +80,6 @@ Array.prototype.getRandom = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 document.getElementById("generate").addEventListener("click", function () {
-    document.getElementById("result").innerText = "";
     var mathId = document.getElementById("mathId").value.trim();
     if (!checkMathId(mathId)) {
         document.getElementById("result").innerText = "Bad MathID!";
@@ -93,10 +92,10 @@ document.getElementById("generate").addEventListener("click", function () {
         }
         var magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
         var password = genPassword(mathId + "$1&" + activationKey, magicNumbers.getRandom());
-        document.getElementById("result").innerText +=
+        document.getElementById("result").innerText =
             "Activation Key: " + activationKey + "\n" +
             "Password: " + password + "\n\n" +
-            "Don't forget to leave a comment if this works for you. Thanks for using!"
+            "Don't forget to share your feelings below if this works for you. Thanks for using!";
     }
 });
 </script>
