@@ -1,3 +1,5 @@
+@import "mixins";
+
 @import "landing"; // Special layout for landing page
 @import "home";
 @import "archive";
@@ -27,6 +29,10 @@ html {
 div.page__hero--overlay {
 	text-align: center;
 	margin-bottom: 1em;
+
+	h1.page__title {
+		@include noselect;
+	}
 
 	a.btn {
 		backdrop-filter: blur(1.5px);
