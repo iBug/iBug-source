@@ -2,8 +2,6 @@
 title: "Managing my servers with OpenSSH Certificate Authority"
 tags: linux ssh
 redirect_from: /p/30
-
-published: false
 ---
 
 Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using [Termux][termux]), and one of those servers that I use as a workstation.
@@ -58,11 +56,16 @@ Certificate invalid: name is not a listed principal
 
 Unless the attacker can hijack your DNS (for authenticated domain names) or even your routers (for plain IP addresses), this signature is useless when stolen, and you can safely forget about it and sign a new one for the regenerated host key.
 
+
+<div class="notice--primary" markdown="1">
+#### <i class="far fa-lightbulb"></i> Tip
+
 You can see the certificate information using `ssh-keygen -L` command. For example:
 
 ```shell
 ssh-keygen -Lf /etc/ssh/ssh_host_rsa_key-cert.pub
 ```
+</div>
 
 ### Configure clients
 
@@ -82,7 +85,63 @@ Now try SSHing into a host with a CA signature. You'll notice that SSH doesn't p
 
 ## Authenticating users with SSH CA
 
-## Epilogue
+### Configure servers
+
+We'll start this part with server side configuration. We want the server to trust user certificates signed by the CA, so we'll copy the CA's public key onto the server, and again edit `/etc/ssh/sshd_config` and add the following line.
+
+```text
+TrustedUserCAKeys /etc/ssh/ssh_user_ca
+```
+
+Make sure you've put the CA public key at `/etc/ssh/ssh_user_ca`, or you should change the path in the above configuration accordingly. Again, run `systemctl reload ssh` or `service sshd reload` to reload the SSH server.
+
+<div class="notice--primary" markdown="1">
+#### <i class="far fa-lightbulb"></i> Pro Tip
+
+Did you notice that the configuration line is named CA**Keys**, not just CA**Key**? Yes, you can add multiple public keys to that file just like you're already doing with `authorized_keys` file.
+</div>
+
+### Sign user keys
+
+Now, to grant access to all servers configured this way to a user, ask for their public key and create a signature. The command is similar to that when signing a host certificate, except that there's no `-h` switch (it's for signing hosts), and the `-n` (named principals) option is mandatory this time.
+
+```shell
+ssh-keygen -s my_ca -I <user name> -n root,ubuntu id_rsa.pub
+```
+
+This will create a `id_rsa-cert.pub` file under the current directory, which you want to send back to the user so they can use this signature to log in to servers.
+
+Contrary to host signatures, the SSH client doesn't need extra configuration, because it automatically looks for the certificate file by appending `-cert.pub` to the name of the private key. Again you can use `ssh -vvv` to see what's going on under the hood.
+
+### Separating access to different hosts
+
+As you've probably noticed, if you sign a user certificate with `root` being a listed principal, the corresponding private key can be used to log in as root on *ALL* servers that trust the certificate authority. This is rarely a desired result, and you're probably looking for a cure for the issue.
+
+Fortunately, SSH supports an "authorized principals" setting, which allows granting access to users with specific "principals". In general, you want separate authorized principals for different users on hosts. Here's what you can start with, by enabling this setting in `sshd_config`:
+
+```text
+AuthorizedPrincipalsFile /etc/ssh/authorized_principals/%u
+```
+
+You can then create lists of authorized names for each user under `/etc/ssh/authorized_principals`. For example, you can have the following lines in `/etc/ssh/authorized_principals/root`:
+
+```text
+taokystrong
+```
+
+After reloading SSH server, users with a certificate containing `taokystrong` as a listed principal (supplied by the `-n` option when signing the certificate using `ssh-keygen`) can log in as root on this host (and `taokystrong` as well), but not any other user on this host, or the root user on any other server. Note that certificates signed for `root` can still log in as root on any servers that trust this CA.
+
+<div class="notice--primary" markdown="1">
+#### Good practices
+
+For personal uses, it's perfectly fine to use one CA for both hosts and users, but in larger corporations with a complex server layout, it's a general practice to use separate CAs for host authentication and user authentication.
+</div>
+
+## Other tips
+
+OpenSSH is a complicated and powerful SSH ecosystem. There are far more available options than those described in this article. For example, certificates can have a "validity period", and the commands can also be limited (instead of granting a full shell).
+
+For more detailed and authoritative information about thses configuration, [the man page for `sshd_config`](https://linux.die.net/man/5/sshd_config) is always a good point to look at.
 
 
   [ca]: https://en.wikipedia.org/wiki/Certificate_authority
