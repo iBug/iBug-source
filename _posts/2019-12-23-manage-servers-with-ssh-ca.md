@@ -14,7 +14,7 @@ Not until I took over a system of many servers did I learn about SSH CA. It's fo
 
 Long story short, an SSH Certificate Authority is a [certificate authority][ca] for SSH hosts. A client can trust all server signed by the CA by simply trusting the CA. And more powerfully, a server can *also* trust all user keys if the user key has a signature from the CA, and the server trusts the CA for signing user keys.
 
-By properly configuring servers and clients, a rotated or otherwise changed key, be it a host key or a user key, will no longer cause chaos of copying public keys from everywhere, to everyone. The follow-up is as simple as getting another CA signature for the new key, and everything will go smoothly as if nothing has happened.
+By properly configuring servers and clients, a rotated or otherwise changed key, be it a host key or a user key, will no longer cause chaos of copying public keys from everywhere, to everywhere. The follow-up is as simple as getting another CA signature for the new key, and everything will go smoothly as if nothing has happened.
 
 ## Creating an SSH CA
 
