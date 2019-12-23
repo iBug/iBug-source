@@ -1,5 +1,5 @@
 ---
-title: "Managing my servers with OpenSSH Certificate Authority"
+title: "Managing servers with OpenSSH Certificate Authority"
 tags: linux ssh
 redirect_from: /p/30
 ---
