@@ -1,4 +1,4 @@
-.grid__item {
+div.archive .grid__item {
 	@include breakpoint($small) {
 		&:nth-child(2n + 1) {
 			clear: none;
