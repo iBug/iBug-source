@@ -59,6 +59,7 @@ Unless the attacker can hijack your DNS (for authenticated domain names) or even
 
 <div class="notice--primary" markdown="1">
 #### <i class="far fa-lightbulb"></i> Tip
+{: .no_toc}
 
 You can see the certificate information using `ssh-keygen -L` command. For example:
 
@@ -97,6 +98,7 @@ Make sure you've put the CA public key at `/etc/ssh/ssh_user_ca`, or you should 
 
 <div class="notice--primary" markdown="1">
 #### <i class="far fa-lightbulb"></i> Pro Tip
+{: .no_toc}
 
 Did you notice that the configuration line is named CA**Keys**, not just CA**Key**? Yes, you can add multiple public keys to that file just like you're already doing with `authorized_keys` file.
 </div>
@@ -133,6 +135,7 @@ After reloading SSH server, users with a certificate containing `taokystrong` as
 
 <div class="notice--primary" markdown="1">
 #### Good practices
+{: .no_toc}
 
 For personal uses, it's perfectly fine to use one CA for both hosts and users, but in larger corporations with a complex server layout, it's a general practice to use separate CAs for host authentication and user authentication.
 </div>
