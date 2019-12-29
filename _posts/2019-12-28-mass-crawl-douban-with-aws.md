@@ -10,17 +10,26 @@ The 3rd-and-last experiment of course *Web Information Processing and Applicatio
 
 The interesting part is, all user and rating data are real, i.e. unmasked. This makes it possible to, instead of playing nicely by doing data analysis, crawl the target data directly, bypassing the aim of the experiment to learn about recommendation systems, which is exactly the way I chose and I'm going to describe in this article.
 
-# Part 1: Trying Scrapy and ScrapingHub
+To make things challenging, the target website, [Douban][douban], has a moderate level of anti-spider techniques in place. This makes it impossible to just submit a truckload of requests hoping to retrieve all data desired, but more advanced technologies and cleverer tactics are mandatory before pulling it off.
+
+## Part 1: Scrapy and ScrapingHub
 
 Previously I've done crawlers using [requests][requests] + [Beautiful Soup][bs4], but this time under suggestions from my roommate, I decided to try it out with [Scrapy][scrapy], a said-to-be-great web crawling framework.
 
-Scrapy is a framework that's extremely easy to start with.
+Scrapy is a framework that's extremely easy to start with. I followed the guide on Scrapy's website and wrote less than 30 lines of Python ([commit][r1]), and the first version of my spider was ready to go.
 
-# Part 2: Expanding onto AWS, distributed crawling with central management
+It didn't take too long before I picked up on Douban's anti-spider techniques. My server's IP was banned (fortunately, only temporarily) and all requests to Douban were getting 403 responses.
 
-# Part 3: Redesigning management architecture, more robust and faster
+I fortuitously recalled that GitHub Student Pack provides an offer from [ScrapingHub][scrapinghub], the company behind Scrapy, containing one scraper unit, free forever.
+
+## Part 2: Expansion onto AWS, distributed crawling with centralized management
+
+## Part 3: Redesigned management architecture, fine-grained control, more robust and faster
 
 
   [requests]: https://2.python-requests.org/
   [bs4]: https://www.crummy.com/software/BeautifulSoup/
   [scrapy]: https://scrapy.org/
+  [scrapinghub]: https://scrapinghub.com/
+  [douban]: https://www.douban.com/
+  [r1]: https://github.com/iBug/douban-spider/commit/8aead82
