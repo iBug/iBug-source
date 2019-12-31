@@ -35,6 +35,12 @@ Recalling that I had spare promotional credits from AWS Educate, I came up with 
 
 ## Part 2: Expansion onto AWS, distributed crawling with centralized management
 
+The high duplication rate of results from the first few runs on ScrapingHub was alarming: I knew that I wouldn't make any real success if I didn't build a centralized job dispatcher and data collector, so the first thing before moving onto AWS is to create a control center.
+
+I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]).
+
+Deployment is just as easy. I wrapped the server up in a Docker container, put it on my primary server on Amazon Lightsail (2 GB instance), configured Nginx and added a DNS record on Cloudflare.
+
 ## Part 3: Redesigned management architecture, fine-grained control, more robust and faster
 
 
@@ -45,3 +51,4 @@ Recalling that I had spare promotional credits from AWS Educate, I came up with 
   [douban]: https://www.douban.com/
   [r1]: https://github.com/iBug/douban-spider/commit/8aead82
   [r2]: https://github.com/iBug/douban-spider/compare/cecbcfb..8eb1ff1
+  [r3]: https://github.com/iBug/douban-spider/blob/5da2c80441aee5dd1ba0ee38f28d5edde393635b/server.py
