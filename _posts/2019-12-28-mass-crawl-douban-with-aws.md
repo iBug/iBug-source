@@ -20,7 +20,14 @@ Scrapy is a framework extremely easy to start with. I followed the guide on Scra
 
 It didn't take too long before I picked up on Douban's anti-spider techniques. My server's IP was banned (fortunately, only temporarily) and all requests to Douban were getting 403 responses.
 
-I fortuitously recalled that GitHub Student Pack provides an offer from [ScrapingHub][scrapinghub], the company behind Scrapy, containing one scraper unit, free forever.
+I fortuitously recalled that GitHub Student Pack provides an offer from [ScrapingHub][scrapinghub], the company behind Scrapy, containing one scraper unit, for free forever. Following their guide on deployment, I asked my teammate to modify my spider to adopt Scrapy's project layout ([commit][r2]), redeemed the Student Pack offer, and deployed my first scraper project onto ScrapingHub cloud.
+
+<figure>
+<img src="/image/scrapinghub.png" alt="ScrapingHub results" />
+<figcaption>
+My job history on ScrapingHub, all of which are for this experiment
+</figcaption>
+</figure>
 
 ## Part 2: Expansion onto AWS, distributed crawling with centralized management
 
