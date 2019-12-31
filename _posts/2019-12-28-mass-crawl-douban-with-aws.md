@@ -3,7 +3,7 @@ title: "High-performance mass web crawling on AWS"
 tags: web-scraping aws
 redirect_from: /p/31
 
-published: false
+hidden: true
 ---
 
 The 3rd-and-last experiment of course *Web Information Processing* and Application required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
@@ -29,9 +29,9 @@ My job history on ScrapingHub, all of which are for this experiment
 </figcaption>
 </figure>
 
-ScrapingHub has forced AutoThrottle enabled for all jobs, so my first SH job survived for longer before it started receiving 403 responses.
+ScrapingHub has forced AutoThrottle enabled for all jobs, so my first SH job survived for longer before it started receiving 403 responses. Looking at the stats, the job maintained its position for about 40 minutes, before signals of having its IP banned emerged. I updated the scraper a few times to include detections for more variations of indications of an IP ban, but never made it over an hour. And because I only attempted to avoid the IP ban by throttling and detecting, the actual "targets" contained in the code remained the same, which accounted for high duplication in crawled results in the first few runs, which in turn led to a quick drop in the increase of the submitted result (of this course experiment).
 
-Looking at the stats, the job maintained its position for about 40 minutes, before signals of having its IP banned emerged.
+Recalling that I had spare promotional credits from AWS Educate, I came up with the idea of utilizing the large IP pool of AWS, which has another advantage of the ease to swap out a banned one.
 
 ## Part 2: Expansion onto AWS, distributed crawling with centralized management
 
