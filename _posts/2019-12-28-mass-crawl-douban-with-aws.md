@@ -6,7 +6,7 @@ redirect_from: /p/31
 published: false
 ---
 
-The 3rd-and-last experiment of course *Web Information Processing and Application* required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
+The 3rd-and-last experiment of course *Web Information Processing* and Application required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
 
 The interesting part is, all user and rating data are real, i.e. unmasked. This makes it possible to, instead of playing nicely by doing data analysis, crawl the target data directly, bypassing the aim of the experiment to learn about recommendation systems, which is exactly the way I chose and I'm going to describe in this article.
 
@@ -28,6 +28,10 @@ I fortuitously recalled that GitHub Student Pack provides an offer from [Scrapin
 My job history on ScrapingHub, all of which are for this experiment
 </figcaption>
 </figure>
+
+ScrapingHub has forced AutoThrottle enabled for all jobs, so my first SH job survived for longer before it started receiving 403 responses.
+
+Looking at the stats, the job maintained its position for about 40 minutes, before signals of having its IP banned emerged.
 
 ## Part 2: Expansion onto AWS, distributed crawling with centralized management
 
