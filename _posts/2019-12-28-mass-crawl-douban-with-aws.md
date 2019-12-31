@@ -16,7 +16,7 @@ To make things challenging, the target website, [Douban][douban], has a moderate
 
 Previously I've done crawlers using [requests][requests] + [Beautiful Soup][bs4], but this time under suggestions from my roommate, I decided to try it out with [Scrapy][scrapy], a said-to-be-great web crawling framework.
 
-Scrapy is a framework that's extremely easy to start with. I followed the guide on Scrapy's website and wrote less than 30 lines of Python ([commit][r1]), and the first version of my spider was ready to go.
+Scrapy is a framework extremely easy to start with. I followed the guide on Scrapy's website and wrote less than 30 lines of Python ([commit][r1]), and the first version of my spider was ready to go.
 
 It didn't take too long before I picked up on Douban's anti-spider techniques. My server's IP was banned (fortunately, only temporarily) and all requests to Douban were getting 403 responses.
 
@@ -33,3 +33,4 @@ I fortuitously recalled that GitHub Student Pack provides an offer from [Scrapin
   [scrapinghub]: https://scrapinghub.com/
   [douban]: https://www.douban.com/
   [r1]: https://github.com/iBug/douban-spider/commit/8aead82
+  [r2]: https://github.com/iBug/douban-spider/compare/cecbcfb..8eb1ff1
