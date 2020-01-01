@@ -12,7 +12,7 @@ The interesting part is, all user and rating data are real, i.e. unmasked. This 
 
 To make things challenging, the target website, [Douban][douban], has a moderate level of anti-spider techniques in place. This makes it impossible to just submit a truckload of requests hoping to retrieve all data desired, but more advanced technologies and cleverer tactics are mandatory before pulling it off.
 
-## Part 1: Scrapy and ScrapingHub
+## Part 1: Scrapy and ScrapingHub {#part-1}
 
 Previously I've done crawlers using [requests][requests] + [Beautiful Soup][bs4], but this time under suggestions from my roommate, I decided to try it out with [Scrapy][scrapy], a said-to-be-great web crawling framework.
 
@@ -33,17 +33,17 @@ ScrapingHub has forced AutoThrottle enabled for all jobs, so my first SH job sur
 
 Recalling that I had spare promotional credits from AWS Educate, I came up with the idea of utilizing the large IP pool of AWS, which has another advantage of the ease to swap out a banned one.
 
-## Part 2: Expansion onto AWS, distributed crawling with centralized management
+## Part 2: Expansion onto AWS, distributed crawling with centralized management {#part-2}
 
 The high duplication rate of results from the first few runs on ScrapingHub was alarming: I knew that I wouldn't make any real success if I didn't build a centralized job dispatcher and data collector, so the first thing before moving onto AWS is to create a control center.
 
-### The central manager server
+### The central manager server {#central-management}
 
 I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" with push-pop architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]). The initial content in the "job pool" is Page 1 of all 20000 users, imported from experiment materials manually.
 
 Deployment is just as easy. I wrapped the server up in a Docker container, put it on my primary server on Amazon Lightsail (2 GB instance, has some other stuff running already), configured Nginx and added a DNS record on Cloudflare. Then I started the spider on my workstation and send a few initial requests, to test if everything proceeds as expected. After cleaning a few obvious bugs out of the code base, I started configuring a spider client.
 
-### Distributed crawler clients
+### Distributed crawler clients {#distributed-crawlers}
 
 Because I planned to spawn a large amount of clients, I want to lower their cost (I have only $100 credits and can't spend overbudget), so I started off with t3.nano instances as they offered twice the CPU power and slightly less expense over the previous-generation t2.nano. Configuring the environment wasn't any difficult, as all that was needed was a deploy key and dependency packages. The former can be generated locally and have the public part uploaded to GitHub before copying the private part onto the spider server, and the latter is as easy as running `pip install`.
 
@@ -95,12 +95,12 @@ I Googled about AWS service limits, and acknowledged that there was a "20 instan
 It wasn't necessarily something bad, however, as T2 series of instances can burst to 100% CPU for 30 minutes after startup, which should cover most of its lifetime before it gets banned.
 
 <div class="notice" markdown="1">
-I have forgotten how I realized this, but the currect actuality is that there's no more "instance limit", but only a limit on total vCPU count. This is still effectively a limit on the number of instances you can have simultaneously, though you get to keep less if you run multi-core instances.
+I have forgotten how I realized this, but the current actuality is that there's no more "instance limit", but only a limit on total vCPU count. This is still effectively a limit on the number of instances you can have simultaneously, though you get to keep less if you run multi-core instances.
 </div>
 
 My final setup was 32 t2.nano instances per region so as to maximize concurrency with maximum number of IPs available at once, while keeping cost low.
 
-### Results
+### Results {#part-2-results}
 
 As soon as I booted up my first batch of 32 t2.nano instances, I noticed an unexpected situation: The manager server is running at constant 100% CPU load. Because Lightsail instances are backed by EC2 T2 series, I knew it wouldn't sustain for long before having its CPU throttled due to insufficient CPU credits. So I cut off two spider clients, and launched an m5.large instance for the control center.
 
@@ -108,7 +108,11 @@ Things went on smoothly for a while, and before the job pool depleted, I could g
 
 It's still delighting that the crawled data from the first few attempts improved the RMSE of our submission from 1.341 to 1.308, though the urgency of a revolutionary refresh also emerged.
 
-## Part 3: Redesigned management architecture, fine-grained control, more robust and faster
+## Part 3: Redesigned management architecture, fine-grained control, more robust and faster {#part-3}
+
+### Limitations of the previous-generation spider swarm {#limitations}
+
+### Ditching Scrapy and reverting to requests + BeautifulSoup4 {#new-architecture}
 
 
   [requests]: https://2.python-requests.org/
