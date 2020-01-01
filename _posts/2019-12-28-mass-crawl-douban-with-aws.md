@@ -37,9 +37,13 @@ Recalling that I had spare promotional credits from AWS Educate, I came up with 
 
 The high duplication rate of results from the first few runs on ScrapingHub was alarming: I knew that I wouldn't make any real success if I didn't build a centralized job dispatcher and data collector, so the first thing before moving onto AWS is to create a control center.
 
-I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]). The initial content in the "job pool" is Page 1 of all 20000 users, imported from experiment materials manually.
+### The central manager server
+
+I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" with push-pop architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]). The initial content in the "job pool" is Page 1 of all 20000 users, imported from experiment materials manually.
 
 Deployment is just as easy. I wrapped the server up in a Docker container, put it on my primary server on Amazon Lightsail (2 GB instance, has some other stuff running already), configured Nginx and added a DNS record on Cloudflare. Then I started the spider on my workstation and send a few initial requests, to test if everything proceeds as expected. After cleaning a few obvious bugs out of the code base, I started configuring a spider client.
+
+### Distributed crawler clients
 
 Because I planned to spawn a large amount of clients, I want to lower their cost (I have only $100 credits and can't spend overbudget), so I started off with t3.nano instances as they offered twice the CPU power and slightly less expense over the previous-generation t2.nano. Configuring the environment wasn't any difficult, as all that was needed was a deploy key and dependency packages. The former can be generated locally and have the public part uploaded to GitHub before copying the private part onto the spider server, and the latter is as easy as running `pip install`.
 
@@ -64,9 +68,45 @@ TimeoutSec=5
 WantedBy=multi-user.target
 ```
 
+I ran `systemctl daemon-reload` to let systemd reload and be aware of my new service unit. I then started the spider with `systemctl start spider.service` and followed `journalctl -ef` to check if the spider is running properly. To make the spider start automatically on boot, I ran `systemctl enable spider.service`.
+
 As I was going to work around Douban's IP limitations, I let the spider shut down itself when it discovers the IP ban ([commit][r4]). This way by looking at the number of running instances on EC2 dashboard, I can determine how many IPs have been banned, and can get new IPs by starting them up again (rebooting doesn't change instance IP, must stop completely and then start again).
 
-I Googled about AWS service limits, and acknowledged that there was a "20 instances per region" limit on EC2. So I launched
+I then rebooted the server once, and checked again to be 100% sure that everything is working as expected. Confirming that, I shut down the server and took a snapshot of it.
+
+<figure>
+<img src="/image/spider-aws/snapshot.png" alt="Snapshot of a spider instance" />
+<figcaption>
+Information panel of a snapshot taken from a properly configured spider instance, ready for deployment
+</figcaption>
+</figure>
+
+And as well, before launching new instances from this snapshot, an AMI (Amazon Machine Image) has to be registered based off of it, so I did one as well.
+
+<figure>
+<img src="/image/spider-aws/ami.png" alt="AMI registered from the above snapshot" />
+<figcaption>
+Information panel of an Amazon Machine Image registered from the above snapshot
+</figcaption>
+</figure>
+
+I Googled about AWS service limits, and acknowledged that there was a "20 instances per region" limit on EC2. So I attempted to create 20 t3.nano instances from the AMI, but was informed that the launch request would fail for exceeding another resource limit of 32 vCPUs. OK, that was fine, I decided to launch 12 instance first, and launch the remaining 8 with one vCPU disabled, resulting in a total of 32 vCPUs. Unfortunately it failed again for unknown reasons, though I managed to figure it out that disabled vCPUs still count, so I ended up creating t2.nano instances for the rest of them.
+
+It wasn't necessarily something bad, however, as T2 series of instances can burst to 100% CPU for 30 minutes after startup, which should cover most of its lifetime before it gets banned.
+
+<div class="notice" markdown="1">
+I have forgotten how I realized this, but the currect actuality is that there's no more "instance limit", but only a limit on total vCPU count. This is still effectively a limit on the number of instances you can have simultaneously, though you get to keep less if you run multi-core instances.
+</div>
+
+My final setup was 32 t2.nano instances per region so as to maximize concurrency with maximum number of IPs available at once, while keeping cost low.
+
+### Results
+
+As soon as I booted up my first batch of 32 t2.nano instances, I noticed an unexpected situation: The manager server is running at constant 100% CPU load. Because Lightsail instances are backed by EC2 T2 series, I knew it wouldn't sustain for long before having its CPU throttled due to insufficient CPU credits. So I cut off two spider clients, and launched an m5.large instance for the control center.
+
+Things went on smoothly for a while, and before the job pool depleted, I could gather 500k to 600k results (up to 30 per page). I re-created the pool from scratch a few times, shuffled it each time, and restarted the whole spider swarm. Every time I "refreshed" the database, I could gather another 500k to 600k results, and things went strange in the same mysterious way. The point is, I estimated that there'd be a total of 30M results, so 500k to 600k was really a small portion.
+
+It's still delighting that the crawled data from the first few attempts improved the RMSE of our submission from 1.341 to 1.308, though the urgency of a revolutionary refresh also emerged.
 
 ## Part 3: Redesigned management architecture, fine-grained control, more robust and faster
 
