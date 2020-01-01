@@ -104,15 +104,28 @@ My final setup was 32 t2.nano instances per region so as to maximize concurrency
 
 As soon as I booted up my first batch of 32 t2.nano instances, I noticed an unexpected situation: The manager server is running at constant 100% CPU load. Because Lightsail instances are backed by EC2 T2 series, I knew it wouldn't sustain for long before having its CPU throttled due to insufficient CPU credits. So I cut off two spider clients, and launched an m5.large instance for the control center.
 
-Things went on smoothly for a while, and before the job pool depleted, I could gather 500k to 600k results (up to 30 per page). I re-created the pool from scratch a few times, shuffled it each time, and restarted the whole spider swarm. Every time I "refreshed" the database, I could gather another 500k to 600k results, and things went strange in the same mysterious way. The point is, I estimated that there'd be a total of 30M results, so 500k to 600k was really a small portion.
+Things went on smoothly for a while, and before the job pool depleted, I could gather 500k to 600k results (up to 30 per page). I re-created the pool from scratch a few times, shuffled it each time, and restarted the whole spider swarm. Every time I "refreshed" the database, I could gather another 500k to 600k results, and things went strange in the same mysterious way. The problem was, I estimated that there'd be a total of 30M results, so 500k to 600k was really a small portion.
 
 It's still delighting that the crawled data from the first few attempts improved the RMSE of our submission from 1.341 to 1.308, though the urgency of a revolutionary refresh also emerged.
 
 ## Part 3: Redesigned management architecture, fine-grained control, more robust and faster {#part-3}
 
+The first version of the spider swarm was successful to an extent, but a highly-managed framework was cumbersome to further enhancements. I decided to identify the limitations and look for alternatives.
+
 ### Limitations of the previous-generation spider swarm {#limitations}
 
-### Ditching Scrapy and reverting to requests + BeautifulSoup4 {#new-architecture}
+- The first thing to emphasize is that Scrapy is too powerful and comprehensive to be flexible. I only want to make requests and get results as rapidly as possible.
+    - Scrapy manages almost everything for you, including concurrency control and speed limiting, which is pretty much unwanted when I need to have fine-grained control over them.
+- Pool management was poor. "Jobs" can get lost if they aren't sent back (pushed back) to the control center. This is most likely the primary cause for the quick depletion of the job pool after gathering ~500k results. (There was indeed a serious bug in the spider client, which I'll talk about later on)
+- Unacceptably high CPU usage from the server application, which needs a serious reform as well. Looking at the screen of `htop`, I guess that a large portion of the usage is made by SQLite queries, as I was doing a high concurrency server application with millions of rows in the database. SQLite doesn't suit this kind of workload, really.
+
+These barriers ought to be overcome one by one, so I started this revolution from the spider client.
+
+### Ditching Scrapy and reverting to requests + BeautifulSoup4 {#new-spider-architecture}
+
+### Pre-computed job pool and MariaDB {#new-server-architecture}
+
+### Results {#part-3-results}
 
 
   [requests]: https://2.python-requests.org/
