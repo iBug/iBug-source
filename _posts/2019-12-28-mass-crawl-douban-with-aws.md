@@ -37,9 +37,36 @@ Recalling that I had spare promotional credits from AWS Educate, I came up with 
 
 The high duplication rate of results from the first few runs on ScrapingHub was alarming: I knew that I wouldn't make any real success if I didn't build a centralized job dispatcher and data collector, so the first thing before moving onto AWS is to create a control center.
 
-I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]).
+I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]). The initial content in the "job pool" is Page 1 of all 20000 users, imported from experiment materials manually.
 
-Deployment is just as easy. I wrapped the server up in a Docker container, put it on my primary server on Amazon Lightsail (2 GB instance), configured Nginx and added a DNS record on Cloudflare.
+Deployment is just as easy. I wrapped the server up in a Docker container, put it on my primary server on Amazon Lightsail (2 GB instance, has some other stuff running already), configured Nginx and added a DNS record on Cloudflare. Then I started the spider on my workstation and send a few initial requests, to test if everything proceeds as expected. After cleaning a few obvious bugs out of the code base, I started configuring a spider client.
+
+Because I planned to spawn a large amount of clients, I want to lower their cost (I have only $100 credits and can't spend overbudget), so I started off with t3.nano instances as they offered twice the CPU power and slightly less expense over the previous-generation t2.nano. Configuring the environment wasn't any difficult, as all that was needed was a deploy key and dependency packages. The former can be generated locally and have the public part uploaded to GitHub before copying the private part onto the spider server, and the latter is as easy as running `pip install`.
+
+To make further deployment easier, I created a systemd service for the spider job, and added `git pull` before starting, so I only need to restart all servers and they'd pull in latest changes automatically. This is the service file that I wrote for this job.
+
+```ini
+[Unit]
+Description=Douban Spider
+After=multi-user.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStartPre=/usr/bin/git -C /root/douban-spider pull
+ExecStart=/usr/local/bin/scrapy crawl doubanspider
+WorkingDirectory=/root/douban-spider/
+TimeoutSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+As I was going to work around Douban's IP limitations, I let the spider shut down itself when it discovers the IP ban ([commit][r4]). This way by looking at the number of running instances on EC2 dashboard, I can determine how many IPs have been banned, and can get new IPs by starting them up again (rebooting doesn't change instance IP, must stop completely and then start again).
+
+I Googled about AWS service limits, and acknowledged that there was a "20 instances per region" limit on EC2. So I launched
 
 ## Part 3: Redesigned management architecture, fine-grained control, more robust and faster
 
@@ -52,3 +79,4 @@ Deployment is just as easy. I wrapped the server up in a Docker container, put i
   [r1]: https://github.com/iBug/douban-spider/commit/8aead82
   [r2]: https://github.com/iBug/douban-spider/compare/cecbcfb..8eb1ff1
   [r3]: https://github.com/iBug/douban-spider/blob/5da2c80441aee5dd1ba0ee38f28d5edde393635b/server.py
+  [r4]: https://github.com/iBug/douban-spider/commit/d4b7e20
