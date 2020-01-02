@@ -164,11 +164,15 @@ A few points to note:
 
 ### Continuous refresh of banned IPs
 
+As this time I made some changes to increase the aggregate crawl speed, it could be anticipated that IPs would be banned sooner than in the first generation, which rendered IP refreshing more important. I had already known that AWS provided an extensive REST API, as well as a powerful CLI utility `aws`.
+
+I didn't even need to install the `aws` CLI utility because it comes preinstalled on every AMI, so all that was needed was to create an IAM user and generate API credentials following the [AWS official documentation][awscli].
+
 ### Results {#part-3-results}
 
 This new spider swarm achieved almost twice the speed of the old version, at a sustained rate of around 1,700 records per second, when the old version could only maintain a burst speed of 900 records per second, before quickly dropping to 500 records per second. What's more satisfactory was that it was fault-tolerant, finally crawling 20.7M records (out of a total of 21.6M) before completely stopped working after around 12 hours.
 
-The crawled data covered more than 90% of the test set of the experiment, and boosted the RMSE value of our submission from 1.304 to a whopping 0.546. We managed to make it one step further to 0.539 by adding the crawled data to our training set. For the record, the 2nd place who also played with web spiders, only managed to get the RMSE value to 0.84. This is a great success.
+The crawled data covered more than 90% of the test set of the experiment, and boosted the RMSE value of our submission from 1.304 to a whopping 0.546. We managed to make it one step further to 0.539 by adding the crawled data to our training set. For the record, the 2nd place, who also played with web spiders, only managed to get the RMSE value to 0.87. This is a great success.
 
 
   [requests]: https://2.python-requests.org/
@@ -181,3 +185,4 @@ The crawled data covered more than 90% of the test set of the experiment, and bo
   [r3]: https://github.com/iBug/douban-spider/blob/5da2c80/server.py
   [r4]: https://github.com/iBug/douban-spider/commit/d4b7e20
   [python-mysqldb]: https://pypi.org/project/mysqlclient/
+  [awscli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
