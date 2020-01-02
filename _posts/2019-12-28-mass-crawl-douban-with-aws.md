@@ -143,17 +143,17 @@ Previously when using Scrapy, I had to override its `start_requests` method to f
 
 Another problem of the previous generation of my spider swarm was that rapid draining of the job pool always occurred too soon (after fetching ~500k records). This was actually a bug.
 
-#### One bad bug led to the failure of the previous swarm
+#### One bad bug led to the failure of the previous swarm {#unexpected-response}
 
 In my first few "durability tests", I discovered that Douban would send either a 403 or a 302 response when it detects unusual traffic. The former was easy to detect, but with Scrapy, 302 redirects are handled automatically, and I spent more than half an hour Googling just to disable this behavior. With `requests`, this is as simple as supplying `allow_redirect=False` to the request method, which then enables the simplicity of checking the status code of the response.
 
 The true failure was, Douban actually sends 200 responses occasionally, with the HTML body containing a single line of JavaScript that redirects to another page, with the browser's information supplied. I didn't realize this until I noticed that this second-generation swarm gradually stopped working completely, and SSH-ed into one of the spider servers, and checked the program log. Because I treated 200 responses as success, the spiders would only find that there was no data items and "Next Page" links in the returned page, and thinking that this "page chain" had been completed.
 
-#### Pre-computed job pool
+#### Pre-computed job pool {#new-job-pool}
 
 Detecting this "new" kind of unwanted response was not hard, but it must be done. But the good thing is, I ditched the "pop-push" job pool design as well. This time I first ran a small bunch of spiders to crawl the Page 1 for all 20000 Douban users, extracted the total number of items from those pages, and computed the number of pages for each user, storing them into the database as the new job pool. No more jobs would be removed from the database, only marked as completed. This way I could easily discover failed jobs and re-enable them by flipping the "completed" flag manually by editing the database.
 
-#### An RDBMS that scales
+#### An RDBMS that scales {#switching-to-mysql}
 
 The 1st-gen control center used SQLite as its database engine. SQLite is a lightweight, easy-to-start database. The problem is, it's a single-file DB engine, and **doesn't scale**. I had millions of rows in the results table, and a large portion of responses when I try to query it using the `sqlite3` CLI utility (for analysis purposes) are "*Error: database is locked*". The database also grows terribly, at more than 400 MB in size. Due to being constantly written to, I could even hardly make a copy of it without corruption. I had to do a `cp` command for 10 times before I could have an intact copy of the database for copying back to my computer for future analysis.
 
@@ -174,7 +174,7 @@ A few points to note:
 
   It was somewhat frustrating to hunt for all those question marks and replacing them with `%s`'s when you can't use text-based find-and-replace. Still, though, I managed to get this work done.
 
-### Continuous refresh of banned IPs
+### Continuous refresh of banned IPs {#refresh-ip}
 
 As this time I made some changes to increase the aggregate crawl speed, it could be anticipated that IPs would be banned sooner than in the first generation, which rendered IP refreshing more important. I had already known that AWS provided an extensive REST API, as well as a powerful CLI utility `aws`.
 
