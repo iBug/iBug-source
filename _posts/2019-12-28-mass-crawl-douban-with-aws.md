@@ -200,7 +200,7 @@ The above script will attempt to list all spider instances (all of them are t2.n
 
 I then created a cron job that restarts each batch every hour, which looks like this:
 
-```crontab
+```text
 0,1 * * * * /root/job.sh 1 1
 2,3 * * * * /root/job.sh 1 2
 15,16 * * * * /root/job.sh 2 1
