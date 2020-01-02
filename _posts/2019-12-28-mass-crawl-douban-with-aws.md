@@ -168,6 +168,8 @@ A few points to note:
 
 This new spider swarm achieved almost twice the speed of the old version, at a sustained rate of around 1,700 records per second, when the old version could only maintain a burst speed of 900 records per second, before quickly dropping to 500 records per second. What's more satisfactory was that it was fault-tolerant, finally crawling 20.7M records (out of a total of 21.6M) before completely stopped working after around 12 hours.
 
+The crawled data covered more than 90% of the test set of the experiment, and boosted the RMSE value of our submission from 1.304 to a whopping 0.546. We managed to make it one step further to 0.539 by adding the crawled data to our training set. For the record, the 2nd place who also played with web spiders, only managed to get the RMSE value to 0.84. This is a great success.
+
 
   [requests]: https://2.python-requests.org/
   [bs4]: https://www.crummy.com/software/BeautifulSoup/
