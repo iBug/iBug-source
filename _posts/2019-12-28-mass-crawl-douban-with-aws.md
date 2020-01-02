@@ -7,11 +7,11 @@ gallery:
   - url: /image/spider-aws/instances.us-west-1.png
     image_path: /image/spider-aws/instances.us-west-1.png
     alt: 'AWS console'
-    title: 'The EC2 \"instances\" screen on US West 1 region'
+    title: 'The EC2 instances screen on US West 1 region'
   - url: /image/spider-aws/spiders-with-master.png
     image_path: /image/spider-aws/spiders-with-master.png
     alt: 'AWS console'
-    title: 'In Tokyo region lies the \"spider master\"'
+    title: 'In Tokyo region lies the « spider master »'
   - url: /image/spider-aws/shutting-down.png
     image_path: /image/spider-aws/shutting-down.png
     alt: 'AWS console'
