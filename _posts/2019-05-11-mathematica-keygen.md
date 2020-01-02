@@ -1,5 +1,5 @@
 ---
-title: "Wolfram Mathematica 12 Key Generator"
+title: "Wolfram Mathematica 12 Key Generator Online"
 description: "Another JavaScript project"
 tagline: ""
 tags: keygen
