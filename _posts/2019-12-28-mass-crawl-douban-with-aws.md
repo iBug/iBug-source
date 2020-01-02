@@ -168,7 +168,54 @@ As this time I made some changes to increase the aggregate crawl speed, it could
 
 I didn't even need to install the `aws` CLI utility because it comes preinstalled on every AMI, so all that was needed was to create an IAM user and generate API credentials following the [AWS official documentation][awscli].
 
+After figuring out all functionalities that I needed, I created a "runner script" that does everything automatically.
+
+```shell
+#!/bin/bash
+
+case "$1" in
+  1) REGION='ap-northeast-1';;
+  2) REGION='ap-southeast-1';;
+  3) REGION='us-west-2';;
+  4) REGION='us-west-1';;
+  *) exit 1;;
+esac
+
+case "$2" in
+  1) ACTION='stop-instances';;
+  2) ACTION='start-instances';;
+  *) exit 1;;
+esac
+
+INSTANCES="$(aws --output text --region "$REGION" ec2 describe-instances --filters "Name=instance-type,Values=t2.nano" --query "Reservations[].Instances[].InstanceId" | tr '[:space:]' ' ')"
+echo "Instances: $INSTANCES"
+
+if grep -qiP 'i-0[0-9a-f]+' <<< "$INSTANCES"; then
+  echo "Running $ACTION on $REGION"
+  aws --output json --region "$REGION" ec2 "$ACTION" --instance-ids $INSTANCES
+fi
+```
+
+The above script will attempt to list all spider instances (all of them are t2.nano), and depending on arguments, try to stop them and start them back up so they have new IPs to start with.
+
+I then created a cron job that restarts each batch every hour, which looks like this:
+
+```crontab
+0,1 * * * * /root/job.sh 1 1
+2,3 * * * * /root/job.sh 1 2
+15,16 * * * * /root/job.sh 2 1
+17,18 * * * * /root/job.sh 2 2
+30,31 * * * * /root/job.sh 3 1
+32,33 * * * * /root/job.sh 3 2
+45,46 * * * * /root/job.sh 4 1
+47,48 * * * * /root/job.sh 4 2
+```
+
+This way a batch of instances will get new IPs every hour, effectively bypassing Douban's IP limitations, which is another key to the success of the 2nd-gen spider swarm.
+
 ### Results {#part-3-results}
+
+With everything set up, I packed up a new AMI for the spider client, copied the AMI to 3 other AWS regions, and launched as many instances as possible, giving a total of 126 spider clients running simultaneously.
 
 This new spider swarm achieved almost twice the speed of the old version, at a sustained rate of around 1,700 records per second, when the old version could only maintain a burst speed of 900 records per second, before quickly dropping to 500 records per second. What's more satisfactory was that it was fault-tolerant, finally crawling 20.7M records (out of a total of 21.6M) before completely stopped working after around 12 hours.
 
