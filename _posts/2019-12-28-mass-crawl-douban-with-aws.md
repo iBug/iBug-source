@@ -137,21 +137,36 @@ In my first few "durability tests", I discovered that Douban would send either a
 
 The true failure was, Douban actually sends 200 responses occasionally, with the HTML body containing a single line of JavaScript that redirects to another page, with the browser's information supplied. I didn't realize this until I noticed that this second-generation swarm gradually stopped working completely, and SSH-ed into one of the spider servers, and checked the program log. Because I treated 200 responses as success, the spiders would only find that there was no data items and "Next Page" links in the returned page, and thinking that this "page chain" had been completed.
 
-### Pre-computed job pool
+#### Pre-computed job pool
 
 Detecting this "new" kind of unwanted response was not hard, but it must be done. But the good thing is, I ditched the "pop-push" job pool design as well. This time I first ran a small bunch of spiders to crawl the Page 1 for all 20000 Douban users, extracted the total number of items from those pages, and computed the number of pages for each user, storing them into the database as the new job pool. No more jobs would be removed from the database, only marked as completed. This way I could easily discover failed jobs and re-enable them by flipping the "completed" flag manually by editing the database.
 
-### An RDBMS that scales
+#### An RDBMS that scales
 
 The 1st-gen control center used SQLite as its database engine. SQLite is a lightweight, easy-to-start database. The problem is, it's a single-file DB engine, and **doesn't scale**. I had millions of rows in the results table, and a large portion of responses when I try to query it using the `sqlite3` CLI utility (for analysis purposes) are "*Error: database is locked*". The database also grows terribly, at more than 400 MB in size. Due to being constantly written to, I could even hardly make a copy of it without corruption. I had to do a `cp` command for 10 times before I could have an intact copy of the database for copying back to my computer for future analysis.
 
 SQLite isn't the right tool for millions of records, really.
 
-MySQL is a better database engine that's widely used in production, and I have some experiences with it.
+MySQL is a better database engine that's widely used in production, and I have some experiences with it, so it became an apparent option to switch to it. As Debian provides MariaDB as the replacement for MySQL, installation was straightforward. I the modified the code to adopt the new database.
+
+A few points to note:
+
+- Debian and its derivatives (including Ubuntu) uses the PyPI package [`mysqlclient`][python-mysqldb] to provide the package `python3-mysqldb`. It's compatible with the now-abandoned `MySQLdb` package. Any code written for `MySQLdb` should remain unchanged, because even the import line remains as `import MySQLdb` instead of `import mysqlclient` (the latter will throw an `ImportError` for not finding the module).
+- The MySQL uses a connection-cursor architecture, so instead of calling `db.execute` and `db.fetch*` methods directly (as is the case with Python's stock SQLite library), a cursor must be created first, and then `cursor.execute` and `cursor.fetch*` methods will be available. Similarly, cursors need separate closing than the DB connection itself.
+- The painful thing is that SQLite uses the question mark `?` as placeholder for query data ([NEVER join database queries](https://xkcd.com/327/)), while MySQL uses `%s`. Compare the following code:
+
+  ```sql
+  SQLite: INSERT INTO records (user, item, rating) VALUES (?, ?, ?);
+  MySQL:  INSERT INTO records (user, item, rating) VALUES (%s, %s, %s);
+  ```
+
+  It was somewhat frustrating to hunt for all those question marks and replacing them with `%s`'s when you can't use text-based find-and-replace. Still, though, I managed to get this work done.
 
 ### Continuous refresh of banned IPs
 
 ### Results {#part-3-results}
+
+This new spider swarm achieved almost twice the speed of the old version, at a sustained rate of around 1,700 records per second, when the old version could only maintain a burst speed of 900 records per second, before quickly dropping to 500 records per second. What's more satisfactory was that it was fault-tolerant, finally crawling 20.7M records (out of a total of 21.6M) before completely stopped working after around 12 hours.
 
 
   [requests]: https://2.python-requests.org/
@@ -163,3 +178,4 @@ MySQL is a better database engine that's widely used in production, and I have s
   [r2]: https://github.com/iBug/douban-spider/compare/cecbcfb..8eb1ff1
   [r3]: https://github.com/iBug/douban-spider/blob/5da2c80/server.py
   [r4]: https://github.com/iBug/douban-spider/commit/d4b7e20
+  [python-mysqldb]: https://pypi.org/project/mysqlclient/
