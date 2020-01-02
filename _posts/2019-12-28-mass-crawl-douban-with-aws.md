@@ -7,11 +7,11 @@ gallery:
   - url: /image/spider-aws/instances.us-west-1.png
     image_path: /image/spider-aws/instances.us-west-1.png
     alt: 'AWS console'
-    title: 'The EC2 "instances" screen on US West 1 region'
+    title: 'The EC2 \"instances\" screen on US West 1 region'
   - url: /image/spider-aws/spiders-with-master.png
     image_path: /image/spider-aws/spiders-with-master.png
     alt: 'AWS console'
-    title: 'In Tokyo region lies the "spider master"'
+    title: 'In Tokyo region lies the \"spider master\"'
   - url: /image/spider-aws/shutting-down.png
     image_path: /image/spider-aws/shutting-down.png
     alt: 'AWS console'
@@ -232,6 +232,8 @@ With everything set up, I packed up a new AMI for the spider client, copied the 
 This new spider swarm achieved almost twice the speed of the old version, at a sustained rate of around 1,700 records per second, when the old version could only maintain a burst speed of 900 records per second, before quickly dropping to 500 records per second. What's more satisfactory was that it was fault-tolerant, finally crawling 20.7M records (out of a total of 21.6M) before completely stopped working after around 12 hours.
 
 The crawled data covered more than 90% of the test set of the experiment, and boosted the RMSE value of our submission from 1.304 to a whopping 0.546. We managed to make it one step further to 0.539 by adding the crawled data to our training set. For the record, the 2nd place, who also played with web spiders, only managed to get the RMSE value to 0.87. This is a great success.
+
+On a side note, you probably shouldn't attempt this if you don't have credits on AWS. This 3-day journey through AWS with a spider swarm cost me US$44.96, with more than $30 spent on EC2 and more than $10 spent on traffic (AWS charges for traffic beyond 1 GB). Fortunately, I have them all covered by my remaining credits from AWS Educate, making this whole crawler project an enjoyable experience.
 
 ## Gallery
 
