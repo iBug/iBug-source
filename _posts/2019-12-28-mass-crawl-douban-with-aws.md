@@ -221,6 +221,29 @@ This new spider swarm achieved almost twice the speed of the old version, at a s
 
 The crawled data covered more than 90% of the test set of the experiment, and boosted the RMSE value of our submission from 1.304 to a whopping 0.546. We managed to make it one step further to 0.539 by adding the crawled data to our training set. For the record, the 2nd place, who also played with web spiders, only managed to get the RMSE value to 0.87. This is a great success.
 
+## Gallery
+
+<figure>
+<img src="/image/spider-aws/instances.us-west-1.png" alt="" />
+<figcaption>
+The EC2 "instances" screen on US West 1 region
+</figcaption>
+</figure>
+
+<figure>
+<img src="/image/spider-aws/spiders-with-master.png" alt="" />
+<figcaption>
+In Tokyo region lies the "spider master"
+</figcaption>
+</figure>
+
+<figure>
+<img src="/image/spider-aws/shutting-down.png" alt="" />
+<figcaption>
+Job done, spiders are shut down now.
+</figcaption>
+</figure>
+
 
   [requests]: https://2.python-requests.org/
   [bs4]: https://www.crummy.com/software/BeautifulSoup/
