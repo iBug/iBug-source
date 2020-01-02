@@ -39,7 +39,7 @@ The high duplication rate of results from the first few runs on ScrapingHub was 
 
 ### The central manager server {#central-management}
 
-I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" with push-pop architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]). The initial content in the "job pool" is Page 1 of all 20000 users, imported from experiment materials manually.
+I picked my favorite quickstarter framework Flask, implemented three simple interfaces `get job`, `update job` and `add result`. To make things absolutely simple yet reliable, I picked SQLite as database backend because it's easy to setup and query (`sqlite3` CLI is ready for use). I designed a "job pool" with push-pop architecture, where each job record is a to-be-crawled URL, and is deleted from the pool once it's requested. The spider then crawls the page, send results back to the control center, as well as the "Next Page" link in the page back into the job pool if there is one. It didn't even take a lot of effort to work this out ([code][r3]). The initial content in the "job pool" is Page 1 of all 20000 users, imported from experiment materials manually. A user is considered "done" if one of the pages in the chain doesn't contain a "Next Page" link, meaning that the last page for this user has been reached.
 
 Deployment is just as easy. I wrapped the server up in a Docker container, put it on my primary server on Amazon Lightsail (2 GB instance, has some other stuff running already), configured Nginx and added a DNS record on Cloudflare. Then I started the spider on my workstation and send a few initial requests, to test if everything proceeds as expected. After cleaning a few obvious bugs out of the code base, I started configuring a spider client.
 
@@ -123,7 +123,33 @@ These barriers ought to be overcome one by one, so I started this revolution fro
 
 ### Ditching Scrapy and reverting to requests + BeautifulSoup4 {#new-spider-architecture}
 
-### Pre-computed job pool and MariaDB {#new-server-architecture}
+Scrapy is an all-in-one comprehensive framework. You focus on extracting data from the fetched page, and Scrapy handles everything else for you. Unfortunately, this is a huge barrier for whoever wants to tune it in every aspect. It even handles 302 redirects, which takes quite some effort to disable. This is why I switched back to my original approach using requests to fetch content, and parse it with BeautifulSoup4. Paired with Python's stock multithreading library, this new client easily achieved twice the speed of that of Scrapy. It's surely possible to dig into Scrapy and tune it, but why waste that time and effort when it can be easily solved by switching away?
+
+Previously when using Scrapy, I had to override its `start_requests` method to fetch jobs from the server, and because Scrapy handles concurrency, I could not control how frequently a client fetches jobs, which was, to be honest, messy. With requests and `threading`, I have full control over concurrency, and I can reliably decide or predict how many jobs should be fetched by a client before it "exhausts".
+
+### Pre-computed job pool and MySQL {#new-server-architecture}
+
+Another problem of the previous generation of my spider swarm was that rapid draining of the job pool always occurred too soon (after fetching ~500k records). This was actually a bug.
+
+#### One bad bug led to the failure of the previous swarm
+
+In my first few "durability tests", I discovered that Douban would send either a 403 or a 302 response when it detects unusual traffic. The former was easy to detect, but with Scrapy, 302 redirects are handled automatically, and I spent more than half an hour Googling just to disable this behavior. With `requests`, this is as simple as supplying `allow_redirect=False` to the request method, which then enables the simplicity of checking the status code of the response.
+
+The true failure was, Douban actually sends 200 responses occasionally, with the HTML body containing a single line of JavaScript that redirects to another page, with the browser's information supplied. I didn't realize this until I noticed that this second-generation swarm gradually stopped working completely, and SSH-ed into one of the spider servers, and checked the program log. Because I treated 200 responses as success, the spiders would only find that there was no data items and "Next Page" links in the returned page, and thinking that this "page chain" had been completed.
+
+### Pre-computed job pool
+
+Detecting this "new" kind of unwanted response was not hard, but it must be done. But the good thing is, I ditched the "pop-push" job pool design as well. This time I first ran a small bunch of spiders to crawl the Page 1 for all 20000 Douban users, extracted the total number of items from those pages, and computed the number of pages for each user, storing them into the database as the new job pool. No more jobs would be removed from the database, only marked as completed. This way I could easily discover failed jobs and re-enable them by flipping the "completed" flag manually by editing the database.
+
+### An RDBMS that scales
+
+The 1st-gen control center used SQLite as its database engine. SQLite is a lightweight, easy-to-start database. The problem is, it's a single-file DB engine, and **doesn't scale**. I had millions of rows in the results table, and a large portion of responses when I try to query it using the `sqlite3` CLI utility (for analysis purposes) are "*Error: database is locked*". The database also grows terribly, at more than 400 MB in size. Due to being constantly written to, I could even hardly make a copy of it without corruption. I had to do a `cp` command for 10 times before I could have an intact copy of the database for copying back to my computer for future analysis.
+
+SQLite isn't the right tool for millions of records, really.
+
+MySQL is a better database engine that's widely used in production, and I have some experiences with it.
+
+### Continuous refresh of banned IPs
 
 ### Results {#part-3-results}
 
@@ -135,5 +161,5 @@ These barriers ought to be overcome one by one, so I started this revolution fro
   [douban]: https://www.douban.com/
   [r1]: https://github.com/iBug/douban-spider/commit/8aead82
   [r2]: https://github.com/iBug/douban-spider/compare/cecbcfb..8eb1ff1
-  [r3]: https://github.com/iBug/douban-spider/blob/5da2c80441aee5dd1ba0ee38f28d5edde393635b/server.py
+  [r3]: https://github.com/iBug/douban-spider/blob/5da2c80/server.py
   [r4]: https://github.com/iBug/douban-spider/commit/d4b7e20
