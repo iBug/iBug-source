@@ -2,6 +2,20 @@
 title: "High-performance mass web crawling on AWS"
 tags: web-scraping aws
 redirect_from: /p/31
+
+gallery:
+  - url: /image/spider-aws/instances.us-west-1.png
+    image_path: /image/spider-aws/instances.us-west-1.png
+    alt: 'AWS console'
+    title: 'The EC2 "instances" screen on US West 1 region'
+  - url: /image/spider-aws/spiders-with-master.png
+    image_path: /image/spider-aws/spiders-with-master.png
+    alt: 'AWS console'
+    title: 'In Tokyo region lies the "spider master"'
+  - url: /image/spider-aws/shutting-down.png
+    image_path: /image/spider-aws/shutting-down.png
+    alt: 'AWS console'
+    title: 'Job done, spiders are shut down now.'
 ---
 
 The 3rd-and-last experiment of course *Web Information Processing* and Application required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
@@ -221,26 +235,7 @@ The crawled data covered more than 90% of the test set of the experiment, and bo
 
 ## Gallery
 
-<figure>
-<img src="/image/spider-aws/instances.us-west-1.png" alt="" />
-<figcaption>
-The EC2 "instances" screen on US West 1 region
-</figcaption>
-</figure>
-
-<figure>
-<img src="/image/spider-aws/spiders-with-master.png" alt="" />
-<figcaption>
-In Tokyo region lies the "spider master"
-</figcaption>
-</figure>
-
-<figure>
-<img src="/image/spider-aws/shutting-down.png" alt="" />
-<figcaption>
-Job done, spiders are shut down now.
-</figcaption>
-</figure>
+{% include gallery %}
 
 
   [requests]: https://2.python-requests.org/
