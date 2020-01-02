@@ -2,8 +2,6 @@
 title: "High-performance mass web crawling on AWS"
 tags: web-scraping aws
 redirect_from: /p/31
-
-hidden: true
 ---
 
 The 3rd-and-last experiment of course *Web Information Processing* and Application required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
