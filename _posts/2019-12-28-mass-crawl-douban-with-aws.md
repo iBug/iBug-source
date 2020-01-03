@@ -1,6 +1,6 @@
 ---
 title: "High-performance mass web crawling on AWS"
-tags: web-scraping aws
+tags: web-scraping aws story
 redirect_from: /p/31
 
 gallery:
@@ -18,7 +18,7 @@ gallery:
     title: 'Job done, spiders are shut down now.'
 ---
 
-The 3rd-and-last experiment of course *Web Information Processing* and Application required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
+The 3rd-and-last experiment of course *Web Information Processing and Application* required us to create a recommendation engine, and "predict" the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.
 
 The interesting part is, all user and rating data are real, i.e. unmasked. This makes it possible to, instead of playing nicely by doing data analysis, crawl the target data directly, bypassing the aim of the experiment to learn about recommendation systems, which is exactly the way I chose and I'm going to describe in this article.
 
@@ -233,7 +233,7 @@ This new spider swarm achieved almost twice the speed of the old version, at a s
 
 The crawled data covered more than 90% of the test set of the experiment, and boosted the RMSE value of our submission from 1.304 to a whopping 0.546. We managed to make it one step further to 0.539 by adding the crawled data to our training set. For the record, the 2nd place, who also played with web spiders, only managed to get the RMSE value to 0.87. This is a great success.
 
-On a side note, you probably shouldn't attempt this if you don't have credits on AWS. This 3-day journey through AWS with a spider swarm cost me US$44.96, with more than $30 spent on EC2 and more than $10 spent on traffic (AWS charges for traffic beyond 1 GB). Fortunately, I have them all covered by my remaining credits from AWS Educate, making this whole crawler project an enjoyable experience.
+On a side note, you probably shouldn't attempt this if you don't have credits on AWS. This 3-day journey through AWS with a spider swarm cost me an astonishing amount of US$44.96, with more than $30 spent on EC2 and more than $10 spent on traffic (AWS charges for traffic beyond 1 GB). Fortunately, I have them all covered by my remaining credits from AWS Educate, making this whole crawler project an enjoyable experience.
 
 ## Gallery
 
