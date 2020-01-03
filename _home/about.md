@@ -52,8 +52,8 @@ On the techie side (more about my skills [here](/skills)):
 
 Physical machine in office (headless):  
 
-- Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
-- Ubuntu 19.04, Docker, LXD, KVM (libvirt)
+- Core i7-8850H, 64 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
+- Ubuntu 19.10, Docker, LXD, KVM (libvirt)
 
 MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
 
