@@ -372,7 +372,7 @@ defaults:
       #classes: wide
       related: true
       sidebar:
-        nav: home
+        nav: share
   - scope:
       path: ""
       type: project
