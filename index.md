@@ -55,13 +55,13 @@ stack_overflow:
 
 ### Other links
 
-{% comment %}
 - [My telegram channel](https://t.me/ibugthought) where I share random ideas
-{% endcomment %}
 
 - My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
   (He writes Simplified Chinese, while I prefer English)
 
-- And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
+  And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
+
+- Some good [Jekyll themes](/share/jekyll-themes)
 
 <script>document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>

@@ -1,0 +1,12 @@
+- title: "iBug on the Web"
+  children:
+    - title: '<i class="fas fa-fw fa-home"></i> Home'
+      url: "/"
+    - title: '<i class="fas fa-fw fa-smile"></i> About iBug'
+      url: "/about/"
+    - title: '<i class="fas fa-fw fa-book"></i> Blog'
+      url: "/blog/"
+- title: "iBug's shares"
+  children:
+    - title: "Jekyll themes"
+      url: "/share/jekyll-themes"
