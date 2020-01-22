@@ -95,7 +95,7 @@ function buildPac() {
     if (compatMode) {
       output = output.replace("\"__PROXY__\"", "__PROXY__");
     }
-    $("#result pre > code").text(code + "var CHINA = [\n];");
+    $("#result pre > code").text(code + "var CHINA = [\n  // Please download for full content\n];");
     $("#download").removeClass("disabled");
     $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
   }, function (err) {
