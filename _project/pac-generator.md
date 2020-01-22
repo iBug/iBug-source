@@ -29,7 +29,9 @@ Added support for an alternative source: <https://github.com/17mon/china_ip_list
 <a id="generate" class="btn btn--success" href="#" onclick="buildPac()">生成 / Generate</a>
 <a id="download" class="btn btn--primary disabled" download="pac.txt" href="#">下载 / Download</a>
 
-选择数据源 / Select data source
+### 选项 / Settings
+
+数据源 / Data source
 
 <input type="radio" name="data-source" checked
   value="http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone" />
@@ -37,6 +39,10 @@ Added support for an alternative source: <https://github.com/17mon/china_ip_list
 <input type="radio" name="data-source"
   value="https://github.com/17mon/china_ip_list/raw/master/china_ip_list.txt" />
   <https://github.com/17mon/china_ip_list>
+
+Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode
+
+<input type="checkbox" id="compat-419" />
 
 </div>
 
@@ -57,6 +63,7 @@ function buildPac() {
   $("#result pre > code").text("请稍候 / Hang on...");
   // Identify source
   const dataSource = $("input[name='data-source']:checked").val();
+  const compatMode = $("#compat-419")[0].checked;
   $.ajax({
     url: "https://ibugone.com/get/",
     type: "GET",
@@ -83,6 +90,9 @@ function buildPac() {
         output += "\n";
       }
       output += "];";
+      if (compatMode) {
+        output = output.replace("\"__PROXY__\"", "__PROXY__");
+      }
       $("#result pre > code").text(output);
       $("#download").removeClass("disabled");
       $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
