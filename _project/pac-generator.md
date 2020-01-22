@@ -29,6 +29,8 @@ Added support for an alternative source: <https://github.com/17mon/china_ip_list
 <a id="generate" class="btn btn--success" href="#" onclick="buildPac()">生成 / Generate</a>
 <a id="download" class="btn btn--primary disabled" download="pac.txt" href="#">下载 / Download</a>
 
+<iframe src="https://ghbtns.com/github-btn.html?user=iBug&repo=pac&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
 ### 选项 / Settings
 
 数据源 / Data source
