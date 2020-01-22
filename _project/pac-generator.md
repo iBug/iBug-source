@@ -40,9 +40,7 @@ Added support for an alternative source: <https://github.com/17mon/china_ip_list
   value="https://github.com/17mon/china_ip_list/raw/master/china_ip_list.txt" />
   <https://github.com/17mon/china_ip_list>
 
-Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode (Beta)
-
-<input type="checkbox" id="compat-419" /> Enable
+<input type="checkbox" id="compat-419" /> Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode (Beta)
 
 </div>
 
