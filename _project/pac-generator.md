@@ -69,7 +69,7 @@ function buildPac() {
   var codeReq = $.get(codeSource);
   $.when(dataReq, codeReq).then(function (dataObj, codeObj) {
     const timeString = new Date().toLocaleString("sv", {timeZoneName: "short"});
-    let data = dataObj[0], output = codeObj[0].replace("@@TIME@@", timeString);
+    let data = dataObj[0], code = codeObj[0].replace("@@TIME@@", timeString), output = code;
     output += "var CHINA = [\n";
     const lines = data.trim().split("\n");
     for (let i = 0; i < lines.length; i++) {
@@ -93,7 +93,7 @@ function buildPac() {
     if (compatMode) {
       output = output.replace("\"__PROXY__\"", "__PROXY__");
     }
-    $("#result pre > code").text(output);
+    $("#result pre > code").text(code + "var CHINA = [\n];");
     $("#download").removeClass("disabled");
     $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
   }, function (err) {
