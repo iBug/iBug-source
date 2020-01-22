@@ -40,9 +40,9 @@ Added support for an alternative source: <https://github.com/17mon/china_ip_list
   value="https://github.com/17mon/china_ip_list/raw/master/china_ip_list.txt" />
   <https://github.com/17mon/china_ip_list>
 
-Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode
+Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode (Beta)
 
-<input type="checkbox" id="compat-419" />
+<input type="checkbox" id="compat-419" /> Enable
 
 </div>
 
@@ -61,100 +61,46 @@ function toHex(number) {
 
 function buildPac() {
   $("#result pre > code").text("请稍候 / Hang on...");
-  // Identify source
+  // Identify data source
   const dataSource = $("input[name='data-source']:checked").val();
+  // Code source: https://github.com/iBug/pac/blob/master/code.js
+  //const codeSource = "https://cdn.jsdelivr.net/gh/iBug/pac/code.js";
+  const codeSource = "https://raw.githubusercontent.com/iBug/pac/master/code.js";
   const compatMode = $("#compat-419")[0].checked;
-  $.ajax({
-    url: "https://ibugone.com/get/",
-    type: "GET",
-    data: {"target": dataSource},
-    success: function (data) {
-      let output = $("#code-template").text();
-      output += "var CHINA = [\n";
-      const lines = data.trim().split("\n");
-      for (let i = 0; i < lines.length; i++) {
-        let content = lines[i].split("/");
-        if (content.length !== 2)
-          continue;
-          let addr = content[0].split(".").map(x => parseInt(x));
-        let addrNum = 0;
-        for (let j = 0; j < 4; j++) {
-          addrNum += addr[j] << (24 - 8 * j);
-        }
-        addrNum = addrNum >>> 0;
-        let maskNum = (0xFFFFFFFF << (32 - parseInt(content[1], 10))) >>> 0;
-        output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
-        if (i != lines.length - 1) {
-          output += ",";
-        }
-        output += "\n";
+  var dataReq = $.get("https://ibugone.com/get/", {"target": dataSource});
+  var codeReq = $.get(codeSource);
+  $.when(dataReq, codeReq).then(function (dataObj, codeObj) {
+    const timeString = new Date().toLocaleString("sv", {timeZoneName: "short"});
+    let data = dataObj[0], output = codeObj[0].replace("@@TIME@@", timeString);
+    output += "var CHINA = [\n";
+    const lines = data.trim().split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      let content = lines[i].split("/");
+      if (content.length !== 2)
+        continue;
+        let addr = content[0].split(".").map(x => parseInt(x));
+      let addrNum = 0;
+      for (let j = 0; j < 4; j++) {
+        addrNum += addr[j] << (24 - 8 * j);
       }
-      output += "];";
-      if (compatMode) {
-        output = output.replace("\"__PROXY__\"", "__PROXY__");
+      addrNum = addrNum >>> 0;
+      let maskNum = (0xFFFFFFFF << (32 - parseInt(content[1], 10))) >>> 0;
+      output += "  [" + toHex(addrNum) + ", " + toHex(maskNum) + "]";
+      if (i != lines.length - 1) {
+        output += ",";
       }
-      $("#result pre > code").text(output);
-      $("#download").removeClass("disabled");
-      $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
-    },
-    error: function (err) {
-      $("#result pre > code").text("Unexpected error, see console log for details.");
+      output += "\n";
     }
+    output += "];";
+    if (compatMode) {
+      output = output.replace("\"__PROXY__\"", "__PROXY__");
+    }
+    $("#result pre > code").text(output);
+    $("#download").removeClass("disabled");
+    $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
+  }, function (err) {
+    $("#result pre > code").text("Unexpected error, see console log for details.");
   });
 }
 </script>
 
-<pre id="code-template" style="display: none;">
-// Author: iBug &lt;ibugone.com&gt;
-
-function belongsToSubnet(host, list) {
-  var ip = host.split(".");
-  ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +
-    0x100 * Number(ip[2]) + Number(ip[3]);
-
-  if (ip < list[0][0])
-    return false;
-
-  // Binary search
-  var x = 0, y = list.length, middle;
-  while (y - x > 1) {
-    middle = Math.floor((x + y) / 2);
-    if (list[middle][0] < ip)
-      x = middle;
-    else
-      y = middle;
-  }
-
-  // Match
-  var masked = ip & list[x][1];
-  return (masked ^ list[x][0]) == 0;
-}
-
-function isChina(host) {
-  return belongsToSubnet(host, CHINA);
-}
-
-function isLan(host) {
-  return belongsToSubnet(host, LAN);
-}
-
-function FindProxyForURL(url, host) {
-  if (!isResolvable(host)) {
-      return "__PROXY__";
-  }
-  var remote = dnsResolve(host);
-  if (isLan(remote) || isChina(remote)) {
-      return "DIRECT";
-  }
-  return "__PROXY__";
-}
-
-var LAN = [
-  [0x0A000000, 0xFF000000],
-  [0x7F000000, 0xFFFFFF00],
-  [0xA9FE0000, 0xFFFF0000],
-  [0xAC100000, 0xFFF00000],
-  [0xC0A80000, 0xFFFF0000]
-];
-
-</pre>
