@@ -18,7 +18,11 @@ Any issue is welcome at the [issue board of the master repository](https://githu
 
 ### Update 1
 
-Added support for an alternative source: <https://github.com/17mon/china_ip_list>. See [this issue](https://github.com/iBug/pac/issues/6) for details.
+Added support for an alternative source: <https://github.com/17mon/china_ip_list>. See [Issue #6](https://github.com/iBug/pac/issues/6) for details.
+
+### Update 2
+
+Added compatibility support for Shadowsocks Windows 4.1.9. See [Issue #7](https://github.com/iBug/pac/issues/7) for details.
 
 <div id="result" markdown="1">
 
@@ -42,7 +46,7 @@ Added support for an alternative source: <https://github.com/17mon/china_ip_list
   value="https://github.com/17mon/china_ip_list/raw/master/china_ip_list.txt" />
   <https://github.com/17mon/china_ip_list>
 
-<input type="checkbox" id="compat-419" /> Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode (Beta)
+<input type="checkbox" id="compat-419" checked /> Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode
 
 </div>
 
