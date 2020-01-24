@@ -156,7 +156,12 @@ My preferred build automation system. Usually writes `Makefile` for personal pro
 <dl class="rating-table">
 <dt>DNS #4#</dt>
 <dd>
-Have a deep understanding of how DNS works, and set up and maintained different kinds of DNS services (local recursive `dnsmasq` / authoritative `bind9`), and manages more than 8 domains and some servee clusters on my own.
+Have a deep understanding of how DNS works, and set up and maintained different kinds of DNS services (local recursive `dnsmasq` / authoritative-only `bind9`), and manages more than 8 domains and some server clusters on my own.
+</dd>
+
+<dt>Computer Networking #3#</dt>
+<dd>
+CTO of [Linux User Group @ USTC](https://lug.ustc.edu.cn/) since 2019. We have a complex overlay network based on tinc as our intranet. We also help school staff with issues in our campus network. I have learned a lot from these experiences.
 </dd>
 
 <dt>Hardware maintenance #3#</dt>
