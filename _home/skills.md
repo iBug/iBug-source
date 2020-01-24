@@ -136,9 +136,11 @@ Preferred HTTP server over Apache. Have some experiences configuring and tuning 
 <dt>Docker #2#</dt>
 <dd>
 My favorite application deployment solution, but haven't got much experience with it. I also have private CIs running in Docker containers.
+
+Haven't yet touched Kubernetes.
 </dd>
 
-<dt>LXD (Linux Containers) #2#</dt>
+<dt>LXC / LXD ([Linux Containers](https://linuxcontainers.org/) #2#</dt>
 <dd>
 Did [a project](/project/vlab) organizing LXD containers as VMs for students to do their course experiments on. Wrote a Django frontent with the help of `pylxd` library. Also manages a small cluster of LXD containers for own and friends' use.
 </dd>
@@ -161,7 +163,7 @@ Have a deep understanding of how DNS works, and set up and maintained different 
 <dd>
 I assembled several desktop computers, and I maintain all my hardware on my own, ranging from my laptop to my phones. I send them to repair shops only when I identify that I can't repair or replace it by myself.
 
-- I disassembled new laptop even on day 1 of puechase, usually for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (Dec 2018)
+- I disassembled new laptop even on day 1 of purchase for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (Dec 2018)
 - I replaced a broken screen of an old phone manually. (Oct 2016)
 - I dismantled a HDD to learn how it worked. (April 2016)
 - I assembled my first desktop computer from parts. (May 2014)
