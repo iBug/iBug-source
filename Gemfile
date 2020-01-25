@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", '~> 3.8.6'
-gem "minimal-mistakes-jekyll", '~> 4.18'
+gem "minimal-mistakes-jekyll", '~> 4.18.1'
 gem "liquid-c", '~> 4.0'
 
 # Bug fixes
