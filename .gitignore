@@ -1,5 +1,6 @@
 .svn
 .sass-cache
+.jekyll-cache
 
 # Other resources on GH Pages
 /cdn
