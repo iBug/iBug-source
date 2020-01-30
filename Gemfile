@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-gem "jekyll", '~> 3.8.6'
+gem "jekyll", '~> 4.0'
 gem "minimal-mistakes-jekyll", '~> 4.18.1'
 gem "liquid-c", '~> 4.0'
 
 # Bug fixes
-gem "sprockets", '~> 3.7' # 4.0 is incompatible
-gem "faraday", '~> 0.17' # 1.0 is incompatible
+#gem "sprockets", '~> 3.7' # 4.0 is incompatible
+#gem "faraday", '~> 0.17' # 1.0 is incompatible
 
 #gem "classifier-reborn" # Required for LSI, too slow however
 
@@ -37,6 +37,6 @@ group :jekyll_plugins do
   gem "jekyll-last-modified"
   gem "jekyll-assets"
   gem "jekyll-algolia"
-  gem "jekyll-archives", '= 2.2.1'
+  gem "jekyll-archives" #, '= 2.2.1'
   gem "jekyll-paginate-v2"
 end
