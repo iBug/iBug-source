@@ -3,13 +3,13 @@ title: "About iBug"
 toc: true
 ---
 
-Undergraduate CS student at [USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
+Undergraduate CS student at [USTC][USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
 
 ## In action
 
 I'm an active contributor on GitHub across various repositories. You can see a list of all my pull requests [using GitHub search][all-prs].
 
-I'm also an avid user on Stack Overflow and here's my profile:
+I'm also an avid user on Stack Overflow:
 
 <p><center>
 <a href="https://stackoverflow.com/users/5958455" style="text-decoration: initial;">
@@ -31,31 +31,32 @@ On the techie side (more about my skills [here](/skills)):
   - **Software**: Git, Jekyll, OpenSSH
   - **Technology**: HTTP, DNS
 - **Intermediate knowledge**
-  - **Programming**: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala
+  - **Programming**: VBScript, the Web Trilogy (HTML / CSS / JavaScript), Ruby, Verilog
   - **Framework**: Flask, Electron, Twitter Bootstrap, jQuery, Chisel
   - **Software**: Vim, Nginx, Docker, Make, LXD, Systemd, [Singularity](https://sylabs.io/) (Container)
-  - **Service**: Travis CI, CircleCI, Amazon EC2, Cloudflare CDN
+  - **Service**: Amazon Web Services, Cloudflare CDN
+  - **Miscellaneous**: Linux Networking (routing, firewall, iptables etc.)
 - **Basic knowledge**
-  - **Programming**: SQL (MySQL / MariaDB), PHP, Go, AWK, Perl
+  - **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite3), PHP, Go, AWK, Wolfram Mathematica, Perl
   - **Framework**: Django, [Sinatra](https://sinatrarb.com), Rails
-  - **Software**: ZFS, Linux LVM
+  - **Software**: ZFS, Linux <abbr title="Logical Volume Manager">LVM</abbr>
   - **Technology**: <abbr title="Remote Direct Memory Access">RDMA</abbr>, <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
 
 ### Preferences
 
-- **Linux distro**: Ubuntu (desktop / workstation) and Debian (servers)
+- **Linux distro**: Ubuntu (desktop / workstation) and Debian (server)
 - **Version control**: Git (and good at it)
 - **Text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
-- **Automation**: Shell scripts, Make, Cron / At, Systemd Services, and Docker
+- **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker
 
 ### Working environment
 
-Physical machine in office (headless):  
+My workstation in office (headless):  
 
 - Core i7-8850H, 64 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
 - Ubuntu 19.10, Docker, LXD, KVM (libvirt)
 
-MSI produces high-performance laptops with *very* comfortable and beautiful keyboards. Must buy!
+MSI produces high-performance gaming laptops with *very* comfortable and beautiful keyboards. Must buy!
 
 ## Personally
 
@@ -66,7 +67,7 @@ MSI produces high-performance laptops with *very* comfortable and beautiful keyb
   - English (Proficient as a foreign language, prefer American flavor)
 - **Secondary languages**: French (advancing), Spanish (limited vocabulary)
 - **Minor language(s)**: Italian (can read with a dictionary)
-  - Also identify a wide range of Latin-script languages, though without understanding a single word.
+  - Also can identify a wide range of Latin-script languages, though without understanding a single word.
 {% comment %}
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 {% endcomment %}
