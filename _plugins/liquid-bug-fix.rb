@@ -3,7 +3,7 @@
 # https://github.com/jekyll/jekyll/pull/7967
 
 module Jekyll
-  if VERSION[0] == '4'
+  if VERSION == '4.0.0'
     class LiquidRenderer
       class File
         def render(*args)
