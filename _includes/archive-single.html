@@ -33,7 +33,7 @@
 		<p class="page__meta">
 		  {% unless post.no_date %}
 				<span style="margin-right: 1em;">
-					<i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %d, %Y" }}
+					<i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %-d, %Y" }}
 				</span>
 			{% endunless %}
 			{% if post.read_time %}
