@@ -20,7 +20,6 @@ jobs:
         path: vendor/bundle
         key: ${{ runner.os }}-bundler-2.6-${{ hashFiles('Gemfile') }}
     - name: Install dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
       run: bundle install --path=vendor/bundle
     - name: Update Algolia index
       run: bundle exec jekyll algolia push --trace
