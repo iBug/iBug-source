@@ -83,7 +83,7 @@ After the user is set up properly, use the same `GRANT` query to grant access to
 
 Now you can use `mysql` to manage your whole database without being prompted for password. You can safely delete `.my.cnf` if you created it following Method 2 and you don't have other options in it. You can also try using `mysql -u<your username>` under another user and see it fail, to ensure that only *you* can access the database directly.
 
-## Creating and granting access to more users
+## <i class="fas fa-lightbulb"></i> Creating and granting access to more users
 
 If you want to create more users with your `mysql` command line, you'll probably see this message:
 
