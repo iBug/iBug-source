@@ -125,6 +125,12 @@ section.page__content {
 	.notice--success,
 	.notice--danger {
 		font-size: 0.91em !important;
+
+		> h1, > h2, > h3, > h4, > h5, > h6 {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
 	}
 }
 
