@@ -48,7 +48,7 @@
         <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% endif %}
 			{% if page.show_date %}
-				<p class="page__meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> {{ page.date | date: '%B %d, %Y' }}</p>
+				<p class="page__meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> {{ page.date | date: '%B %-d, %Y' }}</p>
       {% elsif page.read_time %}
         <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
       {% endif %}
