@@ -113,6 +113,18 @@ You can then create more users with your passwordless access, and play around wi
 
 And that concludes this tutorial. Cheers!
 
+## Bonus: Use Docker
+
+If you're looking for an isolated MySQL or MariaDB installation to experiment with (particularly if you're taking on a database course), Docker has always been around as a good isolation platform.
+
+If you haven't got Docker already, their official guide on installing on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (and [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [CentOS](https://docs.docker.com/install/linux/docker-ce/centos) and [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)) is available.
+
+After getting Docker ready, spin up a container with the official image [mysql](https://hub.docker.com/_/mysql) or [mariadb](https://hub.docker.com/_/mariadb):
+
+```shell
+docker run -d mysql:latest
+```
+
 
   [unix.7]: http://man7.org/linux/man-pages/man7/unix.7.html "unix(7)"
   [mariadb]: https://en.wikipedia.org/wiki/MariaDB
