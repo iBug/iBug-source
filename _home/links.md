@@ -7,6 +7,7 @@ share: true
 课程主页（2020 年春季学期）：
 
 - 《数据库系统及应用》金培权：<http://staff.ustc.edu.cn/~jpq/courses/db.html>
+- 《计算机体系结构》周学海：<http://home.ustc.edu.cn/~hyf15/>
 
 - 《操作系统原理与设计 (H)》邢凯：<https://osh-2020.github.io/>
 
