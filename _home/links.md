@@ -4,6 +4,12 @@ comments: false
 share: true
 ---
 
+课程主页（2020 年春季学期）：
+
+- 《数据库系统及应用》金培权：<http://staff.ustc.edu.cn/~jpq/courses/db.html>
+
+- 《操作系统原理与设计 (H)》邢凯：<https://osh-2020.github.io/>
+
 课程主页（2019 年秋季学期）：
 
 - 《微机原理》罗文坚：<http://staff.ustc.edu.cn/~wjluo/mcps/>
