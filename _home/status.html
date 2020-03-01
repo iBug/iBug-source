@@ -27,7 +27,7 @@ share: false
 	{% elsif site.env.CIRCLE_BUILD_NUM %}
 	<dd>This site is deployed from <a href="https://circleci.com/gh/iBug/iBug-source/{{ site.env.CIRCLE_BUILD_NUM }}">CircleCI build {{ site.env.CIRCLE_BUILD_NUM }}{% if site.env.CRON %} &#9200;{% endif %}</a></dd>
 	{% elsif site.env.GITHUB_ACTION %}
-	<dd>This site is deployed from <a href="https://github.com/features/actions">GitHub Actions</a></dd>
+		<dd>This site is deployed from <a href="https://github.com/iBug/iBug-source/actions/runs/{{ site.env.GITHUB_RUN_ID }}">GitHub Actions build {{ site.env.GITHUB_RUN_NUMBER }}</a></dd>
 	{% else %}
 	<dd>This site is not deployed from Continuous Integration.</dd>
 	{% endif %}
