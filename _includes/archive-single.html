@@ -14,13 +14,7 @@
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | relative_url }}"
-          {% endif %}
-          alt="">
+        <img src="{{ teaser | relative_url }}" alt="">
       </div>
     {% endif %}
     <h2 class="archive__item-title" itemprop="headline">
@@ -30,16 +24,16 @@
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
-		<p class="page__meta">
-		  {% unless post.no_date %}
-				<span style="margin-right: 1em;">
-					<i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %-d, %Y" }}
-				</span>
-			{% endunless %}
-			{% if post.read_time %}
-				<i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
-			{% endif %}
-		</p>
+    <p class="page__meta">
+      {% unless post.no_date %}
+        <span style="margin-right: 1em;">
+          <i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %-d, %Y" }}
+        </span>
+      {% endunless %}
+      {% if post.read_time %}
+        <i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
+      {% endif %}
+    </p>
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 300 }}</p>{% endif %}
   </article>
 </div>
