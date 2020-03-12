@@ -8,7 +8,7 @@ tags: study-notes chisel
 
 Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序，通过 Chisel 提供的库进行硬件构建。
 
-## 1. 系统需求
+## 1. 系统需求 {#system-requirements}
 
 - Windows 7 / Windows 10, macOS 或 Linux 操作系统 (本文不保证 CentOS 兼容性，推荐 Ubuntu 18.04 或 Debian 10)
 - Java 运行环境 (JDK 8)
@@ -17,9 +17,9 @@ Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在�
 
 考虑到 [Java 平台对内存的高需求](https://me.me/i/java-java-yes-user-hogging-ram-no-user-telling-lies-05097ba0beb84d6e8cca690c1f5a0690)，我们建议主机至少配备 8 GB 内存 (Windows) 或 4 GB 内存 (Linux)。
 
-## 1.A Windows 环境配置
+## 1.A Windows 环境配置 {#setup-windows}
 
-### 1.A.1 安装 Java
+### 1.A.1 安装 Java {#windows-java}
 
 Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 211。
 
@@ -28,7 +28,7 @@ Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官�
 
 安装过程直接点击 \[下一步\] 直到完成即可。
 
-### 1.A.2 安装 Scala 及 SBT
+### 1.A.2 安装 Scala 及 SBT {#windows-scala}
 
 Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。本文最近更新时，SBT 的最新版本为 1.2.8，可以通过以下链接下载。
 
@@ -38,7 +38,7 @@ SBT 的安装也不复杂，双击 msi 安装包，一路点击 \[下一步\] �
 
 虽然不是必要的，但是建议在安装完 SBT 之后重启一下电脑。
 
-### 1.A.3 准备 Chisel 依赖
+### 1.A.3 准备 Chisel 依赖 {#windows-chisel}
 
 安装好 SBT 之后，我们接下来所有的准备工作都将借助 SBT 完成。
 
@@ -50,9 +50,9 @@ SBT 的安装也不复杂，双击 msi 安装包，一路点击 \[下一步\] �
 
 ![SBT Run](/image/chisel-intro/sbt-first-run.png)
 
-## 1.B Linux 环境配置 (Ubuntu)
+## 1.B Linux 环境配置 (Ubuntu) {#setup-linux}
 
-### 1.B.1 安装 Java 及 SBT
+### 1.B.1 安装 Java 及 SBT {#linux-java}
 
 Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。
 
@@ -67,7 +67,7 @@ sudo apt-get -y install default-jdk build-essential perl sbt
 
 以上操作会添加 SBT 提供的 APT 源，然后刷新 APT 软件包列表，并安装 JDK, SBT 等需要的软件包。
 
-### 1.B.2 准备 Chisel 依赖
+### 1.B.2 准备 Chisel 依赖 {#linux-chisel}
 
 接下来解包附件 `chisel-101.tar.gz` （见末尾），并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。
 
@@ -79,13 +79,13 @@ sbt run
 
 如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码 `hello.scala` 并运行。具体输出可以参考上面 Windows 7 系统中的截图。
 
-## 2. 开始第一个 Chisel 工程并生成 Verilog 代码
+## 2. 开始第一个 Chisel 工程并生成 Verilog 代码 {#chisel-project}
 
 保留好附件 `chisel-101.tar.gz` 或者解包出来的文件夹 `chisel-101`，后面我们会经常用到它。
 
 请注意，本文不是教你如何编写 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用[官方的教程仓库](https://github.com/ucb-bar/chisel-tutorial)，因此避开了 Verilator 的依赖（它在 Windows 上极难配置）。
 
-### 2.1 第一个组合逻辑电路
+### 2.1 第一个组合逻辑电路 {#combinational-logic}
 
 用文本编辑器或者 IDE (例如 [IntelliJ IDEA](https://www.jetbrains.com/idea/)) 打开 `src/main/scala/example/hello.scala`，观察内容：
 
@@ -179,7 +179,7 @@ endmodule
 
 好了，我们的第一个样例就到这里，你已经知道怎么写 Chisel 代码并生成 Verilog 了。
 
-### 2.2 第一个时序逻辑电路
+### 2.2 第一个时序逻辑电路 {#sequential-logic}
 
 我从网上的样例中选出了这个作为时序逻辑电路的示范
 
@@ -330,7 +330,7 @@ endmodule
 
 注意到，由于 Chisel 语言只有 0/1，不支持三态或者高阻态，所以这里对几个寄存器采取了随机初始化的办法。另外也可以看到，尽管模块中没有声明时钟 `clock` 和重置 `reset` 信号，但是所有编译出来的 Verilog 代码都会包含这两个输入，并且在有需要的时候向嵌套的模块传递，这可以在下面这个示例中观察到。
 
-### 2.3 嵌套模块
+### 2.3 嵌套模块 {#nesting-modules}
 
 这次我们使用前面编写的 1 位全加器来构建一个多位全加器
 
@@ -466,7 +466,7 @@ sbt 'runMain example.Sequential'
 
 更多样例代码可以在 Chisel 的官方教程仓库 [chisel-tutorial](https://github.com/ucb-bar/chisel-tutorial) 中找到。
 
-## 附录
+## 附录 {#appendix}
 
 - 附件 `chisel-101.tar.gz` 下载： <https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz>
 - 包含三个样例代码的 `chisel-101-with-examples.tar.gz` 下载： <https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz>
