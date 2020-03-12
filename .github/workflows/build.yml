@@ -19,7 +19,9 @@ jobs:
         path: vendor/bundle
         key: ${{ runner.os }}-bundler-2.7-${{ hashFiles('Gemfile') }}
     - name: Install dependencies
-      run: bundle install --path=vendor/bundle
+      run: |
+        bundle config --local build.sassc --disable-march-tune-native
+        bundle install --path=vendor/bundle
     - name: Prepare build
       run: bash script/prepare.sh
     - name: Build site

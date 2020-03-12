@@ -7,7 +7,7 @@ gem "liquid-c", '~> 4.0'
 # Bug fixes
 #gem "sprockets", '~> 3.7' # 4.0 is incompatible
 #gem "faraday", '~> 0.17' # 1.0 is incompatible
-gem "sassc", '~> 2.1.0' # Known issue with 2.2.x, ref: https://github.com/sass/sassc-ruby/issues/146
+#gem "sassc", '~> 2.1.0' # Known issue with 2.2.x, ref: https://github.com/sass/sassc-ruby/issues/146
 
 #gem "classifier-reborn" # Required for LSI, too slow however
 
