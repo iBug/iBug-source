@@ -102,7 +102,7 @@ wget -qO setup.sh https://raw.githubusercontent.com/iBug/shGadgets/master/quick-
 
   [1]: https://www.ubuntu.com/download/desktop
   [2]: https://launchpad.net/ubuntu/+cdmirrors
-  [3]: https://mirrors.ustc.edu.cn/ubuntu-releases/bionic/
+  [3]: https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/
   [vmware-w]: https://www.vmware.com/go/getworkstation-win
   [vmware-m]: https://www.vmware.com/go/getfusion
   [vmware-l]: https://www.vmware.com/go/getworkstation-linux
