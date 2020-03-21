@@ -33,6 +33,10 @@ I started practicing Minesweeper when I was 15, and I can now complete a Hard bo
 
 To sum up, logical deduction is fun for me.
 
+## Music
+
+- Mixtape - *Barcella* ([<i class="fab fa-fw fa-youtube"></i>](https://www.youtube.com/watch?v=lavSP2spE14))
+
 ## Movies & TV
 
 - *Mr. Bean* series from the 1990s
