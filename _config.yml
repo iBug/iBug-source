@@ -341,6 +341,7 @@ defaults:
       comments: true
       related: false
       toc_sticky: true
+      toc_icon: "file-alt fa-fw"
       header:
         overlay_image: "/image/header/mountain-1.jpg"
         show_overlay_excerpt: false
@@ -353,7 +354,6 @@ defaults:
       related: true
       toc: true
       #toc_label: "On this page"
-      #toc_icon: "file-alt"
   - scope:
       path: ""
       type: home
