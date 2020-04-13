@@ -345,6 +345,8 @@ defaults:
       header:
         overlay_image: "/image/header/mountain-1.jpg"
         show_overlay_excerpt: false
+      sidebar:
+        nav: home
   - scope:
       path: ""
       type: posts
@@ -359,8 +361,6 @@ defaults:
       type: home
     values:
       #classes: wide
-      sidebar:
-        nav: home
       no_pagination: true
       header:
         overlay_image: "/image/header/water-1.jpg"
@@ -400,8 +400,6 @@ defaults:
       show_date: true
       comments: true
       words_per_minute: 350
-      sidebar:
-        nav: home
       toc: true
       toc_label: "目录"
       toc_icon: "th-list"
