@@ -8,7 +8,9 @@ redirect_from: /p/19
 toc: false
 ---
 
-**Supports Wolfram Mathematica 12.0**
+**Supports Wolfram Mathematica 12.0 and 12.1**
+
+**Update 1 (April 20, 2020)**: I have examined Mathematica 12.1. No update is required.
 
 Input your MathID (xxxx-xxxxx-xxxxx) and press **Generate**.
 
@@ -77,7 +79,7 @@ function checkMathId(s) {
 }
 
 Array.prototype.getRandom = function () {
-    return this[Math.floor(Math.random() * this.length)]
+    return this[Math.floor(Math.random() * this.length)];
 }
 document.getElementById("generate").addEventListener("click", function () {
     var mathId = document.getElementById("mathId").value.trim();
