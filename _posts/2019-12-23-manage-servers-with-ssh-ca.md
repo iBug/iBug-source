@@ -2,6 +2,8 @@
 title: "Managing servers with OpenSSH Certificate Authority"
 tags: linux ssh
 redirect_from: /p/30
+header:
+  overlay_image: "/image/header/code-1.jpg"
 ---
 
 Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using [Termux][termux]), and one of those servers that I use as a workstation.
