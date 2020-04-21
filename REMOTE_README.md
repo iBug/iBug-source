@@ -7,5 +7,5 @@ You can visit the site [here][site].
 
 If you're wondering how this site is built, see [this article][1].
 
-  [site]: https://ibug.github.io/
-  [1]: https://ibug.github.io/p/4
+  [site]: https://ibugone.com/
+  [1]: https://ibugone.com/p/4

@@ -181,7 +181,7 @@ exclude:
   - Gemfile.lock
   # Gruntfile.js
   # gulpfile.js
-  - LICENSE
+  - "LICENSE*"
   # log
   # node_modules
   # package.json
