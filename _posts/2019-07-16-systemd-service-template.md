@@ -1,7 +1,6 @@
 ---
 title: 'Creating templated Systemd services'
 tags: linux
-keywords: [linux, systemd, services]
 redirect_from: /p/22
 ---
 
