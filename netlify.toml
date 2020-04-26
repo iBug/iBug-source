@@ -1,0 +1,17 @@
+[build]
+base = "."
+publish = "_site/"
+command = "bash script/build-netlify.sh"
+
+[build.environment]
+LC_ALL = "C.UTF-8"
+
+[build.processing]
+skip_processing = true
+
+[context.production]
+JEKYLL_ENV = "production"
+
+#[[redirects]]
+#from = "https://ibug.netlify.app"
+#to = "https://ibugone.com"
