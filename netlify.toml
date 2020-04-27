@@ -15,3 +15,10 @@ JEKYLL_ENV = "production"
 #[[redirects]]
 #from = "https://ibug.netlify.app"
 #to = "https://ibugone.com"
+
+[[redirects]]
+from = "/example/"
+to = "https://mmistakes.github.io/minimal-mistakes/"
+status = 200
+force = true
+#headers = {Host = "ibugone.com"}
