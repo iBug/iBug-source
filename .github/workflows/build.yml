@@ -30,3 +30,18 @@ jobs:
       run: bash script/patch.sh
     - name: Deploy to GitHub
       run: bash script/deploy-actions.sh
+
+    - uses: actions/setup-node@v1
+    - name: Setup cache for Node.js
+      id: cache2
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-npm-20200427
+    - name: Install Netlify CLI
+      run: npm install netlify-cli
+    - name: Deploy to Netlify
+      run: |
+        git clone --depth=1 --single-branch https://github.com/iBug/image.git _site/image/
+        rm -rf _site/image/.git
+        npx netlify deploy --site "${{ secrets.NETLIFY_SITE_ID }}" --auth "${{ secrets.NETLIFY_ACCESS_TOKEN }}" --prod
