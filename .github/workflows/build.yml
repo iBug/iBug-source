@@ -33,12 +33,13 @@ jobs:
 
     - uses: actions/setup-node@v1
     - name: Setup cache for Node.js
-      id: cache2
+      id: cache-npm
       uses: actions/cache@v1
       with:
         path: node_modules
         key: ${{ runner.os }}-npm-20200427
     - name: Install Netlify CLI
+      if: steps.cache-npm.outputs.cache-hit != 'true'
       run: npm install netlify-cli
     - name: Deploy to Netlify
       env:
