@@ -18,3 +18,7 @@ _site
 # Jekyll Plugins
 .git-metadata
 .jekyll-metadata
+
+# NPM
+package-lock.json
+node_modules/
