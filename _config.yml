@@ -161,7 +161,6 @@ exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
   - "*.yml"
-  - vendor
   - .asset-cache
   - .bundle
   - .circleci/
@@ -189,10 +188,11 @@ exclude:
   # Rakefile
   - README.md
   - REMOTE_README.md
-  # tmp
   - /script
+  # tmp
+  - vendor/
   - /vlab
-keep_files: [".git", ".circleci", ".nojekyll", "README.md", "CNAME", "image"]
+keep_files: [".git", ".nojekyll", "README.md", "CNAME", "image"]
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
