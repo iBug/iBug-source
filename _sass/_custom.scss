@@ -33,6 +33,13 @@ html {
 	@include breakpoint($x-large) { max-width: 1440px; }
 }
 
+.sidebar.sticky {
+	@include breakpoint($large) {
+		max-height: calc(100vh - 2em - 2em);
+		height: auto;
+	}
+}
+
 div.page__hero--overlay {
 	text-align: center;
 	margin-bottom: 1em;
