@@ -1,11 +1,10 @@
-dist: xenial
+dist: bionic
 language: ruby
-rvm: "2.5.3"
+rvm: "2.6.5"
 cache: bundler
-sudo: false
 
 git:
-  depth: 1
+  depth: 3
   submodules: false
 
 env:
@@ -16,6 +15,7 @@ before_script:
 
 script:
   - bundle exec jekyll build --profile --trace
+  - bundle exec jekyll algolia push --trace
 
 after_success:
   - script/patch.sh
