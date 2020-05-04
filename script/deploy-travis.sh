@@ -31,10 +31,8 @@ e_info "Adding commit info"
 rm -rf .git
 git init
 git remote add origin "${ORIGIN:-git@git.dev.tencent.com:iBugOne/iBugOne.coding.me.git}"
-git config user.name "iBug"
-git config user.email "git@ibugone.com"
 git add --all
-git commit --quiet --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
+git -c user.name=iBug -c user.email="git@ibugone.com" commit --quiet --message "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-?}" --message "$source_msg" &>/dev/null
 
 e_info "Pushing to Coding.net"
 git push origin +${BRANCH:-master} &>/dev/null

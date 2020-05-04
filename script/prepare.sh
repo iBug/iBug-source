@@ -23,6 +23,7 @@ elif [ -n "$GH_TOKEN" ]; then
   e_info "Clone result: $?"
 else
   e_error "No SSH key found and no GitHub token present, not continuing."
+  exit 0
 fi
 
 e_success "Done"
