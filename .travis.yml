@@ -15,7 +15,6 @@ before_script:
 
 script:
   - bundle exec jekyll build --profile --trace
-  - bundle exec jekyll algolia push --trace
 
 after_success:
   - script/patch.sh
