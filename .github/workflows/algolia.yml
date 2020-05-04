@@ -23,3 +23,5 @@ jobs:
       run: bundle install --path=vendor/bundle
     - name: Update Algolia index
       run: bundle exec jekyll algolia push --trace
+      env:
+        RUBYOPT: -W0

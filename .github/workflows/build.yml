@@ -26,6 +26,7 @@ jobs:
       run: bundle exec jekyll build --trace --profile
       env:
         JEKYLL_ENV: production
+        RUBYOPT: -W0
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
