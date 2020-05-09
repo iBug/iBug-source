@@ -344,6 +344,7 @@ defaults:
       toc_sticky: true
       toc_icon: "file-alt fa-fw"
       header:
+        og_image: /image/og.jpg
         overlay_image: "/image/header/mountain-1.jpg"
         show_overlay_excerpt: false
       sidebar:
