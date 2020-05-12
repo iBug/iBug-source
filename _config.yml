@@ -276,6 +276,7 @@ collections:
     permalink: "/:path/"
   cn:
     output: true
+    permalink: "/cn/:year/:month/:title/"
   project:
     output: true
   share:
