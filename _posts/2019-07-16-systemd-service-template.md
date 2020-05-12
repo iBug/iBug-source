@@ -12,7 +12,7 @@ As time goes by, I get more devices behind NAT and more VPS hosts providing FRP 
 
 Let's start this with one `frpc.service` file that I wrote and am using:
 
-```text
+```ini
 [Unit]
 Description=FRP Client Service
 After=network.target
@@ -39,7 +39,7 @@ Among all "instance variables", the most commonly used one is "instance name" `%
 
 Instead of putting `frpc` config files directly under `/etc`, the first thing I did is making a directory `/etc/frpc` for all of them. Then I put the "default" one into the directory as `/etc/frpc/default.ini`, and re-written the service file, utilizing instance variables, as this:
 
-```text
+```ini
 [Unit]
 Description=FRP Client Service (%i)
 After=network.target
@@ -70,7 +70,7 @@ systemctl enable frpc@default.service
 
 And an extra note on the `enable` command: If you notice the output from `systemctl`, it should read like this:
 
-```shell
+```console
 ibug@ubuntu:~$ sudo systemctl enable frpc@example.service
 Created symlink /etc/systemd/system/multi-user.target.wants/frpc@example.service → /etc/systemd/system/frpc@.service
 ```
