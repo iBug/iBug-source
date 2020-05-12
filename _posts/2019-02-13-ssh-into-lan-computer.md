@@ -30,7 +30,7 @@ cd frp
 
 Now open the configuration file `frps.ini` with your favorite editor, Vim or Emacs, and put the following content in:
 
-```text
+```ini
 [common]
 bind_port = 7000
 privilege_token = your_token
@@ -59,7 +59,7 @@ In most cases, it'd be convenient for the server software to start as a daemon, 
 
 Create the file `/etc/systemd/system/frps.service` with the following content:
 
-```text
+```ini
 [Unit]
 Description=FRP Server
 After=network.target
@@ -100,7 +100,7 @@ cd frp
 
 This time, open `frpc.ini` with your favorite editor, and put the following content in:
 
-```text
+```ini
 [common]
 server_addr = <your server ip>
 server_port = 7000
@@ -118,7 +118,7 @@ Put the IP address of your server in `server_addr`, and your privilege token in 
 
 Similar to the server software, I created another systemd service for the client software. Here's what I have in my `/etc/systemd/system/frpc.service`:
 
-```text
+```ini
 [Unit]
 Description=FRP Client
 After=network.target
