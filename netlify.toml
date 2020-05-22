@@ -17,8 +17,7 @@ JEKYLL_ENV = "production"
 #to = "https://ibugone.com"
 
 [[redirects]]
-from = "/example/*"
+from = "/minimal-mistakes/*"
 to = "https://mmistakes.github.io/minimal-mistakes/:splat"
 status = 200
 force = true
-#headers = {Host = "ibugone.com"}

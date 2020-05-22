@@ -11,3 +11,13 @@ header:
 
 published: false
 ---
+
+Since years ago containers have been a hot topic everywhere. There are many container softwares like [Docker][docker], [Linux Containers][lxc] and [Singularity][singularity]. It's hard to say one *understand* what containers are without diving into all the gory details of them, so I decided to go on this exploration myself.
+
+  [docker]: https://www.docker.com/
+  [lxc]: https://linuxcontainers.org/
+  [singularity]: https://sylabs.io/singularity/
+
+The actual motivation was (quite) a bit different, though, as I am the TA of *Operating Systems (H)* this semester, and I want to inject a spirit of innovation into the course labs, so I worked this out very early.
+
+Long story short,
