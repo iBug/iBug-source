@@ -131,4 +131,28 @@ int main(int argc, char **argv) {
 }
 ```
 
+## Namespaces
+
+[Namespaces][linux-namespaces] are a fundamental aspect of Linux containers. They provide isolation for a variety of mission-critical system resources like process IDs, hostnames, network stacks and inter-process communication. They are the key to making containers "look independent" from the host system.
+
+As of Linux kernel 5.6 released in April 2020, there are 8 kinds of namespaces present:
+
+- **Mount namespace** isolates mount points (visibility) from the parent. New mount activities in the parent namespace won't be visible in child namespaces. However, to achieve the reverse, a separate thing called "mount propagation" is involved. First appeared in 2002, Linux 2.4.19.
+- **UTS namespace** provides isolated hostnames. UTS stands for ["**U**NIX **T**ime-**S**haring system"][uts-system]. First appeared in 2006, Linux 2.6.19.
+- **IPC namespace** isolates traditional System V-style IPC methods. First appeared in 2006, Linux 2.6.19.
+- **PID namespace** provides a separate set of process IDs so that a process may look different inside. This is important for certain programs to function properly, most notably the init process, which must be PID 1. First appeared in 2008, Linux 2.6.24.
+- **Networking namespace** provides a full set of network stack. Suitable for creating isolated network environments for containers. First appeared in 2009, Linux 2.6.29.
+- **User namespace** allows mapping UIDs / GIDs from containers to hosts, so that unpriviledged users can perform certain tasks that normally require the superuser privilege, without actually elevating themselves or posing risks to the host. First appeared in 2013, Linux 3.8.
+- **Cgroup namespace** provides isolated cgroup hierarchies so containers can safely utilize cgroup functionalities without affecting the host. First appeared in 2016, Linux 4.6.
+- **Time namespace** allows different processes to "see" different system times. First appeared in 2020, Linux 5.6.
+
+  [linux-namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces
+  [uts-system]: https://en.wikipedia.org/wiki/History_of_Unix
+
 ## Mounts
+
+Traditionally, mounting is a way to map raw disks to usable filesystems. Since then, its usage has evolved and supports much more than disk mapping. We're particularly interested in using special filesystems like `/proc` (the FS that provides runtime information like processes and kernel parameters), `/sys` (system settings, device information etc.), `/tmp` (a temporary filesystem backed by RAM) etc.
+
+## References
+
+- **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
