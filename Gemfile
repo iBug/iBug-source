@@ -9,7 +9,8 @@ gem "liquid-c", '~> 4.0'
 #gem "faraday", '~> 0.17' # 1.0 is incompatible
 gem "sassc", '>= 2.3.0' # Known issue with 2.2.x, ref: https://github.com/sass/sassc-ruby/issues/146
 
-#gem "classifier-reborn" # Required for LSI, too slow however
+# Required for LSI, too slow however
+gem "classifier-reborn" if ENV['LSI'] == 'true'
 
 group :jekyll_plugins do
   # Class 1: Default plugins on GitHub Pages
