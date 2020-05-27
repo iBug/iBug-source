@@ -197,7 +197,7 @@ Until now...
 
 OK, stop, stop stop stop stop, stop
 I can't take it anymore, either.
-They basically made *Kommunist Kars 4 Kids*[^1]
+They basically made *Kommunist Kars 4 Kids*[^1][^2]
 That is UN-FOR-GIV-ABLE!
 
 Now, it is too early to say
@@ -440,4 +440,6 @@ the kind of rounds out the picture.
 \[Music\]
 \[Applause\]
 
+
 [^1]: Kars4Kids is a nonprofit car donation organization. <https://en.wikipedia.org/wiki/Kars4Kids>
+[^2]: Triple-K refers to an American racist group. <https://en.wikipedia.org/wiki/Ku_Klux_Klan>
