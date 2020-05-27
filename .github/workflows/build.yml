@@ -25,7 +25,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-bundler-2.7-
     - name: Install dependencies
-      run: bundle install --path=vendor/bundle && bundle clean
+      run: |
+        export DEBIAN_FRONTEND=noninteractive
+        sudo apt-get -y update
+        sudo apt-get -y install libgsl-dev
+        bundle install --path=vendor/bundle
+        bundle clean
     - name: Prepare build
       run: bash script/prepare.sh
     - name: Build site
