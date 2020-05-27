@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SSH_KEY_E: ${{ secrets.SSH_KEY_E }}
+      LSI: 'true'
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-ruby@v1
@@ -21,15 +22,16 @@ jobs:
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-bundler-2.7-${{ hashFiles('Gemfile') }}
+        restore-keys: |
+          ${{ runner.os }}-bundler-2.7-
     - name: Install dependencies
-      run: bundle install --path=vendor/bundle
+      run: bundle install --path=vendor/bundle && bundle clean
     - name: Prepare build
       run: bash script/prepare.sh
     - name: Build site
-      run: bundle exec jekyll build --trace --profile
+      run: bundle exec jekyll build --trace --profile --config _config.yml,_lsi.yml
       env:
         JEKYLL_ENV: production
-        RUBYOPT: -W0
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
