@@ -26,8 +26,6 @@ jobs:
           ${{ runner.os }}-bundler-2.7-
     - name: Install dependencies
       run: |
-        export DEBIAN_FRONTEND=noninteractive
-        sudo apt-get -y update
         sudo apt-get -y install libgsl-dev
         bundle install --path=vendor/bundle
         bundle clean
