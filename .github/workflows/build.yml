@@ -29,9 +29,10 @@ jobs:
     - name: Prepare build
       run: bash script/prepare.sh
     - name: Build site
-      run: bundle exec jekyll build --trace --profile --config _config.yml,_lsi.yml
+      run: bundle exec jekyll build --trace --profile --lsi
       env:
         JEKYLL_ENV: production
+        JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
