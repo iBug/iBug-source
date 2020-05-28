@@ -121,7 +121,7 @@ author:
       url: "https://steamcommunity.com/id/ibugone"
     - label: "Telegram Channel"
       icon: "fab fa-fw fa-telegram-plane"
-      #url: "https://t.me/ibugthought"
+      url: "https://t.me/ibugthought"
 
 # Site Footer
 footer:
