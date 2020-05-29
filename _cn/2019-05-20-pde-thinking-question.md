@@ -3,6 +3,7 @@ title: "数理方程思考题"
 excerpt: "2019 年春季中科大《数理方程》课程的一道思考题，最高可给总评加 5 分"
 mathjax: true
 tags: study-notes
+redirect_from: /cn/pde-thinking-question/
 ---
 
 # 题目（P248 例 3）

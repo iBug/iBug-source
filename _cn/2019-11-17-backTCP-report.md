@@ -9,6 +9,7 @@ header:
     - label: "<i class='fas fa-file-alt'></i> 实验文档"
       url: https://github.com/iBug/backTCP-python/files/3818860/V2.0.pdf
   show_overlay_excerpt: true
+redirect_from: /cn/backTCP-report/
 ---
 
 # 一、实验内容
