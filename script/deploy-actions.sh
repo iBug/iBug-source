@@ -2,7 +2,7 @@
 
 . ${0%/*}/config.sh
 . ${0%/*}/util.sh
-: ${SRC:=_site} ${BRANCH:=master} ${COMMIT_MSG:="Auto deploy from GitHub Actions"}
+: ${SRC:=_site} ${BRANCH:=master} ${COMMIT_MSG:="Auto deploy from GitHub Actions build ${GITHUB_RUN_NUMBER}"}
 
 set -e
 
