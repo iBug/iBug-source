@@ -3,25 +3,19 @@ title: "iBug"
 excerpt: "Developer, system administrator, geek"
 layout: splash
 classes: ["landing"]
+permalink: /
 header:
   overlay_image: "/image/mm/splash.jpg"
   actions:
     - label: "<i class='fas fa-user-circle'></i> About"
-      url: "/about"
-    - label: "<i class='fas fa-wrench'></i> Skills"
-      url: "/skills"
+      url: "/about/"
+    - label: "<i class='fas fa-book'></i> Blog"
+      url: "/blog/"
     - label: "<i class='fab fa-github'></i> GitHub"
       url: "https://github.com/iBug"
   show_overlay_excerpt: true
   #caption: "Photo credit?"
 feature_row:
-  - image_path: "/image/mm/blog.jpg"
-    alt: "blog title"
-    title: "Blog"
-    excerpt: "iBug is a casual blogger, and he occasionally writes something about his new discoveries."
-    url: "/blog"
-    btn_label: "<i class='fas fa-book-reader'></i> Read"
-    btn_class: "btn--primary"
   - image_path: "/image/mm/projects.jpg"
     #image_caption: ""
     alt: "project image"
@@ -39,21 +33,26 @@ feature_row:
     url: "/cn"
     btn_label: "<i class='fas fa-th-list'></i> 查看"
     btn_class: "btn--primary"
-stack_overflow:
   - image_path: "/image/stack-overflow.jpg"
     alt: "Stack Overflow"
     title: "Stack Overflow Activity"
     excerpt: "iBug is an avid user on Stack Overflow and has asked and answered a lot of questions. You're highly encouraged to checkout his profile on Stack Overflow."
     url: "https://stackoverflow.com/users/5958455/ibug"
-    btn_label: "Go <i class='fas fa-arrow-circle-right'></i>"
+    btn_label: "<i class='fas fa-arrow-circle-right'></i> Go"
+    btn_class: "btn--primary"
+disabled:
+  - image_path: "/image/mm/blog.jpg"
+    alt: "blog title"
+    title: "Blog"
+    excerpt: "iBug is a casual blogger, and he occasionally writes something about his new discoveries."
+    url: "/blog"
+    btn_label: "<i class='fas fa-book-reader'></i> Read"
     btn_class: "btn--primary"
 ---
 
 {% include feature_row %}
 
-{% include feature_row id="stack_overflow" type="left" %}
-
-### Other links
+### Extra links
 
 - [My telegram channel](https://t.me/ibugthought) where I share random ideas
 
