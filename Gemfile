@@ -1,13 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", '~> 4.0', '>= 4.0.1'
+gem "jekyll", '~> 4.0.1'
 gem "minimal-mistakes-jekyll", '>= 4.19.2'
 gem "liquid-c", '~> 4.0'
-
-# Bug fixes
-#gem "sprockets", '~> 3.7' # 4.0 is incompatible
-#gem "faraday", '~> 0.17' # 1.0 is incompatible
-gem "sassc", '>= 2.3.0' # Known issue with 2.2.x, ref: https://github.com/sass/sassc-ruby/issues/146
 
 # Required for LSI, too slow however
 if ENV['LSI'] == 'true'
