@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", '~> 4.0.1'
+gem "jekyll", '~> 4.1.0'
 gem "minimal-mistakes-jekyll", '>= 4.19.2'
 gem "liquid-c", '~> 4.0'
 
