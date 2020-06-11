@@ -249,7 +249,7 @@ pagination:
   enabled: true
   per_page: 8
   permalink: "/:num/"
-  title: ":title - :num of :max"
+  title: ":title - Page :num of :max"
   limit: 0
   sort_field: "date"
   sort_reverse: true
