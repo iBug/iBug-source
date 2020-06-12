@@ -152,7 +152,7 @@ footer:
 footer_scripts:
   - /assets/js/main.min.js
   # Very hacking
-  - 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/js/all.min.js" async type="text/javascript'
+  - '/assets/js/love.js" async="async" defer="defer'
 
 
 # Reading Files

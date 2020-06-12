@@ -4,9 +4,9 @@
 <script type="text/javascript">
 	const funcOnPageLoad = () => document.querySelector("body").classList.add("loaded");
 	if (document.readyState !== "loading")
-	setTimeout(funcOnPageLoad, 500);
+    setTimeout(funcOnPageLoad, 500);
 	else
-	document.addEventListener('DOMContentLoaded', funcOnPageLoad);
+    document.addEventListener('DOMContentLoaded', funcOnPageLoad);
 </script>
 {% if page.mathjax %}
 	<script type="text/x-mathjax-config">
@@ -33,7 +33,7 @@
 		}
 	</script>
 {% endif %}
-<script type="text/javascript" async src="{{ "/assets/js/love.js" | relative_url }}"></script>
+<script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/js/all.min.js"></script>
 <!--
  Minimal Mistakes layout: {{ page.layout }}
  Page Path: {{ page.path }}
