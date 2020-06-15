@@ -3,4 +3,6 @@ layout: none
 ---
 
 User-Agent: *
+Allow: /
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
+
