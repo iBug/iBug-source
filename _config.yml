@@ -151,8 +151,6 @@ footer:
 
 footer_scripts:
   - /assets/js/main.min.js
-  # Very hacking
-  - '/assets/js/love.js" async="async" defer="defer'
 
 
 # Reading Files
