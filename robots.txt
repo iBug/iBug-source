@@ -1,2 +1,6 @@
+---
+layout: none
+---
+
 User-Agent: *
-Disallow: /status/
+Sitemap: {{ '/sitemap.xml' | absolute_url }}
