@@ -5,3 +5,5 @@ https://ibugone.com/* https://ibug.io/:splat 301!
 https://www.ibugone.com/* https://ibug.io/:splat 301!
 
 https://notes.ibugone.com/* https://notes.ibug.io/:splat 301!
+
+/image/* https://image.ibugone.com/:splat 301!
