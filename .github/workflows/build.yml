@@ -39,7 +39,7 @@ jobs:
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
-      run: bash script/deploy-actions.sh
+      run: 'bash script/deploy-actions.sh &'
 
     - uses: actions/setup-node@v1
     - name: Setup cache for Node.js
