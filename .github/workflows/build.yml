@@ -58,4 +58,5 @@ jobs:
       run: |
         git clone --depth=1 --single-branch https://github.com/iBug/image.git _site/image/
         rm -rf _site/image/.git
+        cat _data/netlify.txt > _site/_redirects 2>/dev/null || true
         npx netlify deploy --prod

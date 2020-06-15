@@ -1,0 +1,7 @@
+# Netlify _redirects file
+# vim:filetype=conf:
+
+https://ibugone.com/* https://ibug.io/:splat 301!
+https://www.ibugone.com/* https://ibug.io/:splat 301!
+
+https://notes.ibugone.com/* https://notes.ibug.io/:splat 301!

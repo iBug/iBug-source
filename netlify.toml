@@ -11,13 +11,3 @@ skip_processing = true
 
 [context.production]
 JEKYLL_ENV = "production"
-
-#[[redirects]]
-#from = "https://ibug.netlify.app"
-#to = "https://ibugone.com"
-
-[[redirects]]
-from = "/minimal-mistakes/*"
-to = "https://mmistakes.github.io/minimal-mistakes/:splat"
-status = 200
-force = true
