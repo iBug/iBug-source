@@ -146,15 +146,65 @@ As of Linux kernel 5.6 released in April 2020, there are 8 kinds of namespaces p
 - **Cgroup namespace** provides isolated cgroup hierarchies so containers can safely utilize cgroup functionalities without affecting the host. First appeared in 2016, Linux 4.6.
 - **Time namespace** allows different processes to "see" different system times. First appeared in 2020, Linux 5.6.
 
-  [linux-namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces
-  [uts-system]: https://en.wikipedia.org/wiki/History_of_Unix
+There are two ways to get namespaces isolated, [`unshare()`][unshare.2] and [`clone()`][clone.2]. A brief difference is that `unshare` isolates for the calling process (except PID namespace, check the manual for more details), while `clone` creates a new process with isolated namespaces. We'll go for `clone` because it's the system call underneath Go's `exec.Command`{:.language-go}, and that Go is used for popular container software like Docker and Singularity.
+
+To utilize the `clone` system call, we need some adaptions, among which the most notable ones are the entry function and the child stack (using `mmap()`. I had problems later with `malloc()` in my early testing). The rest are covered pretty well by the manual so there's no need to repeat them here.
+
+```c
+int child(void *arg) {
+    printf("My name is %s\n", (char *)arg);
+    return 3;
+}
+
+int main() {
+    char name[] = "child";
+
+#define STACK_SIZE (1024 * 1024) // 1 MiB
+    void *child_stack = mmap(NULL, STACK_SIZE,
+                             PROT_READ | PROT_WRITE,
+                             MAP_PRIVATE | MAP_ANONYMOUS | MAP_STACK,
+                             -1, 0);
+    // Assume stack grows downwards
+    void *child_stack_start = child_stack + STACK_SIZE;
+
+    int ch = clone(child, child_stack_start, SIGCHLD, name);
+    int status;
+    wait(&status);
+    printf("Child exited with code %d\n", WEXITSTATUS(status));
+    return 0;
+}
+```
+
+And for the include headers as well.
+
+```c
+#define _GNU_SOURCE    // Required for enabling clone(2)
+#include <stdio.h>
+#include <sched.h>     // For clone(2)
+#include <signal.h>    // For SIGCHLD constant
+#include <sys/mman.h>  // For mmap(2)
+#include <sys/types.h> // For wait(2)
+#include <sys/wait.h>  // For wait(2)
+```
+
+Now that we have `clone` ready, adding support for namespace isolation is as simple as adding flags to the parameters.
+
+```c
+int ch = clone(child, child_stack_start, CLONE_NEWNS | CLONE_NEWUTS | CLONE_NEWIPC | CLONE_NEWPID | CLONE_NEWCGROUP | SIGCHLD, name);
+```
 
 ## Mounts
 
 Traditionally, mounting is a way to map raw disks to usable filesystems. Since then, its usage has evolved and supports much more than disk mapping. We're particularly interested in using special filesystems like `/proc` (the FS that provides runtime information like processes and kernel parameters), `/sys` (system settings, device information etc.), `/tmp` (a temporary filesystem backed by RAM) etc., without which a container won't function properly.
 
-
+For a minimal example, we'll mount 4 "essential" filesystems with correct mount options for our container.
 
 ## References
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
+
+  [linux-namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces
+  [uts-system]: https://en.wikipedia.org/wiki/History_of_Unix
+
+  [unshare.2]: https://man7.org/linux/man-pages/man2/unshare.2.html
+  [clone.2]: https://man7.org/linux/man-pages/man2/clone.2.html
