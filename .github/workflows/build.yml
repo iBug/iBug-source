@@ -47,7 +47,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: node_modules
-        key: ${{ runner.os }}-npm-20200427
+        key: ${{ runner.os }}-npm-20200615
     - name: Install Netlify CLI
       if: steps.cache-npm.outputs.cache-hit != 'true'
       run: npm install netlify-cli
