@@ -34,6 +34,10 @@ html {
 	@include breakpoint($x-large) { max-width: 1440px; }
 }
 
+.greedy-nav {
+	background: initial;
+}
+
 div.page__hero--overlay {
 	text-align: center;
 	margin-bottom: 1em;
