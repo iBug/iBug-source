@@ -153,6 +153,8 @@ As of Linux kernel 5.6 released in April 2020, there are 8 kinds of namespaces p
 
 Traditionally, mounting is a way to map raw disks to usable filesystems. Since then, its usage has evolved and supports much more than disk mapping. We're particularly interested in using special filesystems like `/proc` (the FS that provides runtime information like processes and kernel parameters), `/sys` (system settings, device information etc.), `/tmp` (a temporary filesystem backed by RAM) etc., without which a container won't function properly.
 
+
+
 ## References
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>

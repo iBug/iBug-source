@@ -13,7 +13,7 @@ if [ -n "$SSH_KEY_E" ]; then  # Prefer SSH key
   mkdir -p ~/.ssh
   base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
-  ssh-keyscan github.com >> ~/.ssh/known_hosts
+  ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
   SSH_AUTH_SOCK=none \
   GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" \
   git clone --depth=3 --branch=$BRANCH --single-branch "git@github.com:$GH_REPO.git" _site

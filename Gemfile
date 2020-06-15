@@ -7,7 +7,7 @@ gem "liquid-c", '~> 4.0'
 # Required for LSI, too slow however
 if ENV['LSI'] == 'true'
   gem "classifier-reborn"
-  gem "gsl"
+  gem "gsl" if ENV['CI'] == 'true'
 end
 
 group :jekyll_plugins do
