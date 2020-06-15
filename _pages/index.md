@@ -56,11 +56,11 @@ disabled:
 
 - [My telegram channel](https://t.me/ibugthought) where I share random ideas
 
+- [My public notebook](https://notes.ibugone.com/) where I also share resources. Powered by [Notion](https://www.notion.so/).
+
 - My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
   (He writes Simplified Chinese, while I prefer English)
 
   And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
-
-- Some good [Jekyll themes](/share/jekyll-themes)
 
 <script>document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>
