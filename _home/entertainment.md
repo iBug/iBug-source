@@ -1,5 +1,8 @@
 ---
 title: "Entertainment"
+header:
+  overlay_image: "/image/header/games-1.jpg"
+  overlay_filter: 0.2
 
 gallery-20191029:
   - url: /image/mssolitaire/2019-10-29-main.png
