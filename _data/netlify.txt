@@ -3,6 +3,7 @@
 
 # External domains first
 https://notes.ibugone.com/* https://notes.ibug.io/:splat 301!
+https://image.ibugone.com/* https://ibug.io/image/:splat 301!
 
 # Resources
 /image/* https://image.ibugone.com/:splat 301!
