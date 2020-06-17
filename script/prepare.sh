@@ -3,7 +3,7 @@
 # Make the configuration
 . script/config.sh || true
 . script/util.sh || true
-: ${GH_REPO:=iBug/iBug.github.io} ${BRANCH:=master}
+: ${GH_REPO:=iBug-web/iBug-web.github.io} ${BRANCH:=master}
 
 set -e
 
