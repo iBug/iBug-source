@@ -72,6 +72,12 @@ div.feature__item {
 
 .page__footer footer {
 	text-align: center;
+
+	.page__footer-follow .social-icons {
+		.fa, .fas, .far, .fab {
+			color: white;
+		}
+	}
 }
 
 a.site-logo > img, div.author__avatar:hover > img {
