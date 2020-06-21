@@ -179,6 +179,7 @@ exclude:
   - Gemfile.lock
   # Gruntfile.js
   # gulpfile.js
+  - image/
   - "LICENSE*"
   # log
   - netlify.toml

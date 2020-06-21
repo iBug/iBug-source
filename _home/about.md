@@ -24,29 +24,45 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a sele
 
 ## Quick facts
 
-On the techie side (more about my skills [here](/skills)):
+On the techie side (more about my skills [here]({{ "/skills" | relative_url }})):
 
 - **Advanced knowledge**
   - **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
   - **Software**: Git, Jekyll, OpenSSH
   - **Technology**: HTTP, DNS
 - **Intermediate knowledge**
-  - **Programming**: VBScript, the Web Trilogy (HTML / CSS / JavaScript), Ruby, Verilog
-  - **Framework**: Flask, Electron, Twitter Bootstrap, jQuery, Chisel
-  - **Software**: Vim, Nginx, Docker, Make, LXD, Systemd, [Singularity](https://sylabs.io/) (Container)
+  - **Programming**: Ruby, the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
+  - **Framework**:
+    Rails,
+    Bootstrap,
+    jQuery,
+    Flask,
+    [Chisel](https://www.chisel-lang.org/),
+    [Electron](https://www.electronjs.org/)
+  - **Software**:
+    Vim,
+    Nginx,
+    Docker,
+    Linux <abbr title="Logical Volume Manager">LVM</abbr>,
+    Make,
+    LXD,
+    Systemd,
+    [Singularity](https://sylabs.io/) (Container)
   - **Service**: Amazon Web Services, Cloudflare CDN
   - **Miscellaneous**: Linux Networking (routing, firewall, iptables etc.)
 - **Basic knowledge**
-  - **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite3), PHP, Go, AWK, Wolfram Mathematica, Perl
-  - **Framework**: Django, [Sinatra](https://sinatrarb.com), Rails
-  - **Software**: ZFS, Linux <abbr title="Logical Volume Manager">LVM</abbr>
-  - **Technology**: <abbr title="Remote Direct Memory Access">RDMA</abbr>, <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
+  - **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, Go, AWK, Wolfram Mathematica, Perl
+  - **Framework**: [Sinatra](https://sinatrarb.com), Django
+  - **Software**: ZFS
+  - **Technology**:
+    <abbr title="Remote Direct Memory Access">RDMA</abbr>,
+    <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
 
 ### Preferences
 
 - **Linux distro**: Ubuntu (desktop / workstation) and Debian (server)
 - **Version control**: Git (and good at it)
-- **Text editor**: `<ESC>:wq` ([get my config](https://ibugone.com/ext/conf/vimrc))
+- **Text editor**: `<ESC>:wq` ([get my config](https://e.ibugone.com/conf/vimrc))
 - **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker
 
 ### Working environment
@@ -71,8 +87,8 @@ MSI produces high-performance gaming laptops with *very* comfortable and beautif
 {% comment %}
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 {% endcomment %}
-- [My blog](/blog)
-- [My entertainment](/entertainment)
+- [My blog]({{ "/blog" | relative_url }})
+- [My entertainment]({{ "/entertainment" | relative_url }})
 
 
   [USTC]: https://en.ustc.edu.cn/
