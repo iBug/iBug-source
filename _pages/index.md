@@ -58,6 +58,8 @@ disabled:
 
 - [My public notebook](https://notes.ibug.io/) where I also share resources. Powered by [Notion](https://www.notion.so/).
 
+- [My YouTube channel](https://go.ibugone.com/youtube), though there's scarcely anything as I don't frequently produce videos.
+
 - My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
   (He writes Simplified Chinese, while I prefer English)
 
