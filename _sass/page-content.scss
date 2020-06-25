@@ -49,6 +49,15 @@ section.page__content {
 		margin-right: auto;
 	}
 
+	details {
+		summary {
+			> p {
+				margin: 0;
+				display: inline;
+			}
+		}
+	}
+
 	li p {
 		margin-bottom: 0;
 	}

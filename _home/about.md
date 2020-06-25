@@ -5,6 +5,10 @@ toc: true
 
 Undergraduate CS student at [USTC][USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
 
+Python, C and C++ are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
+
+Also loves casual and puzzle gaming.
+
 ## In action
 
 I'm an active contributor on GitHub across various repositories. You can see a list of all my pull requests [using GitHub search][all-prs].
@@ -24,39 +28,50 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a sele
 
 ## Quick facts
 
+{::options parse_block_html="true" /}
+
 On the techie side (more about my skills [here]({{ "/skills" | relative_url }})):
 
-- **Advanced knowledge**
-  - **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
-  - **Software**: Git, Jekyll, OpenSSH
-  - **Technology**: HTTP, DNS
-- **Intermediate knowledge**
-  - **Programming**: Ruby, the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
-  - **Framework**:
-    Rails,
-    Bootstrap,
-    jQuery,
-    Flask,
-    [Chisel](https://www.chisel-lang.org/),
-    [Electron](https://www.electronjs.org/)
-  - **Software**:
-    Vim,
-    Nginx,
-    Docker,
-    Linux <abbr title="Logical Volume Manager">LVM</abbr>,
-    Make,
-    LXD,
-    Systemd,
-    [Singularity](https://sylabs.io/) (Container)
-  - **Service**: Amazon Web Services, Cloudflare CDN
-  - **Miscellaneous**: Linux Networking (routing, firewall, iptables etc.)
-- **Basic knowledge**
-  - **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, Go, AWK, Wolfram Mathematica, Perl
-  - **Framework**: [Sinatra](https://sinatrarb.com), Django
-  - **Software**: ZFS
-  - **Technology**:
-    <abbr title="Remote Direct Memory Access">RDMA</abbr>,
-    <abbr title="embedded Berkeley Packet Filter">eBPF</abbr>
+<details open markdown="1">
+<summary> **Advanced knowledge**
+</summary>
+- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
+- **Software**: Git, Jekyll, OpenSSH
+- **Technology**: HTTP, DNS
+</details>
+
+<details markdown="1">
+<summary> **Intermediate knowledge**
+</summary>
+- **Programming**: Ruby, the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
+- **Framework**:
+  Rails,
+  Bootstrap,
+  jQuery,
+  Flask,
+  [Chisel](https://www.chisel-lang.org/),
+  [Electron](https://www.electronjs.org/)
+- **Software**:
+  Vim,
+  Nginx,
+  Docker,
+  Linux <abbr title="Logical Volume Manager">LVM</abbr>,
+  Make,
+  LXD,
+  Systemd,
+  [Singularity](https://sylabs.io/) (Container)
+- **Miscellaneous**: Linux Networking (routing, firewall, iptables etc.)
+</details>
+
+<details markdown="1">
+<summary> **Basic knowledge**
+</summary>
+- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, Go, AWK, Wolfram Mathematica, Perl
+- **Framework**: [Sinatra](https://sinatrarb.com), Django
+- **Software**: ZFS
+- **Technology**:
+  Infiniband <abbr title="Remote Direct Memory Access">RDMA</abbr>,
+</details>
 
 ### Preferences
 
@@ -67,10 +82,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 
 ### Working environment
 
-My workstation in office (headless):  
-
-- Core i7-8850H, 64 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD
-- Ubuntu 19.10, Docker, LXD, KVM (libvirt)
+My workstation in office (headless) is equipped with Core i7-8850H, Ubuntu 19.10, Docker, LXD, KVM (libvirt) and I do my work over SSH every day.
 
 MSI produces high-performance gaming laptops with *very* comfortable and beautiful keyboards. Must buy!
 

@@ -17,13 +17,13 @@ Grading scale mechanism:
 (Copied from <https://www.cirosantilli.com/skills>, thanks Ciro!)
 
 However, since I'm only an amateur CS student without too many years of *solid* development experiences
-(without the word *solid*, I may say 8 years, but with it, I'd go with only 5 years, being conservative),
+(without the word *solid*, I may add a few years, but with it, I'd go conservative),
 I'm very hesitant to give myself a single 5 score on anything,
-because I still need to occasionally check manuals and documentations on many technologies I work with.
+because I still need to occasionally check manuals and documentations on many technologies I work with (who don't?).
 For this reason, instead of numbers, I'll show the scores with stars.
 One ★ means one score (and it's also more intuitive to look at).
 
-Ordered at my own discretion, what I deem more important goes first :)
+Ordered at my own discretion, whatever I deem more important goes first :)
 
 {::options parse_block_html="true" /}
 

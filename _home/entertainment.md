@@ -17,6 +17,8 @@ gallery-20191029:
 
 ## Games
 
+[Check me out on Steam!](https://steamcommunity.com/id/ibugone)
+
 - [Grand Theft Auto V](https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/) - My first legal copy of game bought from Steam
 - [Minecraft](https://minecraft.net) - Needs no explanation! (User ID: `iBugOne`)
 
