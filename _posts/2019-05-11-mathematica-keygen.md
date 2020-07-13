@@ -7,7 +7,13 @@ redirect_from: /p/19
 toc: false
 ---
 
-**Supports Wolfram Mathematica 12.0 and 12.1**
+### Supports Wolfram Mathematica 12.0 and 12.1
+
+<div class="notice--danger" markdown="1">
+#### <i class="fa fas fa-exclamation-circle"></i> Notice
+
+Does **not** work for other Wolfram products (e.g. Wolfram Player). It's for Mathematica only!
+</div>
 
 **Update 1 (April 20, 2020)**: I have examined Mathematica 12.1. No update is required.
 
