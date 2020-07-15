@@ -46,9 +46,9 @@ Now return to the main screen and click Enter Code on the bottom-right corner. G
 
 ---
 
-If you find this article useful, don't forget to share it! The permalink to this article is <{{ site.url }}/p/11>.
+If you find this article useful, don't forget to share it! The permalink to this article is <{{ page.url | absolute_url }}>.
 
 
-  [self]: /p/11
+  [self]: {{ page.url | absolute_url }}
   [asc]: https://www.iobit.com/en/advancedsystemcarefree.php
   [old]: https://advanced-systemcare-free.en.uptodown.com/windows/download/1672942
