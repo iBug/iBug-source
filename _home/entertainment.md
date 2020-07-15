@@ -30,13 +30,11 @@ Here are my stats:
 
 {% include gallery id="gallery-20191029" %}
 
-I particularly like FreeCell and I've finished all FC challanges in Star Club. The Expert level FC games are very enjoyable! I'm currently working on getting 100% on Pyramids challenges because it's almost as fun.
+I particularly like FreeCell and I've finished all FC challenges in Star Club. The Expert level FC games are very enjoyable! I'm currently working on getting 100% on Pyramids challenges because it's almost as fun.
 
 ### Minesweeper
 
 I started practicing Minesweeper when I was 15, and I can now complete a Hard board (30x16, 99 mines) within 3 minutes (personal best 162 sec). I also have the record of completing a Hard board **without using flags** on a touchscreen in less than 6 minutes.
-
-To sum up, logical deduction is fun for me.
 
 ## Music
 
