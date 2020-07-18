@@ -1,7 +1,7 @@
 ---
 title: "A deep dive into Containers"
 tags: linux container c
-redirect_from: /p/36
+redirect_from: /p/23
 header:
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"

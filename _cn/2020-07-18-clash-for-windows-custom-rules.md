@@ -1,7 +1,6 @@
 ---
 title: "Clash for Windows 自定义规则整合"
 tags: clash
-redirect_from: /p/38
 ---
 
 自从今年年初换了机场之后，我从 [Shadowsocks-Windows][1] 换到了 Clash for Windows。Clash 确实比纯 SS 好用多了，尤其是订阅功能，特别是订阅里还可以自带一系列分流规则。不过我用的那个订阅规则不够完善，想要自己添加一些。以前用 SS 的时候，我[自己写了 PAC 脚本][2]用于实现分流，当然可控性也更好，这次不方便用 PAC 了，就得研究研究 CFW 的功能了，好在有个 Mixin 可以用。
