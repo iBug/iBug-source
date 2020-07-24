@@ -56,6 +56,13 @@ div.page__hero--overlay {
 	}
 }
 
+.post__meta-sep {
+  &::before {
+    content: "\2022";
+    margin: 0 0.5em;
+  }
+}
+
 /*
 div.feature__item {
 	.archive__item {

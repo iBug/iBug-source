@@ -1,5 +1,5 @@
 ---
-title: "A deep dive into Containers"
+title: "A Deep Dive into Containers"
 tags: linux container c
 redirect_from: /p/23
 header:
@@ -20,13 +20,17 @@ Since years ago containers have been a hot topic everywhere. There are many cont
 
 The actual motivation was (quite) a bit different, though, as I am the TA of *Operating Systems (H)* this semester, and I want to inject a spirit of innovation into the course labs, so I worked this out very early.
 
-The contents in this article are listed in the Table of Contents on the right (if you're on a computer) or at the top of this page (if you're on a mobile). The GitHub repository containing my implementation and the original lab documents (which is also written primarily by me, in Chinese) are referred to right under the title.
+The contents in this article are listed in the Table of Contents on the right (if you're on a computer) or at the top of this page (if you're on a mobile). The GitHub repository containing my implementation and the original lab documents (which is also written primarily by me, in Chinese) are linked under the title.
 
-My test environment is Ubuntu 20.04 LTS (Kernel 5.4). In case of any differences, you can search Google for details.
+My test environment is Ubuntu 18.04 LTS (Kernel 5.3) and 20.04 LTS (Kernel 5.4). In case of any difference, you can consult Google for details.
 
-## Experimenting with isolation
+In case you want to find out the exact system calls involved in a command-line tool, [`strace`][strace] is your friend.
 
-### Preparing the root filesystem
+  [strace]: https://strace.io/
+
+## Experimenting with isolation {#experimenting}
+
+### Preparing the root filesystem {#rootfs}
 
 To keep things simple, we're going to use the system images from the LXC project. Grab the latest Ubuntu image from <https://images.linuxcontainers.org/images/ubuntu/>, unzip it to somewhere convenient for you, and this part is *almost* done.
 
@@ -42,7 +46,7 @@ If you're running systemd 240 or later, there's a better neat tool for this job:
 systemd-id128 new > /path/to/your/rootfs/etc/machine-id
 ```
 
-### Playing with chroot
+### Playing with chroot {#chroot}
 
 [chroot][chroot] is an old way to limit the directory tree a process (and its subprocesses) can see to a specific subtree. Under normal circumstances, processes cannot see anything outsite the chroot'd directory. This is called a *chroot jail*. Understanding the concepts of chroot is an important first step to understanding containers, though a typical container does *not* use chroot (more on this below).
 
@@ -65,7 +69,7 @@ echo $$
 
   [chroot]: https://wiki.debian.org/chroot
 
-### Playing with systemd-nspawn
+### Playing with systemd-nspawn {#systemd-nspawn}
 
 As you can see, chroot lacks too many security constaints. [Systemd-nspawn][nspawn], on the other hand, is a *complete* container implementation and is thus secure against random programs.
 
@@ -80,7 +84,7 @@ Now repeat your experiments in the chroot section and carefully observe the diff
 
   [nspawn]: https://wiki.debian.org/nspawn
 
-## The base program
+## The base program {#base-program}
 
 After getting your rootfs up for rocking, we'll start with a fairly simple chroot-based program, modify it step-by-step, until it becomes the container we want.
 
@@ -148,7 +152,7 @@ As of Linux kernel 5.6 released in April 2020, there are 8 kinds of namespaces p
 
 There are two ways to get namespaces isolated, [`unshare()`][unshare.2] and [`clone()`][clone.2]. A brief difference is that `unshare` isolates for the calling process (except PID namespace, check the manual for more details), while `clone` creates a new process with isolated namespaces. We'll go for `clone` because it's the system call underneath Go's `exec.Command`{:.language-go}, and that Go is used for popular container software like Docker and Singularity.
 
-To utilize the `clone` system call, we need some adaptions, among which the most notable ones are the entry function and the child stack (using `mmap()`. I had problems later with `malloc()` in my early testing). The rest are covered pretty well by the manual so there's no need to repeat them here.
+To utilize the `clone` system call, we need some adaptions, among which the most notable ones are the entry function and the child stack (using `mmap()`, I had problems later with `malloc()` in my early testing). The rest are covered pretty well in the manual so there's no need to repeat them here (e.g. `SIGCHLD` appearing in `flags` parameter).
 
 ```c
 int child(void *arg) {
@@ -195,9 +199,22 @@ int ch = clone(child, child_stack_start, CLONE_NEWNS | CLONE_NEWUTS | CLONE_NEWI
 
 ## Mounts
 
-Traditionally, mounting is a way to map raw disks to usable filesystems. Since then, its usage has evolved and supports much more than disk mapping. We're particularly interested in using special filesystems like `/proc` (the FS that provides runtime information like processes and kernel parameters), `/sys` (system settings, device information etc.), `/tmp` (a temporary filesystem backed by RAM) etc., without which a container won't function properly.
+Traditionally, mounting is a way to map raw disks to accessible filesystems. Since then, its usage has evolved and supports much more than disk mapping. We're particularly interested in using special filesystems like `/proc` (the FS that provides runtime information like processes and kernel parameters), `/sys` (system settings, device information etc.), `/tmp` (a temporary filesystem backed by RAM) etc., without which a container won't function properly.
 
-For a minimal example, we'll mount 4 "essential" filesystems with correct mount options for our container.
+For a minimal example, we'll mount 4 essential filesystems with correct mount options for our container. They are the three mentioned above plus `/dev` as a tmpfs. We'll also create a few device nodes under `/dev` so things can go smoothly when they're needed (e.g. `some_command > /dev/null`).
+
+To do this manually, you'll issue the following commands in a shell.
+
+```shell
+mount -t tmpfs tmpfs /dev
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t tmpfs tmpfs /tmp
+```
+
+Now we're going to do it in C.
+
+  [devtmpfs]: https://unix.stackexchange.com/q/77933/211239
 
 ## References
 

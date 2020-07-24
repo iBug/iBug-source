@@ -26,9 +26,10 @@
     </h2>
     <p class="page__meta">
       {% unless post.no_date %}
-        <span style="margin-right: 1em;">
-          <i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %-d, %Y" }}
-        </span>
+        <i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%B %-d, %Y" }}
+        {% if post.read_time %}
+          <span class="post__meta-sep"></span>
+        {% endif %}
       {% endunless %}
       {% if post.read_time %}
         <i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
