@@ -203,6 +203,13 @@ Traditionally, mounting is a way to map raw disks to accessible filesystems. Sin
 
 For a minimal example, we'll mount 4 essential filesystems with correct mount options for our container. They are the three mentioned above plus `/dev` as a tmpfs. We'll also create a few device nodes under `/dev` so things can go smoothly when they're needed (e.g. `some_command > /dev/null`).
 
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-times-circle"></i> We're not using `devtmpfs` here
+{: .no_toc }
+
+If you examine current mounts in your host system, you'll probably see that `/dev` is mounted as `devtmpfs`. While it may appear straightforward to employ that, it's unacceptable for **a container**, as it exposes *all* device nodes to the container, which violates the purpose of isolation of containers. See [this answer][devtmpfs] on Unix & Linux Stack Exchange.
+</div>
+
 To do this manually, you'll issue the following commands in a shell.
 
 ```shell
