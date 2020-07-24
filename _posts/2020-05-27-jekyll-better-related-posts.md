@@ -36,6 +36,7 @@ The results are delighting: GSL reduced the build time of this website from 75s 
 
 <div class="notice--primary" markdown="1">
 #### <i class="fas fa-lightbulb"></i> Note
+{: .no_toc }
 
 GitHub Pages doesn't support LSI natively. You'll have to build your site with a CI service (like GitHub Actions) and deploy manually.
 </div>
