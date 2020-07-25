@@ -33,6 +33,7 @@ group :jekyll_plugins do
 
   # Class 3: Extras
   gem "jekyll-environment-variables"
+  gem "jekyll-data"
   gem "jekyll-tidy"
   gem "jekyll-last-modified"
   #gem "jekyll-assets"

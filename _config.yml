@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "default",
 
 # Site Settings
 locale                   : "en-US"
-title                    : "iBug One"
+title                    : "iBug"
 title_separator          : "-"
 name                     : "iBug"
 description              : "The little personal site for iBug"
@@ -183,8 +183,8 @@ exclude:
   - "LICENSE*"
   # log
   - netlify.toml
-  # node_modules
-  # package.json
+  - node_modules
+  - package.json
   - package-lock.json
   # Rakefile
   - README.md
