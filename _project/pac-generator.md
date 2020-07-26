@@ -8,6 +8,18 @@ redirect_from:
 hidden: true
 ---
 
+<div class="notice--danger" markdown="1">
+### <i class="fas fa-exclamation-triangle"></i> 注意
+{: .no_toc }
+
+本页面即将弃用，不再维护，请移步至[源仓库的 Releases 页面][releases]下载最新的 PAC 脚本。参见[这条留言][1]。
+
+别忘了点 &#x2605; 哦 😊
+</div>
+
+  [releases]: https://github.com/iBug/pac/releases/latest
+  [1]: https://github.com/iBug/pac/issues/2#issuecomment-462220411
+
 本 PAC 生成器从 <http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone> 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见[这个 Issue](https://github.com/shadowsocks/shadowsocks-windows/issues/1873)。
 
 This PAC generator fetches latest IP address table from <http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone> and converts it into a PAC code suitable for proxies. For background, head over to [this issue](https://github.com/shadowsocks/shadowsocks-windows/issues/1873).
