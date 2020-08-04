@@ -54,6 +54,12 @@ div.page__hero--overlay {
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+  .page__meta {
+    .post__meta-sep, .post__meta-read-time {
+      display: none;
+    }
+  }
 }
 
 .post__meta-sep {
