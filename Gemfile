@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "jekyll", '~> 4.1', '>= 4.1.1'
 gem "minimal-mistakes-jekyll", '>= 4.20.1'
+gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
 
 # Required for LSI, too slow however
