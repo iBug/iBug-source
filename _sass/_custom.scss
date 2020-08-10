@@ -116,6 +116,14 @@ div.feature__item {
 	}
 }
 
+/********** Misc **********/
+
+.social-icons {
+  .fas, .far, .fab, .fal {
+    color: #222831 !important;
+  }
+}
+
 a.site-logo > img, div.author__avatar:hover > img {
 	animation: spin-periodically 5000ms infinite ease-in-out;
 }
