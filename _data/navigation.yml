@@ -5,7 +5,7 @@ main:
     url: /blog/
   - title: "Projects"
     url: /projects/
-  - title: 'GitHub <i class="fa fas fa-xs fa-external-link-alt"></i>'
+  - title: 'GitHub <i class="far fa-xs fa-external-link"></i>'
     url: "https://github.com/iBug"
   - title: "中文内容"
     url: /cn/
@@ -15,7 +15,7 @@ home:
     children:
       - title: '<i class="fas fa-fw fa-home"></i> Home'
         url: "/"
-      - title: '<i class="fas fa-fw fa-smile"></i> About iBug'
+      - title: '<i class="fas fa-fw fa-grin-alt"></i> About iBug'
         url: "/about/"
       - title: '<i class="fas fa-fw fa-book"></i> Blog'
         url: "/blog/"

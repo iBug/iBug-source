@@ -82,7 +82,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 
 ### Working environment
 
-My workstation in office (headless) is equipped with Core i7-8850H, Ubuntu 19.10, Docker, LXD, KVM (libvirt) and I do my work over SSH every day.
+My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Core i7-8850H, Ubuntu 19.10, Docker, LXD, KVM (libvirt), plus Python, Ruby, Node.js and Go, etc, and I do my work over SSH every day.
 
 MSI produces high-performance gaming laptops with *very* comfortable and beautiful keyboards. Must buy!
 

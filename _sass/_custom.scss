@@ -89,6 +89,23 @@ div.feature__item {
 }
 */
 
+.pagination {
+  text-align: center;
+
+  ul {
+    display: inline-block;
+
+    li a {
+      transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
+
+      &:not(disabled):hover {
+        color: white;
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
 .page__footer footer {
 	text-align: center;
 
