@@ -69,6 +69,12 @@ div.page__hero--overlay {
   }
 }
 
+.nav__items li {
+  ul li, ol li {
+    line-height: 1.6;
+  }
+}
+
 /*
 div.feature__item {
 	.archive__item {
