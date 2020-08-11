@@ -118,11 +118,9 @@ div.feature__item {
 
 /********** Misc **********/
 
-.nav__list {
-  .social-icons {
-    .fas, .far, .fab, .fal {
-      color: inherit;
-    }
+.sidebar .social-icons, .sidebar .nav__list {
+  .fas, .far, .fab, .fal {
+    color: inherit;
   }
 }
 
