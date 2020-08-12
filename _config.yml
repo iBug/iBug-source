@@ -194,8 +194,8 @@ exclude:
   - vendor/
   - /vlab
 keep_files: [".git", ".nojekyll", "README.md", "CNAME", "image"]
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+encoding: "UTF-8"
+future: true
 
 
 # Conversion
