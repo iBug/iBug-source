@@ -2,8 +2,6 @@
 title: "Working against WordPress DeBlocker plugin"
 tags: web
 redirect_from: /p/36
-
-published: false
 ---
 
 I'll go straight to the solution (keep in mind that it's considerably primitive, so use at your own risk) with code attached below. It's a [Tampermonkey][tampermonkey] userscript.
