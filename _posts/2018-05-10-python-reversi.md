@@ -2,11 +2,13 @@
 title: Making a Reversi game with Python
 tagline: And creating an AI with heuristic searching
 description: The Reversi game is a Grand Assignment of the course "Program Design II". I'm giving it an attempt because the process of creating such a game would be interesting.
-tags: development study-notes
+categories: study-notes
+tags: development python
 redirect_from: /p/6
-show_view: true
-view_name: GitHub
-view_url: "https://github.com/iBug/PyReversi"
+header:
+  actions:
+    - label: '<i class="fab fa-github"></i> GitHub'
+      url: "https://github.com/iBug/PyReversi"
 ---
 
 As a casual attempt to accomplish a Grand Assignment, I created a Reversi game with Python. The project is open-source on GitHub and you can view it with the link above.

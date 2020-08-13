@@ -1,12 +1,14 @@
 ---
-title: Append int to std::string
+title: Append int to `std::string`
 description: Some confusion about templates in C++
 tagline: A Stack Overflow question & answer
 date: 2017-08-04 11:35:05Z
-tags: stack-overflow development
-show_view: true
-view_name: Stack Overflow
-view_url: https://stackoverflow.com/a/45505795/5958455
+categories: stack-overflow stack-exchange
+tags: c++
+header:
+  actions:
+    - label: '<i class="fas fa-eye"></i> View on Stack Overflow'
+      url: https://stackoverflow.com/a/45505795/5958455
 redirect_from: /p/1
 toc: false
 ---
@@ -27,8 +29,7 @@ int main()
 
 And here's my answer:
 
----
-
+------
 
 **TL;DR** `operator+=()` is a class member function in class `string`, while `operator+()` is a template function.
 
@@ -46,7 +47,7 @@ s = s + std::string(2);
 s = s + std::to_string(2);  // C++11 and above only
 ```
 
----
+------
 
 For people concerned about why 2 isn't automatically cast to `char` with `operator+`,
 
@@ -56,7 +57,7 @@ template <typename CharT>
   operator+(const basic_string<CharT>& lhs, CharT rhs);
 ```
 
-The above is the prototype<sup>\[note]</sup> for the plus operator in `s + 2`, and because it's a template function, it is requiring an implementation of both `operator+<char>` and `operator+<int>`, which is conflicting. For details, see [Why isn't automatic downcasting applied to template functions?][1]
+The above is the prototype<sup>\[note\]</sup> for the plus operator in `s + 2`, and because it's a template function, it is requiring an implementation of both `operator+<char>` and `operator+<int>`, which is conflicting. For details, see [Why isn't automatic downcasting applied to template functions?][1]
 
 Meanwhile, the prototype of `operator+=` is:
 
@@ -72,6 +73,6 @@ You see, no template here (it's a class member function), so the compiler deduce
 
   [1]: https://stackoverflow.com/q/45506372/5958455
 
----
+-----
 
 <sup><b>Note:</b> Unnecessary code is stripped when copying from C++ standard include source. That includes typename 2 and 3 (Traits and Allocator) for template class "basic_string", and unnecessary underscores, in order to improve readability.</sup>

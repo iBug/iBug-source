@@ -3,10 +3,12 @@ title: Some ideas about multicore on Android
 tagline: An Android Enthusiasts Q&A
 description: Why do Android phones have more cores than computers?
 date: 2017-06-11 10:51:16Z
-tags: stack-exchange android
-show_view: true
-view_name: Android Enthusiasts
-view_url: https://android.stackexchange.com/a/176503/205764
+categories: stack-exchange
+tags: android
+header:
+  actions:
+    - label: '<i class="fas fa-eye"></i> View on Stack Exchange'
+      url: https://android.stackexchange.com/a/176503/205764
 redirect_from: /p/2
 toc: false
 ---

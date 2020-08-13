@@ -2,7 +2,8 @@
 title: "Programming the On-Board SPI Flash of Digilent Nexys4 DDR"
 description: "A way to permanently write your Verilog design to the Nexys4 DDR board, so you can bring it wherever you like, as long as you have power supply. No more need for Vivado software."
 tagline: "Standalone demo board, yay!"
-tags: development study-notes
+categories: study-notes
+tags: development fpga
 redirect_from: /p/13
 ---
 

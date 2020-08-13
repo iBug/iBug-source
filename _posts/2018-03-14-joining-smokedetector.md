@@ -2,7 +2,8 @@
 title: Joining SmokeDetector
 description: My first experience of joining the developer crew of an existing open-source project
 date: 2018-03-14 10:29:30Z
-tags: development
+categories: story
+tags: open-source
 redirect_from: /p/3
 ---
 

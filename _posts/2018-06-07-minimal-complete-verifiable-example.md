@@ -1,12 +1,13 @@
 ---
 title: "Minimal, Complete, Verifiable Example"
 description: "A Stack Overflow help center article"
-tags: stack-overflow
+categories: stack-overflow
 redirect_from: /p/8
 
-show_view: true
-view_name: "Stack Overflow"
-view_url: "https://stackoverflow.com/help/mcve"
+header:
+  actions:
+    - label: '<i class="fab fa-stack-overflow"></i> Stack Overflow'
+      url: https://stackoverflow.com/help/mcve
 ---
 
 # How to create a Minimal, Complete, and Verifiable example

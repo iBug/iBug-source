@@ -2,7 +2,7 @@
 title: "Pairing the new Xbox One S controller (2018) with Android"
 tagline: "Finally, I got it to work"
 description: "I just bought an Xbox One S controller that's manufactured in 2018. The `.kl` files found online weren't correct anymore so I had to dig it out by myself."
-tags: gaming
+categories: gaming
 redirect_from: /p/9
 ---
 

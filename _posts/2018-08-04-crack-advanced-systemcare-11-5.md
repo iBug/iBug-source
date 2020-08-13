@@ -2,6 +2,7 @@
 title: "How to crack IObit Advanced SystemCare 11.5"
 description: "Advanced SystemCare is a software that's really easy to crack.\nGet Pro for free."
 tagline: "The most interesting software registration, ever."
+categories: software
 tags: software
 redirect_from: /p/11
 toc: false

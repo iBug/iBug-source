@@ -1,6 +1,7 @@
 ---
 title: "How I saved a lost commit from GitHub"
-tags: git github study-notes
+categories: study-notes
+tags: git github
 redirect_from: /p/20
 
 toc: false

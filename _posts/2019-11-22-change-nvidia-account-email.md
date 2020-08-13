@@ -1,7 +1,7 @@
 ---
 title: "How to change email of your Nvidia account"
 tagline: "Very simple front-end manipulation in fact"
-tags: lifehack
+categories: lifehacks
 toc: false
 redirect_from: /p/29
 ---

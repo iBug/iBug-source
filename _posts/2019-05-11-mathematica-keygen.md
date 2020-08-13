@@ -2,6 +2,7 @@
 title: "Wolfram Mathematica 12 Key Generator Online"
 description: "Another JavaScript project"
 tagline: ""
+categories: keygen
 tags: keygen
 redirect_from: /p/19
 toc: false
@@ -9,8 +10,9 @@ toc: false
 
 ### Supports Wolfram Mathematica 12.0 and 12.1
 
-<div class="notice--danger" markdown="1">
+<div class="notice--warning" markdown="1">
 #### <i class="fa fas fa-exclamation-circle"></i> Notice
+{: .no_toc }
 
 Does **not** work for other Wolfram products (e.g. Wolfram Player). It's for Mathematica only!
 </div>
