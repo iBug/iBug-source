@@ -2,11 +2,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#EDEDED">
 <script type="text/javascript">
-	const funcOnPageLoad = () => document.querySelector("body").classList.add("loaded");
-	if (document.readyState !== "loading")
-    setTimeout(funcOnPageLoad, 500);
-	else
-    document.addEventListener('DOMContentLoaded', funcOnPageLoad);
+  const funcOnPageLoad = function() { document.body.classList.add("loaded"); };
+  document.addEventListener('DOMContentLoaded', funcOnPageLoad);
 </script>
 {% if page.mathjax %}
 	<script type="text/x-mathjax-config">
