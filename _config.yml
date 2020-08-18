@@ -53,9 +53,8 @@ algolia:
     attributesToHighlight: ["title", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "hierarchy.lvl4", "hierarchy.lvl5", "content", "html", "collection", "categories", "tags"]
     attributesForFaceting: ["searchable(tags)", "searchable(type)", "searchable(title)"]
   files_to_exclude: 
-    - 404.md
-    - index.md
-    - index.html
+    - _pages/404.md
+    - _pages/index.md
     - README.md
     - REMOTE_README.md
     - _home/status.html

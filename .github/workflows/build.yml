@@ -36,6 +36,10 @@ jobs:
       env:
         JEKYLL_ENV: production
         JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Update Algolia index
+      run: bundle exec jekyll algolia push
+      env:
+        ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
