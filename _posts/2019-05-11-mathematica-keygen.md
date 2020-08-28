@@ -17,7 +17,7 @@ toc: false
 Does **not** work for other Wolfram products (e.g. Wolfram Player). It's for Mathematica only!
 </div>
 
-**Update 1 (April 20, 2020)**: I have examined Mathematica 12.1. No update is required.
+**Update 1 (April 20, 2020)**: I have examined Mathematica 12.1. No update is required. This utility is automatically compatible with Mathematica 12.1.
 
 Input your MathID (xxxx-xxxxx-xxxxx) and press **Generate**.
 
@@ -101,10 +101,15 @@ document.getElementById("generate").addEventListener("click", function () {
         }
         var magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
         var password = genPassword(mathId + "$1&" + activationKey, magicNumbers.getRandom());
-        document.getElementById("result").innerText =
-            "Activation Key: " + activationKey + "\n" +
-            "Password: " + password + "\n\n" +
-            "Don't forget to share your feelings below if this works for you. Thanks for using!";
+        document.getElementById("result").innerHTML = `
+        <p>
+        <b>Activation Key</b>: ${activationKey}
+        <br>
+        <b>Password</b>: ${password}
+        </p>
+        <p>Don't forget to share your feelings below. Thanks for using!</p>
+        <p><a href="http://raboninco.com/1wNoI">See an advert</a> if you want to support me!</p>
+        `;
     }
 });
 </script>
