@@ -1,0 +1,24 @@
+.svn
+.sass-cache
+.jekyll-cache
+
+# Other resources on GH Pages
+/cdn
+/ext
+/image
+
+# Bundler
+Gemfile.lock
+/vendor
+.bundle/
+
+# Jekyll
+_site
+
+# Jekyll Plugins
+.git-metadata
+.jekyll-metadata
+
+# NPM
+package-lock.json
+node_modules/

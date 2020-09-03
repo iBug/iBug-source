@@ -1,6 +1,9 @@
-FROM ruby:2.6
+FROM ruby:2.7
 
-RUN git clone https://github.com/iBug/iBug-source.git /srv/iBug.github.io && \
-cd /srv/iBug.github.io && bundle install
-
-CMD ["/srv/iBug.githuh.io/script/entrypoint.sh"]
+WORKDIR /site
+COPY Gemfile /site/
+RUN bundle install --jobs=4 --retry=3 && \
+    mkdir -p /image/ /site/_site/ && \
+    git -C /image/ init && \
+    git -C /image/ remote add origin https://github.com/iBug/image.git && \
+    ln -s /image/ /site/_site/image
