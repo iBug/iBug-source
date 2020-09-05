@@ -161,7 +161,9 @@ exclude:
   - .asset-cache
   - .bundle
   - .circleci/
+  - .dockerignore
   - .git-metadata
+  - .gitignore
   - .jekyll-assets-cache
   - .sass-cache
   - .travis.yml

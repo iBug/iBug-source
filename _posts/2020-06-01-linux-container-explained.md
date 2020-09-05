@@ -207,7 +207,7 @@ For a minimal example, we'll mount 4 essential filesystems with correct mount op
 #### <i class="fas fa-times-circle"></i> We're not using `devtmpfs` here
 {: .no_toc }
 
-If you examine current mounts in your host system, you'll probably see that `/dev` is mounted as `devtmpfs`. While it may appear straightforward to employ that, it's unacceptable for **a container**, as it exposes *all* device nodes to the container, which violates the purpose of isolation of containers. See [this answer][devtmpfs] on Unix & Linux Stack Exchange.
+If you examine current mounts in your host system, you'll probably see that `/dev` is mounted as `devtmpfs`. While it may appear straightforward to employ that, it's unacceptable for **a container**, as it exposes *all* device nodes to the container, which violates the purpose of isolation of containers. See [this answer](https://unix.stackexchange.com/q/77933/211239) on Unix & Linux Stack Exchange.
 </div>
 
 To do this manually, you'll issue the following commands in a shell.
@@ -219,9 +219,22 @@ mount -t sysfs sysfs /sys
 mount -t tmpfs tmpfs /tmp
 ```
 
-Now we're going to do it in C.
+Now we're going to do it in C. The system call is also named `mount`, and has the following signature:
 
-  [devtmpfs]: https://unix.stackexchange.com/q/77933/211239
+```c
+int mount(const char *source, const char *target,
+          const char *filesystemtype, unsigned long mountflags,
+          const void *data);
+```
+
+It should be intuitive enough what the first three parameters are for, so for now we can just write
+
+```c
+mount("tmpfs", "/dev", "tmpfs", 0, NULL);
+mount("proc", "/proc", "proc", 0, NULL);
+mount("sysfs", "/sys", "sysfs", 0, NULL);
+mount("tmpfs", "/tmp", "tmpfs", 0, NULL);
+```
 
 ## References
 
