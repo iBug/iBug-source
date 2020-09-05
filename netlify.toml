@@ -11,3 +11,12 @@ skip_processing = true
 
 [context.production]
 JEKYLL_ENV = "production"
+
+[[redirects]]
+from = "/image/*"
+to = "https://image.ibugone.com/:splat"
+status = 302
+force = false
+
+[redirects.headers]
+Cache-Control = "public, max-age=3600"

@@ -3,7 +3,7 @@
 
 # External domains first
 https://notes.ibugone.com/* https://notes.ibug.io/:splat 301!
-https://image.ibugone.com/* https://ibug.io/image/:splat 301!
+#https://image.ibugone.com/* https://ibug.io/image/:splat 301!
 https://fjw.one/* https://ibug.io/:splat 302!
 https://github.ibug.io/ https://github.com/iBug 302!
 https://github.ibug.io/* https://ibug.io/:splat 302!
@@ -14,4 +14,4 @@ https://www.ibugone.com/* https://ibug.io/:splat 301!
 https://cn.ibugone.com/* https://ibug.io/:splat 302!
 
 # Resources
-/image/* https://image.ibugone.com/:splat 301!
+#/image/* https://image.ibugone.com/:splat 301!
