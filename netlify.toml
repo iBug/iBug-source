@@ -1,22 +1,22 @@
 [build]
-base = "."
-publish = "_site/"
-command = "bash script/build-netlify.sh"
-
-[build.environment]
-LC_ALL = "C.UTF-8"
-
-[build.processing]
-skip_processing = true
+  base = "."
+  publish = "_site/"
+  command = "bash script/build-netlify.sh"
+  [build.environment]
+    LC_ALL = "C.UTF-8"
+  [build.processing]
+    skip_processing = true
 
 [context.production]
-JEKYLL_ENV = "production"
+  JEKYLL_ENV = "production"
 
 [[redirects]]
-from = "/image/*"
-to = "https://image.ibugone.com/:splat"
-status = 302
-force = false
+  from = "/image/*"
+  to = "https://image.ibugone.com/:splat"
+  status = 302
+  force = false
 
-[redirects.headers]
-Cache-Control = "public, max-age=3600"
+[[headers]]
+  for = "/image/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
