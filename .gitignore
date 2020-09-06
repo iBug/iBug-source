@@ -1,9 +1,17 @@
-.svn
-.sass-cache
+# Editors
+*.swp
+*.sw_
+*~
+.vscode
+
+# Generated content
+.git-metadata
 .jekyll-cache
+.jekyll-metadata
+.sass-cache
+.svn
 
 # Other resources on GH Pages
-/cdn
 /ext
 /image
 
@@ -11,13 +19,6 @@
 Gemfile.lock
 /vendor
 .bundle/
-
-# Jekyll
-_site
-
-# Jekyll Plugins
-.git-metadata
-.jekyll-metadata
 
 # NPM
 package-lock.json

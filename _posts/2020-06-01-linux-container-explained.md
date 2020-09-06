@@ -236,12 +236,34 @@ mount("sysfs", "/sys", "sysfs", 0, NULL);
 mount("tmpfs", "/tmp", "tmpfs", 0, NULL);
 ```
 
+But keep in mind, it in no way implies that the last two parameters are useless. They're simply not used for now, but for sure they'll play a role later.
+
+## pivot\_root
+
+We're ready with mounts, so now we can take a look at switching the root filesystem for our container.
+
+The [base program](#base-program) used `chroot()` for the time being, but talking about a (baseline) secure container, [it's terrible][chw00t]. We have to resort to another Linux feature, `pivot_root`, for this purpose.
+
+Let's first take a look at [its man page][pivot_root.2] to determine its prototype.
+
+```c
+int pivot_root(const char *new_root, const char *put_old);
+```
+
+## Capabilities
+
+## SecComp
+
+## Resource restriction
+
 ## References
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
 
   [linux-namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces
   [uts-system]: https://en.wikipedia.org/wiki/History_of_Unix
+  [chw00t]: https://github.com/earthquake/chw00t
 
   [unshare.2]: https://man7.org/linux/man-pages/man2/unshare.2.html
   [clone.2]: https://man7.org/linux/man-pages/man2/clone.2.html
+  [pivot_root.2]: https://man7.org/linux/man-pages/man2/pivot_root.2.html
