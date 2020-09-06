@@ -14,4 +14,4 @@ https://www.ibugone.com/* https://ibug.io/:splat 301!
 https://cn.ibugone.com/* https://ibug.io/:splat 302!
 
 # Resources
-#/image/* https://image.ibugone.com/:splat 301!
+/image/* https://image.ibugone.com/:splat 302

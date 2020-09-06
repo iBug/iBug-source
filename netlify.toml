@@ -9,14 +9,3 @@
 
 [context.production]
   JEKYLL_ENV = "production"
-
-[[redirects]]
-  from = "/image/*"
-  to = "https://image.ibugone.com/:splat"
-  status = 302
-  force = false
-
-[[headers]]
-  for = "/image/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
