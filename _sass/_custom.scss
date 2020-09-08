@@ -56,13 +56,13 @@ div.page__hero--overlay {
 	}
 
   .page__meta {
-    .post__meta-sep, .post__meta-read-time {
+    .page__meta-sep, .page__meta-readtime {
       display: none;
     }
   }
 }
 
-.post__meta-sep {
+.page__meta-sep {
   &::before {
     content: "\2022";
     margin: 0 0.5em;
