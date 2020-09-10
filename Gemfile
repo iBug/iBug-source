@@ -2,8 +2,10 @@ source "https://rubygems.org"
 
 gem "jekyll", '~> 4.1', '>= 4.1.1'
 gem "minimal-mistakes-jekyll", '>= 4.20.2'
+
 gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
+gem "rouge", '~> 3.23'
 
 # Required for LSI, too slow however
 if ENV['LSI'] == 'true'
