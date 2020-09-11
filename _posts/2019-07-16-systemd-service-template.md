@@ -12,7 +12,7 @@ As time goes by, I get more devices behind NAT and more VPS hosts providing FRP 
 
 Let's start this with one `frpc.service` file that I wrote and am using:
 
-```ini
+```systemd
 [Unit]
 Description=FRP Client Service
 After=network.target

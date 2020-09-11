@@ -42,6 +42,7 @@ jobs:
       run: bundle exec jekyll algolia push
       env:
         ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+      continue-on-error: true
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
