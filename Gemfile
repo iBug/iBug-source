@@ -10,7 +10,7 @@ gem "rouge", '~> 3.23'
 # Required for LSI, too slow however
 if ENV['LSI'] == 'true'
   gem "classifier-reborn"
-  gem "gsl" if ENV['CI'] == 'true'
+  gem "gsl"
 end
 
 group :jekyll_plugins do
