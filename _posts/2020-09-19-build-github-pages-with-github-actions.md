@@ -19,20 +19,20 @@ Earlier this year, I switched my GitHub Pages build from CircleCI to GitHub Acti
 Yep, an article is missing for CircleCI, but why is it still needed? GitHub Actions is better than CircleCI in *almost* every aspect, except for its CPU that runs slightly slower than that of CircleCI.
 
 
-# 1. Review
+## 1. Review
 
 In [my previous article](2018-04-14-build-github-pages-with-travis-ci.md) on building with Travis CI, we went through the steps of setting up a local build environment for our Jekyll site. We set up a Ruby development environment, installed `gem` and `bundle`, wrote a `Gemfile`, and built the Jekyll site locally.
 
 If you're not yet ready for this part, check out that article first. I'm going straight to the main content this time.
 
 
-# 2. Setting up GitHub Actions {#setup-actions}
+## 2. Setting up GitHub Actions {#setup-actions}
 
 Getting GitHub Actions ready for building is *much* easier than Travis CI, as everything you need to do is to push a config file into `.github/workflows` directory of your repository.
 
 If you're working on a forked repository, you may want to navigate to the "Actions" tab in your repository, and enable Actions there. Actions is disabled for forked repositories by default.
 
-## Configure build settings {#setup-build}
+### Configure build settings {#setup-build}
 
 You can use any name for the config file, but here I'll go with `build.yml`. Here's a minimal set of steps you'll need.
 
@@ -78,15 +78,15 @@ Unlike Travis CI, all GitHub Actions builds run in an identical environment, whi
 The build process is mostly the same as on Travis CI, except that many steps that are automatically taken on Travis CI have to be written explicitly.
 
 
-# 3. Deploy to GitHub {#deploy-actions}
+## 3. Deploy to GitHub {#deploy-actions}
 
-## Access token
+### Access token
 
 You've probably noticed that there's a {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} in the above GitHub Actions config. That's [a neat feature][github_token] GitHub provides. The main downside is that the token has access only to the repository the workflow is running on (as well as any other public resources). So if you want to push to a different repository, you'll still have to resort to creating your personal access token (PAT) for it.
 
 To keep things simple, I'll assume you're pushing to the same repository for deployment, where the GitHub-provided token can be used.
 
-## Setting up deployment {#setup-deployment}
+### Setting up deployment {#setup-deployment}
 
 The deploy script from the other Travis CI article is as follows (with names replaced, of course):
 
@@ -122,7 +122,7 @@ Now, instead of writing it to a file, we can add this script directly to the bui
 ```
 {% endraw %}
 
-## Fixing issues with GitHub Actions
+### Fixing issues with GitHub Actions
 
 There are a few things to tackle, however, as GitHub Actions works differently than Travis CI.
 
@@ -150,7 +150,7 @@ An easy solution is to fetch the target (deploy) branch, and add a commit on top
 
 In this revised script, we first fetch the target branch, with depth set to 1 to avoid unnecessary downloads. Then we reset our "branch pointer" to the fetched branch (`FETCH_HEAD`), before finally adding our content as another commit on top of it.
 
-## Fixing issues with GitHub Actions - Alternative approach
+### Fixing issues with GitHub Actions - Alternative approach
 
 There's an alternative solution to this issue, by cloning the deploy repository beforehand (and remove `git init` from the deploy step).
 
@@ -188,7 +188,7 @@ keep_files: [.git]
 
 I recall that Jekyll 4.0 has this setting emplaced by default, but can't find the reference for now, so I'm recommending that you explicitly write this into your config file even if you have Jekyll 4 locally (which you probably don't if you're using the `github-pages` gem). It's a good idea to write configurations explicitly, after all.
 
-# Finally
+## Finally
 
 Now then, why did I migrate my website build to GitHub Actions, if both Travis CI and CircleCI are running perfectly?
 
