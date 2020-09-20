@@ -5,6 +5,15 @@ tags: development github-pages
 redirect_from: /p/4
 ---
 
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-fw fa-lightbulb"></i> Update 2020
+{: .no_toc }
+
+I wrote [another article](2020-09-19-build-github-pages-with-github-actions.md) two years later about building with GitHub Actions.
+
+From my experiences in the past half year, GitHub Actions is, in all aspects, a better option than Travis CI. So after getting the basic knowledge of building your site, it's recommended that you continue to that article instead.
+</div>
+
 I just set up my GitHub Pages to be built with Travis CI. It's amazing. &rarr; [<img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;" />](https://travis-ci.org/iBug/iBug-source)
 
 This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the [source repository][src]. Some build information is available on an [About page][about] that I specifically designed for auditing purposes.
@@ -25,6 +34,7 @@ You really should read the Wikipedia entry. It's comprehensive.
 # OK, but why do I need it?
 
 If you stand with [the small set of plugins][5] allowed on GitHub Pages and the limited functionality it provides, as well as the unavailability of any pre- or post-processing scripts put together by yourself, then you probably don't need this solution at all. **BUT**, if you need additional plugins, or have a custom script that you'd like to run before generating your Jekyll website, this is definitely an improvement over vanilla GitHub Pages.
+
 
 # 1. Setting up your workspace for local building {#setting-up}
 
