@@ -1,5 +1,5 @@
 ---
-title: Build GitHub Pages with GitHub
+title: Build GitHub Pages with GitHub Actions
 excerpt: Why use an external service when there's an in-house GitHub service?
 tags: development github-pages
 redirect_from: /p/37
