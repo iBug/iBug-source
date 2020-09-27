@@ -208,7 +208,7 @@ But the most important thing to note is that whatever others tell, you should tr
 
 
 
-  [^1]: https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
+  [^1]: <https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096>
   [jekyll]: https://jekyllrb.com/
   [src]: https://github.com/iBug/iBug-source
   [about]: {{ "/about" | relative_url }}
