@@ -1,7 +1,7 @@
 ---
 title: "A Deep Dive into Containers"
 tags: linux container c
-redirect_from: /p/23
+redirect_from: /p/33
 header:
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
@@ -250,13 +250,39 @@ Let's first take a look at [its man page][pivot_root.2] to determine its prototy
 int pivot_root(const char *new_root, const char *put_old);
 ```
 
+This system call is special enough that we must also take care of its notes and requirements. For example, `new_root` must be a mount point. While the man page does provide a solution to this problem by mounting the directory on top of itself, it's too prone to errors for us to adopt. Instead we'll be creating a temporary directory to use as the mount point.
+
+```c
+const char *newroot = "/tmp/ispawn";
+mkdir(newroot, 0755);
+```
+
+We also need a value for the second parameter to `pivot_root`, the `put_old` directory. The manual says the following:
+
+> `put_old` must be at or underneath `new_root`
+
+A direct interpretation is that `put_old` must be at a subpath under `new_root`. This means we can simply create (or reuse an existing) a directory under `new_root` to use.
+
+```c
+const char *put_old = "/tmp/ispawn/oldroot";
+mkdir(put_old);
+```
+
+And now we can do `pivot_root` with the directories we just set up:
+
+```c
+pivot_root(newroot, put_old);
+```
+
 ## Capabilities
 
 ## SecComp
 
 ## Resource restriction
 
-## References
+## Conclusion
+
+### Further reading
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
 

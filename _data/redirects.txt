@@ -8,6 +8,9 @@ https://fjw.one/* https://ibug.io/:splat 302!
 https://github.ibug.io/ https://github.com/iBug 302!
 https://github.ibug.io/* https://ibug.io/:splat 302!
 
+# Permanent redirects
+https://ibugone.com/cn/speech-at-msc-2019/ https://ibug.io/cn/2019/08/speech-at-msc-2019/ 301!
+
 # Alternate names
 https://ibugone.com/* https://ibug.io/:splat 301!
 https://www.ibugone.com/* https://ibug.io/:splat 301!
