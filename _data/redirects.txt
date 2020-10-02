@@ -15,6 +15,8 @@ https://ibugone.com/cn/speech-at-msc-2019/ https://ibug.io/cn/2019/08/speech-at-
 https://ibugone.com/* https://ibug.io/:splat 301!
 https://www.ibugone.com/* https://ibug.io/:splat 301!
 https://cn.ibugone.com/* https://ibug.io/:splat 302!
+https://ibugone.net/* https://ibug.io/:splat 301!
+https://www.ibugone.net/* https://ibug.io/:splat 301!
 # Netlify's domain, use 302 only
 https://ibug.netlify.app/* https://ibug.io/:splat 302!
 
