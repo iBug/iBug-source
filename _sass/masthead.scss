@@ -3,8 +3,16 @@ div.masthead {
   background: url("/image/header/thin/whimsical.png") center/cover no-repeat;
 	//background: #0078d4;
 
+  div.masthead__inner-wrap {
+    max-width: 100%;
+  }
+
 	nav#site-nav {
 		background: transparent;
+
+    a.site-logo, a.site-title {
+      @include noselect;
+    }
 	}
 
 	.greedy-nav a, .search__toggle {
