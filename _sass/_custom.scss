@@ -25,6 +25,12 @@ html {
 	@include breakpoint($x-large) { font-size: 20px; }
 }
 
+// Header and footer width
+div.masthead div.masthead__inner-wrap,
+div.page__footer footer {
+	max-width: 100%;
+}
+
 #main {
 	@include breakpoint($x-large) { max-width: 1440px; }
 }
