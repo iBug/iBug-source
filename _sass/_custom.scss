@@ -49,55 +49,55 @@ div.page__hero--overlay {
 		margin-right: auto;
 	}
 
-  .page__meta {
-    .page__meta-sep, .page__meta-readtime {
-      display: none;
-    }
-  }
+	.page__meta {
+		.page__meta-sep, .page__meta-readtime {
+			display: none;
+		}
+	}
 }
 
 .page__meta-sep {
-  &::before {
-    content: "\2022";
-    margin: 0 0.5em;
-  }
+	&::before {
+		content: "\2022";
+		margin: 0 0.5em;
+	}
 }
 
 .nav__items li {
-  ul li, ol li {
-    line-height: 1.6;
-  }
+	ul li, ol li {
+		line-height: 1.6;
+	}
 }
 
 /*
 div.feature__item {
-	.archive__item {
-		.archive__item-title, .archive__item-excerpt {
-			text-align: center;
-		}
-
-		.archive__item-excerpt + p {
-			text-align: center;
-		}
-	}
+.archive__item {
+.archive__item-title, .archive__item-excerpt {
+text-align: center;
 }
-*/
+
+.archive__item-excerpt + p {
+text-align: center;
+}
+}
+}
+ */
 
 .pagination {
-  text-align: center;
+	text-align: center;
 
-  ul {
-    display: inline-block;
+	ul {
+		display: inline-block;
 
-    li a {
-      transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
+		li a {
+			transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
 
-      &:not(disabled):hover {
-        color: white;
-        background-color: $primary-color;
-      }
-    }
-  }
+			&:not(disabled):hover {
+				color: white;
+				background-color: $primary-color;
+			}
+		}
+	}
 }
 
 .page__footer footer {
@@ -113,9 +113,9 @@ div.feature__item {
 /********** Misc **********/
 
 .sidebar .social-icons, .sidebar .nav__list {
-  .fas, .far, .fab, .fal {
-    color: inherit;
-  }
+	.fas, .far, .fab, .fal {
+		color: inherit;
+	}
 }
 
 a.site-logo > img, div.author__avatar:hover > img {
@@ -127,6 +127,6 @@ a.site-logo > img, div.author__avatar:hover > img {
 @import "loading-animation";
 
 @keyframes spin-periodically {
-    80% { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+	80% { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
 }

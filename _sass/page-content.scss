@@ -1,7 +1,7 @@
 section.page__content {
-  aside:first-child + * {
-    margin-top: 0 !important;
-  }
+	aside:first-child + * {
+		margin-top: 0 !important;
+	}
 
 	a {
 		word-break: break-word;
