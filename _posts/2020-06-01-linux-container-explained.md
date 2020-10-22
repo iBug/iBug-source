@@ -261,7 +261,7 @@ We also need a value for the second parameter to `pivot_root`, the `put_old` dir
 
 > `put_old` must be at or underneath `new_root`
 
-A direct interpretation is that `put_old` must be at a subpath under `new_root`. This means we can simply create (or reuse an existing) a directory under `new_root` to use.
+A direct interpretation is that `put_old` must be at a subpath under `new_root`, which means we can simply create (or reuse an existing) a directory under `new_root` to use.
 
 ```c
 const char *put_old = "/tmp/ispawn/oldroot";
@@ -274,6 +274,27 @@ And now we can do `pivot_root` with the directories we just set up:
 pivot_root(newroot, put_old);
 ```
 
+If everything so far is correct, we should now be running inside the new root tree. The "old root", or the root filesystem of the host system, is now available at `/oldroot`.
+
+Apparently, a container shouldn't be able to access the host filesystem without explicit grants, so we're going to "hide" the old root. It is, from the view from within the container, an ordinary mount point that we can just unmount. However, as there (definitely) are other processes in the host system still using the filesystem, it can't be unmounted directly.
+
+There's a technique called "lazy unmounting", where existing processes continue to use the filesystem as usual, while other processes see it disappeared. It [could be dangerous][lazy-umount], but as we're the one-and-only process inside the container, we know it's safe for us.
+
+With that many information told, the actual code is really simple:
+
+```c
+umount2("/oldroot", MNT_DETACH);
+```
+
+We're using the `umount2` system call because we need to pass the extra flags to it. Now that the host filesystem is gone, we can remove the now-empty directory (remember we're doing clean-up jobs):
+
+```c
+rmdir("/oldroot");
+```
+
+We've isolated our container filesystem from the host system, and then we can proceed to securing and fortifying our container.
+
+
 ## Capabilities
 
 ## SecComp
@@ -282,13 +303,15 @@ pivot_root(newroot, put_old);
 
 ## Conclusion
 
-### Further reading
+### Other reading
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
+
 
   [linux-namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces
   [uts-system]: https://en.wikipedia.org/wiki/History_of_Unix
   [chw00t]: https://github.com/earthquake/chw00t
+  [lazy-umount]: https://unix.stackexchange.com/q/390056/211239
 
   [unshare.2]: https://man7.org/linux/man-pages/man2/unshare.2.html
   [clone.2]: https://man7.org/linux/man-pages/man2/clone.2.html
