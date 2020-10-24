@@ -12,11 +12,19 @@ body.landing {
 			background: transparent;
 		}
 
-		.greedy-nav > a, .visible-links a, .search__toggle {
+		.greedy-nav > a, .visible-links a, .hidden-links a, .search__toggle {
 			color: white;
 		}
 
 		.greedy-nav {
+			.hidden-links {
+				background-color: transparent;
+
+				&:after {
+					border-color: transparent;
+				}
+			}
+
 			.navicon {
 				&:before {
 					background-color: red;
@@ -27,10 +35,6 @@ body.landing {
 				&:after {
 					background-color: #0F0;
 				}
-			}
-
-			.visible-links a:before {
-				background: white;
 			}
 		}
 	}

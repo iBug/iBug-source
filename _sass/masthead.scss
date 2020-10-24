@@ -26,16 +26,16 @@ div.masthead {
 			&:after {
 				border-color: #006e9c transparent;
 			}
+
+			a {
+				color: white;
+			}
 		}
 
 		.navicon {
 			&:before, &, &:after {
 				background-color: white;
 			}
-		}
-
-		.visible-links a:before {
-			background: white;
 		}
 	}
 }
