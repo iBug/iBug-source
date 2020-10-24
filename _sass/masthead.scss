@@ -11,11 +11,31 @@ div.masthead {
 		}
 	}
 
-	.greedy-nav a, .search__toggle {
+	.greedy-nav > a, .visible-links a, .search__toggle {
 		color: white !important;
 	}
 
-	.greedy-nav .visible-links a:before {
-		background: white;
+	.greedy-nav {
+		.visible-links a:before {
+			background: white;
+		}
+
+		.hidden-links {
+			background-color: #006e9c;
+
+			&:after {
+				border-color: #006e9c transparent;
+			}
+		}
+
+		.navicon {
+			&:before, &, &:after {
+				background-color: white;
+			}
+		}
+
+		.visible-links a:before {
+			background: white;
+		}
 	}
 }
