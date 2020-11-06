@@ -8,7 +8,7 @@ redirect_from: /p/15-cn
 hidden: true
 ---
 
-<sup>There's an [English](/p/15) version of this article!</sup>
+<small>[There's an English version of this article!](/p/15)</small>
 
 零基础快速上手虚拟机安装 Ubuntu，特别是在《操作系统原理与设计》开课的时候 *#(滑稽)*。
 
@@ -16,13 +16,16 @@ hidden: true
 
 # 0. 准备工作
 
-由于本文教程安装的是带有桌面环境的 Linux 发行版，因此推荐为客户机（虚拟机）分配至少 2 GB 的内存，以保证流畅运行。由此，主机配置内存应有 6 GB 或更多。如果你的机器没有那么多内存，可以考虑安装 Ubuntu 服务器的虚拟机，实测这样的虚拟机可以在 512 MB 的内存下运行。
+由于本文教程安装的是带有桌面环境的 Linux 发行版，因此推荐为客户机（虚拟机）分配至少 2 GB 的内存，以保证流畅运行。由此，主机配置内存应有 6 GB 或更多。如果你的机器没有那么多内存，可以考虑以下方案：
+
+- 安装 [Xubuntu](https://xubuntu.org/)，这是 Ubuntu 的一个官方分支，使用 Xfce（而不是 GNOME）作为默认桌面环境，可以在 1 GB 或较少内存下运行；
+- 安装 Ubuntu 服务器的虚拟机，实测这样的虚拟机可以在 512 MB 的内存下运行。
 
 下载 VMware Workstation 的 [Windows][vmware-w] 或 [Linux][vmware-l] 版本，或者下载 VMware Fusion 的 [macOS][vmware-m] 版本。你需要一个产品密钥来激活 VMware Workstation Pro 或者 VMware Fusion （Google 一下一大把）。
 
 从 [ubuntu.com][1] 获取最新的 Ubuntu 桌面版，或者从你喜欢的[镜像站][2]下载（例如[科大镜像站][3]）。 从镜像站下载的时候注意文件名应该是 `ubuntu-{版本}-desktop-amd64.iso`，其中 `{版本}` 是 Ubuntu 版本号，例如 `18.04`。
 
-由于作者只有运行 Windows 的电脑，因此 macOS 下安装 VMware Fusion 及 VirtualBox 的教程委托朋友编写，你可以点击[这里](https://taoky.github.io/2019-02-23/installing-os-on-vm.html)阅读。
+由于作者只有运行 Windows 的电脑，因此 macOS 下安装 VMware Fusion 及 VirtualBox 的教程委托朋友编写，你可以点击[这里](https://blog.taoky.moe/2019-02-23/installing-os-on-vm.html)阅读。
 
 # 1. 在 Windows 下安装 VMware Workstation
 

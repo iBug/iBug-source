@@ -14,7 +14,10 @@ There's a [Chinese](/p/15-cn) version of this article!
 
 # 0. Preparation
 
-Since we're going to install a Linux distro with a desktop environment, 2 GB of guest memory is recommended, and as a consequence, you would want to ensure that your host machine has 6 GB or more RAM. If your machine doesn't have that much RAM, you can try setting up a Ubuntu Server VM, which can require as little as 512 MB of guest memory to run.
+Since we're going to install a Linux distro with a desktop environment, 2 GB of guest memory is recommended, and as a consequence, you would want to ensure that your host machine has 6 GB or more RAM. If your machine doesn't have that much RAM, there are alternatives that you can try out:
+
+- Set up an [Xubuntu](https://xubuntu.org/) instead, which can run with as little as 1 GB of guest memory.
+- Set up a Ubuntu Server VM, which can run with as little as 512 MB of guest memory.
 
 Download VMware Workstation for [Windows][vmware-w] or [Linux][vmware-l], or download VMware Fusion for [macOS][vmware-m]. You'll need a key to license your VMware software (hint: try Google for it and you'll find a lot).
 
