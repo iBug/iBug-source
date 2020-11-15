@@ -297,6 +297,8 @@ We've isolated our container filesystem from the host system, and then we can pr
 
 ## Capabilities
 
+In the traditional UNIX era, there were only two privilege levels - *privileged* (root) and *unprivileged* (non-root).
+
 ## SecComp
 
 ## Resource restriction
