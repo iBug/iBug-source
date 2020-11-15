@@ -17,6 +17,6 @@ end
 File.open "#{site_dir}/_redirects", 'a' do |f|
   url_re = Regexp.new "^#{Regexp.escape site_url}"
   redirects.sort_by { |k, v| k }.each do |from, to|
-    f.write "#{from} #{to.gsub url_re, ""} 302\n"
+    f.write "#{from} #{to.gsub url_re, ""} 302!\n"
   end
 end
