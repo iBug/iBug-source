@@ -1,7 +1,7 @@
 ---
 title: "A Deep Dive into Containers"
 tags: linux container c
-redirect_from: /p/33
+redirect_from: /p/23
 header:
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
@@ -297,7 +297,38 @@ We've isolated our container filesystem from the host system, and then we can pr
 
 ## Capabilities
 
-In the traditional UNIX era, there were only two privilege levels - *privileged* (root) and *unprivileged* (non-root).
+In the traditional UNIX era, there were only two privilege levels - *privileged* (root) and *unprivileged* (non-root), where a *privileged* process has every privilege to alter the system, while an *unprivileged* process has none. Since Linux 2.2 in 1999, *capabilities* have been added to the kernel so that unprivileged processes may acquire certain abilities needed for some task, while privileged processes may drop capabilities unneeded, allowing for privilege separation at a finer granularity. A `ping` process doesn't need any extra privileges than sending ICMP packets, and a web server (probably) doesn't need any extra privileges than binding to a low port (1 to 1023), do they?
+
+Now turning our focus back to containers. Without privilege separation, a "root" process inside a container can still do dangerous things, like scanning your hard drive where the host filesystem resides, and manipulate it. This is definitely not anything expected, so we're going to limit the capabilities the container can have as a whole.
+
+The system calls behind capabilities manipulation are very complicated, so unlike in previous sections, we're going to use wrapped-up libraries to aid with this. There are two options available, `libcap` and `libcap-ng`, of which the latter is easier to understand and use. The documentations for [libcap][libcap-docs] and [libcap-ng][libcap-ng-docs] are given. Note that since they're "external" libraries, extra flags need to be supplied when compiling. For libcap you'll add `-lcap` to the compilation command, and similarly for libcap-ng you'll add `-lcap-ng` to the command.
+
+As an easier starting point, we'll use [Docker's capabilities set][docker-caps] to avoid having to sort everything out by ourselves. Before we start, there's another thing to learn - the different "sets" of capabilities of a process. In a few short words,
+
+- The *bounding* set restricts the maximum possible set of capabilities a process (and all its descendants) can have
+- The *effective* set is what a process currently has and is effective
+- The *permitted* set may be granted when "asked" (using the appropriate system calls)
+
+It's noticeable that we want to limit all three sets for the container. Using libcap-ng, the code is very simple:
+
+```c
+capng_clear(CAPNG_SELECT_BOTH);
+capng_updatev(CAPNG_ADD, (capng_type_t)(CAPNG_EFFECTIVE | CAPNG_PERMITTED | CAPNG_BOUNDING_SET),
+    CAP_SETPCAP,
+    // ...
+    CAP_SETFCAP,
+    -1);
+capng_apply(CAPNG_SELECT_BOTH);
+```
+
+With `capng_clear`, we clear all capabilities from our pending changes, and add whitelisted capabilities, before finally applying the changes.
+
+Using libcap, however, is slightly more complicated to achieve the same, as there's no direct "clear all" function, but instead you'll have to list them by yourself. [Here][cap-switch-lib]'s an older version of my attempted code if you want to learn. Nevertheless, it never bad to learn more.
+
+  [libcap-docs]: https://linux.die.net/man/3/libcap
+  [libcap-ng-docs]: https://people.redhat.com/sgrubb/libcap-ng/
+  [docker-caps]: https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities
+  [cap-switch-lib]: https://github.com/iBug/iSpawn/commit/bcf27bf42771e7fd8c7f24abbec5907f6f727fd7
 
 ## SecComp
 
