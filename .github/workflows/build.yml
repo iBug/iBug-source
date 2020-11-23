@@ -47,7 +47,7 @@ jobs:
 
     - name: Install - NPM
       if: steps.cache-npm.outputs.cache-hit != 'true'
-      run: npm install
+      run: npm install --also=dev
 
     - name: Prepare build
       run: bash script/prepare.sh

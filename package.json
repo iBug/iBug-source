@@ -1,0 +1,22 @@
+{
+  "name": "ibugone.com",
+  "version": "0.0.0",
+  "description": "iBug's website",
+  "author": "iBug",
+  "license": "CC-BY-SA-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iBug/iBug-source"
+  },
+  "homepage": "https://ibugone.com/",
+  "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.15.1",
+    "autoprefixer": "^10.0.2",
+    "glob": "7",
+    "netlify-cli": "^2.68.7",
+    "postcss": "^8.1.9",
+    "postcss-cli": "^8.3.0"
+  },
+  "scripts": {},
+  "dependencies": {}
+}
