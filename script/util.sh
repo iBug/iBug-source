@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 e_info() {
   echo -e "\x1B[36;1m[Info]\x1B[0m $*" >&2

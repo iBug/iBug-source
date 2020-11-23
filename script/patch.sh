@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. ${0%/*}/util.sh
-: ${SRC:=_site}
+. "${0%/*}"/util.sh
+: "${SRC:=_site}"
 
 e_info "Patching generated site"
 
@@ -10,9 +10,13 @@ ruby "${0%/*}/generate-cname.rb"
 cat REMOTE_README.md > "$SRC/README.md"
 cp LICENSE* "$SRC/"
 
-if type jq &>/dev/null; then
+if command -v jq &>/dev/null; then
   jq -S . < "$SRC/redirects.json" > /tmp/redirects.json
   mv /tmp/redirects.json "$SRC/redirects.json"
+fi
+
+if command -v npx &>/dev/null && [ -e package-lock.json ]; then
+  npx postcss "$SRC"/assets/css/main.css --use autoprefixer --replace --no-map
 fi
 
 e_success "Patch complete"
