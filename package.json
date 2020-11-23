@@ -10,7 +10,6 @@
   },
   "homepage": "https://ibugone.com/",
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^5.15.1",
     "autoprefixer": "^10.0.2",
     "glob": "7",
     "netlify-cli": "^2.68.7",

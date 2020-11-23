@@ -35,7 +35,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: node_modules
-        key: ${{ runner.os }}-npm-20200615
+        key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
         restore-keys: |
           ${{ runner.os }}-npm-
 
@@ -47,7 +47,9 @@ jobs:
 
     - name: Install - NPM
       if: steps.cache-npm.outputs.cache-hit != 'true'
-      run: npm install --also=dev
+      run: |
+        npm install --also=dev
+        npm prune
 
     - name: Prepare build
       run: bash script/prepare.sh
