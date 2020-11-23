@@ -32,6 +32,7 @@ div.page__footer footer {
 }
 
 #main {
+	padding-top: 1em;
 	@include breakpoint($x-large) { max-width: 1440px; }
 }
 
@@ -41,7 +42,6 @@ div.page__footer footer {
 
 div.page__hero--overlay {
 	text-align: center;
-	margin-bottom: 1em;
 
 	h1.page__title {
 		// @include noselect;
