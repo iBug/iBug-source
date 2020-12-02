@@ -38,6 +38,16 @@ div.page__footer footer {
 
 .greedy-nav {
 	background: initial;
+
+	.visible-links a {
+		&:before {
+			transform-origin: bottom left;
+		}
+
+		&:hover:before {
+			transform-origin: bottom right;
+		}
+	}
 }
 
 div.page__hero--overlay {
