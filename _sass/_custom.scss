@@ -52,6 +52,11 @@ div.page__footer footer {
 
 div.page__hero--overlay {
 	text-align: center;
+	margin-bottom: 0;
+
+	+ #main {
+		padding-top: 2em;
+	}
 
 	h1.page__title {
 		// @include noselect;
