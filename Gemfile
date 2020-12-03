@@ -5,7 +5,7 @@ gem "minimal-mistakes-jekyll", '>= 4.21.0'
 
 gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
-gem "rouge", '~> 3.23'
+gem "rouge", '~> 3.25'
 
 # Required for LSI, too slow however
 if ENV['LSI'] == 'true'
