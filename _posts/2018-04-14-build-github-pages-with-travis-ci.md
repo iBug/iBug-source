@@ -6,7 +6,14 @@ redirect_from: /p/4
 ---
 
 <div class="notice--primary" markdown="1">
-#### <i class="fas fa-fw fa-lightbulb"></i> Update 2020
+#### <i class="fas fa-fw fa-lightbulb"></i> Update December 2020
+{: .no_toc }
+
+I have since decommissioned Travis CI from all my repositories in response to [its new pricing model](https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing) and [recent service degradations](https://travis-ci.community/t/builds-hang-in-queued-state/10250). I **strongly recommend** that you move to GitHub Actions instead (see the article below).
+</div>
+
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-fw fa-lightbulb"></i> Update September 2020
 {: .no_toc }
 
 I wrote [another article](2020-09-19-build-github-pages-with-github-actions.md) two years later about building with GitHub Actions.
