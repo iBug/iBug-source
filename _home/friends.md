@@ -9,7 +9,7 @@ friends:
   - name: Volltin
     link: https://volltin.com/
   - name: maglee
-    link: https://breakingdevil.github.io/
+    link: https://0xcc.me/
   - name: Zihan Zheng
     link: https://zhengzihan.com/
   - name: Sirius
@@ -22,6 +22,10 @@ friends:
     link: https://i-yu.me/
   - name: ksqsf
     link: https://ksqsf.moe/
+  - name: loliw
+    link: https://loliw.moe/
+  - name: jiegec
+    link: https://jia.je/
 
 net_friends:
   - name: ArtOfCode
