@@ -1,4 +1,12 @@
 body.landing {
+	#page-title, p.page__lead, div.page__hero--overlay .btn {
+		@include cute-font;
+	}
+	// Someday I may want to move this to global, not just the landing page
+	div.masthead__menu, div.page__footer-follow ul li {
+		@include cute-font;
+	}
+
 	//background-color: #EEE;
 	//background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
 	div.masthead {
