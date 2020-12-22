@@ -8,7 +8,9 @@ redirect_from: /p/19
 toc: false
 ---
 
-### Supports Wolfram Mathematica 12.0 and 12.1
+### Supports Wolfram Mathematica 12.x
+
+This includes 12.0, 12.1, 12.2 and any future version that begins with 12.
 
 <div class="notice--warning" markdown="1">
 #### <i class="fa fas fa-exclamation-circle"></i> Notice
@@ -39,6 +41,7 @@ function f1(n, byte, c) {
     }
     return n;
 }
+
 function genPassword(str, hash) {
     for (var byteIndex = str.length - 1; byteIndex >= 0; byteIndex--) {
         hash = f1(hash, str.charCodeAt(byteIndex), 0x105C3);
@@ -85,6 +88,16 @@ function checkMathId(s) {
     return true;
 }
 
+function genActivationKey() {
+    s = "";
+    for (let i = 0; i < 14; i++) {
+        s += Math.floor(Math.random() * 10);
+        if (i === 3 || i === 7)
+            s += "-";
+    }
+    return s;
+}
+
 Array.prototype.getRandom = function () {
     return this[Math.floor(Math.random() * this.length)];
 }
@@ -93,13 +106,16 @@ document.getElementById("generate").addEventListener("click", function () {
     if (!checkMathId(mathId)) {
         document.getElementById("result").innerText = "Bad MathID!";
     } else {
-        activationKey = "";
-        for (let i = 0; i < 14; i++) {
-            activationKey += Math.floor(Math.random() * 10);
-            if (i === 3 || i === 7)
-                activationKey += "-";
+        var activationKey = genActivationKey();
+        var magicNumbers;
+        var software = "mma";
+        if (software === "mma") {
+            // Mathematica 12
+            magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
+        } else if (software === "sm") {
+            // SystemModeler 12
+            magicNumbers = [4912, 4961, 22384, 24968, 30046, 31889, 42446, 43787, 48967, 61182, 62774];
         }
-        var magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
         var password = genPassword(mathId + "$1&" + activationKey, magicNumbers.getRandom());
         document.getElementById("result").innerHTML = `
         <p>
