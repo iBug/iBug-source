@@ -1,7 +1,112 @@
+@mixin define-font-face($family, $weight: unset, $style: unset) {
+  font-family: $family;
+  @if $weight != unset {
+    font-weight: $weight;
+  }
+  @if $style != unset {
+    font-style: $style;
+  }
+}
+
 @font-face {
-  font-family: 'Baloo 2';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://gstatic.loli.net/s/baloo2/v1/wXKrE3kTposypRyd51jcAA.woff2) format('woff2');
+  @include define-font-face("Baloo 2", 400, normal);
+  src: url(https://static.ibugone.com/webfonts/Baloo2.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@mixin url-amazonfont($baseurl, $variant) {
+  src: url("#{$baseurl}_W_#{$variant}.eot") format("embedded-opentype"),
+       url("#{$baseurl}_W_#{$variant}.woff2") format("woff2"),
+       url("#{$baseurl}_W_#{$variant}.woff") format("woff"),
+       url("#{$baseurl}_#{$variant}.ttf") format("truetype");
+}
+
+$baseurl-AmazonEmber: "https://static.ibugone.com/webfonts/amazon/AmazonEmber";
+$baseurl-AmazonEmberCd: "https://static.ibugone.com/webfonts/amazon/AmazonEmberCd";
+$baseurl-AmazonEmberDisplay: "https://static.ibugone.com/webfonts/amazon/AmazonEmberDisplay";
+$baseurl-AmazonEmberMono: "https://static.ibugone.com/webfonts/amazon/AmazonEmberMono";
+
+@font-face {
+  @include define-font-face("Amazon Ember", 400, normal);
+  @include url-amazonfont($baseurl-AmazonEmber, "Rg");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 400, italic);
+  @include url-amazonfont($baseurl-AmazonEmber, "RgIt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 700, normal);
+  @include url-amazonfont($baseurl-AmazonEmber, "Bd");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 700, italic);
+  @include url-amazonfont($baseurl-AmazonEmber, "BdIt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 900, normal);
+  @include url-amazonfont($baseurl-AmazonEmber, "He");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 900, italic);
+  @include url-amazonfont($baseurl-AmazonEmber, "HeIt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 300, normal);
+  @include url-amazonfont($baseurl-AmazonEmber, "Lt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 300, italic);
+  @include url-amazonfont($baseurl-AmazonEmber, "LtIt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 100, normal);
+  @include url-amazonfont($baseurl-AmazonEmber, "Th");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember", 100, italic);
+  @include url-amazonfont($baseurl-AmazonEmber, "ThIt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Display", 400, normal);
+  @include url-amazonfont($baseurl-AmazonEmberDisplay, "Rg");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Display", 700, normal);
+  @include url-amazonfont($baseurl-AmazonEmberDisplay, "Bd");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Display", 900, normal);
+  @include url-amazonfont($baseurl-AmazonEmberDisplay, "He");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Display", 300, normal);
+  @include url-amazonfont($baseurl-AmazonEmberDisplay, "Lt");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Display", 100, normal);
+  @include url-amazonfont($baseurl-AmazonEmberDisplay, "Th");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Mono", 400, normal);
+  @include url-amazonfont($baseurl-AmazonEmberMono, "Rg");
+}
+
+@font-face {
+  @include define-font-face("Amazon Ember Mono", 700, normal);
+  @include url-amazonfont($baseurl-AmazonEmberMono, "Bd");
 }
