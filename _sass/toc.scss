@@ -1,29 +1,29 @@
 .sidebar__right.sticky {
-	max-height: calc(100vh - 4em);
-	overflow-y: auto;
+  max-height: calc(100vh - 4em);
+  overflow-y: auto;
 
-	&::-webkit-scrollbar {
-		width: 2px;
-		height: 2px;
-		position: absolute;
-		top: 0;
-		right: -2px;
-	}
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    right: -2px;
+  }
 
-	// WARNING: This is not working
-	&:hover::-webkit-scrollbar-thumb {
-		opacity: 1 !important;
-	}
+  // WARNING: This is not working
+  &:hover::-webkit-scrollbar-thumb {
+    opacity: 1 !important;
+  }
 
-	&::-webkit-scrollbar-thumb {
-		background-color: rgba(0, 0, 0, 0.2);
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
 
-		// WARNING: This is not working
-		opacity: 0;
-		transition: opacity 0.3s ease-in-out;
+    // WARNING: This is not working
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 
-		&:hover {
-			background-color: rgba(0, 146, 202, 0.5);
-		}
-	}
+    &:hover {
+      background-color: rgba(0, 146, 202, 0.5);
+    }
+  }
 }

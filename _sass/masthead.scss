@@ -1,41 +1,41 @@
 div.masthead {
-	border-bottom: none;
-	background: url("/image/header/thin/whimsical.png") center/cover no-repeat;
-	//background: #0078d4;
+  border-bottom: none;
+  background: url("/image/header/thin/whimsical.png") center/cover no-repeat;
+  //background: #0078d4;
 
-	nav#site-nav {
-		background: transparent;
+  nav#site-nav {
+    background: transparent;
 
-		a.site-logo, a.site-title {
-			@include noselect;
-		}
-	}
+    a.site-logo, a.site-title {
+      @include noselect;
+    }
+  }
 
-	.greedy-nav > a, .visible-links a, .search__toggle {
-		color: white !important;
-	}
+  .greedy-nav > a, .visible-links a, .search__toggle {
+    color: white !important;
+  }
 
-	.greedy-nav {
-		.visible-links a:before {
-			background: white;
-		}
+  .greedy-nav {
+    .visible-links a:before {
+      background: white;
+    }
 
-		.hidden-links {
-			background-color: #006e9c;
+    .hidden-links {
+      background-color: #006e9c;
 
-			&:after {
-				border-color: #006e9c transparent;
-			}
+      &:after {
+        border-color: #006e9c transparent;
+      }
 
-			a {
-				color: white;
-			}
-		}
+      a {
+        color: white;
+      }
+    }
 
-		.navicon {
-			&:before, &, &:after {
-				background-color: white;
-			}
-		}
-	}
+    .navicon {
+      &:before, &, &:after {
+        background-color: white;
+      }
+    }
+  }
 }

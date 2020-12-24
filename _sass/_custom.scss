@@ -9,87 +9,87 @@
 @import "toc";
 
 blockquote {
-	font-style: normal;
-	font-family: $serif;
+  font-style: normal;
+  font-family: $serif;
 }
 
 .card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin: 0.2rem 0.2rem 0.4rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0.2rem 0.2rem 0.4rem;
 }
 
 html {
-	box-sizing: border-box;
-	font-size: 14px;
-	@include breakpoint($medium) { font-size: 16px; }
-	@include breakpoint($large) { font-size: 18px; }
-	@include breakpoint($x-large) { font-size: 20px; }
+  box-sizing: border-box;
+  font-size: 14px;
+  @include breakpoint($medium) { font-size: 16px; }
+  @include breakpoint($large) { font-size: 18px; }
+  @include breakpoint($x-large) { font-size: 20px; }
 }
 
 // Header and footer width
 div.masthead div.masthead__inner-wrap,
 div.page__footer footer {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 #main {
-	padding-top: 1em;
-	@include breakpoint($x-large) { max-width: 1440px; }
+  padding-top: 1em;
+  @include breakpoint($x-large) { max-width: 1440px; }
 }
 
 .greedy-nav {
-	background: initial;
+  background: initial;
 
-	.visible-links a {
-		&:before {
-			transform-origin: bottom left;
-		}
+  .visible-links a {
+    &:before {
+      transform-origin: bottom left;
+    }
 
-		&:hover:before {
-			transform-origin: bottom right;
-		}
-	}
+    &:hover:before {
+      transform-origin: bottom right;
+    }
+  }
 }
 
 div.page__hero--overlay {
-	text-align: center;
-	margin-bottom: 0;
+  text-align: center;
+  margin-bottom: 0;
 
-	+ #main {
-		padding-top: 2em;
-	}
+  + #main {
+    padding-top: 2em;
+  }
 
-	h1.page__title {
-		// @include noselect;
-	}
+  h1.page__title {
+    // @include noselect;
+  }
 
-	a.btn {
-		backdrop-filter: blur(1.5px);
-	}
+  a.btn {
+    backdrop-filter: blur(1.5px);
+  }
 
-	p.page__lead {
-		margin-left: auto;
-		margin-right: auto;
-	}
+  p.page__lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	.page__meta {
-		.page__meta-sep, .page__meta-readtime {
-			display: none;
-		}
-	}
+  .page__meta {
+    .page__meta-sep, .page__meta-readtime {
+      display: none;
+    }
+  }
 }
 
 .page__meta-sep {
-	&::before {
-		content: "\2022";
-		margin: 0 0.5em;
-	}
+  &::before {
+    content: "\2022";
+    margin: 0 0.5em;
+  }
 }
 
 .nav__items li {
-	ul li, ol li {
-		line-height: 1.6;
-	}
+  ul li, ol li {
+    line-height: 1.6;
+  }
 }
 
 /*
@@ -107,42 +107,42 @@ text-align: center;
  */
 
 .pagination {
-	text-align: center;
+  text-align: center;
 
-	ul {
-		display: inline-block;
+  ul {
+    display: inline-block;
 
-		li a {
-			transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
+    li a {
+      transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
 
-			&:not(disabled):hover {
-				color: white;
-				background-color: $primary-color;
-			}
-		}
-	}
+      &:not(disabled):hover {
+        color: white;
+        background-color: $primary-color;
+      }
+    }
+  }
 }
 
 .page__footer footer {
-	text-align: center;
+  text-align: center;
 
-	.page__footer-follow .social-icons {
-		.fa, .fas, .far, .fab {
-			color: white;
-		}
-	}
+  .page__footer-follow .social-icons {
+    .fa, .fas, .far, .fab {
+      color: white;
+    }
+  }
 }
 
 /********** Misc **********/
 
 .sidebar .social-icons, .sidebar .nav__list {
-	.fas, .far, .fab, .fal {
-		color: inherit;
-	}
+  .fas, .far, .fab, .fal {
+    color: inherit;
+  }
 }
 
 a.site-logo > img, div.author__avatar:hover > img {
-	animation: spin-periodically 5000ms infinite ease-in-out;
+  animation: spin-periodically 5000ms infinite ease-in-out;
 }
 
 /********** Animations **********/
@@ -150,6 +150,6 @@ a.site-logo > img, div.author__avatar:hover > img {
 @import "loading-animation";
 
 @keyframes spin-periodically {
-	80% { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+  80% { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

@@ -1,121 +1,121 @@
 body.landing {
-	#page-title, p.page__lead, div.page__hero--overlay .btn {
-		@include cute-font;
-	}
-	// Someday I may want to move this to global, not just the landing page
-	div.masthead__menu, div.page__footer-follow ul li {
-		@include cute-font;
-	}
+  #page-title, p.page__lead, div.page__hero--overlay .btn {
+    @include cute-font;
+  }
+  // Someday I may want to move this to global, not just the landing page
+  //div.masthead__menu, div.page__footer-follow ul li {
+  //  @include cute-font;
+  //}
 
-	//background-color: #EEE;
-	//background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
-	div.masthead {
-		background-image: url('/image/mm/splash.jpg');
-		background-attachment: fixed;
-		background-size: cover;
-		background-position: center;
-		border-bottom: none !important;
+  //background-color: #EEE;
+  //background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
+  div.masthead {
+    background-image: url('/image/mm/splash.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    border-bottom: none !important;
 
-		nav#site-nav {
-			background: transparent;
-		}
+    nav#site-nav {
+      background: transparent;
+    }
 
-		.greedy-nav > a, .visible-links a, .hidden-links a, .search__toggle {
-			color: white;
-		}
+    .greedy-nav > a, .visible-links a, .hidden-links a, .search__toggle {
+      color: white;
+    }
 
-		.greedy-nav {
-			.hidden-links {
-				background-color: transparent;
+    .greedy-nav {
+      .hidden-links {
+        background-color: transparent;
 
-				&:after {
-					border-color: transparent;
-				}
-			}
+        &:after {
+          border-color: transparent;
+        }
+      }
 
-			.navicon {
-				&:before {
-					background-color: red;
-				}
-				& {
-					background-color: yellow;
-				}
-				&:after {
-					background-color: #0F0;
-				}
-			}
-		}
-	}
+      .navicon {
+        &:before {
+          background-color: red;
+        }
+        & {
+          background-color: yellow;
+        }
+        &:after {
+          background-color: #0F0;
+        }
+      }
+    }
+  }
 
-	div.page__hero--overlay {
-		background-image: url('/image/mm/splash.jpg');
-		text-align: center;
-		height: calc(100vh - 4em);
-		background-attachment: fixed;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+  div.page__hero--overlay {
+    background-image: url('/image/mm/splash.jpg');
+    text-align: center;
+    height: calc(100vh - 4em);
+    background-attachment: fixed;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-		.wrapper {
-			// Vertically centered with flexbox: https://www.w3schools.com/css/css_align.asp
+    .wrapper {
+      // Vertically centered with flexbox: https://www.w3schools.com/css/css_align.asp
 
-			a.btn {
-				//backdrop-filter: blur(1.5px);
-				position: relative;
+      a.btn {
+        //backdrop-filter: blur(1.5px);
+        position: relative;
 
-				// Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
-				&::before {
-					content: '';
-					background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)), url('/image/mm/splash.jpg') center / cover no-repeat fixed;
-					filter: blur(1.5px);
-					position: absolute;
-					z-index: -1;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-				}
-			}
-		}
-	}
+        // Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
+        &::before {
+          content: '';
+          background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)), url('/image/mm/splash.jpg') center / cover no-repeat fixed;
+          filter: blur(1.5px);
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
 
-	p.page__lead {
-		margin-left: auto;
-		margin-right: auto;
-	}
+  p.page__lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	#page-title {
-		text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-	}
+  #page-title {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  }
 
-	img.avatar {
-		position: relative;
-		//border: 2px solid rgba(238, 238, 238, 0.6);
-		border: none;
-		border-radius: 50%;
-		padding: 0.5rem;
-		box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  img.avatar {
+    position: relative;
+    //border: 2px solid rgba(238, 238, 238, 0.6);
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
 
-		width: calc(112px + 1rem);
-		height: calc(112px + 1rem);
-		top: -2rem;
-		@include breakpoint($medium) {
-			width: calc(128px + 1rem);
-			height: calc(128px + 1rem);
-		}
-		@include breakpoint($large) {
-			width: calc(160px + 1rem);
-			height: calc(160px + 1rem);
-			top: -3rem;
-		}
-		@include breakpoint($x-large) {
-		}
+    width: calc(112px + 1rem);
+    height: calc(112px + 1rem);
+    top: -2rem;
+    @include breakpoint($medium) {
+      width: calc(128px + 1rem);
+      height: calc(128px + 1rem);
+    }
+    @include breakpoint($large) {
+      width: calc(160px + 1rem);
+      height: calc(160px + 1rem);
+      top: -3rem;
+    }
+    @include breakpoint($x-large) {
+    }
 
-		&:hover {
-			box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
-			animation: spin-periodically 5000ms infinite ease-in-out;
-		}
-	}
+    &:hover {
+      box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+      animation: spin-periodically 5000ms infinite ease-in-out;
+    }
+  }
 }

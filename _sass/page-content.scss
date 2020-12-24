@@ -1,93 +1,93 @@
 section.page__content {
-	aside:first-child + * {
-		margin-top: 0 !important;
-	}
+  aside:first-child + * {
+    margin-top: 0 !important;
+  }
 
-	a {
-		word-break: break-word;
-	}
+  a {
+    word-break: break-word;
+  }
 
-	h1 {
-		margin-top: 0;
-		font-size: 1.67em;
-	}
+  h1 {
+    margin-top: 0;
+    font-size: 1.67em;
+  }
 
-	h2 {
-		font-size: 1.33em;
-	}
+  h2 {
+    font-size: 1.33em;
+  }
 
-	h3 {
-		font-size: 1.17em;
-	}
+  h3 {
+    font-size: 1.17em;
+  }
 
-	h4 {
-		font-size: 1.083em;
-	}
+  h4 {
+    font-size: 1.083em;
+  }
 
-	h5 {
-		font-size: 1.042em;
-	}
+  h5 {
+    font-size: 1.042em;
+  }
 
-	h6 {
-		font-size: 1em;
-	}
+  h6 {
+    font-size: 1em;
+  }
 
-	h2, h3, h4, h5, h6 {
-		margin-top: 1.5em;
+  h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
 
-		&:nth-child(2) {
-			margin-top: 0;
-		}
-	}
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
 
-	.toc .nav__title {
-		margin-top: 0;
-		padding: 0.5rem;
-		font-size: 0.8em;
-	}
+  .toc .nav__title {
+    margin-top: 0;
+    padding: 0.5rem;
+    font-size: 0.8em;
+  }
 
-	table {
-		display: table;
-		width: auto;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  table {
+    display: table;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	details {
-		summary {
-			> p {
-				margin: 0;
-				display: inline;
-			}
-		}
-	}
+  details {
+    summary {
+      > p {
+        margin: 0;
+        display: inline;
+      }
+    }
+  }
 
-	li p {
-		margin-bottom: 0;
-	}
+  li p {
+    margin-bottom: 0;
+  }
 
-	a:not(.btn):not(#goog-wm-sb):hover img.card {
-		box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
-	}
+  a:not(.btn):not(#goog-wm-sb):hover img.card {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+  }
 
-	p img.block {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  p img.block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	.notice,
-	.notice--primary,
-	.notice--info,
-	.notice--warning,
-	.notice--success,
-	.notice--danger {
-		font-size: 0.91em !important;
+  .notice,
+  .notice--primary,
+  .notice--info,
+  .notice--warning,
+  .notice--success,
+  .notice--danger {
+    font-size: 0.91em !important;
 
-		> h1, > h2, > h3, > h4, > h5, > h6 {
-			&:first-child {
-				margin-top: 0;
-			}
-		}
-	}
+    > h1, > h2, > h3, > h4, > h5, > h6 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
 }
