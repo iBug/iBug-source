@@ -10,11 +10,11 @@
   },
   "homepage": "https://ibugone.com/",
   "devDependencies": {
-    "autoprefixer": "^10.0.2",
+    "autoprefixer": "^10.1.0",
     "glob": "7",
-    "netlify-cli": "^2.68.7",
-    "postcss": "^8.1.9",
-    "postcss-cli": "^8.3.0"
+    "netlify-cli": "^2.69.11",
+    "postcss": "^8.2.1",
+    "postcss-cli": "^8.3.1"
   },
   "scripts": {},
   "dependencies": {}

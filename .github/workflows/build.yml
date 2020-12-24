@@ -39,9 +39,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-npm-
 
+    - name: Install - System
+      run: sudo apt-get -y install libgsl-dev
+
     - name: Install - Bundler
       run: |
-        sudo apt-get -y install libgsl-dev
         bundle install --path=vendor/bundle
         bundle clean
 
@@ -67,15 +69,13 @@ jobs:
     - name: Post-build patches
       run: bash script/patch.sh
     - name: Deploy to GitHub
-      run: 'bash script/deploy-actions.sh &'
+      run: script/deploy-actions.sh
 
     - name: Deploy to Netlify
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
       run: |
-        #git clone --depth=1 --single-branch https://github.com/iBug/image.git _site/image/
-        #rm -rf _site/image/.git
         cat _data/redirects.txt > _site/_redirects 2>/dev/null || true
         cat _data/headers.txt > _site/_headers 2>/dev/null || true
         ruby script/generate-redirects.rb

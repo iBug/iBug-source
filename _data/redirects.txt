@@ -3,7 +3,6 @@
 
 # External domains first
 https://notes.ibugone.com/* https://notes.ibug.io/:splat 302!
-https://image.ibugone.com/* https://ibug.io/image/:splat 200!
 https://fjw.one/* https://ibug.io/:splat 302!
 https://github.ibug.io/ https://github.com/iBug 302!
 https://github.ibug.io/* https://ibug.io/:splat 302!
@@ -15,7 +14,7 @@ https://ibugone.com/cn/speech-at-msc-2019/ https://ibug.io/cn/2019/08/speech-at-
 https://ibugone.com/* https://www.ibugone.com/:splat 301!
 https://www.ibugone.com/* https://ibug.io/:splat 302!
 https://cn.ibugone.com/* https://ibug.io/:splat 302!
-https://ibugone.net/* https://www.ibugone.com/:splat 302!
+https://ibugone.net/* https://www.ibugone.net/:splat 301!
 https://www.ibugone.net/* https://www.ibugone.com/:splat 302!
 # Netlify's domain, use 302 only
 https://ibug.netlify.app/* https://ibug.io/:splat 302!
