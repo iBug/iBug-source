@@ -35,7 +35,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 <details open markdown="1">
 <summary> **Advanced knowledge**
 </summary>
-- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow)
+- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow), plus Ruby
 - **Software**: Git, Jekyll, OpenSSH
 - **Technology**: HTTP, DNS
 </details>
@@ -43,7 +43,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 <details markdown="1">
 <summary> **Intermediate knowledge**
 </summary>
-- **Programming**: Ruby, the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
+- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
 - **Framework**:
   Rails,
   Bootstrap,
@@ -77,12 +77,12 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 
 - **Linux distro**: Ubuntu (desktop / workstation) and Debian (server)
 - **Version control**: Git (and good at it)
-- **Text editor**: `<ESC>:wq` ([get my config](https://e.ibugone.com/conf/vimrc))
+- **Text editor**: `<ESC>:wq` ([get my config](https://e.ibugone.com/conf/vimrc)) (recently added Visual Studio Code)
 - **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker
 
 ### Working environment
 
-My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Core i7-8850H, Ubuntu 19.10, Docker, LXD, KVM (libvirt), plus Python, Ruby, Node.js and Go, etc, and I do my work over SSH every day.
+My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 20.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Node.js and Go, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 MSI produces high-performance gaming laptops with *very* comfortable and beautiful keyboards. Must buy!
 
