@@ -79,7 +79,7 @@ $baseurl-AmazonEmberMono: "https://static.ibugone.com/webfonts/amazon/AmazonEmbe
 }
 
 @font-face {
-  @include define-font-face("Amazon Ember Display", 400, normal);
+  @include define-font-face("Amazon Ember Display", 400);
   @include url-amazonfont($baseurl-AmazonEmberDisplay, "Rg");
 }
 
@@ -89,26 +89,26 @@ $baseurl-AmazonEmberMono: "https://static.ibugone.com/webfonts/amazon/AmazonEmbe
 }
 
 @font-face {
-  @include define-font-face("Amazon Ember Display", 900, normal);
+  @include define-font-face("Amazon Ember Display", 900);
   @include url-amazonfont($baseurl-AmazonEmberDisplay, "He");
 }
 
 @font-face {
-  @include define-font-face("Amazon Ember Display", 300, normal);
+  @include define-font-face("Amazon Ember Display", 300);
   @include url-amazonfont($baseurl-AmazonEmberDisplay, "Lt");
 }
 
 @font-face {
-  @include define-font-face("Amazon Ember Display", 100, normal);
+  @include define-font-face("Amazon Ember Display", 100);
   @include url-amazonfont($baseurl-AmazonEmberDisplay, "Th");
 }
 
 @font-face {
-  @include define-font-face("Amazon Ember Mono", 400, normal);
+  @include define-font-face("Amazon Ember Mono", 400);
   @include url-amazonfont($baseurl-AmazonEmberMono, "Rg");
 }
 
 @font-face {
-  @include define-font-face("Amazon Ember Mono", 700, normal);
+  @include define-font-face("Amazon Ember Mono", 700);
   @include url-amazonfont($baseurl-AmazonEmberMono, "Bd");
 }
