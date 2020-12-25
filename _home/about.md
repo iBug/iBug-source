@@ -24,7 +24,11 @@ I'm also an avid user on Stack Overflow:
 </a>
 </center></p>
 
-See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view **a selected list** of my [questions][so-sq] and [answers][so-sa].
+See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view [a selected list of my good posts][so-sel].
+
+  [so-q]: https://stackoverflow.com/users/5958455/ibug?tab=questions "iBug's questions on Stack Overflow"
+  [so-a]: https://stackoverflow.com/users/5958455/ibug?tab=answers "iBug's answers on Stack Overflow"
+  [so-sel]: /stack-overflow/
 
 ## Quick facts
 
@@ -104,8 +108,4 @@ MSI produces high-performance gaming laptops with *very* comfortable and beautif
 
 
   [USTC]: https://en.ustc.edu.cn/
-  [so-q]: https://stackoverflow.com/users/5958455/ibug?tab=questions "iBug's questions on Stack Overflow"
-  [so-a]: https://stackoverflow.com/users/5958455/ibug?tab=answers "iBug's answers on Stack Overflow"
-  [so-sq]: /so/selected-questions
-  [so-sa]: /so/selected-answers
   [all-prs]: https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3AiBug+archived%3Afalse "All of iBug's pull requests on GitHub"
