@@ -64,7 +64,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
   LXD,
   Systemd,
   [Singularity](https://sylabs.io/) (Container)
-- **Miscellaneous**: Linux Networking (routing, firewall, iptables etc.)
+- **Miscellaneous**: Linux Networking (routing, tunneling, firewall, iptables etc.)
 </details>
 
 <details markdown="1">
@@ -81,8 +81,8 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 
 - **Linux distro**: Ubuntu (desktop / workstation) and Debian (server)
 - **Version control**: Git (and good at it)
-- **Text editor**: `<ESC>:wq` ([get my config](https://e.ibugone.com/conf/vimrc)) (recently added Visual Studio Code)
-- **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker
+- **Text editor**: Visual Studio Code plus `<ESC>:wq` ([get my config](https://e.ibugone.com/conf/vimrc))
+- **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker, AWS Lambda
 
 ### Working environment
 
@@ -103,8 +103,8 @@ MSI produces high-performance gaming laptops with *very* comfortable and beautif
 {% comment %}
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 {% endcomment %}
-- [My blog]({{ "/blog" | relative_url }})
-- [My entertainment]({{ "/entertainment" | relative_url }})
+- [My blog]({{ "/blog/" | relative_url }})
+- [My entertainment]({{ "/entertainment/" | relative_url }})
 
 
   [USTC]: https://en.ustc.edu.cn/

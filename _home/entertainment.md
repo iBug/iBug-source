@@ -19,8 +19,13 @@ gallery-20191029:
 
 [Check me out on Steam!](https://steamcommunity.com/id/ibugone)
 
+### Recommended games
+
 - [Grand Theft Auto V](https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/) - My first legal copy of game bought from Steam
-- [Minecraft](https://minecraft.net) - Needs no explanation! (User ID: `iBugOne`)
+- [Minecraft](https://minecraft.net) - Needs no explanation! (My username: `iBugOne`)
+- [LIMBO](https://store.steampowered.com/app/48000/LIMBO/) and [INSIDE](https://store.steampowered.com/app/304430/INSIDE/) - Two great 2D "adventure" game with some puzzling components
+
+For a more complete list, please visit [my notebook](https://notes.ibug.io/games) but be aware that part of the content there is in Chinese.
 
 ### Microsoft Solitaire Collection
 
@@ -30,20 +35,21 @@ Here are my stats:
 
 {% include gallery id="gallery-20191029" %}
 
-I particularly like FreeCell and I've finished all FC challenges in Star Club. The Expert level FC games are very enjoyable! I'm currently working on getting 100% on Pyramids challenges because it's almost as fun.
+I particularly like FreeCell and I've completed all FC challenges in Star Club. The Expert level FC games are very enjoyable! I'm currently working on getting 100% on Pyramids challenges because it's almost as fun.
 
 ### Minesweeper
 
-I started practicing Minesweeper when I was 15, and I can now complete a Hard board (30x16, 99 mines) within 3 minutes (personal best 162 sec). I also have the record of completing a Hard board **without using flags** on a touchscreen in less than 6 minutes.
+I started practicing Minesweeper when I was 15, and I can complete a Hard board (30x16, 99 mines) within 3 minutes (personal best 162 sec). I also have the record of completing a Hard board **without using flags** **on a touchscreen** in less than 6 minutes.
 
 ## Music
 
-- Mixtape - *Barcella* ([<i class="fab fa-fw fa-youtube"></i>](https://www.youtube.com/watch?v=lavSP2spE14))
+- *Mixtape* by Barcella ([<i class="fab fa-fw fa-youtube"></i> YouTube](https://www.youtube.com/watch?v=lavSP2spE14))
+- *Stardew Valley* OST ([Buy from <i class="fab fa-fw fa-steam"></i> Steam](https://store.steampowered.com/app/440820/Stardew_Valley_Soundtrack/))
 
 ## Movies & TV
 
 - *Mr. Bean* series from the 1990s
   - I particularly like the scene where Mr. Bean drives off sitting on the roof of his Mini. ([YouTube](https://www.youtube.com/watch?v=e6VaYr7xOsw&t=12m11s))
-- *Johnny English*, also by Rowan Atkinson
+- *Johnny English* (2003), also by Rowan Atkinson
 - *The Lion King* (1994), **not** the 2019-refurbished version
 - *The Big Bang Theory*
