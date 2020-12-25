@@ -196,6 +196,7 @@ I chose so for the following reasons:
 
 - It's free for public repositories, with unlimited total usage. One rarely hits the total usage quota, however, even with CircleCI, which has a monthly limit of 1,000 total run minutes.
     - CircleCI's limit applies at account level, and does not differentiate between public and private repositories.
+    - **November 2020**: Travis CI's [new pricing model](https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing) and [recent service degradations](https://travis-ci.community/t/builds-hang-in-queued-state/10250) aren't particularly interesting to learn about.
 - Better runtime environments, except for CPU power, which is only slightly slower that that on CircleCI.
     - Boots faster, runs faster, more memory
 - It's provided by GitHub and hosted by Microsoft Azure, which may be more trustable than Travis CI and CircleCI for some users.
