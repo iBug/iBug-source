@@ -4,6 +4,7 @@ toc: false
 comments: true
 redirect_from:
   - /cn/pac-generator/
+redirect_to: https://github.com/iBug/pac/releases/latest
 
 hidden: true
 ---
