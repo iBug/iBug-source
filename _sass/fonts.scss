@@ -26,12 +26,13 @@
           url("#{$baseurl}_#{$variant}.ttf") format("truetype");
 }
 
-$baseurl-AmazonEmber: "https://static.ibugone.com/webfonts/amazon/AmazonEmber";
-$baseurl-AmazonEmberCd: "https://static.ibugone.com/webfonts/amazon/AmazonEmberCd";
-$baseurl-AmazonEmberDisplay: "https://static.ibugone.com/webfonts/amazon/AmazonEmberDisplay";
-$baseurl-AmazonEmberMono: "https://static.ibugone.com/webfonts/amazon/AmazonEmberMono";
-$baseurl-BookerlyDisplay: "https://static.ibugone.com/webfonts/amazon/BookerlyDisplay";
-$baseurl-BookerlyLCD: "https://static.ibugone.com/webfonts/amazon/BookerlyLCD";
+$baseurl-iBugStaticAmazonFonts: "https://static.ibugone.com/webfonts/amazon";
+$baseurl-AmazonEmber: "#{$baseurl-iBugStaticAmazonFonts}/AmazonEmber";
+$baseurl-AmazonEmberCd: "#{$baseurl-iBugStaticAmazonFonts}/AmazonEmberCd";
+$baseurl-AmazonEmberDisplay: "#{$baseurl-iBugStaticAmazonFonts}/AmazonEmberDisplay";
+$baseurl-AmazonEmberMono: "#{$baseurl-iBugStaticAmazonFonts}/AmazonEmberMono";
+$baseurl-BookerlyDisplay: "#{$baseurl-iBugStaticAmazonFonts}/BookerlyDisplay";
+$baseurl-BookerlyLCD: "#{$baseurl-iBugStaticAmazonFonts}/BookerlyLCD";
 
 @include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "Rg"), 400, normal);
 @include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "RgIt"), 400, italic);

@@ -63,6 +63,6 @@ disabled:
 - My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
   (He writes Simplified Chinese, while I prefer English)
 
-  And [<i class="fas fa-globe-americas"></i> websites](/friends) of my friends.
+  And [websites of my friends](/friends/).
 
-<script>document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>
+<script type="text/javascript">document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>

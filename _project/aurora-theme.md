@@ -7,7 +7,9 @@ header:
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/aurora-theme
-redirect_to: https://ibugone.com/aurora-theme/
+redirect_to: https://ibug.github.io/aurora-theme/
+
+hidden: true
 ---
 
 Aurora is a clean, responsive Jekyll theme for GitHub Pages.

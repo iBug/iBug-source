@@ -332,7 +332,10 @@ Using libcap, however, is slightly more complicated to achieve the same, as ther
   [docker-caps]: https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities
   [cap-switch-lib]: https://github.com/iBug/iSpawn/commit/bcf27bf42771e7fd8c7f24abbec5907f6f727fd7
 
+
 ## SecComp
+
+SecComp (Secure Computing) is a security module in Linux that lets a process to transition one-way into a "secure state" where no system call other than `read()`, `write()`, `sigreturn()` and `exit()` is allowed. It's easily imagined that this feature is too strict for making something useful, and **seccomp-bpf** is an extension to the rescue.
 
 ## Resource restriction
 
