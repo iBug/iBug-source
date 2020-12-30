@@ -297,9 +297,9 @@ We've isolated our container filesystem from the host system, and then we can pr
 
 ## Capabilities
 
-In the traditional UNIX era, there were only two privilege levels - *privileged* (root) and *unprivileged* (non-root), where a *privileged* process has every privilege to alter the system, while an *unprivileged* process has none. Since Linux 2.2 in 1999, *capabilities* have been added to the kernel so that unprivileged processes may acquire certain abilities needed for some task, while privileged processes may drop capabilities unneeded, allowing for privilege separation at a finer granularity. A `ping` process doesn't need any extra privileges than sending ICMP packets, and a web server (probably) doesn't need any extra privileges than binding to a low port (1 to 1023), do they?
+In the traditional UNIX era, there were only two privilege levels - *privileged* (root) and *unprivileged* (non-root), where a *privileged* process has every privilege to alter the system, while an *unprivileged* process has none. Since Linux 2.2 in 1999, *capabilities* have been added to the kernel so that unprivileged processes may acquire certain abilities needed for some task, while privileged processes may drop capabilities unneeded, allowing for privilege control at a finer granularity. A `ping` process doesn't need any extra privileges than sending ICMP packets, and a web server (probably) doesn't need any extra privileges than binding to a low port (1 to 1023), do they?
 
-With capabilities, unprivileged processes can be granted access to selected system functionalities, while privileged processes can be deprived of selected ones. For example, `CAP_NET_BIND_SERVICE` is the capability to bind to TCP or UDP ports between 1 and 1023, and `CAP_CHOWN` enabled the use of `chown(2)`.
+With capabilities, unprivileged processes can be granted access to selected system functionalities, while privileged processes can be deprived of selected ones. For example, `CAP_NET_BIND_SERVICE` is the capability to bind to TCP or UDP ports between 1 and 1023, and `CAP_CHOWN` enables the use of `chown(2)`.
 
 Now turning our focus back to containers. Without privilege separation, a "root" process inside a container can still do dangerous things, like scanning your hard drive where the host filesystem resides, and manipulate it. This is definitely not anything expected, so we're going to limit the capabilities the container can have as a whole.
 
@@ -337,6 +337,8 @@ Using libcap, however, is slightly more complicated to achieve the same, as ther
 
 SecComp (Secure Computing) is a security module in Linux that lets a process to transition one-way into a "secure state" where no system call other than `read()`, `write()`, `sigreturn()` and `exit()` is allowed. It's easily imagined that this feature is too strict for making something useful, and **seccomp-bpf** is an extension to the rescue.
 
+Seccomp BPF extends the seccomp module with Berkeley Packer Filter (BPF), an embedded instruction set that allows highly customized seccomp rules to be deployed. With BPF, you can create custom logic for system call filtering, including matching and testing individual system call arguments.
+
 ## Resource restriction
 
 ## Conclusion
@@ -354,3 +356,5 @@ SecComp (Secure Computing) is a security module in Linux that lets a process to 
   [unshare.2]: https://man7.org/linux/man-pages/man2/unshare.2.html
   [clone.2]: https://man7.org/linux/man-pages/man2/clone.2.html
   [pivot_root.2]: https://man7.org/linux/man-pages/man2/pivot_root.2.html
+
+  [OJSandbox]: {{ "/project/OJSandbox/" | relative_url }}

@@ -192,14 +192,14 @@ I recall that Jekyll 4.0 has this setting emplaced by default, but can't find th
 
 Now then, why did I migrate my website build to GitHub Actions, if both Travis CI and CircleCI are running perfectly?
 
-I chose so for the following reasons:
+I chose to do so for the following reasons:
 
-- It's free for public repositories, with unlimited total usage. One rarely hits the total usage quota, however, even with CircleCI, which has a monthly limit of 1,000 total run minutes.
+- It's free for public repositories, with unlimited total usage. One rarely hits the total usage quota, however, even with CircleCI, which has ~~a monthly limit of 1,000 total run minutes~~ (**Update**: It's now 250 minutes weekly).
     - CircleCI's limit applies at account level, and does not differentiate between public and private repositories.
     - **November 2020**: Travis CI's [new pricing model](https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing) and [recent service degradations](https://travis-ci.community/t/builds-hang-in-queued-state/10250) aren't particularly interesting to learn about.
 - Better runtime environments, except for CPU power, which is only slightly slower that that on CircleCI.
     - Boots faster, runs faster, more memory
-- It's provided by GitHub and hosted by Microsoft Azure, which may be more trustable than Travis CI and CircleCI for some users.
+- It's provided by GitHub and hosted by Microsoft Azure, which may be more trusted than Travis CI and CircleCI for some users.
 - One less external service to depend on. No more need to log into a separate website to review logs.
 - ... and more
 
@@ -212,6 +212,6 @@ But the most important thing to note is that whatever others tell, you should tr
   [^1]: <https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096>
   [jekyll]: https://jekyllrb.com/
   [src]: https://github.com/iBug/iBug-source
-  [about]: {{ "/about" | relative_url }}
+  [about]: {{ "/about/" | relative_url }}
   [plugins]: https://github.com/iBug/iBug-source/blob/master/Gemfile
   [github_token]: https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token
