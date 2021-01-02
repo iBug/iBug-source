@@ -37,10 +37,6 @@ div.page__footer footer {
   @include breakpoint($x-large) { max-width: 1440px; }
 }
 
-.site-title {
-  @include cute-font;
-}
-
 .greedy-nav {
   background: initial;
 

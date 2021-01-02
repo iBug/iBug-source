@@ -6,12 +6,20 @@ div.masthead {
   nav#site-nav {
     background: transparent;
 
-    a.site-logo, a.site-title {
+    a.site-logo {
       @include noselect;
+    }
+
+    a.site-title {
+      @include cute-font;
+      @include noselect;
+      font-size: 1.18532em;
     }
   }
 
-  .greedy-nav > a, .visible-links a, .search__toggle {
+  .greedy-nav > a,
+  .visible-links a,
+  .search__toggle {
     color: white !important;
   }
 
@@ -33,7 +41,9 @@ div.masthead {
     }
 
     .navicon {
-      &:before, &, &:after {
+      &:before,
+      &,
+      &:after {
         background-color: white;
       }
     }
