@@ -5,14 +5,14 @@ header:
   overlay_filter: 0.2
 
 gallery-20191029:
-  - url: /image/mssolitaire/2019-10-29-main.png
-    image_path: /image/mssolitaire/2019-10-29-main.png
-    alt: "My game status as of October 29, 2019"
-    title: "My game status as of October 29, 2019"
-  - url: /image/mssolitaire/2019-10-29-star-club.png
-    image_path: /image/mssolitaire/2019-10-29-star-club.png
-    alt: "My Star Club status as of October 29, 2019"
-    title: "My Star Club status as of October 29, 2019"
+  - url: /image/mssolitaire/20210101-main.png
+    image_path: /image/mssolitaire/20210101-main.png
+    alt: "My game status as of January 1, 2021"
+    title: "My game status as of January 1, 2021"
+  - url: /image/mssolitaire/20210101-starclub.png
+    image_path: /image/mssolitaire/20210101-starclub.png
+    alt: "My Star Club status as of January 1, 2021"
+    title: "My Star Club status as of January 1, 2021"
 ---
 
 ## Games
