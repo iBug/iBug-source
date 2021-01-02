@@ -70,6 +70,7 @@ jobs:
       continue-on-error: true
     - name: Post-build patches
       run: bash script/patch.sh
+
     - name: Deploy to GitHub
       run: script/deploy-actions.sh
 
@@ -77,8 +78,4 @@ jobs:
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
-      run: |
-        cat _data/redirects.txt > _site/_redirects 2>/dev/null || true
-        cat _data/headers.txt > _site/_headers 2>/dev/null || true
-        ruby script/generate-redirects.rb
-        npx netlify deploy --prod
+      run: script/deploy-netlify.sh
