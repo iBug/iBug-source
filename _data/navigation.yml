@@ -5,8 +5,10 @@ main:
     url: /blog/
   - title: "Projects"
     url: /projects/
-  - title: 'GitHub <i class="far fa-xs fa-external-link"></i>'
-    url: "https://github.com/iBug"
+  - title: "Friends"
+    url: /friends/
+  # title: 'GitHub <i class="far fa-xs fa-external-link"></i>'
+  # url: "https://github.com/iBug"
   - title: "中文内容"
     url: /cn/
 
