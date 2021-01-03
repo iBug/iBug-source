@@ -134,6 +134,10 @@ text-align: center;
 .page__footer footer {
   text-align: center;
 
+  p, ul li, ol li {
+    margin: 0;
+  }
+
   .page__footer-follow .social-icons {
     .fa, .fas, .far, .fab {
       color: white;
@@ -142,6 +146,7 @@ text-align: center;
 
   .version-text {
     @include pro-font;
+    font-weight: 500;
   }
 
   .version-code {

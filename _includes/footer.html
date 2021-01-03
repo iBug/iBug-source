@@ -1,37 +1,36 @@
 <div class="page__footer-follow">
-	<ul class="social-icons">
-		{% if site.data.ui-text[site.locale].follow_label %}
-			<li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-		{% endif %}
+  <ul class="social-icons">
+    {% if site.data.ui-text[site.locale].follow_label %}
+      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
+    {% endif %}
 
-		{% if site.footer.links %}
-			{% for link in site.footer.links %}
-				{% if link.label and link.url %}
-					<li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
+    {% if site.footer.links %}
+      {% for link in site.footer.links %}
+        {% if link.label and link.url %}
+          <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
 
-		<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-	</ul>
+    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
+  </ul>
 </div>
 
 <div class="page__footer-copyright">
-	&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-	<br>
-	Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>. Attribution required.
-	<br>
-	<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
-	<br>
-	{% if site.env.GITHUB_RUN_NUMBER %}
-		Site version <a href="/status" class="version-text">G-{{ site.env.GITHUB_RUN_NUMBER }}</a>
-	{% elsif site.env.CIRCLE_BUILD_NUM %}
-		Site version <a href="/status" class="version-text">C-{{ site.env.CIRCLE_BUILD_NUM }}</a>
-	{% elsif site.env.TRAVIS_BUILD_NUMBER %}
-		Site version <a href="/status" class="version-text">T-{{ site.env.TRAVIS_BUILD_NUMBER }}</a>
-	{% else %}
-		Site version <a href="/status" class="version-code">{{ site.git.last_commit.short_sha }}</a>
-	{% endif %}
+  <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</p>
+  <p>Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>. Attribution required.</p>
+  <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a></p>
+  <p>
+    {% if site.env.GITHUB_RUN_NUMBER %}
+      Site version <a href="/status" class="version-text">G-{{ site.env.GITHUB_RUN_NUMBER }}</a>
+    {% elsif site.env.CIRCLE_BUILD_NUM %}
+      Site version <a href="/status" class="version-text">C-{{ site.env.CIRCLE_BUILD_NUM }}</a>
+    {% elsif site.env.TRAVIS_BUILD_NUMBER %}
+      Site version <a href="/status" class="version-text">T-{{ site.env.TRAVIS_BUILD_NUMBER }}</a>
+    {% else %}
+      Site version <a href="/status" class="version-code">{{ site.git.last_commit.short_sha }}</a>
+    {% endif %}
+  </p>
 </div>
 
 <script src="{{ '/assets/js/love.js' | relative_url }}" type="text/javascript" async="async"></script>
