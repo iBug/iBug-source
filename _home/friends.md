@@ -30,6 +30,7 @@ friends:
   - name: loliw
     github: RubyOcelot
     link: https://loliw.moe/
+    comment: Borrowed a lot of design from my website `:)`
   - name: Hypercube
     github: Smart-Hypercube
     link: https://0x01.me/
@@ -51,7 +52,7 @@ net_friends:
 *Ordered randomly*
 
 {% for item in page.friends %}
-- {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
+- {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }}){% if item.comment %} ({{ item.comment | markdownify | remove: '<p>' | remove: '</p>' | strip }}){% endif %}
 {% endfor %}{: .friends-list }
 
 Other good folks online:
