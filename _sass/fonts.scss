@@ -86,22 +86,23 @@ $baseurl-BookerlyLCD: "#{$baseurl-iBugStaticAmazonFonts}/BookerlyLCD";
 $baseurl-gotham: "#{$baseurl-iBugStaticWebfonts}/gothampro";
 
 @mixin define-GothamPro($variant, $font-weight, $font-style) {
-  @if $variant != unset {
-    $basename: "GothamPro-#{$variant}";
-  } @else {
+  @font-face {
     $basename: "GothamPro";
-  }
-  $basepath: "#{$baseurl-gotham}/#{$basename}";
+    @if $variant != unset {
+      $basename: "GothamPro-#{$variant}";
+    }
+    $basepath: "#{$baseurl-gotham}/#{$basename}";
 
-  font-family: GothamPro;
-  src: url("#{$basepath}.eot");
-  src: url("#{$basepath}.woff2") format("woff2"),
-       url("#{$basepath}.woff") format("woff"),
-       url("#{$basepath}.ttf") format("truetype"),
-       url("#{$basepath}.svg##{$basename}") format("svg"),
-       url("#{$basepath}.eot?#iefix") format("embedded-opentype");
-  font-weight: $font-weight;
-  font-style: $font-style;
+    font-family: GothamPro;
+    src: url("#{$basepath}.eot");
+    src: url("#{$basepath}.woff2") format("woff2"),
+        url("#{$basepath}.woff") format("woff"),
+        url("#{$basepath}.ttf") format("truetype"),
+        url("#{$basepath}.svg##{$basename}") format("svg"),
+        url("#{$basepath}.eot?#iefix") format("embedded-opentype");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
 }
 
 @include define-GothamPro("Light", 100, normal);

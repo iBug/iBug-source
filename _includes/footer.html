@@ -24,13 +24,13 @@
 	<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 	<br>
 	{% if site.env.GITHUB_RUN_NUMBER %}
-		Site version <a href="/status">G-{{ site.env.GITHUB_RUN_NUMBER }}</a>
+		Site version <a href="/status" class="version-text">G-{{ site.env.GITHUB_RUN_NUMBER }}</a>
 	{% elsif site.env.CIRCLE_BUILD_NUM %}
-		Site version <a href="/status">C-{{ site.env.CIRCLE_BUILD_NUM }}</a>
+		Site version <a href="/status" class="version-text">C-{{ site.env.CIRCLE_BUILD_NUM }}</a>
 	{% elsif site.env.TRAVIS_BUILD_NUMBER %}
-		Site version <a href="/status">C-{{ site.env.TRAVIS_BUILD_NUMBER }}</a>
+		Site version <a href="/status" class="version-text">T-{{ site.env.TRAVIS_BUILD_NUMBER }}</a>
 	{% else %}
-		Site version <a href="/status" style="font-family: monospace;">{{ site.git.last_commit.short_sha }}</a>
+		Site version <a href="/status" class="version-code">{{ site.git.last_commit.short_sha }}</a>
 	{% endif %}
 </div>
 

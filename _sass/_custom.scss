@@ -139,6 +139,14 @@ text-align: center;
       color: white;
     }
   }
+
+  .version-text {
+    @include pro-font;
+  }
+
+  .version-code {
+    font-family: $monospace;
+  }
 }
 
 /********** Misc **********/
