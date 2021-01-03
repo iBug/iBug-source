@@ -1,6 +1,7 @@
 ---
 title: Selected posts
 tagline: My selected questions and answers on Stack Overflow
+toc: true
 ---
 
 ## Selected questions
