@@ -1,5 +1,7 @@
 body.landing {
-  #page-title, p.page__lead, div.page__hero--overlay .btn {
+  #page-title,
+  p.page__lead,
+  div.page__hero--overlay .btn {
     @include cute-font;
   }
   // Someday I may want to move this to global, not just the landing page
@@ -10,7 +12,7 @@ body.landing {
   //background-color: #EEE;
   //background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
   div.masthead {
-    background-image: url('/image/mm/splash.jpg');
+    background-image: url("/image/mm/splash.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -20,8 +22,12 @@ body.landing {
       background: transparent;
     }
 
-    .greedy-nav > a, .visible-links a, .hidden-links a, .search__toggle {
+    .greedy-nav > a,
+    .visible-links a,
+    .hidden-links a,
+    .search__toggle {
       color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     }
 
     .greedy-nav {
@@ -41,14 +47,14 @@ body.landing {
           background-color: yellow;
         }
         &:after {
-          background-color: #0F0;
+          background-color: #0f0;
         }
       }
     }
   }
 
   div.page__hero--overlay {
-    background-image: url('/image/mm/splash.jpg');
+    background-image: url("/image/mm/splash.jpg");
     text-align: center;
     height: calc(100vh - 4em);
     background-attachment: fixed;
@@ -67,8 +73,9 @@ body.landing {
 
         // Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
         &::before {
-          content: '';
-          background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)), url('/image/mm/splash.jpg') center / cover no-repeat fixed;
+          content: "";
+          background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)),
+            url("/image/mm/splash.jpg") center / cover no-repeat fixed;
           filter: blur(1.5px);
           position: absolute;
           z-index: -1;
@@ -87,7 +94,7 @@ body.landing {
   }
 
   #page-title {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   }
 
   img.avatar {
