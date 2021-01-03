@@ -13,6 +13,10 @@ blockquote {
   font-family: $serif;
 }
 
+ul, ol {
+  padding-inline-start: 1em;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0.2rem 0.2rem 0.4rem;
