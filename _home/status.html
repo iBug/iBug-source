@@ -15,7 +15,7 @@ noindex: true
     <dd id="current-time"></dd>
 
     <dt>Source Git revision</dt>
-    <dd><a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.author_name | xml_escape }}</strong>: {{ site.git.last_commit.message | xml_escape }}</a></dd>
+    <dd><a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.author_name | xml_escape }}</strong>: {{ site.git.last_commit.subject | xml_escape }}</a></dd>
 
     <dt>
         Continuous Integration

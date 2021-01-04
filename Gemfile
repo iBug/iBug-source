@@ -38,7 +38,7 @@ group :jekyll_plugins do
   gem "jekyll-environment-variables"
   gem "jekyll-data"
   gem "jekyll-tidy"
-  gem "jekyll-last-modified", '>= 1.0.2'
+  gem "jekyll-last-modified", '>= 1.0.3'
   #gem "jekyll-assets"
   gem "jekyll-algolia"
   gem "jekyll-archives", '>= 2.2.1'
