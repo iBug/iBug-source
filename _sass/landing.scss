@@ -68,9 +68,14 @@ body.landing {
       // Vertically centered with flexbox: https://www.w3schools.com/css/css_align.asp
 
       a.btn {
-        //backdrop-filter: blur(1.5px);
         position: relative;
+        background-color: rgba(0, 0, 0, 0.15);
 
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /*
         // Workaround for backdrop-filter: https://stackoverflow.com/a/38543010/5958455
         &::before {
           content: "";
@@ -84,6 +89,7 @@ body.landing {
           right: 0;
           bottom: 0;
         }
+        */
       }
     }
   }
