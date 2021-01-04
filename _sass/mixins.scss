@@ -12,6 +12,14 @@
   font-family: 'Baloo 2', $sans-serif !important;
 }
 
+.cute-font {
+  @include cute-font;
+}
+
 @mixin pro-font {
   font-family: $sans-serif-pro !important;
+}
+
+.pro-font {
+  @include pro-font;
 }

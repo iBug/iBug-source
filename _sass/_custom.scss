@@ -121,6 +121,7 @@ text-align: center;
     display: inline-block;
 
     li a {
+      @include pro-font;
       transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
 
       &:not(disabled):hover {
