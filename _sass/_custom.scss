@@ -13,6 +13,14 @@ blockquote {
   font-family: $serif;
 }
 
+details {
+  padding-inline-start: 1em;
+
+  > summary {
+    margin-inline-start: -1em;
+  }
+}
+
 ul, ol {
   padding-inline-start: 1em;
 }
