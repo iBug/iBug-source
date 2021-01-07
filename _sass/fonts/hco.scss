@@ -14,7 +14,6 @@ $baseurl-gotham: "#{$baseurl-iBugStaticWebfonts}/gothampro";
     src: url("#{$basepath}.woff2") format("woff2"),
         url("#{$basepath}.woff") format("woff"),
         url("#{$basepath}.ttf") format("truetype"),
-        url("#{$basepath}.svg##{$basename}") format("svg"),
         url("#{$basepath}.eot?#iefix") format("embedded-opentype");
     font-weight: $font-weight;
     font-style: $font-style;
