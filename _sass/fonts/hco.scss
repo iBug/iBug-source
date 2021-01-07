@@ -1,0 +1,33 @@
+// Gotham font
+$baseurl-gotham: "#{$baseurl-iBugStaticWebfonts}/gothampro";
+
+@mixin define-GothamPro($variant, $font-weight, $font-style) {
+  @font-face {
+    $basename: "GothamPro";
+    @if $variant != unset {
+      $basename: "GothamPro-#{$variant}";
+    }
+    $basepath: "#{$baseurl-gotham}/#{$basename}";
+
+    font-family: GothamPro;
+    src: url("#{$basepath}.eot");
+    src: url("#{$basepath}.woff2") format("woff2"),
+        url("#{$basepath}.woff") format("woff"),
+        url("#{$basepath}.ttf") format("truetype"),
+        url("#{$basepath}.svg##{$basename}") format("svg"),
+        url("#{$basepath}.eot?#iefix") format("embedded-opentype");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include define-GothamPro("Light", 100, normal);
+@include define-GothamPro("LightItalic", 100, italic);
+@include define-GothamPro(unset, 400, normal);
+@include define-GothamPro("Italic", 400, italic);
+@include define-GothamPro("Medium", 500, normal);
+@include define-GothamPro("MediumItalic", 500, italic);
+@include define-GothamPro("Bold", 700, normal);
+@include define-GothamPro("BoldItalic", 700, italic);
+@include define-GothamPro("Black", 900, normal);
+@include define-GothamPro("BlackItalic", 900, italic);

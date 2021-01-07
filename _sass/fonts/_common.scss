@@ -1,0 +1,16 @@
+$baseurl-iBugStaticWebfonts: "https://static.ibugone.com/webfonts";
+
+@mixin define-font-face($family, $url, $weight: unset, $style: unset) {
+  @font-face {
+    font-family: $family;
+    @if $weight != unset {
+      font-weight: $weight;
+    }
+    @if $style != unset {
+      font-style: $style;
+    }
+    src: $url;
+
+    @content;
+  }
+}

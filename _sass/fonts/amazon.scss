@@ -1,0 +1,51 @@
+$baseurl-Amazon: "#{$baseurl-iBugStaticWebfonts}/amazon";
+$baseurl-AmazonEmber: "#{$baseurl-Amazon}/AmazonEmber";
+$baseurl-AmazonEmberCd: "#{$baseurl-Amazon}/AmazonEmberCd";
+$baseurl-AmazonEmberDisplay: "#{$baseurl-Amazon}/AmazonEmberDisplay";
+$baseurl-AmazonEmberMono: "#{$baseurl-Amazon}/AmazonEmberMono";
+$baseurl-BookerlyDisplay: "#{$baseurl-Amazon}/BookerlyDisplay";
+$baseurl-BookerlyLCD: "#{$baseurl-Amazon}/BookerlyLCD";
+
+@function url-amazonfont($baseurl, $variant) {
+  @return url("#{$baseurl}_W_#{$variant}.eot") format("embedded-opentype"),
+          url("#{$baseurl}_W_#{$variant}.woff2") format("woff2"),
+          url("#{$baseurl}_W_#{$variant}.woff") format("woff"),
+          url("#{$baseurl}_#{$variant}.ttf") format("truetype");
+}
+
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "Rg"), 400, normal);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "RgIt"), 400, italic);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "Bd"), 700, normal);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "BdIt"), 700, italic);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "He"), 900, normal);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "HeIt"), 900, italic);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "Lt"), 300, normal);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "LtIt"), 300, italic);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "Th"), 100, normal);
+@include define-font-face("Amazon Ember", url-amazonfont($baseurl-AmazonEmber, "ThIt"), 100, italic);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "Rg"), 400, normal);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "RgIt"), 400, italic);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "Bd"), 700, normal);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "BdIt"), 700, italic);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "Lt"), 300, normal);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "LtIt"), 300, italic);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "Th"), 100, normal);
+@include define-font-face("Amazon Ember Condensed", url-amazonfont($baseurl-AmazonEmberCd, "ThIt"), 100, italic);
+@include define-font-face("Amazon Ember Display", url-amazonfont($baseurl-AmazonEmberDisplay, "Rg"), 400);
+@include define-font-face("Amazon Ember Display", url-amazonfont($baseurl-AmazonEmberDisplay, "Bd"), 700);
+@include define-font-face("Amazon Ember Display", url-amazonfont($baseurl-AmazonEmberDisplay, "He"), 900);
+@include define-font-face("Amazon Ember Display", url-amazonfont($baseurl-AmazonEmberDisplay, "Lt"), 300);
+@include define-font-face("Amazon Ember Display", url-amazonfont($baseurl-AmazonEmberDisplay, "Th"), 100);
+@include define-font-face("Amazon Ember Mono", url-amazonfont($baseurl-AmazonEmberMono, "Rg"), 400);
+@include define-font-face("Amazon Ember Mono", url-amazonfont($baseurl-AmazonEmberMono, "Bd"), 700);
+
+@include define-font-face("BookerlyLCD", url-amazonfont($baseurl-BookerlyLCD, "Rg"), 400, normal);
+@include define-font-face("BookerlyLCD", url-amazonfont($baseurl-BookerlyLCD, "It"), 400, italic);
+@include define-font-face("BookerlyLCD", url-amazonfont($baseurl-BookerlyLCD, "Bd"), 700, normal);
+@include define-font-face("BookerlyLCD", url-amazonfont($baseurl-BookerlyLCD, "BdIt"), 700, italic);
+@include define-font-face("BookerlyLCD", url-amazonfont($baseurl-BookerlyLCD, "Lt"), 300, normal);
+@include define-font-face("BookerlyLCD", url-amazonfont($baseurl-BookerlyLCD, "LtIt"), 300, italic);
+@include define-font-face("Bookerly Display", url-amazonfont($baseurl-BookerlyDisplay, "Rg"), 400, normal);
+@include define-font-face("Bookerly Display", url-amazonfont($baseurl-BookerlyDisplay, "It"), 400, italic);
+@include define-font-face("Bookerly Display", url-amazonfont($baseurl-BookerlyDisplay, "Bd"), 700, normal);
+@include define-font-face("Bookerly Display", url-amazonfont($baseurl-BookerlyDisplay, "BdIt"), 700, italic);
