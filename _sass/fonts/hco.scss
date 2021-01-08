@@ -1,5 +1,15 @@
 // Use a Sass map for easier configuration
 $gotham-config: (
+  "GothamPro": (
+    "gothampro",
+    (
+      100: ("Light", "LightItalic"),
+      400: (unset, "Italic"),
+      500: ("Medium", "MediumItalic"),
+      700: ("Bold", "BoldItalic"),
+      900: ("Black", "BlackItalic"),
+    )
+  ),
   "GothamSSm": (
     "gothamssm",
     (
@@ -10,7 +20,36 @@ $gotham-config: (
       700: ("Bold", "BoldItalic"),
       900: ("Black", "BlackItalic"),
     )
-  )
+  ),
+  "GothamNarrSSm": (
+    "gothamnarrssm",
+    (
+      100: ("XLight", "XLightItalic"),
+      300: ("Light", "LightItalic"),
+      400: ("Book", "BookItalic"),
+      500: ("Medium", "MediumItalic"),
+      700: ("Bold", "BoldItalic"),
+      900: ("Black", "BlackItalic"),
+    )
+  ),
+  "GothamRnd": (
+    "gothamrnd",
+    (
+      100: ("Light", "LightItalic"),
+      400: ("Book", "BookItalic"),
+      500: ("Medium", "MediumItalic"),
+      700: ("Bold", "BoldItalic"),
+    )
+  ),
+  "GothamRndSSm": (
+    "gothamrnd",
+    (
+      100: ("Light", "LightItalic"),
+      400: ("Book", "BookItalic"),
+      500: ("Medium", "MediumItalic"),
+      700: ("Bold", "BoldItalic"),
+    )
+  ),
 );
 
 @mixin define-Gotham($family, $folder, $variant: unset, $font-weight: normal, $font-style: normal) {
