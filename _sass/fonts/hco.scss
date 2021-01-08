@@ -1,15 +1,27 @@
-// Gotham font
-$baseurl-gotham: "#{$baseurl-iBugStaticWebfonts}/gothamssm";
+// Use a Sass map for easier configuration
+$gotham-config: (
+  "GothamSSm": (
+    "gothamssm",
+    (
+      100: ("XLight", "XLightItalic"),
+      300: ("Light", "LightItalic"),
+      400: ("Book", "BookItalic"),
+      500: ("Medium", "MediumItalic"),
+      700: ("Bold", "BoldItalic"),
+      900: ("Black", "BlackItalic"),
+    )
+  )
+);
 
-@mixin define-GothamSSm($variant, $font-weight, $font-style) {
+@mixin define-Gotham($family, $folder, $variant: unset, $font-weight: normal, $font-style: normal) {
   @font-face {
-    $basename: "GothamSSm";
+    $basename: $family;
     @if $variant != unset {
-      $basename: "GothamSSm-#{$variant}";
+      $basename: "#{$basename}-#{$variant}";
     }
-    $basepath: "#{$baseurl-gotham}/#{$basename}";
+    $basepath: "#{$baseurl-iBugStaticWebfonts}/#{$folder}/#{$basename}";
 
-    font-family: GothamSSm;
+    font-family: $family;
     src: url("#{$basepath}.eot");
     src: url("#{$basepath}.woff2") format("woff2"),
         url("#{$basepath}.woff") format("woff"),
@@ -20,15 +32,13 @@ $baseurl-gotham: "#{$baseurl-iBugStaticWebfonts}/gothamssm";
   }
 }
 
-@include define-GothamSSm("XLight", 100, normal);
-@include define-GothamSSm("XLightItalic", 100, italic);
-@include define-GothamSSm("Light", 300, normal);
-@include define-GothamSSm("LightItalic", 300, italic);
-@include define-GothamSSm("Book", 400, normal);
-@include define-GothamSSm("BookItalic", 400, italic);
-@include define-GothamSSm("Medium", 500, normal);
-@include define-GothamSSm("MediumItalic", 500, italic);
-@include define-GothamSSm("Bold", 700, normal);
-@include define-GothamSSm("BoldItalic", 700, italic);
-@include define-GothamSSm("Black", 900, normal);
-@include define-GothamSSm("BlackItalic", 900, italic);
+@each $family, $config in $gotham-config {
+  $directory: nth($config, 1);
+  $variants: nth($config, 2);
+  @each $weight, $styles in $variants {
+    @include define-Gotham($family, $directory, nth($styles, 1), $weight, normal);
+    @if length($styles) >= 2 {
+      @include define-Gotham($family, $directory, nth($styles, 2), $weight, italic);
+    }
+  }
+}
