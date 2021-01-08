@@ -8,43 +8,55 @@ noindex: true
 ---
 
 <dl>
-    <dt>Build time</dt>
-    <dd><time id="build-time" datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}</time></dd>
+  <dt>Build time</dt>
+  <dd><time id="build-time" datetime="{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}">{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}</time></dd>
 
-    <dt>Current time</dt>
-    <dd id="current-time"></dd>
+  <dt>Current time</dt>
+  <dd id="current-time"></dd>
 
-    <dt>Source Git revision</dt>
-    <dd><a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code> <strong>{{ site.git.last_commit.author_name | xml_escape }}</strong>: {{ site.git.last_commit.subject | xml_escape }}</a></dd>
+  <dt>Source Git revision</dt>
+  <dd>
+    <a href="{{ site.source_url }}/commit/{{ site.git.last_commit.long_sha }}">
+      <code class="git-sha">{{ site.git.last_commit.short_sha }}</code>
+      <span class="git-author">{{ site.git.last_commit.author_name | xml_escape }}</span>:
+      <span class="git-message">{{ site.git.last_commit.subject | xml_escape }}</span>
+    </a>
+  </dd>
 
-    <dt>
-        Continuous Integration
-        <!--a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Travis CI" /></a-->
-        <a href="https://circleci.com/gh/iBug/iBug-source"><img src="https://circleci.com/gh/iBug/iBug-source.svg?style=shield" alt="CircleCI" /></a>
-        <a href="https://github.com/iBug/iBug-source/actions"><img src="https://github.com/iBug/iBug-source/workflows/build/badge.svg" alt="GitHub Actions" /></a>
-    </dt>
-    {% if site.env.TRAVIS_BUILD_ID %}
-        <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}{% if site.env.TRAVIS_EVENT_TYPE == "cron" %} &#9200;{% endif %}</a></dd>
-    {% elsif site.env.CIRCLE_BUILD_NUM %}
-        <dd>This site is deployed from <a href="https://circleci.com/gh/iBug/iBug-source/{{ site.env.CIRCLE_BUILD_NUM }}">CircleCI build {{ site.env.CIRCLE_BUILD_NUM }}{% if site.env.CRON %} &#9200;{% endif %}</a></dd>
-    {% elsif site.env.GITHUB_ACTION %}
-        <dd>This site is deployed from <a href="https://github.com/iBug/iBug-source/actions/runs/{{ site.env.GITHUB_RUN_ID }}">GitHub Actions build {{ site.env.GITHUB_RUN_NUMBER }}</a></dd>
-    {% else %}
+  <dt>
+    Continuous Integration
+    <!--a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Travis CI" /></a-->
+    <a href="https://circleci.com/gh/iBug/iBug-source"><img src="https://circleci.com/gh/iBug/iBug-source.svg?style=shield" alt="CircleCI" /></a>
+    <a href="https://github.com/iBug/iBug-source/actions"><img src="https://github.com/iBug/iBug-source/workflows/build/badge.svg" alt="GitHub Actions" /></a>
+  </dt>
+  {% if site.env.TRAVIS_BUILD_ID %}
+    <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}{% if site.env.TRAVIS_EVENT_TYPE == "cron" %} &#9200;{% endif %}</a></dd>
+  {% elsif site.env.CIRCLE_BUILD_NUM %}
+    <dd>This site is deployed from <a href="https://circleci.com/gh/iBug/iBug-source/{{ site.env.CIRCLE_BUILD_NUM }}">CircleCI build {{ site.env.CIRCLE_BUILD_NUM }}{% if site.env.CRON %} &#9200;{% endif %}</a></dd>
+  {% elsif site.env.GITHUB_ACTION %}
+    <dd>This site is deployed from <a href="https://github.com/iBug/iBug-source/actions/runs/{{ site.env.GITHUB_RUN_ID }}">GitHub Actions build {{ site.env.GITHUB_RUN_NUMBER }}</a></dd>
+  {% else %}
     <dd>This site is not deployed from Continuous Integration.</dd>
-    {% endif %}
+  {% endif %}
 </dl>
 
-<script type="text/javascript">
-    document.getElementById("build-time").innerText = new Date("{{ site.time | date_to_xmlschema }}");
-    function zeropad(n) {
-        return n > 9 ? String(n) : "0" + String(n);
-    }
-    var showTimeContainer = document.getElementById("current-time");
-    function showTime() {
-        let t = new Date(Date.now());
-        // showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
-        showTimeContainer.innerText = t.toString();
-        window.setTimeout(showTime, 1000 - t.getMilliseconds());
-    }
-    showTime();
+<script>
+  document.getElementById("build-time").innerText = new Date("{{ site.time | date_to_xmlschema }}");
+  function zeropad(n) {
+    return n > 9 ? String(n) : "0" + String(n);
+  }
+  var showTimeContainer = document.getElementById("current-time");
+  function showTime() {
+    let t = new Date(Date.now());
+    // showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
+    showTimeContainer.innerText = t.toString();
+    window.setTimeout(showTime, 1000 - t.getMilliseconds());
+  }
+  showTime();
 </script>
+
+<style>
+.git-author {
+  font-weight: bold;
+}
+</style>
