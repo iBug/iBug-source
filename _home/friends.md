@@ -52,13 +52,13 @@ net_friends:
 *Ordered randomly*
 
 {% for item in page.friends %}
-- {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }}){% if item.comment %} ({{ item.comment | markdownify | remove: '<p>' | remove: '</p>' | strip }}){% endif %}
+- {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }}){: rel="noopener{% if item.name == "loliw" %} nofollow{% endif %}" }{% if item.comment %} ({{ item.comment | markdownify | remove: '<p>' | remove: '</p>' | strip }}){% endif %}
 {% endfor %}{: .friends-list }
 
 Other good folks online:
 
 {% for item in page.net_friends %}
-- {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }})
+- {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }}){: rel="noopener" }
 {% endfor %}{: .friends-list }
 
 <style>.friends-list { list-style-type: none; padding-left: 1em; }</style>

@@ -325,7 +325,7 @@ capng_apply(CAPNG_SELECT_BOTH);
 
 With `capng_clear`, we clear all capabilities from our pending changes, and add whitelisted capabilities, before finally applying the changes.
 
-Using libcap, however, is slightly more complicated to achieve the same, as there's no direct "clear all" function, but instead you'll have to list them by yourself. [Here][cap-switch-lib]'s an older version of my attempted code if you want to learn. Nevertheless, it never bad to learn more.
+Using libcap, however, is slightly more complicated to achieve the same, as there's no direct "clear all" function, but instead you'll have to list them by yourself. [Here][cap-switch-lib]'s an older version of my attempted code if you want to learn. Nevertheless, it's never bad to learn more.
 
   [libcap-docs]: https://linux.die.net/man/3/libcap
   [libcap-ng-docs]: https://people.redhat.com/sgrubb/libcap-ng/
@@ -335,9 +335,9 @@ Using libcap, however, is slightly more complicated to achieve the same, as ther
 
 ## SecComp
 
-SecComp (Secure Computing) is a security module in Linux that lets a process to transition one-way into a "secure state" where no system call other than `read()`, `write()`, `sigreturn()` and `exit()` is allowed. It's easily imagined that this feature is too strict for making something useful, and **seccomp-bpf** is an extension to the rescue.
+SecComp (Secure Computing) is a security module in Linux that lets a process to transition one-way into a "secure state" where no system call other than `read()`, `write()`, `sigreturn()` and `exit()` is allowed. It's easily noticeable that this feature is too strict for making something useful, and **seccomp-bpf** is an extension to the rescue.
 
-Seccomp BPF extends the seccomp module with Berkeley Packer Filter (BPF), an embedded instruction set that allows highly customized seccomp rules to be deployed. With BPF, you can create custom logic for system call filtering, including matching and testing individual system call arguments.
+Seccomp BPF extends the seccomp module with Berkeley Packer Filter (BPF), an embedded instruction set that allows highly customized seccomp rules to be deployed. With BPF, you can create custom logic for system call filtering, including matching and testing individual system call arguments. 
 
 ## Resource restriction
 
