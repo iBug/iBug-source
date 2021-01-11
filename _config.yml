@@ -53,7 +53,7 @@ algolia:
     customRanking: ["desc(date)", "desc(weight.heading)", "asc(weight.position)"]
     attributesToHighlight: ["title", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "hierarchy.lvl4", "hierarchy.lvl5", "content", "html", "collection", "categories", "tags"]
     attributesForFaceting: ["searchable(tags)", "searchable(type)", "searchable(title)"]
-  files_to_exclude: 
+  files_to_exclude:
     - _pages/404.md
     - _pages/index.md
     - README.md
@@ -168,6 +168,7 @@ exclude:
   - .jekyll-assets-cache
   - .sass-cache
   - .travis.yml
+  - .vscode
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
