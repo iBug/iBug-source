@@ -41,8 +41,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-npm-
 
-    - name: Install - System
-      run: sudo apt-get -y install libgsl-dev
+    # name: Install - System
+    # run: sudo apt-get -y install libgsl-dev
 
     - name: Install - Bundler
       run: |
