@@ -337,11 +337,127 @@ Using libcap, however, is slightly more complicated to achieve the same, as ther
 
 SecComp (Secure Computing) is a security module in Linux that lets a process to transition one-way into a "secure state" where no system call other than `read()`, `write()`, `sigreturn()` and `exit()` is allowed. It's easily noticeable that this feature is too strict for making something useful, and **seccomp-bpf** is an extension to the rescue.
 
-Seccomp BPF extends the seccomp module with Berkeley Packer Filter (BPF), an embedded instruction set that allows highly customized seccomp rules to be deployed. With BPF, you can create custom logic for system call filtering, including matching and testing individual system call arguments. 
+Seccomp BPF extends the seccomp module with Berkeley Packer Filter (BPF), an embedded instruction set that allows highly customized seccomp rules to be deployed. With BPF, you can create custom logic for system call filtering, including matching and testing individual system call arguments.
+
+## System call filtering
+
+To ensure full control, we're using a whitelist for system calls. This means any unknown one will be rejected. So we'll start by creating a new "SecComp filter context", and set the default action to "reject". By "reject", we'll return "permission denied" when a process tries to call it.
+
+```c
+scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ERRNO(1));
+```
+
+The `SCMP_ACT_ERRNO(1)` refers exactly to "respond with EPERM", which will be hit if no other filters apply.
+
+### System call whitelist
+
+We'll now add each "safe" system call to our filter and set it to "allowed". To save some time scratching your head examining each system call, we'll adopt [Docker's syscall whitelist][docker-syscalls]. Each system call will be wrapped in `SCMP_SYS` so it's turned into a suitable number used inside SecComp.
+
+We need to add the whole big list of "general" system calls, plus some platform- or scenario-specific ones, namely, two special system calls for `amd64` platform, and a few others for system administration, since we've allowed `CAP_SYS_ADMIN` inside the container.
+
+Use your favorite text processing toolstack to get the big list into a C-array so we can loop over, like [this](https://github.com/iBug/iSpawn/blob/master/syscall_allow.c):
+
+```c
+int allowed_syscalls[] = {
+    SCMP_SYS(accept),
+    SCMP_SYS(accept4),
+    SCMP_SYS(access),
+    // Many, many more...
+    SCMP_SYS(waitpid),
+    SCMP_SYS(write),
+    SCMP_SYS(writev),
+```
+
+And then append these special ones we want to include as well:
+
+```
+    // amd64-specific required syscalls
+    SCMP_SYS(arch_prctl),
+    SCMP_SYS(modify_ldt),
+
+    // CAP_SYS_ADMIN-specific syscalls
+    SCMP_SYS(bpf),
+    SCMP_SYS(clone),
+    SCMP_SYS(fanotify_init),
+    SCMP_SYS(lookup_dcookie),
+    SCMP_SYS(mount),
+    SCMP_SYS(name_to_handle_at),
+    SCMP_SYS(perf_event_open),
+    SCMP_SYS(quotactl),
+    SCMP_SYS(setdomainname),
+    SCMP_SYS(sethostname),
+    SCMP_SYS(setns),
+    SCMP_SYS(syslog),
+    SCMP_SYS(umount),
+    SCMP_SYS(umount2),
+    SCMP_SYS(unshare)
+};
+```
+
+Find the number of items included, and save it for easier later use.
+
+```c
+size_t allowed_syscalls_len = sizeof(allowed_syscalls) / sizeof(allowed_syscalls[0]);
+```
+
+We can then add each system call to our new SecComp filter as "allowed" with a simple loop:
+
+```c
+for (int i = 0; i < allowed_syscalls_len; i++) {
+    seccomp_rule_add(ctx, SCMP_ACT_ALLOW, allowed_syscalls[i], 0);
+}
+```
+
+### Loading SecComp filter
+
+After our filter has been constructed, we can load it onto our process for it to take effect.
+
+```c
+seccomp_load(ctx);
+```
+
+And finally, release the workspace to avoid memory leaks.
+
+```c
+seccomp_release(ctx);
+```
+
+### Caveats {#seccomp-caveats}
+
+#### Incompatible system calls
+
+As I worked this out on an Ubuntu 18.04 environment, some newer system calls weren't available in my system headers, like the `io_uring`-related ones that are introduced in Linux 5.1. You can safely comment out any of them that your compiler complains about not recognizing. There shouldn't be too many of them if your environment is up-to-date, though.
+
+#### Precautionary checking
+
+As it's too common for one of the function calls to fail, I've added sanity checks for them. Here's the complete code of this part.
+
+```c
+int filter_syscall(void) {
+    scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ERRNO(1));
+    if (ctx == NULL) {
+        return -1;
+    }
+    for (int i = 0; i < allowed_syscalls_len; i++) {
+        if ((errno = seccomp_rule_add(ctx, SCMP_ACT_ALLOW, allowed_syscalls[i], 0)) < 0) {
+            return -1;
+        }
+    }
+    if ((errno = -seccomp_load(ctx)) < 0) {
+        return -1;
+    }
+    seccomp_release(ctx);
+    return 0;
+}
+```
+
+  [docker-syscalls]: https://github.com/moby/moby/blob/master/profiles/seccomp/default.json
 
 ## Resource restriction
 
 ## Conclusion
+
+Here's the completed container that I wrote, with some bells and whistles added: [<i class="fab fa-github"></i> iBug/iSpawn](https://github.com/iBug/iSpawn)
 
 ### Other reading
 
