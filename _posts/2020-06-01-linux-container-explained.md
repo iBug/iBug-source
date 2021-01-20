@@ -455,6 +455,10 @@ int filter_syscall(void) {
 
 ## Resource restriction
 
+The last part to talk about is restricting container resources. Surely we don't want a container to overuse system resources like CPU or RAM and make the host system less stable. Linux Control Groups (Cgroups) is designed for efficient resource constraint that we're going to make use of. There are many "cgroup systems" for different aspects of system resources, including CPU, RAM and even disk I/O. Looks pretty neat, right?
+
+Unlike other parts we've built so far, cgroup doesn't use system calls for setup and configuration, but a filesystem-based interface instead, like those in `/proc` or `/sys`. In fact, the cgroup control interface resides exactly under `/sys`, at `/sys/fs/cgroup`. With this interface, we read and write "files" to change configuration values, and create and delete directories to add or remove structures.
+
 ## Conclusion
 
 Here's the completed container that I wrote, with some bells and whistles added: [<i class="fab fa-github"></i> iBug/iSpawn](https://github.com/iBug/iSpawn)
@@ -462,6 +466,11 @@ Here's the completed container that I wrote, with some bells and whistles added:
 ### Other reading
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
+- Wikipedia articles on ...
+  - [Capability-based security](https://en.wikipedia.org/wiki/Capability-based_security)
+  - [SecComp](https://en.wikipedia.org/wiki/Seccomp)
+  - [Cgroups](https://en.wikipedia.org/wiki/Cgroups)
+  - [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux), which we didn't touch here
 
 
   [linux-namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces
