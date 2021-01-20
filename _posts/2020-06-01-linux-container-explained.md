@@ -463,7 +463,7 @@ Unlike other parts we've built so far, cgroup doesn't use system calls for setup
 
 Here's the completed container that I wrote, with some bells and whistles added: [<i class="fab fa-github"></i> iBug/iSpawn](https://github.com/iBug/iSpawn)
 
-### Other reading
+### Further reading
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
 - Wikipedia articles on ...
