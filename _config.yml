@@ -149,7 +149,7 @@ footer:
 
 
 footer_scripts:
-  - /assets/js/main.min.js?v=1
+  - /assets/js/main.min.js?v=2
 
 
 # Reading Files

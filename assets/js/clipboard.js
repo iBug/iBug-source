@@ -46,9 +46,9 @@ $(document).ready(function() {
     return copyText(codeBlock.innerText);
   };
 
-  $(".page__content pre > code").each(function() {
+  document.querySelectorAll(".page__content pre > code").forEach(function(element, index, parentList) {
     // Locate the <pre> element
-    const container = $(this).parent();
+    const container = element.parentElement;
     // Sanity check - don't add an extra button if there's already one
     if (container.firstElementChild.tagName.toLowerCase() !== 'code') {
       return;
