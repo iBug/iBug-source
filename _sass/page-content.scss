@@ -81,6 +81,44 @@ section.page__content {
     margin-right: auto;
   }
 
+  pre {
+    .copy-button {
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      z-index: 1;
+      background: none;
+      border: none;
+      border-radius: 0.1em;
+      padding: 0.2em 0.5em;
+      color: white;
+      opacity: 0.1;
+      transition: color 0.25s linear, opacity 0.25s linear;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+      }
+    }
+
+    &:hover .copy-button {
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
   .notice,
   .notice--primary,
   .notice--info,
