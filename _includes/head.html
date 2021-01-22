@@ -14,7 +14,12 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | append: '?v=' | append: site.git.last_commit.short_sha }}">
 <link rel="stylesheet" href="https://static.ibugone.com/fontawesome/5/css/all.min.css">
-<script src="/assets/js/clipboard.js" async defer></script>
+
+{% comment %} Load extra scripts *except* CI {% endcomment %}
+{% unless site.env.CI %}
+  <script src="{{ "/assets/js/clipboard.js" | relative_url }}" async defer></script>
+  <script src="{{ "/assets/js/love.js" | relative_url }}" async defer></script>
+{% endunless %}
 
 <!--[if IE]>
   <style>

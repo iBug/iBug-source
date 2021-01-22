@@ -16,6 +16,9 @@ if command -v jq &>/dev/null; then
 fi
 
 if command -v npx &>/dev/null && [ -e package-lock.json ]; then
+  # Combine all JS files into one
+  npx uglifyjs "$SRC"/assets/js/{main.min,clipboard,love}.js -c -m -o "$SRC"/assets/js/main.min.js
+
   npx postcss "$SRC"/assets/css/main.css --use autoprefixer --replace --no-map
 fi
 
