@@ -41,7 +41,7 @@ $(document).ready(function() {
     }
     if (!codeBlock) {
       // No <code> found - wtf?
-      throw new Error("No code block found beside this button. This is unexpected.");
+      throw new Error("No code block found beside this button.");
     }
     return copyText(codeBlock.innerText);
   };
