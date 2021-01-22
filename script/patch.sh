@@ -15,7 +15,7 @@ if command -v jq &>/dev/null; then
   mv /tmp/redirects.json "$SRC/redirects.json"
 fi
 
-if command -v npx &>/dev/null && [ -e package-lock.json ]; then
+if command -v npx &>/dev/null && [ -e package.json ]; then
   # Combine all JS files into one
   npx uglifyjs "$SRC"/assets/js/{main.min,clipboard,love}.js -c -m -o "$SRC"/assets/js/main.min.js
 

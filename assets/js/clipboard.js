@@ -49,6 +49,10 @@ $(document).ready(function() {
   $(".page__content pre > code").each(function() {
     // Locate the <pre> element
     const container = $(this).parent();
+    // Sanity check - don't add an extra button if there's already one
+    if (container.firstElementChild.tagName.toLowerCase() !== 'code') {
+      return;
+    }
     var copyButton = document.createElement("button");
     copyButton.title = "Copy to clipboard";
     copyButton.className = "copy-button";
