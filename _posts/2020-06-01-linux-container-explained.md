@@ -455,9 +455,76 @@ int filter_syscall(void) {
 
 ## Resource restriction
 
-The last part to talk about is restricting container resources. Surely we don't want a container to overuse system resources like CPU or RAM and make the host system less stable. Linux Control Groups (Cgroups) is designed for efficient resource constraint that we're going to make use of. There are many "cgroup systems" for different aspects of system resources, including CPU, RAM and even disk I/O. Looks pretty neat, right?
+The last part we'll visit is restricting container resources. Surely we don't want a container to overuse system resources like CPU or RAM and make the host system less stable. Linux Control Groups (Cgroups) is designed for efficient resource constraint that we're going to make use of. There are many "cgroup systems" for different aspects of system resources, including CPU, RAM and even disk I/O. Looks pretty neat, right?
 
 Unlike other parts we've built so far, cgroup doesn't use system calls for setup and configuration, but a filesystem-based interface instead, like those in `/proc` or `/sys`. In fact, the cgroup control interface resides exactly under `/sys`, at `/sys/fs/cgroup`. With this interface, we read and write "files" to change configuration values, and create and delete directories to add or remove structures.
+
+There are multiple cgroup "controllers" working on different aspects of system resources, each having a distinct tree structure under `/sys/fs/cgroup`. So first we'll examine what cgroup controllers are available:
+
+```console
+root@ubuntu:~# ls /sys/fs/cgroup
+blkio        cpuacct  freezer  net_cls           perf_event  systemd
+cpu          cpuset   hugetlb  net_cls,net_prio  pids        unified
+cpu,cpuacct  devices  memory   net_prio          rdma
+```
+
+Here we're interested in some of them, namely, `blkio`, `cpu`, `memory` and `pids`.
+
+Let's first take a look at `pids`. We'll create our own subtree to start with:
+
+```console
+root@ubuntu:~# mkdir /sys/fs/cgroup/pids/ispawn
+root@ubuntu:~# ls /sys/fs/cgroup/pids/ispawn
+cgroup.clone_children  notify_on_release  pid.events  tasks
+cgroup.procs           pid.current        pid.max
+```
+
+It's easily imagined that `pid.max` controls the maximum number of PIDs in this subsystem, so let's write something to it:
+
+```console
+root@ubuntu:~# echo 16 > /sys/fs/cgroup/pids/ispawn/pid.max
+```
+
+To verify that it's working, make an attempt to exceed the limit. Open another shell and find its pid with `echo $$`. Write the number that you see (it's the PID of the new shell) to `/sys/fs/cgroup/pids/ispawn/cgroup.procs`. You can verify that the new process has been added to the subsystem by reading that `cgroup.procs` files out, and you'll see the PID you just written.
+
+Now switch to the new shell and try spawning a lot of subprocesses, for example:
+
+```shell
+for i in {1..20}; do /bin/sleep 10; done
+```
+
+You can see the shell output as *Operation not permitted* for 5 to 6 times. This means it has hit the PID cap and fails to spawn more processes.
+
+In our C-based container program, we'll do this in the parent process. The code is intuitively simple.
+
+```c
+mkdir("/sys/fs/cgroup/pids/ispawn", 0777);
+FILE *fp = fopen("/sys/fs/cgroup/pids/ispawn/pid.max", "w");
+fprintf(fp, "%d", 16);
+fclose(fp);
+FILE *fp = fopen("/sys/fs/cgroup/pids/ispawn/cgroup.procs", "w");
+fprintf(fp, "%d", pid); // pid of the child process
+fclose(fp);
+```
+
+We can now proceed to setting other limits:
+
+- To reduce CPU shares, we write to `cpu/cpu.shares`. Because CPU shares are relative to each other and the system default is usually 1024, setting the value to 256 for our container gives it 1/4 as much CPU as other processes when the system load goes up. (It still gets more CPU when needed and when the system is more idle.)
+- To limit memory usage, we write to `memory/memory.limit_in_bytes` (for userspace memory) and `memory/memory.kmem.limit_in_bytes` (for kernel memory).
+  - However, this limits only physical memory usage, so when swap is present, memory gets swapped out onto disk when it hits the limit. To completely disable swap for our container, set `memory/memory.swappiness` to zero.
+- To reduce disk I/O priority, we write to `blkio/weight`. This is relative to 100 so writing 50 will reduce its disk I/O priority to half.
+- The last thing to note is that the tree hierarchies are independent among different cgroup controllers, so you have to create the same `ispawn` directory in *each* of them, and write `cgroup.procs` inside *each* of them.
+
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-fw fa-lightbulb"></i> Heads up
+{: .no_toc }
+
+The course lab at the time was based on Ubuntu 18.04, which uses Linux kernel 4.15. The cgroup controllers in newer kernels may be very different from what's presented in this article. For example, with Linux 5.4 on Ubuntu 20.04, the keys in PID cgroup begins with `pids.` instead of `pid.`, and `blkio` has a completely different set of available keys. Make sure you examine the cgroup directories before copying and pasting code.
+</div>
+
+### Mounting cgroup controllers inside the container
+
+### A small problem with cgroup namespace
 
 ## Conclusion
 
@@ -467,6 +534,7 @@ Here's the completed container that I wrote, with some bells and whistles added:
 
 - **Linux containers in 500 lines of code** by *Lizzie Dixon* - <https://blog.lizzie.io/linux-containers-in-500-loc.html>
 - Wikipedia articles on ...
+  - [Linux Namespaces][linux-namespaces]
   - [Capability-based security](https://en.wikipedia.org/wiki/Capability-based_security)
   - [SecComp](https://en.wikipedia.org/wiki/Seccomp)
   - [Cgroups](https://en.wikipedia.org/wiki/Cgroups)
