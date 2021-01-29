@@ -596,9 +596,68 @@ void mount_cgroup(void) {
 
 ### A small problem with cgroup namespace
 
+During my experiments, I noticed a strange issue where I could see the host cgroup hierarchies in my container implementation. It turns out that the cgroup "root" inside a cgroup namespace is the subtree the process belongs in when this cgroup namespace is created / isolated. Once the namespaces is created, its root is determined and fixed, even if the "root" process is moved into another subtree later.
+
+This means the child process must be "moved" to the desired cgroup subtree before the cgroup namespace is isolated. This leaves us with two options:
+
+1. The parent process moves itself to the target cgroup subtree before calling `clone()` with `CLONE_NEWCGROUP`
+2. The parent process calls `clone()` without `CLONE_NEWCGROUP`, moves the child process to the target cgroup subtree, and then tells the child process to isolate the cgroup namespace.
+
+It should be noted that with the second option, some kind of "syncing" is needed to avoid the child process going too quickly to perform the cgroup namespace isolation before the parent process finishes its job. It's easy to come up with a solution that just works: We can create a pipe between the processes, where the parent process can send something to tell the child process that it's ready.
+
+With this in mind, the second option is actually [easier to implement][cc4dcb1], since there's another system call for isolating namespaces in-place (i.e. without creating a new process), that we put away earlier. It's `unshare(2)`. It's simple to use, too, just call `unshare(CLONE_NEWCGROUP)` when ready.
+
+To verify that this issue is handled correctly, check the content in `/proc/1/cgroup`. The correct result should look like this, where every line ends with a single `/`:
+
+```text
+12:cpuset:/
+11:rdma:/
+10:blkio:/
+9:pids:/
+8:devices:/
+7:net_cls,net_prio:/
+6:memory:/
+5:hugetlb:/
+4:perf_event:/
+3:cpu,cpuacct:/
+2:freezer:/
+1:name=systemd:/
+0::/
+```
+
+With an incorrectly written container, certain lines may have an unexpected value, generally starting with `/../`, for example:
+
+```text
+12:cpuset:/
+11:rdma:/
+10:blkio:/../user.slice
+9:pids:/../user.slice/user-0.slice/
+8:devices:/
+7:net_cls,net_prio:/
+6:memory:/../user.slice/user-0.slice/
+5:hugetlb:/
+4:perf_event:/
+3:cpu,cpuacct:/../user.slice
+2:freezer:/
+1:name=systemd:/
+0::/
+```
+
+As explained above, these paths are "paths to the cgroup location of PID 1 relative to the 'root' of the cgroup namespace". When properly done, the PID 1 should have all of its cgroup hierarchies belonging at "root".
+
+Don't be surprised to see the inconsistent lines from `/proc/1/cgroup`, as a process can be at different locations in different cgroup controllers.
+
+  [cc4dcb1]: https://github.com/iBug/iSpawn/commit/cc4dcb1032e2a4d4fc57491cc904f126b719ba88
+
 ## Conclusion
 
-Here's the completed container that I wrote, with some bells and whistles added: [<i class="fab fa-github"></i> iBug/iSpawn](https://github.com/iBug/iSpawn)
+Now here, at this point, we've gone through all technologies required for a functional and secure Linux container, although our "container" isn't necessarily functional and secure. It's going to be hard work examining and patching all the loopholes for the best security, if you'd like, but the fundamentals have been covered already so there won't be anything new.
+
+There are two namespaces we've skipped in the beginning (three if you count `CLONE_NEWTIME`). They are slightly more complicated to set up and isn't necessary for a container, as Docker doesn't use User Namespaces and systemd-nspawn doesn't use Network Namespaces by default.
+
+There are also more to consider if you want multiple containers to run simultaneously. One notable thing is that each should have a separete cgroup subtree. Avoiding mount point conflict in race conditions is another thing to take into account.
+
+Should you want a ready-to-use example to play with, here's the complete code that I wrote, with some bells and whistles added: [<i class="fab fa-github"></i> iBug/iSpawn](https://github.com/iBug/iSpawn). Keep in mind that it's wrote for Ubuntu 18.04 and things could have been changed drastically, so it may not work in your system.
 
 ### Further reading
 
