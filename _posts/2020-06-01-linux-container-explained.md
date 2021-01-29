@@ -28,6 +28,13 @@ In case you want to find out the exact system calls involved in a command-line t
 
   [strace]: https://strace.io/
 
+<div class="notice--warning" markdown="1">
+#### <i class="fas fa-exclamation-triangle"></i> Code samples has a different license than this article
+{: .no_toc }
+
+While this article is licensed under the CC BY-SA 4.0 license, code samples and snippets are taken from the GitHub repository, which is licensed under [the GPL-3.0 license](https://github.com/iBug/iSpawn/blob/master/LICENSE).
+</div>
+
 ## Experimenting with isolation {#experimenting}
 
 ### Preparing the root filesystem {#rootfs}
@@ -219,6 +226,26 @@ mount -t sysfs sysfs /sys
 mount -t tmpfs tmpfs /tmp
 ```
 
+You can then run `mount` without arguments to see the mount results.
+
+```text
+sysfs on /sys type sysfs (rw,relatime)
+proc on /proc type proc (rw,relatime)
+tmpfs on /dev type devtmpfs (rw,relatime)
+tmpfs on /tmp type tmpfs (rw,relatime)
+```
+
+If you compare this with the mount points in your host system, you may notice something different.
+
+```text
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+udev on /dev type devtmpfs (rw,nosuid,noexec,relatime,size=65895752k,nr_inodes=16473938,mode=755)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,noexec,relatime,size=13191916k,mode=755)
+```
+
+The extra flags (`nosuid,nodev,noexec`) control the behavior of the mount point. For example, `nosuid` means the set-uid bit will be ignored for entries under the mount point, while `noexec` prevents any execution of programs from inside.
+
 Now we're going to do it in C. The system call is also named `mount`, and has the following signature:
 
 ```c
@@ -236,7 +263,10 @@ mount("sysfs", "/sys", "sysfs", 0, NULL);
 mount("tmpfs", "/tmp", "tmpfs", 0, NULL);
 ```
 
-But keep in mind, it in no way implies that the last two parameters are useless. They're simply not used for now, but for sure they'll play a role later.
+The fourth parameter corresponds to the flags we discussed above. All applicable flags can be found in the man page for [`mount(2)`][mount.2].
+
+Keep in mind that, however, the last parameter isn't entirely useless. It's simply not used for now, but it'll play a role later. (Actually, you may have noticed already. Good job for that.)
+{#mount-data-parameter}
 
 ## pivot\_root
 
@@ -524,6 +554,46 @@ The course lab at the time was based on Ubuntu 18.04, which uses Linux kernel 4.
 
 ### Mounting cgroup controllers inside the container
 
+To enable applications in our container to use cgroup controllers, we must mount them inside. Like how we mounted `/sys`, `/tmp` and other filesystems, we check the output of `mount` to determine how we're going to call `mount(2)`.
+
+```text
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+```
+
+Everything looks similar to what we've just done, but there's one different thing: There's no mount flag for `pids`.
+
+Recalling [we skipped the last parameter of `mount`](#mount-data-parameter), now it's time to pick it back up. Fortunately, it isn't too complicated. For our use case, we can just pass the string `"pids"` to that parameter, and we swap the string for another to mount another cgroup controller. You can read the man page for [`cgroups(7)`][cgroups.7] about this, look for *Mounting v1 controllers*.
+
+To mimic the monut points on our host system, we additionally mount a tmpfs at `/sys/fs/cgroup`, and remount this mountpoint as read-only after adding the controllers. The final result looks like this:
+
+```c
+void mount_cgroup(void) {
+    int cgmountflags = MS_NOSUID | MS_NODEV | MS_NOEXEC | MS_RELATIME;
+    // Mount a tmpfs first
+    mount("none", "sys/fs/cgroup", "tmpfs", cgmountflags, "mode=755");
+
+    // Prepare mount points
+    mkdir("sys/fs/cgroup/blkio", 0755);
+    mkdir("sys/fs/cgroup/cpu,cpuacct", 0755);
+    mkdir("sys/fs/cgroup/memory", 0755);
+    mkdir("sys/fs/cgroup/pids", 0755);
+
+    // Mount cgroup subsystems
+    mount("cgroup", "sys/fs/cgroup/blkio", "cgroup", cgmountflags, "blkio");
+    mount("cgroup", "sys/fs/cgroup/cpu,cpuacct", "cgroup", cgmountflags, "cpu,cpuacct");
+    mount("cgroup", "sys/fs/cgroup/memory", "cgroup", cgmountflags, "memory");
+    mount("cgroup", "sys/fs/cgroup/pids", "cgroup", cgmountflags, "pids");
+
+    // cpu and cpuacct need symlinks
+    symlink("cpu,cpuacct", "sys/fs/cgroup/cpu");
+    symlink("cpu,cpuacct", "sys/fs/cgroup/cpuacct");
+
+    // Remount the tmpfs as R/O
+    mount(NULL, "sys/fs/cgroup", NULL, MS_REMOUNT | MS_RDONLY | cgmountflags, NULL);
+    return 0;
+}
+```
+
 ### A small problem with cgroup namespace
 
 ## Conclusion
@@ -548,6 +618,8 @@ Here's the completed container that I wrote, with some bells and whistles added:
 
   [unshare.2]: https://man7.org/linux/man-pages/man2/unshare.2.html
   [clone.2]: https://man7.org/linux/man-pages/man2/clone.2.html
+  [mount.2]: https://man7.org/linux/man-pages/man2/mount.2.html
   [pivot_root.2]: https://man7.org/linux/man-pages/man2/pivot_root.2.html
+  [cgroups.7]: https://man7.org/linux/man-pages/man7/cgroups.7.html
 
   [OJSandbox]: {{ "/project/OJSandbox/" | relative_url }}
