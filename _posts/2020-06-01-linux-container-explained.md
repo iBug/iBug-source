@@ -18,24 +18,26 @@ Since years ago, containers have been a hot topic everywhere. There are many con
   [lxc]: https://linuxcontainers.org/
   [singularity]: https://sylabs.io/singularity/
 
-The actual motivation was (quite) a bit different, though, as I am the TA of *Operating Systems (H)* this semester, and I want to inject a spirit of innovation into the course labs, so I worked this out very early.
+The actual motivation was (quite) a bit different, though, as I was a TA of *Operating Systems (H)* in Spring 2020, and I wanted to bring a wave of innovation into the course labs, so I worked this out very early.
 
-The contents in this article are listed in the Table of Contents on the right (if you're on a computer) or at the top of this page (if you're on a mobile). The GitHub repository containing my implementation and the original lab documents (which is also written primarily by me, in Chinese) are linked under the title.
+The contents in this article are listed in the Table of Contents <span class="wide-only">on the right</span><span class="nonwide-only">at the top of this page</span>. My implementation in my GitHub repository and the original lab documents (which is also written primarily by me, in Chinese) are linked right above.
 
-My test environment is Ubuntu 18.04 LTS (Kernel 5.3) and 20.04 LTS (Kernel 5.4). In case of any difference, you can consult Google for details.
+My test environment is Ubuntu 18.04 LTS (Kernel 5.3, HWE 18.04). In case of any difference, you can consult Google for details.
 
-In case you want to find out the exact system calls involved in a command-line tool, [`strace`][strace] is your friend.
+If you want to find out the exact system calls involved in a command-line tool, [`strace`][strace] is your friend.
 
   [strace]: https://strace.io/
 
 <div class="notice--warning" markdown="1">
-#### <i class="fas fa-exclamation-triangle"></i> Code samples has a different license than this article
+#### <i class="fas fa-exclamation-triangle"></i> Code samples have a different license than this article
 {: .no_toc }
 
 While this article is licensed under the CC BY-SA 4.0 license, code samples and snippets are taken from the GitHub repository, which is licensed under [the GPL-3.0 license](https://github.com/iBug/iSpawn/blob/master/LICENSE).
 </div>
 
 ## Experimenting with isolation {#experimenting}
+
+Before we jump straight to writing code, let's warm ourselves up by playing with an existing, minimal container implementation, to get a better idea of our target.
 
 ### Preparing the root filesystem {#rootfs}
 
@@ -267,6 +269,33 @@ The fourth parameter corresponds to the flags we discussed above. All applicable
 
 Keep in mind that, however, the last parameter isn't entirely useless. It's simply not used for now, but it'll play a role later. (Actually, you may have noticed already. Good job for that.)
 {#mount-data-parameter}
+
+### Creating device nodes
+
+Now that we have an empty `/dev` directory, we should populate it with some device nodes so that software expecting their presence could work. At a minimum, we need `null`, `zero`, `random` and `urandom`, but you can add `tty` and `console` if you want (these two are a bit different - you have been warned).
+
+Device nodes are created with [`mknod(2)`][mknod.2], whose prototype is:
+
+```c
+int mknod(const char *path, mode_t mode, dev_t dev);
+```
+
+With a little research effort, we know we'll call it like this:
+
+```c
+mknod("/dev/something", S_IFCHR | 0666, makedev(MAJOR, MINOR));
+```
+
+To determine the device node numbers, you can take a look at the same nodes in the host system, using `ls -l` or `stat`. Don't worry, the numbers for special devices remain the same across Linux distros, [unlike BSD systems][bsd-node-ids]. It shouldn't take long before you come to this:
+
+```c
+mknod("dev/null", S_IFCHR | 0666, makedev(1, 3));
+mknod("dev/zero", S_IFCHR | 0666, makedev(1, 5));
+mknod("dev/random", S_IFCHR | 0666, makedev(1, 8));
+mknod("dev/urandom", S_IFCHR | 0666, makedev(1, 9));
+```
+
+  [bsd-node-ids]: https://unix.stackexchange.com/a/354985/211239
 
 ## pivot\_root
 
@@ -549,7 +578,7 @@ We can now proceed to setting other limits:
 #### <i class="fas fa-fw fa-lightbulb"></i> Heads up
 {: .no_toc }
 
-The course lab at the time was based on Ubuntu 18.04, which uses Linux kernel 4.15. The cgroup controllers in newer kernels may be very different from what's presented in this article. For example, with Linux 5.4 on Ubuntu 20.04, the keys in PID cgroup begins with `pids.` instead of `pid.`, and `blkio` has a completely different set of available keys. Make sure you examine the cgroup directories before copying and pasting code.
+The course lab at the time was based on Ubuntu 18.04 with Linux kernel 5.3 (18.04 HWE). The cgroup controllers in newer kernels may be very different from what's presented in this article. For example, with Linux 5.4 on Ubuntu 20.04, the keys in PID cgroup begins with `pids.` instead of `pid.`, and `blkio` has a completely different set of available keys. Make sure you examine the cgroup directories before copying and pasting code.
 </div>
 
 ### Mounting cgroup controllers inside the container
@@ -678,6 +707,7 @@ Should you want a ready-to-use example to play with, here's the complete code th
   [unshare.2]: https://man7.org/linux/man-pages/man2/unshare.2.html
   [clone.2]: https://man7.org/linux/man-pages/man2/clone.2.html
   [mount.2]: https://man7.org/linux/man-pages/man2/mount.2.html
+  [mknod.2]: https://man7.org/linux/man-pages/man2/mknod.2.html
   [pivot_root.2]: https://man7.org/linux/man-pages/man2/pivot_root.2.html
   [cgroups.7]: https://man7.org/linux/man-pages/man7/cgroups.7.html
 

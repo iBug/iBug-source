@@ -30,6 +30,22 @@ ul, ol {
   margin: 0.2rem 0.2rem 0.4rem;
 }
 
+.wide-only {
+  display: none;
+
+  @include breakpoint($large) {
+    display: initial;
+  }
+}
+
+.nonwide-only {
+  @include breakpoint($large) {
+    display: none;
+  }
+}
+
+// ================
+
 html {
   box-sizing: border-box;
   font-size: 14px;
