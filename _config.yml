@@ -203,6 +203,7 @@ future: true
 # Conversion
 markdown: kramdown
 highlighter: rouge
+future: true
 lsi: false  # *Very* slow
 excerpt_separator: "\n\n"
 incremental: false
