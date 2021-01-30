@@ -12,6 +12,7 @@ jobs:
     env:
       SSH_KEY_E: ${{ secrets.SSH_KEY_E }}
       LSI: 'true'
+      TZ: Etc/UTC
     steps:
     - uses: actions/checkout@v2
       with:
@@ -58,7 +59,7 @@ jobs:
     - name: Prepare build
       run: bash script/prepare.sh
     - name: Build site
-      run: bundle exec jekyll build --trace --profile --lsi
+      run: bundle exec jekyll build --trace --profile --lsi --future
       env:
         JEKYLL_ENV: production
         JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
