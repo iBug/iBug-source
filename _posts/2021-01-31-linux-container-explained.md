@@ -1,5 +1,6 @@
 ---
-title: "A Deep Dive into Containers, in C"
+title: "A Deep Dive into Containers"
+description: "Let's write our own container in C, from scratch"
 tagline: "Let's write our own container in C, from scratch"
 tags: linux container c
 redirect_from: /p/23
