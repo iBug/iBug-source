@@ -266,9 +266,9 @@ mount("tmpfs", "/tmp", "tmpfs", 0, NULL);
 The fourth parameter corresponds to the flags we discussed above. All applicable flags can be found in the man page for [`mount(2)`][mount.2].
 
 Keep in mind that, however, the last parameter isn't entirely useless. It's simply not used for now, but it'll play a role later. (Actually, you may have noticed already. Good job for that.)
-{#mount-data-parameter}
+{: #mount-data-parameter }
 
-### Creating device nodes
+### Creating device nodes {#device-nodes}
 
 Now that we have an empty `/dev` directory, we should populate it with some device nodes so that software expecting their presence could work. At a minimum, we need `null`, `zero`, `random` and `urandom`, but you can add `tty` and `console` if you want (these two are a bit different - you have been warned).
 
@@ -295,7 +295,7 @@ mknod("dev/urandom", S_IFCHR | 0666, makedev(1, 9));
 
   [bsd-node-ids]: https://unix.stackexchange.com/a/354985/211239
 
-## pivot\_root
+## pivot\_root {#pivot-root}
 
 We're ready with mounts, so now we can take a look at switching the root filesystem for our container.
 
@@ -396,7 +396,7 @@ SecComp (Secure Computing) is a security module in Linux that lets a process to 
 
 Seccomp BPF extends the seccomp module with Berkeley Packer Filter (BPF), an embedded instruction set that allows highly customized seccomp rules to be deployed. With BPF, you can create custom logic for system call filtering, including matching and testing individual system call arguments.
 
-## System call filtering
+## System call filtering {#syscall-filter}
 
 To ensure full control, we're using a whitelist for system calls. This means any unknown one will be rejected. So we'll start by creating a new "SecComp filter context", and set the default action to "reject". By "reject", we'll return "permission denied" when a process tries to call it.
 
@@ -406,7 +406,7 @@ scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ERRNO(1));
 
 The `SCMP_ACT_ERRNO(1)` refers exactly to "respond with EPERM", which will be hit if no other filters apply.
 
-### System call whitelist
+### System call whitelist {#syscall-whitelist}
 
 We'll now add each "safe" system call to our filter and set it to "allowed". To save some time scratching your head examining each system call, we'll adopt [Docker's syscall whitelist][docker-syscalls]. Each system call will be wrapped in `SCMP_SYS` so it's turned into a suitable number used inside SecComp.
 
@@ -465,7 +465,7 @@ for (int i = 0; i < allowed_syscalls_len; i++) {
 }
 ```
 
-### Loading SecComp filter
+### Loading SecComp filter {#loading-seccomp}
 
 After our filter has been constructed, we can load it onto our process for it to take effect.
 
@@ -481,11 +481,11 @@ seccomp_release(ctx);
 
 ### Caveats {#seccomp-caveats}
 
-#### Incompatible system calls
+#### Incompatible system calls {#seccomp-incompatible-syscalls}
 
 As I worked this out on an Ubuntu 18.04 environment, some newer system calls weren't available in my system headers, like the `io_uring`-related ones that are introduced in Linux 5.1. You can safely comment out any of them that your compiler complains about not recognizing. There shouldn't be too many of them if your environment is up-to-date, though.
 
-#### Precautionary checking
+#### Precautionary checking {#seccomp-checking}
 
 As it's too common for one of the function calls to fail, I've added sanity checks for them. Here's the complete code of this part.
 
@@ -510,7 +510,7 @@ int filter_syscall(void) {
 
   [docker-syscalls]: https://github.com/moby/moby/blob/master/profiles/seccomp/default.json
 
-## Resource restriction
+## Resource restriction {#cgroups}
 
 The last part we'll visit is restricting container resources. Surely we don't want a container to overuse system resources like CPU or RAM and make the host system less stable. Linux Control Groups (Cgroups) is designed for efficient resource constraint that we're going to make use of. There are many "cgroup systems" for different aspects of system resources, including CPU, RAM and even disk I/O. Looks pretty neat, right?
 
@@ -579,7 +579,7 @@ We can now proceed to setting other limits:
 The course lab at the time was based on Ubuntu 18.04 with Linux kernel 5.3 (18.04 HWE). The cgroup controllers in newer kernels may be very different from what's presented in this article. For example, with Linux 5.4 on Ubuntu 20.04, the keys in PID cgroup begins with `pids.` instead of `pid.`, and `blkio` has a completely different set of available keys. Make sure you examine the cgroup directories before copying and pasting code.
 </div>
 
-### Mounting cgroup controllers inside the container
+### Mounting cgroup controllers inside the container {#mount-cgroup-controllers}
 
 To enable applications in our container to use cgroup controllers, we must mount them inside. Like how we mounted `/sys`, `/tmp` and other filesystems, we check the output of `mount` to determine how we're going to call `mount(2)`.
 
@@ -621,7 +621,7 @@ void mount_cgroup(void) {
 }
 ```
 
-### A small problem with cgroup namespace
+### A small problem with cgroup namespace {#cgroup-namespace-caveat}
 
 During my experiments, I noticed a strange issue where I could see the host cgroup hierarchies in my container implementation. It turns out that the cgroup "root" inside a cgroup namespace is the subtree the process belongs in when this cgroup namespace is created / isolated. Once the namespaces is created, its root is determined and fixed, even if the "root" process is moved into another subtree later.
 
