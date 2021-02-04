@@ -9,7 +9,7 @@ redirect_from: /p/38
 #### <i class="fas fa-fw fa-lightbulb"></i> Heads up
 {: .no_toc }
 
-I wrote [another article]({% post_url 2018-04-14-build-github-pages-with-travis-ci %}) two years ago about building with Travis CI, but from my experience in the past half year, GitHub Actions is, in all aspects, a better option than Travis CI.
+I wrote [another article]({% post_url 2018/2018-04-14-build-github-pages-with-travis-ci %}) two years ago about building with Travis CI, but from my experience in the past half year, GitHub Actions is, in all aspects, a better option than Travis CI.
 
 You should also read that article if you're unfamiliar with [Jekyll][jekyll], as I won't be repeating common basics. This article will focus on GitHub Actions rather than building a Jekyll site in general.
 </div>
@@ -21,7 +21,7 @@ Yep, an article is missing for CircleCI, but why is it still needed? GitHub Acti
 
 ## 1. Review
 
-In [my previous article]({% post_url 2018-04-14-build-github-pages-with-travis-ci %}) on building with Travis CI, we went through the steps of setting up a local build environment for our Jekyll site. We set up a Ruby development environment, installed `gem` and `bundle`, wrote a `Gemfile`, and built the Jekyll site locally.
+In [my previous article]({% post_url 2018/2018-04-14-build-github-pages-with-travis-ci %}) on building with Travis CI, we went through the steps of setting up a local build environment for our Jekyll site. We set up a Ruby development environment, installed `gem` and `bundle`, wrote a `Gemfile`, and built the Jekyll site locally.
 
 If you're not yet ready for this part, check out that article first. I'm going straight to the main content this time.
 
