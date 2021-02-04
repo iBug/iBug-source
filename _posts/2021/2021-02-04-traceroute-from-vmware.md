@@ -10,7 +10,7 @@ Today when I was running some networking diagnostics from an Ubuntu inside VMwar
 
 This doesn't look right. Googling around brought me to this page: [traceroute from Ubuntu just shows first and last hops on VMPlayer 3.1.4 - VMware Technology Network VMTN](https://communities.vmware.com/t5/VMware-Workstation-Player/traceroute-from-Ubuntu-just-shows-first-and-last-hops-on/m-p/1677263)
 
-The answers below mentioned two points:
+The answers in that thread mentioned two points:
 
 - *On the other hand once I switched to bridge, everything works.*
 - *What about the intermediary requests, well the answers come back but somehow they are blocked by the Windows firewall.*
