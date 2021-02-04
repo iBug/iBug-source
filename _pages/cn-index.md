@@ -16,4 +16,6 @@ sidebar:
 words_per_minute: 500
 ---
 
+<p style="margin-top: 0;">
 Note: these articles are often written for another task and generally aren't maintained anymore.
+</p>

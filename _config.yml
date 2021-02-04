@@ -370,8 +370,8 @@ defaults:
       #classes: wide
       no_pagination: true
       header:
-        overlay_image: "/image/header/water-3.jpg"
-        overlay_filter: 0.2
+        overlay_image: "/image/header/water-4.jpg"
+        #overlay_filter: 0.2
   - scope:
       path: ""
       type: share
