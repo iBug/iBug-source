@@ -110,6 +110,14 @@ div.page__hero--overlay {
       display: none;
     }
   }
+
+  .page__hero-caption {
+    transition: opacity 0.3s linear;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .page__meta-sep {
