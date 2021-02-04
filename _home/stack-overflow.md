@@ -53,6 +53,7 @@ toc: true
 
 - [Windows SSH: Permissions for 'private-key' are too open](https://superuser.com/a/1296046/688600) (Super User, score 200+)
 - [How are Core iX names like Core i5, i7 related to Haswell, Ivy Bridge?](https://superuser.com/a/1434948/688600)
+- [traceroute shows just \* \* \* in linux (in a virtual machine), although displays all IPs in windows correctly](https://superuser.com/a/1623001/688600) (Networking, Windows)
 - [Prevent user from installing software](https://superuser.com/a/1279935/688600)
 - [Can I upgrade my existing Ubuntu installation in WSL from 16.04 to 18.04?](https://superuser.com/a/1317981/688600)
 - [Why do Android phones have more cores than computers?](https://android.stackexchange.com/a/176503/205764) (Android)
