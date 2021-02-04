@@ -147,6 +147,22 @@ text-align: center;
 }
  */
 
+.search-content {
+  position: relative;
+  margin-top: 4em;
+
+  &::before {
+    content: '';
+    height: 4em;
+    position: absolute;
+    top: -4em;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: mix($primary-color, #00ef98, 90%);
+  }
+}
+
 .pagination {
   text-align: center;
 
