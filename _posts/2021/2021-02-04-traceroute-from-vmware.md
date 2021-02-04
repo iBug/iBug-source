@@ -39,7 +39,7 @@ This unfortunately somehow "broke" the connection tracking mechanism in Windows 
 
 ## The solution
 
-<div class="notice--primary" markdown="1">
+<div class="notice--warning" markdown="1">
 #### <i class="fas fa-shield-check"></i> The short solution
 {: .no_toc }
 
