@@ -25,16 +25,16 @@ noindex: true
 
   <dt>
     Continuous Integration
-    <!--a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Travis CI" /></a-->
-    <a href="https://circleci.com/gh/iBug/iBug-source"><img src="https://circleci.com/gh/iBug/iBug-source.svg?style=shield" alt="CircleCI" /></a>
-    <a href="https://github.com/iBug/iBug-source/actions"><img src="https://github.com/iBug/iBug-source/workflows/build/badge.svg" alt="GitHub Actions" /></a>
+    <!--a href="https://travis-ci.org/{{ site.repository }}"><img src="https://travis-ci.org/{{ site.repository }}.svg?branch=master" alt="Travis CI" /></a-->
+    <a href="https://circleci.com/gh/{{ site.repository }}"><img src="https://circleci.com/gh/{{ site.repository }}.svg?style=shield" alt="CircleCI" /></a>
+    <a href="https://github.com/{{ site.repository }}/actions"><img src="https://github.com/{{ site.repository }}/workflows/build/badge.svg" alt="GitHub Actions" /></a>
   </dt>
   {% if site.env.TRAVIS_BUILD_ID %}
-    <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}{% if site.env.TRAVIS_EVENT_TYPE == "cron" %} &#9200;{% endif %}</a></dd>
+    <dd>This site is deployed from <a href="https://travis-ci.org/{{ site.repository }}/builds/{{ site.env.TRAVIS_BUILD_ID }}">Travis CI build {{ site.env.TRAVIS_BUILD_NUMBER }}{% if site.env.TRAVIS_EVENT_TYPE == "cron" %} &#9200;{% endif %}</a></dd>
   {% elsif site.env.CIRCLE_BUILD_NUM %}
-    <dd>This site is deployed from <a href="https://circleci.com/gh/iBug/iBug-source/{{ site.env.CIRCLE_BUILD_NUM }}">CircleCI build {{ site.env.CIRCLE_BUILD_NUM }}{% if site.env.CRON %} &#9200;{% endif %}</a></dd>
+    <dd>This site is deployed from <a href="https://circleci.com/gh/{{ site.repository }}/{{ site.env.CIRCLE_BUILD_NUM }}">CircleCI build {{ site.env.CIRCLE_BUILD_NUM }}{% if site.env.CRON %} &#9200;{% endif %}</a></dd>
   {% elsif site.env.GITHUB_ACTION %}
-    <dd>This site is deployed from <a href="https://github.com/iBug/iBug-source/actions/runs/{{ site.env.GITHUB_RUN_ID }}">GitHub Actions build {{ site.env.GITHUB_RUN_NUMBER }}</a></dd>
+    <dd>This site is deployed from <a href="https://github.com/{{ site.repository }}/actions/runs/{{ site.env.GITHUB_RUN_ID }}">GitHub Actions build {{ site.env.GITHUB_RUN_NUMBER }}</a></dd>
   {% else %}
     <dd>This site is not deployed from Continuous Integration.</dd>
   {% endif %}
@@ -55,8 +55,4 @@ noindex: true
   showTime();
 </script>
 
-<style>
-.git-author {
-  font-weight: bold;
-}
-</style>
+<style>.git-author { font-weight: bold; }</style>
