@@ -48,7 +48,11 @@ section.page__content {
     font-size: 1em;
   }
 
-  h2, h3, h4, h5, h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 1.5em;
 
     &:nth-child(2) {
@@ -111,7 +115,7 @@ section.page__content {
       }
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         right: 0;
@@ -138,7 +142,12 @@ section.page__content {
   .notice--danger {
     font-size: 0.91em !important;
 
-    > h1, > h2, > h3, > h4, > h5, > h6 {
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
       &:first-child {
         margin-top: 0;
       }
@@ -147,6 +156,14 @@ section.page__content {
 
   .notice--danger {
     background-color: #ffecec;
+  }
+
+  .btn--primary,
+  .btn--success,
+  .btn--warning,
+  .btn--danger,
+  .btn--info {
+    color: white;
   }
 
   dd {
