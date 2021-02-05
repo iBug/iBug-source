@@ -2,6 +2,9 @@
 title: "Friends"
 comments: false
 share: false
+header:
+  overlay_image: /image/header/color-1.jpg
+  overlay_filter: 0.2
 
 friends:
   - name: taoky
