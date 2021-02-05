@@ -9,8 +9,10 @@ body.landing {
   //  @include cute-font;
   //}
 
-  //background-color: #EEE;
-  //background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/image/mm/splash.jpg');
+  #main {
+    padding-top: 2em;
+  }
+
   div.masthead {
     .greedy-nav {
       .hidden-links {

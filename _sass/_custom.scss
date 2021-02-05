@@ -82,14 +82,15 @@ div.page__footer footer {
 div.page__hero--overlay {
   text-align: center;
   padding-top: 8em;
+  padding-bottom: 3em;
   margin-bottom: 0;
 
   .page__title, .page__meta, .comment__date, .page__lead, .btn, #goog-wm-sb {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
   }
 
-  + #main {
-    padding-top: 2em;
+  .page__title:last-child {
+    padding-bottom: 1rem;
   }
 
   a.btn {
