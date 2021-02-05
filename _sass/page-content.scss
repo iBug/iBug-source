@@ -3,8 +3,19 @@ section.page__content {
     margin-top: 0 !important;
   }
 
+  .toc__menu a {
+    color: $text-color;
+  }
+
   a {
     word-break: break-word;
+    color: mix($primary-color, $text-color, 75%);
+    text-decoration-line: underline;
+    transition: text-decoration-color 0.2s linear;
+
+    &:not(:hover) {
+      text-decoration-color: transparent;
+    }
   }
 
   h1 {
