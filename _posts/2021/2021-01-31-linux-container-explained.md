@@ -5,6 +5,8 @@ tagline: "Let's write our own container in C, from scratch"
 tags: linux container c
 redirect_from: /p/23
 header:
+  overlay_image: /image/header/path-1b.jpg
+  overlay_filter: 0.1
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/iSpawn
