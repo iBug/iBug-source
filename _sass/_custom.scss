@@ -159,6 +159,7 @@ text-align: center;
     left: 0;
     right: 0;
     z-index: -1;
+    background: url("/image/header/thin/whimsical.png") center/cover no-repeat;
     background-color: mix($primary-color, #00ef98, 90%);
   }
 }

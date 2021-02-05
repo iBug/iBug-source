@@ -13,7 +13,7 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | append: '?v=' | append: site.git.last_commit.short_sha }}">
-<link rel="stylesheet" href="https://static.ibugone.com/fontawesome/5/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iBug-web/static/fontawesome/5/css/all.min.css">
 
 <!--[if IE]>
   <style>
@@ -29,9 +29,3 @@
     }
   </style>
 <![endif]-->
-
-{% if site.head_scripts %}
-  {% for script in site.head_scripts %}
-    <script src="{{ script | relative_url }}"></script>
-  {% endfor %}
-{% endif %}
