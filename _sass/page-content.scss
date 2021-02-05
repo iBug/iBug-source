@@ -3,8 +3,15 @@ section.page__content {
     margin-top: 0 !important;
   }
 
+  .toc .nav__title {
+    margin-top: 0;
+    padding: 0.5rem;
+    font-size: 0.8em;
+  }
+
   .toc__menu a {
     color: $text-color;
+    transition: background-color 0.2s linear;
   }
 
   a {
@@ -58,12 +65,6 @@ section.page__content {
     &:nth-child(2) {
       margin-top: 0;
     }
-  }
-
-  .toc .nav__title {
-    margin-top: 0;
-    padding: 0.5rem;
-    font-size: 0.8em;
   }
 
   table {

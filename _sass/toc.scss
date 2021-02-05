@@ -1,6 +1,8 @@
 .sidebar__right.sticky {
-  max-height: calc(100vh - 4em);
-  overflow-y: auto;
+  @include breakpoint($large) {
+    max-height: calc(100vh - 4em);
+    overflow-y: auto;
+  }
 
   &::-webkit-scrollbar {
     width: 2px;
