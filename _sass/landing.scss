@@ -93,6 +93,7 @@ body.landing {
     border-radius: 50%;
     padding: 0.5rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
 
     width: calc(112px + 1rem);
     height: calc(112px + 1rem);
