@@ -4,6 +4,7 @@ div.masthead {
   //background: url("/image/header/thin/whimsical.png") center/cover no-repeat;
 
   nav#site-nav {
+    color: white;
     background: transparent;
 
     a.site-logo {
@@ -20,12 +21,12 @@ div.masthead {
   .greedy-nav > a,
   .visible-links a,
   .search__toggle {
-    color: white;
+    color: inherit;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   }
 
   .hidden-links a {
-    color: white;
+    color: inherit;
   }
 
   .greedy-nav {
@@ -51,7 +52,7 @@ div.masthead {
       }
 
       a {
-        color: white;
+        color: inherit;
       }
     }
 
