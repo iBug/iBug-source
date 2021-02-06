@@ -2,7 +2,7 @@
 title: "Entertainment"
 header:
   overlay_image: "/image/header/games-1.jpg"
-  overlay_filter: 0.2
+  overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
 
 gallery-20191029:
   - url: /image/mssolitaire/20210101-main.png

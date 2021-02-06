@@ -10,7 +10,7 @@ pagination:
   permalink: "/:num/"
 header:
   overlay_image: "/image/header/cloud-1.jpg"
-  overlay_filter: 0.2
+  overlay_filter: linear-gradient(rgba(0, 146, 202, 0.3), transparent 50%)
 sidebar:
   nav: "home"
 words_per_minute: 500

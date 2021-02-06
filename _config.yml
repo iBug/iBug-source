@@ -371,7 +371,6 @@ defaults:
       no_pagination: true
       header:
         overlay_image: "/image/header/water-4.jpg"
-        #overlay_filter: 0.2
   - scope:
       path: ""
       type: share
@@ -412,7 +411,7 @@ defaults:
       toc_icon: "th-list"
       header:
         overlay_image: "/image/header/cloud-1.jpg"
-        overlay_filter: 0.2
+        overlay_filter: linear-gradient(rgba(0, 146, 202, 0.4), transparent 50%)
   - scope:
       path: ""
       type: tag

@@ -4,7 +4,7 @@ comments: false
 share: false
 header:
   overlay_image: /image/header/color-1.jpg
-  overlay_filter: 0.2
+  overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
 
 friends:
   - name: taoky
