@@ -108,11 +108,11 @@ section.page__content {
       border-radius: 0.1em;
       padding: 0.2em 0.5em;
       color: white;
-      opacity: 0.2;
-      transition: color 0.25s linear, opacity 0.25s linear;
+      opacity: 0.5;
+      transition: color 0.25s linear -0.25s, opacity 0.25s linear;
 
       &:hover {
-        opacity: 1;
+        color: #ffffca;
       }
 
       &:before {
@@ -127,11 +127,7 @@ section.page__content {
     }
 
     &:hover .copy-button {
-      opacity: 0.6;
-
-      &:hover {
-        opacity: 1;
-      }
+      opacity: 1;
     }
   }
 
