@@ -87,7 +87,7 @@ $rule.Group = "Core Networking"
 $rule | Set-NetFirewallRule
 ```
 
-Your new rull will looks like this after running the above commands. You may need to restart the Windows Firewall window to see changes.
+Your new rule will look like this after running the above commands. You may need to restart the Windows Firewall window to see changes.
 
 ![New Rule](/image/windows/core-networking-time-exceeded-icmpv4-in.png)
 
