@@ -44,6 +44,10 @@ ul, ol {
   margin: 0.2rem 0.2rem 0.4rem;
 }
 
+.border {
+  border: 1px solid $text-color;
+}
+
 .wide-only {
   display: none;
 
