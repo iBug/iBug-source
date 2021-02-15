@@ -50,3 +50,16 @@ Open the [AWS API Gateway console][apigw-home] and click **Create API** on the t
 
 ![Create API](/image/aws/api-gateway-new-1.png){: .border }
 
+On the next screen, we add our Lambda function created earlier as an integration here.
+
+![Configure integrations](/image/aws/api-gateway-new-2.png){: .border }
+
+![Configure routes (1)](/image/aws/api-gateway-routes-1.png){: .border }
+
+![Configure routes (2)](/image/aws/api-gateway-routes-2.png){: .border }
+
+```console
+ubuntu@iBug-Server:~ $ curl https://nad73szpz7.execute-api.us-east-1.amazonaws.com/
+"Hello from Lambda!"
+ubuntu@iBug-Server:~ $
+```
