@@ -4,15 +4,15 @@ header:
   overlay_image: "/image/header/games-1.jpg"
   overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
 
-gallery-20191029:
+gallery-msc:
   - url: /image/mssolitaire/20210101-main.png
     image_path: /image/mssolitaire/20210101-main.png
-    alt: "My game status as of January 1, 2021"
-    title: "My game status as of January 1, 2021"
+    alt: &main-title "My game status as of January 1, 2021"
+    title: *main-title
   - url: /image/mssolitaire/20210101-starclub.png
     image_path: /image/mssolitaire/20210101-starclub.png
-    alt: "My Star Club status as of January 1, 2021"
-    title: "My Star Club status as of January 1, 2021"
+    alt: &sc-title "My Star Club status as of January 1, 2021"
+    title: *sc-title
 ---
 
 ## Games
@@ -21,6 +21,7 @@ gallery-20191029:
 
 ### Recommended games
 
+- [Baba Is You](https://store.steampowered.com/app/736260/Baba_Is_You/) by Arvi Teikari - Best indie puzzling game of 2019
 - [Grand Theft Auto V](https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/) - My first legal copy of game bought from Steam
 - [Minecraft](https://minecraft.net) - Needs no explanation! (My username: `iBugOne`)
 - [LIMBO](https://store.steampowered.com/app/48000/LIMBO/) and [INSIDE](https://store.steampowered.com/app/304430/INSIDE/) - Two great 2D "adventure" game with some puzzling components
@@ -33,7 +34,7 @@ I play MSC a lot so it is worth a dedicated section for description. (Xbox User 
 
 Here are my stats:
 
-{% include gallery id="gallery-20191029" %}
+{% include gallery id="gallery-msc" %}
 
 I particularly like FreeCell and I've completed all FC challenges in Star Club. The Expert level FC games are very enjoyable! I'm currently working on getting 100% on Pyramids challenges because it's almost as fun.
 
