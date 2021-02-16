@@ -188,7 +188,7 @@ exclude:
   - node_modules
   - package.json
   - package-lock.json
-  # Rakefile
+  - Rakefile
   - README.md
   - REMOTE_README.md
   - /script

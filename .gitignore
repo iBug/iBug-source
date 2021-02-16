@@ -10,6 +10,7 @@
 .jekyll-metadata
 .sass-cache
 .svn
+_site
 
 # Other resources on GH Pages
 /ext
