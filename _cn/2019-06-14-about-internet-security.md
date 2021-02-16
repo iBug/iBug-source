@@ -151,7 +151,7 @@ XcodeGhost 事件中大量国产应用程序受影响，其中不乏多个知名
 
 总而言之，21 世纪中，随着网络技术的不断进步，网络安全的重要性也日益上升。只有关注网络安全、提高网络安全意识、加强网络安全保护、增进网络安全的研究与探索，才能跟紧时代的脚步，不在发展的路上摔跟头。
 
-## 参考资料
+## 参考资料 {#references}
 
 1. 「网络安全基础及应用」课程第 1 章 PPT，<http://staff.ustc.edu.cn/~hsi/nsea/ch01.pdf>
 2. Virus:DOS/CIH Description \| F-Secure Labs，<https://www.f-secure.com/v-descs/cih.shtml>

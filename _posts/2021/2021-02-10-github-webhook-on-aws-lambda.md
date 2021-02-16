@@ -63,3 +63,56 @@ ubuntu@iBug-Server:~ $ curl https://nad73szpz7.execute-api.us-east-1.amazonaws.c
 "Hello from Lambda!"
 ubuntu@iBug-Server:~ $
 ```
+
+<details markdown="1">
+<summary markdown="span">Example content of `event` object</summary>
+```json
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/api-test",
+  "rawQueryString": "taoky=strong",
+  "headers": {
+    "accept": "*/*",
+    "accept-encoding": "gzip",
+    "cdn-loop": "cloudflare",
+    "cf-connecting-ip": "2001:db8::1",
+    "cf-ipcountry": "JP",
+    "cf-pseudo-ipv4": "255.255.255.255",
+    "cf-ray": "8b8cca72b23e09a5-NRT",
+    "cf-request-id": "d2160d7f1100000738c5e62000000001",
+    "cf-visitor": "{\"scheme\":\"https\"}",
+    "content-length": "0",
+    "host": "api.example.com",
+    "user-agent": "curl/7.68.0",
+    "x-amzn-trace-id": "Root=1-8dab11ae-d63d4eec890259ddab5a7709",
+    "x-forwarded-for": "2001:db8::1, 162.158.118.243",
+    "x-forwarded-port": "443",
+    "x-forwarded-proto": "https",
+    "x-custom-header": "hello"
+  },
+  "queryStringParameters": {
+    "taoky": "strong"
+  },
+  "requestContext": {
+    "accountId": "166333366666",
+    "apiId": "nad73szpz7",
+    "domainName": "api.example.com",
+    "domainPrefix": "api",
+    "http": {
+      "method": "GET",
+      "path": "/api-test",
+      "protocol": "HTTP/1.1",
+      "sourceIp": " 162.158.118.243",
+      "userAgent": "curl/7.68.0"
+    },
+    "requestId": "ZcOQCw-WIBMEQdg=",
+    "routeKey": "$default",
+    "stage": "$default",
+    "time": "20/Jan/2021:16:43:05 +0000",
+    "timeEpoch": 1611160985770
+  },
+  "isBase64Encoded": false
+}
+```
+</details>
