@@ -22,6 +22,7 @@ task :serve, %i[port] do
   cmd.concat(['--port', args.port]) unless args.port.nil?
   cmd.concat(%w[--config _config.yml,_local.yml]) if File.file? '_local.yml'
   begin
+    ENV['JEKYLL_ENV'] = 'development'
     sh(*cmd)
   rescue Interrupt
   end
