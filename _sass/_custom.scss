@@ -14,10 +14,17 @@ blockquote {
 }
 
 details {
+  padding-left: 1em;
   padding-inline-start: 1em;
 
   > summary {
+    margin-left: 1em;
     margin-inline-start: -1em;
+  }
+
+  &[open] > summary {
+    margin-bottom: 0.5em;
+    margin-block-end: 0.5em;
   }
 }
 
