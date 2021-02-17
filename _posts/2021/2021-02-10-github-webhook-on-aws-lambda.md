@@ -54,9 +54,15 @@ On the next screen, we add our Lambda function created earlier as an integration
 
 ![Configure integrations](/image/aws/api-gateway-new-2.png){: .border }
 
+Then it turns to Routes. Routes describe how HTTP endpoints are mapped to integrations (receivers). An example (default) route is pre-filled in the dialog.
+
 ![Configure routes (1)](/image/aws/api-gateway-routes-1.png){: .border }
 
+Since we have our Lambda function as the only integration here, we want to process actual routes by ourselves. Delete that path `/myGitHubWebhook` and enter `$default` into that box. `$default` is a special value that once entered, the "method" dropdown greys out.
+
 ![Configure routes (2)](/image/aws/api-gateway-routes-2.png){: .border }
+
+We can now visit our API to see if it works.
 
 ```console
 ubuntu@iBug-Server:~ $ curl https://nad73szpz7.execute-api.us-east-1.amazonaws.com/
@@ -64,8 +70,17 @@ ubuntu@iBug-Server:~ $ curl https://nad73szpz7.execute-api.us-east-1.amazonaws.c
 ubuntu@iBug-Server:~ $
 ```
 
+## Coding for Lambda {#lambda-code}
+
+With the infrastructure set up, we should now write our code for the GitHub webhook receiver.
+
+We need to first know how the client request is passed to our Lambda function. This is not hard to figure out with some simple code that just spits out what it receives. To save some time, I've done this so you don't have to. Here's what you'd receive via the `event` object passed to the Lambda function entry. Keep in mind that it's a dictionary in Python.
+
 <details markdown="1">
-<summary markdown="span">Example content of `event` object</summary>
+<summary markdown="1">
+Example content of `event` object
+</summary>
+
 ```json
 {
   "version": "2.0",
@@ -77,7 +92,7 @@ ubuntu@iBug-Server:~ $
     "accept-encoding": "gzip",
     "cdn-loop": "cloudflare",
     "cf-connecting-ip": "2001:db8::1",
-    "cf-ipcountry": "JP",
+    "cf-ipcountry": "XX",
     "cf-pseudo-ipv4": "255.255.255.255",
     "cf-ray": "8b8cca72b23e09a5-NRT",
     "cf-request-id": "d2160d7f1100000738c5e62000000001",
@@ -100,19 +115,24 @@ ubuntu@iBug-Server:~ $
     "domainName": "api.example.com",
     "domainPrefix": "api",
     "http": {
-      "method": "GET",
+      "method": "POST",
       "path": "/api-test",
       "protocol": "HTTP/1.1",
       "sourceIp": " 162.158.118.243",
       "userAgent": "curl/7.68.0"
     },
-    "requestId": "ZcOQCw-WIBMEQdg=",
+    "requestId": "ZcOQCw-WICLEQdg=",
     "routeKey": "$default",
     "stage": "$default",
-    "time": "20/Jan/2021:16:43:05 +0000",
-    "timeEpoch": 1611160985770
+    "time": "20/Jan/2021:16:40:00 +0000",
+    "timeEpoch": 1611160800000
   },
-  "isBase64Encoded": false
+  "body": "Cg==",
+  "isBase64Encoded": true
 }
 ```
 </details>
+
+A few notes about the content:
+
+- `isBase64Encoded` refers to the `body` item. In the above example, the actual POST content is a single newline. `body` may be absent for requests that doesn't send data, like a GET request.

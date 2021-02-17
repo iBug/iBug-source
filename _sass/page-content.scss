@@ -15,13 +15,18 @@ section.page__content {
   }
 
   a {
+    $link-color: mix($primary-color, $text-color, 75%);
     word-break: break-word;
-    color: mix($primary-color, $text-color, 75%);
+    color: $link-color;
     text-decoration-line: underline;
     transition: text-decoration-color 0.2s linear;
 
     &:not(:hover) {
       text-decoration-color: transparent;
+    }
+
+    img {
+      border-color: $link-color;
     }
   }
 
@@ -95,6 +100,10 @@ section.page__content {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  img.border {
+    transition: border-color 0.2s linear;
   }
 
   pre {
