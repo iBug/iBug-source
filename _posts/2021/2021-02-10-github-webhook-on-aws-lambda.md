@@ -135,4 +135,81 @@ Example content of `event` object
 
 A few notes about the content:
 
-- `isBase64Encoded` refers to the `body` item. In the above example, the actual POST content is a single newline. `body` may be absent for requests that doesn't send data, like a GET request.
+- `isBase64Encoded` refers to the `body` item. In the above example, the actual POST content is a single newline.-
+- `body` may be absent for requests that doesn't send data, like a GET request.
+- `headers` are all in lowercase which is in line with HTTP/2 specifications. **It could be due to me placing my custom domain behind Cloudflare.**
+
+With that in mind, we can expand the boilerplate Lambda function:
+
+```python
+def lambda_handler(event, context):
+    route = event["rawPath"]
+    if route == "/api-test":
+        return {
+            'statusCode': 200,
+            'headers': {'Content-Type': 'application/json'},
+            'body': json.dumps(event),
+        }
+    elif route == "/github-webhook":
+        # TODO Write webhook receiver code
+        pass
+```
+
+The actual webhook processing code shouldn't be too difficult to write. For example, here's an example of verifying GitHub via the HMAC signature:
+
+```python
+import base64
+import hashlib
+import hmac
+import os
+```
+
+```python
+secret = os.environ['MY_ENV_VAR']
+signature = event['headers']['x-hub-signature'].split("=")[1]
+body = event.get('body', "")
+if event['isBase64Encoded']:
+    body = base64.b64decode(body)
+
+hashsum = hmac.new(signature, secret, hashlib.sha1).hexdigest()
+if hashsum != signature:
+    return {
+        'statusCode': 401,
+        'body': "Bad signature",
+    }
+
+# Do whatever you want
+
+return {
+  'statusCode': 200,
+  'body': "OK",
+}
+```
+
+### Adding environment variables {#lambda-environment-variables}
+
+As shown in the example above, I put the webhook secret in an environment variable. We need to add it to our Lambda function before it could be used.
+
+Doing so is straightforward. Head to Lambda console and select the function, then scroll down to *Environment variables* section, where you can manage variables for this Lambda function.
+
+![Lambda - Environment variables](/image/aws/lambda-environment-variables-1.png){: .border }
+
+## Customizing the webhook {#customization}
+
+Now we've got all the foundation established, we can do whatever we want with it. Here are some ideas that could try with:
+
+- Connect to Slack and send a notification for every push or CI run result ([the event is `check_run`](https://docs.github.com/en/developers/webhooks-and-events/webhook-events-and-payloads#check_run))
+- Connect to a Telegram bot and send a message to you for your subscribed events
+- Start a Netlify or Vercel build or deployment
+- Start GitHub Actions on another repository
+- and many more possibilities...
+
+## Bonus: Adding a custom domain {#custom-domain}
+
+## Other notes {#others}
+
+AWS Lambda provides 400,000 GB-seconds of execution for free each month, and this Free Tier does not expire. However, AWS API Gateway doesn't have a perpetual Free Tier offer, and their standard pricing is US$1 per 1M API calls. The cost on this part is generally low unless you're making a public service (that becomes popular).
+
+Besides, AWS provides 1 GB of free outbound traffic each month, and bills you at US$0.09 per GB thereafter. This means you'll need to be careful when generating a lot of traffic, like frequently uploading large images.
+
+All pricing examples are based on US East 1 (N. Virginia) region. Other regions are generally more expensive than this, so watch your bills if you make something big.
