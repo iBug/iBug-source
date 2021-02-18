@@ -206,6 +206,33 @@ Now we've got all the foundation established, we can do whatever we want with it
 
 ## Bonus: Adding a custom domain {#custom-domain}
 
+Before calling this an article, there's one more thing I'd like to cover. A custom domain is handy so that you're in full control of your API, and fortunately AWS API Gateway *does* support this.
+
+You may have already noticed the *Custom Domain Names* on the left pane of API Gateway console, so it's time to pay that a visit.
+
+The box on the left with a title *Domain names* is where we need to start from. Click the big **Create** button and enter your custom domain dedicated for AWS API Gateway, like `api.example.com`, and click the bridge red button on the bottom right to save the settings. You don't have to change any other things there as the defaults just work.
+
+Now you should see this screen:
+
+![API Gateway - Custom domain](/image/aws/api-gateway-custom-domain-1.png){: .border }
+
+Head to your DNS provider and add a CNAME record for `api.example.com` pointing to the `execute-api` domain shown there. If you're using Cloudflare, you can safely turn on the CDN setting (the orange cloud icon) to enjoy Cloudflare's faster global network.
+
+Next we'll add "API mapping" for our custom domain. Select the *API mapping* tab in the center of the above image and click **Configure API mappings** on the right. Add a new mapping, select your API and the `$default` stage, and give it a subpath if you want, like shown below:
+
+![API Gateway - Custom domain - API mapping](/image/aws/api-gateway-custom-domain-2.png){: .border }
+
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-fw fa-sun"></i> Don't worry about your subpath
+{: .no_toc }
+
+API Gateway will automatically strip the path before passing it to the Lambda function. This means if you set the path to `/hello` and visit `https://api.example.com/hello/world`, your Lambda function will still see the `rawPath` key being `/world`. You don't have to change your code to adapt this part. Very convenient, isn't it?
+</div>
+
+Now our GitHub webhook receiver will start with `https://api.example.com/github`, and our "API test" endpoint will be `https://api.example.com/github/api-test`.
+
+You may need to configure AWS Certificate Manager to obtain a valid SSL certificate for use on AWS, so that your API is accessible through HTTPS, depending on your domain settings. With Cloudflare this is unnecessary and you can safely ignore it.
+
 ## Other notes {#others}
 
 AWS Lambda provides 400,000 GB-seconds of execution for free each month, and this Free Tier does not expire. However, AWS API Gateway doesn't have a perpetual Free Tier offer, and their standard pricing is US$1 per 1M API calls. The cost on this part is generally low unless you're making a public service (that becomes popular).
