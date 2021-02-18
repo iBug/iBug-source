@@ -2,8 +2,6 @@
 title: "Setting up a GitHub webhook on AWS Lambda"
 tags: github aws
 redirect_from: /p/41
-
-published: false
 ---
 
 Last month I set up my own Telegram bot for GitHub event notification. To receive GitHub events via webhook, a receiver is needed. True, it isn't hard to write a [Flask][flask] or [Sinatra][sinatra] server and throw the whole thing onto a VPS, but thinking about the complexity and maintenance efforts, serverless platforms like AWS Lambda smells like a better fit. So I decided to take this opportunity to begin my exploration to "the serverless industry".
