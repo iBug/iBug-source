@@ -101,7 +101,7 @@ section.page__content {
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
   }
 
-  img.block, img:only-child {
+  img.block, p > img:only-child {
     display: block;
     margin-left: auto;
     margin-right: auto;
