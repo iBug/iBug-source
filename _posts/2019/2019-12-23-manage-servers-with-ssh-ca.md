@@ -28,7 +28,7 @@ To generate a key pair for a CA, you'd do it the usual way you generate a regula
 ssh-keygen -f my_ca
 ```
 
-Proceed through the prompts, and you'll find two files `my_ca` and `my_ca.pub` in your current directory. Contrary to SSH keys that you use for regular purposes, I highly recommend setting a password for this key, since it's going to be *way* more powerful than those. Protect the private key carefully, and leave the public part somewhere easily accessible, like [mine](https://ibugone.com/assets/ssh-ca.pub.txt).
+Proceed through the prompts, and you'll find two files `my_ca` and `my_ca.pub` in your current directory. Contrary to SSH keys that you use for regular purposes, I highly recommend setting a password for this key, since it's going to be *way* more powerful than those. Protect the private key carefully, and leave the public part somewhere easily accessible, like [mine](https://i.ibug.io/ssh-ca.txt).
 
 ## Authenticating hosts with SSH CA
 
