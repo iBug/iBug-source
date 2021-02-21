@@ -3,6 +3,10 @@ title: "High-performance mass web crawling on AWS"
 categories: story
 tags: web web-scraping aws
 redirect_from: /p/31
+header:
+  actions:
+    - label: '<i class="fab fa-github" aria-hidden="true"></i> GitHub'
+      url: https://github.com/iBug/douban-spider
 
 gallery:
   - url: /image/spider-aws/instances.us-west-1.png

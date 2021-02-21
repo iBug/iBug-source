@@ -172,7 +172,7 @@ typedef struct _BTcpConnection {
 - 部分异常未良好处理
 - 指示关闭连接的 0 字节 UDP 包若丢包，会导致接收端无限等待（因此测试信道看到这个包就会原样转发，绕过“捣乱”逻辑）
 
-## 3.6 测试信道实现 [<i class='fab fa-github'></i>](https://github.com/iBug/TetrisAI/releases/latest)
+## 3.6 测试信道实现 [<i class="fab fa-github"></i>](https://github.com/iBug/backTCP-python)
 
 既然公开的测试信道是我写的，我就在这把它当做我提交的实验的一部分吧。
 
