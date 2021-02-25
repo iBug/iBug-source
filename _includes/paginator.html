@@ -4,7 +4,7 @@
     {% comment %} Link for previous page {% endcomment %}
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
-        <li><a href="{{ first_page_path }}"><i class="fas fa-arrow-alt-left"></i> <span class="sr-only">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</span></a></li>
+        <li><a href="{{ paginator.first_page_path }}"><i class="fas fa-arrow-alt-left"></i> <span class="sr-only">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</span></a></li>
       {% else %}
         <li><a href="{{ paginator.previous_page_path | relative_url | remove: 'index.html' }}"><i class="fas fa-arrow-alt-left"></i> <span class="sr-only">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</span></a></li>
       {% endif %}
@@ -32,7 +32,7 @@
 
     {% comment %} Ellipsis for truncated links {% endcomment %}
     {% assign ellipsis_start = paginator.first_page | plus: 1 %}
-    {% if paginator.trail.first.num > ellipsis_start %}
+    {% if paginator.page_trail.first.num > ellipsis_start %}
       <li><a href="#" class="disabled">&hellip;</a></li>
     {% endif %}
 
@@ -47,7 +47,7 @@
 
     {% comment %} Ellipsis for truncated links {% endcomment %}
     {% assign ellipsis_end = paginator.last_page | minus: 1 %}
-    {% if paginator.trail.last.num < ellipsis_end %}
+    {% if paginator.page_trail.last.num < ellipsis_end %}
       <li><a href="#" class="disabled">&hellip;</a></li>
     {% endif %}
 
