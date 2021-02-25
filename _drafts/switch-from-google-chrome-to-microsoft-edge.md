@@ -12,3 +12,4 @@ Last year (maybe September? I don't remember now) I switched my primary browser 
 ## What I thought before I switched {#thoughts-before}
 
 The moment Microsoft Edge went attractive was when I learned that **it started to be Chromium-based**, so that web pages will behave identially as if they were on Google Chrome or the Chromium browser.
+

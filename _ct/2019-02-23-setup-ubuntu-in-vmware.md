@@ -3,9 +3,9 @@ title: "在 VMware Workstation 中安装 Ubuntu"
 description: "快速上手"
 tagline: "快速上手"
 tags: software linux
-redirect_from: /p/15-cn
-
-hidden: true
+redirect_from:
+  - /p/15-cn
+  - /blog/2019/02/setup-ubuntu-in-vmware-cn/
 ---
 
 <small>[There's an English version of this article!](/p/15)</small>

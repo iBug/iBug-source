@@ -1,10 +1,10 @@
 ---
 title: "Blog"
+layout: home
+permalink: /blog/
 description: "All of iBug's articles"
 tagline: "All of iBug's articles"
-permalink: "/blog/"
 author_profile: true
-layout: home
 pagination:
   enabled: true
   collection:

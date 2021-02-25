@@ -246,7 +246,7 @@ timezone: "Etc/UTC" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zon
 date_format: "%b %-d, %Y" # "%b %-d, %Y at %-H:%M"
 
 paginate: null
-paginate_path: "/blog/:num/"
+#paginate_path: "/blog/:num/"
 pagination:
   enabled: true
   per_page: 8
@@ -279,6 +279,9 @@ collections:
     output: true
     permalink: "/:path/"
   cn:
+    output: true
+    permalink: "/cn/:year/:month/:title/"
+  ct:
     output: true
     permalink: "/cn/:year/:month/:title/"
   project:
