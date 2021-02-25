@@ -1,6 +1,6 @@
 ---
 title: "在 VMware Workstation 中安装 Ubuntu"
-description: "快速上手"
+excerpt: "零基础快速上手虚拟机安装 Ubuntu，特别是在《操作系统原理与设计》开课的时候"
 tagline: "快速上手"
 tags: software linux
 redirect_from:
