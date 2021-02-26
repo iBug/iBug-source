@@ -29,6 +29,8 @@ Input your MathID (xxxx-xxxxx-xxxxx) and press **Generate**.
 
 <p id="result">Press <b>Generate</b>!</p>
 
+<script data-ad-client="ca-pub-4203697973995702" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <script type="text/javascript">
 function f1(n, byte, c) {
     for (var bitIndex = 0; bitIndex <= 7; bitIndex++) {

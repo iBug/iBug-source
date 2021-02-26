@@ -402,7 +402,7 @@ defaults:
   - scope:
       path: ""
       type: cn
-    values:
+    values: &cn-defaults
       lang: "zh-CN"
       locale: "zh-CN"
       read_time: true
@@ -417,8 +417,13 @@ defaults:
         overlay_filter: linear-gradient(rgba(0, 146, 202, 0.3), rgba(0, 0, 0, 0.2))
   - scope:
       path: ""
-      type: tag
+      type: ct
     values:
+      <<: *cn-defaults
+  - scope:
+      path: ""
+      type: tag
+    values: &tag-defaults
       comments: false
       related: false
       header:
@@ -427,7 +432,4 @@ defaults:
       path: ""
       type: category
     values:
-      comments: false
-      related: false
-      header:
-        overlay_image: "/image/header/water-2.jpg"
+      <<: *tag-defaults
