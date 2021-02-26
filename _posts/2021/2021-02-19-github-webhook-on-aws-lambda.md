@@ -8,6 +8,8 @@ header:
 
 Last month I set up my own Telegram bot for GitHub event notification. To receive GitHub events via webhook, a receiver is needed. True, it isn't hard to write a [Flask][flask] or [Sinatra][sinatra] server and throw the whole thing onto a VPS, but thinking about the complexity and maintenance efforts, serverless platforms like AWS Lambda smells like a better fit. So I decided to take this opportunity to begin my exploration to "the serverless industry".
 
+<small>[There's a Chinese version of this article / 本文还有中文版](/p/41-cn)</small>
+
   [flask]: https://palletsprojects.com/p/flask/
   [sinatra]: http://sinatrarb.com/
 
