@@ -14,7 +14,7 @@ section.page__content {
     transition: background-color 0.2s linear;
   }
 
-  a {
+  a:not(.btn) {
     $link-color: mix($primary-color, $text-color, 75%);
     word-break: break-word;
     color: $link-color;
@@ -97,7 +97,7 @@ section.page__content {
     margin-bottom: 0;
   }
 
-  a:not(.btn):not(#goog-wm-sb):hover img.card {
+  a:not(.btn):not(#goog-wm-sb):hover, img.card {
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
   }
 
