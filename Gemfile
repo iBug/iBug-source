@@ -7,6 +7,8 @@ gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
 gem "rouge", '~> 3.25'
 
+gem "mimemagic"
+
 # Required for LSI, too slow however
 if ENV['LSI'] == 'true'
   gem "classifier-reborn"
