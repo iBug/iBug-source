@@ -9,7 +9,7 @@ section.page__content {
     font-size: 0.8em;
   }
 
-  .toc__menu a {
+  .toc .toc__menu a {
     color: $text-color;
     transition: background-color 0.2s linear;
   }
@@ -18,7 +18,7 @@ section.page__content {
     $link-color: mix($primary-color, $text-color, 75%);
     word-break: break-word;
     color: $link-color;
-    text-decoration-line: underline;
+    text-decoration: underline;
     transition: text-decoration-color 0.2s linear;
 
     &:not(:hover) {
@@ -97,7 +97,7 @@ section.page__content {
     margin-bottom: 0;
   }
 
-  a:not(.btn):not(#goog-wm-sb):hover img.card {
+  a:hover img.card {
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
   }
 
