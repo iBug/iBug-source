@@ -9,7 +9,7 @@ section.page__content {
     font-size: 0.8em;
   }
 
-  .toc .toc__menu a {
+  .toc .toc__menu a:not(.btn) {
     color: $text-color;
     transition: background-color 0.2s linear;
   }
