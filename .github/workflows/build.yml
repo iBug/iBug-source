@@ -28,9 +28,9 @@ jobs:
         path: |
           Gemfile.lock
           vendor/bundle
-        key: ${{ runner.os }}-bundler-2-${{ hashFiles('Gemfile') }}
+        key: ${{ runner.os }}-bundler-3-${{ hashFiles('Gemfile') }}
         restore-keys: |
-          ${{ runner.os }}-bundler-2-
+          ${{ runner.os }}-bundler-3-
 
     - uses: actions/setup-node@v1
     - name: Setup cache for Node.js
