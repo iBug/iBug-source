@@ -26,6 +26,20 @@ Then I switched back to my old account and examined the same part of HTML:
 
 Now it seems clear to me: The last thing to do before succeeding is to purge that `display: none;` from the button. Double-click on the text and you can delete it with ease:
 
+If the \[Change\] button is already there for you, just click it.
+
 ![remove display none](/image/nv-account/removing-style.png)
 
 Voilà! You can now click it to change email for your Nvidia account. Why on earth did they decide that email can only be changed once per account? It sucks!
+
+![change successful](/image/nv-account/change-success.png)
+
+**Note:** Make sure you check your inbox for the confirmation email. You still need to click it to have your new email address verified.
+
+## Notes
+
+According to my testing, there's another limit that you can only change your email **once a year**, so you have to wait for 365 days after your last change.
+
+The method described in this article only bypasses the (false) restriction of *once per account* that's discussed everywhere, like this [NVIDIA Forum thread][1] that comes as the first Google result for me (and probably for you, too).
+
+  [1]: https://www.nvidia.com/en-us/geforce/forums/geforce-experience/14/266629/cant-change-email-cant-get-my-username-to-change-c/
