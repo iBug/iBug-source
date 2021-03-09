@@ -39,9 +39,8 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 <details open markdown="1">
 <summary> **Advanced knowledge**
 </summary>
-- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow), plus Ruby
+- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow), JavaScript and Ruby
 - **Software**: Git, Jekyll, OpenSSH
-- **Technology**: HTTP, DNS
 </details>
 
 <details markdown="1">
@@ -49,7 +48,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 </summary>
 - **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
 - **Framework**:
-  Rails,
+  Ruby on Rails,
   Bootstrap,
   jQuery,
   Flask,
@@ -65,16 +64,16 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
   Systemd,
   [Singularity](https://sylabs.io/) (Container)
 - **Miscellaneous**: Linux Networking (routing, tunneling, firewall, iptables etc.)
+  plus various networking protocols (HTTP and DNS in particular)
 </details>
 
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
 - **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, Go, AWK, Wolfram Mathematica, Perl
-- **Framework**: [Sinatra](https://sinatrarb.com), Django
+- **Framework**: [Sinatra](https://sinatrarb.com), Django, React
 - **Software**: ZFS
-- **Technology**:
-  Infiniband <abbr title="Remote Direct Memory Access">RDMA</abbr>,
+- **Technology**: *something used to be here*,
 </details>
 
 ### Preferences
