@@ -1,39 +1,45 @@
 .sidebar__right.sticky {
-  @include breakpoint($large) {
-    max-height: calc(100vh - 4em);
-    overflow-y: auto;
-    scrollbar-width: thin; // For Firefox
+  .nav__title {
+    height: 2rem;
   }
 
-  .wide & {
+  .wide & .toc__menu {
     @include breakpoint($large) {
       max-height: initial;
       overflow-y: initial;
     }
   }
 
-  &::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
-    position: absolute;
-    top: 0;
-    right: -2px;
-  }
+  .toc__menu {
+    @include breakpoint($large) {
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      scrollbar-width: thin; // For Firefox
+    }
 
-  // WARNING: This is not working
-  &:hover::-webkit-scrollbar-thumb {
-    opacity: 1 !important;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+    &::-webkit-scrollbar {
+      width: 2px;
+      position: absolute;
+      top: 0;
+      right: -2px;
+      margin-right: -2px;
+    }
 
     // WARNING: This is not working
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    &:hover::-webkit-scrollbar-thumb {
+      opacity: 1 !important;
+    }
 
-    &:hover {
-      background-color: rgba(0, 146, 202, 0.5);
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+
+      // WARNING: This is not working
+      opacity: 0;
+      transition: opacity 0.3s linear, background-color 0.3s linear;
+
+      &:hover {
+        background-color: rgba(0, 146, 202, 0.5);
+      }
     }
   }
 }
