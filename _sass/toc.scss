@@ -4,6 +4,13 @@
     overflow-y: auto;
   }
 
+  .wide & {
+    @include breakpoint($large) {
+      max-height: initial;
+      overflow-y: initial;
+    }
+  }
+
   &::-webkit-scrollbar {
     width: 2px;
     height: 2px;
