@@ -2,6 +2,7 @@
   @include breakpoint($large) {
     max-height: calc(100vh - 4em);
     overflow-y: auto;
+    scrollbar-width: thin; // For Firefox
   }
 
   .wide & {
