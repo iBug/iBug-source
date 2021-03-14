@@ -17,7 +17,7 @@ https://cn.ibugone.com/* https://ibug.io/:splat 302!
 https://ibugone.net/* https://www.ibugone.net/:splat 301!
 https://www.ibugone.net/* https://www.ibugone.com/:splat 302!
 # Netlify's domain, use 302 only
-https://ibug.netlify.app/* https://ibug.io/:splat 302!
+#https://ibug.netlify.app/* https://ibug.io/:splat 302!
 
 # Resources
 /image/* https://image.ibugone.com/:splat 200
