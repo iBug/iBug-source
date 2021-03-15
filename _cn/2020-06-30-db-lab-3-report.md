@@ -2117,41 +2117,41 @@ Sprockets 的配置文件 `/app/assets/config/manifest.js` 内容如下：
 
 #### 首页
 
-![首页]({{ page.image_prefix }}/home.png)
+![首页]({{ page.image_prefix }}/home.png){: .border }
 
 #### 支行列表页面
 
-![支行列表页面]({{ page.image_prefix }}/branches-index.png)
+![支行列表页面]({{ page.image_prefix }}/branches-index.png){: .border }
 
 #### 支行详细信息页面
 
-![支行详细信息页面]({{ page.image_prefix }}/branches-show.png)
+![支行详细信息页面]({{ page.image_prefix }}/branches-show.png){: .border }
 
 #### 账户编辑页面
 
-![账户编辑页面]({{ page.image_prefix }}/accounts-edit.png)
+![账户编辑页面]({{ page.image_prefix }}/accounts-edit.png){: .border }
 
 #### 支行的关联账户页面
 
-![支行的关联账户页面]({{ page.image_prefix }}/branches-accounts.png)
+![支行的关联账户页面]({{ page.image_prefix }}/branches-accounts.png){: .border }
 
 #### 账户的关联客户页面
 
-![账户的关联客户页面]({{ page.image_prefix }}/accounts-owners.png)
+![账户的关联客户页面]({{ page.image_prefix }}/accounts-owners.png){: .border }
 
 #### 贷款的支付页面
 
-![贷款的支付页面]({{ page.image_prefix }}/loans-issues.png)
+![贷款的支付页面]({{ page.image_prefix }}/loans-issues.png){: .border }
 
 #### 「业务统计」页面
 
-![业务统计页面]({{ page.image_prefix }}/stats.png)
+![业务统计页面]({{ page.image_prefix }}/stats.png){: .border }
 
 #### 业务统计的搜索页面
 
-![业务统计的搜索页面]({{ page.image_prefix }}/stats-search.png)
+![业务统计的搜索页面]({{ page.image_prefix }}/stats-search.png){: .border }
 
-![业务统计的搜索结果页面]({{ page.image_prefix }}/stats-search-results.png)
+![业务统计的搜索结果页面]({{ page.image_prefix }}/stats-search-results.png){: .border }
 
 以上即为本系统的实现结果（外观）。
 
@@ -2161,51 +2161,51 @@ Sprockets 的配置文件 `/app/assets/config/manifest.js` 内容如下：
 
 ##### 创建支行
 
-![创建支行]({{ page.image_prefix }}/branches-create.png)
+![创建支行]({{ page.image_prefix }}/branches-create.png){: .border }
 
 ##### 更新支行
 
-![更新支行]({{ page.image_prefix }}/branches-update.png)
+![更新支行]({{ page.image_prefix }}/branches-update.png){: .border }
 
 ##### 删除支行
 
-![删除支行]({{ page.image_prefix }}/branches-destroy.png)
+![删除支行]({{ page.image_prefix }}/branches-destroy.png){: .border }
 
 ##### 账户新增关联客户
 
-![账户新增关联客户]({{ page.image_prefix }}/ownerships-create.png)
+![账户新增关联客户]({{ page.image_prefix }}/ownerships-create.png){: .border }
 
 ##### 贷款新增支付
 
-![贷款新增支付]({{ page.image_prefix }}/issues-create.png)
+![贷款新增支付]({{ page.image_prefix }}/issues-create.png){: .border }
 
 #### 4.2.2 操作失败结果
 
 ##### 创建支行
 
-![创建支行]({{ page.image_prefix }}/branches-create-fail.png)
+![创建支行]({{ page.image_prefix }}/branches-create-fail.png){: .border }
 
 ##### 删除支行
 
-![删除支行]({{ page.image_prefix }}/branches-destroy-fail.png)
+![删除支行]({{ page.image_prefix }}/branches-destroy-fail.png){: .border }
 
 ##### 更新账户
 
 修改开户支行
 
-![更新账户]({{ page.image_prefix }}/accounts-edit-fail.png)
+![更新账户]({{ page.image_prefix }}/accounts-edit-fail.png){: .border }
 
 错误的账户余额
 
-![更新账户]({{ page.image_prefix }}/accounts-edit-fail-2.png)
+![更新账户]({{ page.image_prefix }}/accounts-edit-fail-2.png){: .border }
 
 ##### 贷款支付
 
-![贷款支付]({{ page.image_prefix }}/issues-create-fail.png)
+![贷款支付]({{ page.image_prefix }}/issues-create-fail.png){: .border }
 
 若修改前端强行提交不正确的数值
 
-![贷款支付]({{ page.image_prefix }}/issues-create-fail-2.png)
+![贷款支付]({{ page.image_prefix }}/issues-create-fail-2.png){: .border }
 
 以上即为本系统的测试结果，其表明本系统具有符合正常逻辑的错误检查。
 
