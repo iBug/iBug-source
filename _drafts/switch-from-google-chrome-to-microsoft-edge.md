@@ -11,9 +11,18 @@ Last year (maybe September? I don't remember now) I switched my primary browser 
 
 ## What I thought before I switched {#thoughts-before}
 
+### Same Chromium kernel
+
 The moment Microsoft Edge went attractive was when I learned that [**it started to be based on Chromium**][1], so that web pages will behave identially as if they were on Google Chrome or the Chromium browser. This is particularly important as I often engineer for Chrome when developing front-end applications.
 
   [1]: https://www.browserstack.com/blog/chromium-based-edge/
+
+Beside that, the seamless availability of existing Chrome extensions is also a great plus. I rely heavily on several extensions to enhance by surfing experience, some of which are:
+
+- [Tampermonkey](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+- [uBlock Origin](https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak)
+- Proxy SwitchyOmega
+- [HTTPS Everywhere](https://microsoftedge.microsoft.com/addons/detail/https-everywhere/fchjpkplmbeeeaaogdbhjbgbknjobohb)
 
 ### Integration with Windows {#windows-integration}
 
@@ -38,3 +47,5 @@ Being relatively new as a consumer product, the new Microsoft Edge is still dist
 ### Missing favicons
 
 The first thing it should fix is loading favicons for Favorites website. **It doesn't, at all.** With a newly imported Favorites library from another browser, **all favicons are missing**. On contrary, Google Chrome tries to load as many as possible after importing bookmarks, which is usually done in a few minutes. This makes the initial setup particularly bothersome, as you now have to read every bookmark title to determine its target, when you *could have* done so just by skimming through the icons.
+
+![image](/image/microsoft-edge/missing-favicons.png)

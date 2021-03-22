@@ -10,18 +10,18 @@ toc: false
 
 ### Supports Wolfram Mathematica 12.x
 
-This includes 12.0, 12.1, 12.2 and any future version that begins with 12.
+This includes 12.0, 12.1, 12.2 and (hopefully) any future version that begins with 12.
 
 <div class="notice--warning" markdown="1">
 #### <i class="fa fas fa-exclamation-circle"></i> Notice
 {: .no_toc }
 
-Does **not** work for other Wolfram products (e.g. Wolfram Player). It's for Mathematica only!
+Does **not** work for other Wolfram products. It's for Mathematica only!
 </div>
 
-**Update 1 (April 20, 2020)**: I have examined Mathematica 12.1. No update is required. This utility is automatically compatible with Mathematica 12.1.
+{% include airport.html %}
 
-Input your MathID (xxxx-xxxxx-xxxxx) and press **Generate**.
+Enter your MathID (xxxx-xxxxx-xxxxx) below and press **Generate**.
 
 <input type="text" id="mathId" placeholder="xxxx-xxxxx-xxxxx" />
 
@@ -70,9 +70,9 @@ function genPassword(str, hash) {
     }
     n2 = Math.floor((n2 & 0xFFFF) * 99999.0 / 0xFFFF);
     var n2str = ("0000" + n2.toString(10)).slice(-5);
-    return n2str.charAt(3) + n1str.charAt(3) + n1str.charAt(1) + n1str.charAt(0) + "-"
-        + n2str.charAt(4) + n1str.charAt(2) + n2str.charAt(0) + "-"
-        + n2str.charAt(2) + n1str.charAt(4) + n2str.charAt(1) + "::1";
+    return n2str[3] + n1str[3] + n1str[1] + n1str[0] + "-"
+        + n2str[4] + n1str[2] + n2str[0] + "-"
+        + n2str[2] + n1str[4] + n2str[1] + "::1";
 }
 
 function checkMathId(s) {
@@ -126,6 +126,7 @@ document.getElementById("generate").addEventListener("click", function () {
         <b>Password</b>: ${password}
         </p>
         <p>Don't forget to share your feelings below. Thanks for using!</p>
+        <p>Need a VPN to get past GFW? Check out <a href="https://go.ibugone.com/get-ss">Blinkload</a> for free &amp; fast global internet access!</p>
         <p><a href="http://raboninco.com/1wNoI">See an advert</a> if you want to support me!</p>
         `;
     }
