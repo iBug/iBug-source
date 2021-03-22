@@ -126,8 +126,8 @@ document.getElementById("generate").addEventListener("click", function () {
         <b>Password</b>: ${password}
         </p>
         <p>Don't forget to share your feelings below. Thanks for using!</p>
-        <p>Need a VPN to get past GFW? Check out <a href="https://go.ibugone.com/get-ss">Blinkload</a> for free &amp; fast global internet access!</p>
-        <p><a href="http://raboninco.com/1wNoI">See an advert</a> if you want to support me!</p>
+        <p>Need a VPN to get past GFW? Check out <a href="https://blinkload.me/">Blinkload</a> for free &amp; fast global internet access!</p>
+        <p>See an advert <a href="http://raboninco.com/1wNoI">here</a> if you want to support me!</p>
         `;
     }
 });
