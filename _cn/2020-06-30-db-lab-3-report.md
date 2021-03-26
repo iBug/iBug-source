@@ -7,6 +7,7 @@ header:
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/Junk-Bank-System
+redirect_from: /p/db-lab-3-report
 image_prefix: "https://ibug.github.io/Junk-Bank-System/image"
 ---
 
@@ -991,7 +992,7 @@ end
 class LoansController < ApplicationController
   before_action :set_loan, only: %i[show issues clients add_client destroy_client destroy]
   before_action :set_issues, only: %i[issues]
-    
+
   # GET /loans/1/issues
   def issues
     @issue = Issue.new
