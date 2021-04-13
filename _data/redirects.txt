@@ -13,6 +13,7 @@ https://ibugone.com/cn/speech-at-msc-2019/ https://ibug.io/cn/2019/08/speech-at-
 # Alternate names
 https://ibugone.com/* https://www.ibugone.com/:splat 301!
 https://www.ibugone.com/* https://ibug.io/:splat 302!
+https://classic.ibugone.com/* https://ibug.io/:splat 302!
 https://cn.ibugone.com/* https://ibug.io/:splat 302!
 https://ibugone.net/* https://www.ibugone.net/:splat 301!
 https://www.ibugone.net/* https://www.ibugone.com/:splat 302!
