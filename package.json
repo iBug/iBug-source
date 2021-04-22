@@ -11,8 +11,7 @@
   "homepage": "https://ibugone.com/",
   "devDependencies": {
     "autoprefixer": "^10.1.0",
-    "glob": "7",
-    "netlify-cli": "^2.69.11",
+    "glob": "^7.1.6",
     "postcss": "^8.2.1",
     "postcss-cli": "^8.3.1",
     "uglify-js": "^3.8.0"
