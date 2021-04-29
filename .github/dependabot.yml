@@ -1,0 +1,15 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "21:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: jekyll
+    versions:
+    - ">= 4.2.a, < 4.3"
+  - dependency-name: sprockets
+    versions:
+    - ">= 4.0.a, < 4.1"
