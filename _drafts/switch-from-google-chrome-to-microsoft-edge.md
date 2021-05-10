@@ -1,7 +1,7 @@
 ---
 title: "I switched from Google Chrome to Microsoft Edge"
 tags: software web
-redirect_from: /p/42
+redirect_from: /p/43
 header:
   overlay_image: /image/header/mountain-2.jpg
   overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
@@ -17,7 +17,7 @@ The moment Microsoft Edge went attractive was when I learned that [**it started 
 
   [1]: https://www.browserstack.com/blog/chromium-based-edge/
 
-Beside that, the seamless availability of existing Chrome extensions is also a great plus. I rely heavily on several extensions to enhance by surfing experience, some of which are:
+Beside that, the seamless availability of existing Chrome extensions is also a great plus. I rely heavily on several extensions to enhance my surfing experience, some of which are:
 
 - [Tampermonkey](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 - [uBlock Origin](https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak)
