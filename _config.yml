@@ -149,7 +149,7 @@ footer:
 
 
 footer_scripts:
-  - /assets/js/main.min.js?v=3
+  - /assets/js/main.min.js?v=1
 
 
 # Reading Files
@@ -288,17 +288,6 @@ collections:
     output: true
   share:
     output: true
-
-
-# Plugins have been moved to Gemfile
-
-
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate-v2
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-include-cache
 
 
 # Archives
