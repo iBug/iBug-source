@@ -39,7 +39,7 @@ div.masthead {
         transform-origin: bottom right;
       }
 
-      &:hover:before {
+      &:hover::before {
         transform-origin: bottom left;
       }
     }
@@ -56,10 +56,14 @@ div.masthead {
       }
     }
 
+    &__toggle.close::before {
+      opacity: 0;
+    }
+
     .navicon {
-      &:before,
+      &::before,
       &,
-      &:after {
+      &::after {
         background-color: white;
       }
     }

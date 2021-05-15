@@ -34,6 +34,15 @@ body.landing {
           background-color: #0f0;
         }
       }
+
+      &__toggle.close .navicon {
+        background-color: transparent;
+
+        &::before,
+        &::after {
+          background-color: white;
+        }
+      }
     }
   }
 
