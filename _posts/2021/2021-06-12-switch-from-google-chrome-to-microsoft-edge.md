@@ -68,4 +68,4 @@ To be honest, I would've stood with it had Chrome also locked the New Tab page s
 
 ## Summary
 
-So far so good. I've stayed with Microsoft Edge since and overall it's quite satisfactory. There are manu other differences that makes my experiences with Edge subtly better than with Chrome, like larger UI buttons and menus. So unless you're a 100% Google power user, I'd recommend the new Microsoft Edge to you, too.
+So far so good. I've stayed with Microsoft Edge since and overall it's quite satisfactory. There are many other differences that makes my experiences with Edge subtly better than with Chrome, like larger UI buttons and menus. So unless you're a 100% Google power user, I'd recommend the new Microsoft Edge to you, too.
