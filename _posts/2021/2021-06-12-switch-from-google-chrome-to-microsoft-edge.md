@@ -7,7 +7,7 @@ header:
   overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
 ---
 
-Last year (maybe September? I don't remember now) I switched my primary browser from Google Chrome to the new Microsoft Edge. It turned out to be a wise move and I've been with Edge for more than half a year now. I'll share my ideas with this move.
+Last year (maybe September? I don't remember now) I switched my primary browser from Google Chrome to the new Microsoft Edge. It turned out to be a wise move and I've been with Edge for more than half a year now. In this article I'll share my ideas with this move.
 
 ### Same Chromium kernel
 
@@ -34,11 +34,15 @@ A logged-in Microsoft Edge browser also eases the login process of most Microsof
 
 For sensitive access like `account.microsoft.com`, Microsoft Edge will prompt you for your PIN (if you have it set up on the computer) or password via the native Windows authentication system, bringing the same level of security of your Windows login to browser Microsoft account access.
 
-### Data Syncing
+### Data syncing
 
 Since I'm already using OneDrive for my document storage and syncing, I feel my data safer with Microsoft, and so does my browser information. Just like Google Chrome, the new Microsoft Edge syncs everything across computers and mobile devices. For the best connected experience, I also fetched Microsoft Edge (Android) from Google Play Store and signed in there. This enabled me to continue where I left off from my computer right on my phone.
 
 One extra bonus point for mainland China users: Browser data sync for Microsoft Edge doesn't require "over-the-wall" internet access. But for power users of Google Chrome (and Google search), I believe this isn't an issue already.
+
+### Better PDF reader
+
+As with the old EdgeHTML version, the built-in PDF reader of Microsoft Edge outperforms that of all other browsers. Given its good performance and lower power consumption, it's my PDF reader of choice on a business laptop that focuses on battery-run duration, so that I don't need Adobe Acrobat for all its fancy features and battery hogging. Microsoft Edge provides all the basic functionalities I need on-the-go, like bookmarks nagivation and pen drawing.
 
 ### Better performance
 
