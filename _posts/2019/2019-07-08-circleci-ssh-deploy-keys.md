@@ -3,7 +3,6 @@ title: Using SSH deploy keys on CircleCI
 tags: development github-pages
 redirect_from:
   - /p/21
-  - /blog/2019/07/circleci-ssh-delpoy-keys/
 ---
 
 A year ago back I [wrote an article][1] on automating build & deployment of GitHub Pages website with Travis CI. It's a great CI service at first, but since [Travis CI has completely moved away from containers][2], speed is a real issue to whoever is concerned. On the other side, CircleCI is continuing their builds with Docker-based containers, whose rapid response is a *great* advantage against VMs with slow boot time.

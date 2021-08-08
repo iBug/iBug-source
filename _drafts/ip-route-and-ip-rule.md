@@ -25,4 +25,4 @@ Now when I connect the VM to an extra network with IP 192.168.3.100/24, Linux wi
 192.168.3.0/24 dev eth1
 ```
 
-Instead of wrongly trying to reach 192.168.3.0/24 via the gateway 192.168.2.1, Linux will correctly try to reach it directly from interface `eth1`.
+Instead of wrongly trying to reach 192.168.3.0/24 via the gateway 192.168.2.1, Linux will now try to reach it directly from interface `eth1`.
