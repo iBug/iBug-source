@@ -45,7 +45,7 @@ search_provider          : algolia # lunr (default), algolia, google
 algolia:
   application_id         : "14DZKASAEJ"
   index_name             : "iBug_website"
-  nodes_to_index         : 'section.page__content p, section.page__content h1, section.page__content h2, section.page__content h3, section.page__content h4, section.page__content h5, section.page__content h6, section.page__content img, section.page__content blockquote, section.page__content li, section.page__content dt, section.page__content dl'
+# nodes_to_index         : 'section.page__content p, section.page__content h1, section.page__content h2, section.page__content h3, section.page__content h4, section.page__content h5, section.page__content h6, section.page__content img, section.page__content blockquote, section.page__content li, section.page__content dt, section.page__content dl'
   search_only_api_key    : "a0d8cb9da2d6ad0d17dcd40c58c72a56"
   powered_by             : true # true (default), false
   settings:

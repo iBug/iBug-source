@@ -24,3 +24,6 @@ Gemfile.lock
 # NPM
 package-lock.json
 node_modules/
+
+# Whatever junk
+*.log
