@@ -10,7 +10,7 @@ toc: false
 
 ### Supports Wolfram Mathematica 12.x
 
-This includes 12.0, 12.1, 12.2 and (hopefully) any future version that begins with 12.
+This includes any version that begins with 12, from 12.0 to 12.999 (if exist).
 
 <div class="notice--warning" markdown="1">
 #### <i class="fa fas fa-exclamation-circle"></i> Notice
