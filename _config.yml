@@ -59,7 +59,8 @@ algolia:
     - README.md
     - REMOTE_README.md
     - _home/status.html
-    - _posts/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md
+    - _posts/2009/2009-11-13-regex-match-open-tags-except-xhtml-self-contained-tags.md
+    - _posts/2021/2021-04-17-tunight-talk.md
 # SEO Related
 google_site_verification : "5_jn7a-vZslUtLJO-BkY-cPDGgah5JP49RGgeOBmYSk"
 bing_site_verification   :
