@@ -13,8 +13,8 @@ In larger organizations and corporations, it's common to have multiple ISPs conn
 **Routing** is the process of determining where certain traffic should be directed to. On systems with only one network interface, it's as simple as sending all traffic to that sole interface. Still, it's not usually as simple as a single routing rule. There are often two. Say for example, a VM running on my computer is connected to an internal network with an address of 192.168.2.100/24, then it will have the following two routing rules, visible using the command `ip route` (or `ip route show`):
 
 ```text
-default via 192.168.2.1 dev eth0
-192.168.2.0/24 dev eth0
+default via 192.168.2.1 dev eth0 src 192.168.2.100
+192.168.2.0/24 dev eth0 src 192.168.2.100
 ```
 
 The second line indicates that the network 192.168.2.0/24 is on the same link, so there's no need to send traffic to a gateway to be forwarded. The first line, starting with `default`, means that if a packet doesn't match *any other* rule in the routing table, it will be sent to the gateway with an IP address of 192.168.2.1.
