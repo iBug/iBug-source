@@ -143,13 +143,13 @@ lvextend -l +100%FREE pve/data
 To ensure the system can boot up normally, GRUB should be updated. This needs to be done in chroot inside the original system environment. A bunch of mounts must be setup for GRUB reinstallation to work.
 
 ```shell
-mount /dev/pve/root /mnt
+mount /dev/pve/root /srv
 
 # systemd-udev requires these two directories to be available
-mount -o rbind /run /mnt/run
-mount -o rbind /tmp /mnt/tmp
+mount -o rbind /run /srv/run
+mount -o rbind /tmp /srv/tmp
 
-chroot /mnt
+chroot /srv
 mount -t devtmpfs _ /dev
 mount /dev/sda1 /boot/efi
 mount -t proc _ /proc
