@@ -6,7 +6,7 @@ header:
   overlay_image: /image/header/mountain-5.jpg
 ---
 
-前段时间我写了一个 Telegram bot 来接受 GitHub 上的仓库动态，比如有人 push 了，或者 CI 跑完了/跑挂了等。为了接受 GitHub 的“推送通知”，我需要一个 webhook 的接收器。实话讲，用 [Flask][flask] 或者 [Sinatra][sinatra] 写一个然后扔 VPS 上挂着并不困难，但是考虑到维护 VPS 和部署等需要的精力，我决定接这个机会尝试一下无服务器（serverless）的方案，也就是 AWS Lambda 云函数。
+前段时间我写了一个 Telegram bot 来接受 GitHub 上的仓库动态，比如有人 push 了，或者 CI 跑完了/跑挂了等。为了接受 GitHub 的“推送通知”，我需要一个 webhook 的接收器。实话讲，用 [Flask][flask] 或者 [Sinatra][sinatra] 写一个然后扔 VPS 上挂着并不困难，但是考虑到维护 VPS 和部署等需要的精力，我决定借这个机会尝试一下无服务器（serverless）的方案，也就是 AWS Lambda 云函数。
 
 <small>[There's an English version of this article!](/p/41)</small>
 
