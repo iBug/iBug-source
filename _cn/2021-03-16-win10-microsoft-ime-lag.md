@@ -13,17 +13,30 @@ tags: windows
 
 为了再次确认这个问题的产生原因，我又把那一堆文件全部重新“制造”出来：
 
-```python
-import os
-from pathlib import Path
+```vb
+' Create the junk files to reproduce the problem
+Dim WshShell, FSO, Target
+Set WshShell = CreateObject("WScript.Shell")
+Set FSO = CreateObject("Scripting.FileSystemObject")
+Target = WshShell.ExpandEnvironmentStrings("%AppData%") & "\Microsoft\InputMethod\Chs\"
+WshShell.CurrentDirectory = Target
 
-os.chdir("C:\\Users\\iBug\\AppData\\Roaming\\Microsoft\\InputMethod\\Chs")
-
-for i in range(2**16):
-    Path(f"UDP{i:X}.tmp").touch()
+For i = 0 To 65535
+  FSO.CreateTextFile("UDP" & Hex(i) & ".tmp", True).Close
+Next
 ```
 
-果然，Python 一运行完，输入法就开始卡了，所以接下来又把这一堆东西再删掉一遍，问题解决。
+果然，VBS 脚本一运行完，输入法就开始卡了，所以接下来又把这一堆东西再删掉一遍，问题解决。下面是修复用的脚本：
+
+```vb
+' Fix Win10 Chinese IME lag
+Option Explicit
+Dim WSHShell, FSO, Target
+Set WSHShell = CreateObject("WScript.Shell")
+Set FSO = CreateObject("Scripting.FileSystemObject")
+Target = WshShell.ExpandEnvironmentStrings("%AppData%") & "\Microsoft\InputMethod\Chs\"
+FSO.DeleteFile Target & "UDP*.tmp"
+```
 
   [1]: https://jingyan.baidu.com/article/6f2f55a11f1117b5b83e6c63.html
   [2]: /image/windows/microsoft-ime-chs-files.png
