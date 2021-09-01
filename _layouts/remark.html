@@ -7,6 +7,9 @@ layout: none
   <head>
     <title>{{ page.title | default: "Presentation" }} - {{ site.title }}</title>
     <meta charset="utf-8">
+    {% if page.noindex or page.hidden %}
+      <meta name="robots" content="noindex">
+    {% endif %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/amazon-fonts@1.0.1/fonts/stylesheet.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fapro-free@5.15.3/css/all.min.css"> -->
     <style>
