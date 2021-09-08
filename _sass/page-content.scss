@@ -21,6 +21,15 @@ section.page__content {
     text-decoration: underline;
     transition: text-decoration-color 0.2s linear;
 
+    &.footnote {
+      &::before {
+        content: "[";
+      }
+      &::after {
+        content: "]";
+      }
+    }
+
     &:not(:hover) {
       text-decoration-color: transparent;
     }
