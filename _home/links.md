@@ -4,6 +4,10 @@ comments: false
 share: true
 ---
 
+课程主页（2021 年秋季学期，研究生）：
+
+- 《数据库系统及应用》金培权：<http://staff.ustc.edu.cn/~jpq/courses/adb-cs.html>
+
 课程主页（2020 年春季学期）：
 
 - 《数据库系统及应用》金培权：<http://staff.ustc.edu.cn/~jpq/courses/db.html>
