@@ -7,6 +7,7 @@ share: true
 课程主页（2021 年秋季学期，研究生）：
 
 - 《数据库系统及应用》金培权：<http://staff.ustc.edu.cn/~jpq/courses/adb-cs.html>
+- 《并行程序设计》郑启龙：<http://staff.ustc.edu.cn/~qlzheng/pp11/>
 
 课程主页（2020 年春季学期）：
 
