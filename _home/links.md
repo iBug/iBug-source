@@ -8,6 +8,7 @@ share: true
 
 - 《数据库系统及应用》金培权：<http://staff.ustc.edu.cn/~jpq/courses/adb-cs.html>
 - 《并行程序设计》郑启龙：<http://staff.ustc.edu.cn/~qlzheng/pp11/>
+- 《算法设计与分析》黄刘生、汪炀：<http://home.ustc.edu.cn/~zgma/alg/>
 
 课程主页（2020 年春季学期）：
 
