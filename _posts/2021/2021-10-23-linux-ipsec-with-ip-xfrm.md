@@ -280,7 +280,7 @@ This is because Wireshark is identifying streams by SPI, which is normally diffe
 Big shoutout to my friend [@RTXUX](https://github.com/RTXUX) who originally came up with this idea!
 {: .notice--primary }
 
-Notice how Wireshark shows the "decrypted data" as a complete IP packet, and that the "Next Header" field in the outer ESP packet is 4 (IP-in-IP tunneling protocol):
+Notice how Wireshark shows the "decrypted data" as a complete IP packet, and that the "Next Header" field in the outer ESP packet is 4 ([IP-in-IP tunneling protocol][ipip]):
 
 ![Wireshark decrypted payload](/image/linux/ipsec/bonus-wireshark-decrypted-data.png)
 
@@ -374,6 +374,7 @@ Finally, if you are going to use my article as a hand-on tutorial for setting up
   [7]: https://security.stackexchange.com/a/18104/168307
   [dn42]: https://en.wikipedia.org/wiki/Decentralized_network_42
   [gre]: https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation
+  [ipip]: https://en.wikipedia.org/wiki/IP_in_IP
   [l2tp]: https://en.wikipedia.org/wiki/Layer_2_Tunneling_Protocol
   [ip-xfrm.8]:https://man7.org/linux/man-pages/man8/ip-xfrm.8.html
   [wireguard]: https://en.wikipedia.org/wiki/WireGuard
