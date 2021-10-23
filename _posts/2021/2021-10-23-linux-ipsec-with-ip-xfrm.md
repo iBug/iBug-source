@@ -353,11 +353,11 @@ I emphasized *properly set up* at the end of the last line above. This is becaus
 
   Depending on the software used, it may be even easier to setup a route-based VPN (like OpenVPN), but traffic filtering needs to be done from inside. This is virtually the only disadvantage of route-based VPN.
 
-It's often a matter of choice between these options. There are more route-based VPN implementations (OpenVPN, WireGuard etc.) but enterprise support for policy-based VPN are more mature, so a decision is to be made when it comes to deployment. I personally never used policy-based VPN outside this lab because I often need complex routing policies and NAT rules that policy VPNs are bad at, but YMMV.
+It's often a matter of choice between these options. There are more route-based VPN implementations (OpenVPN, WireGuard etc.) but enterprise support for policy-based VPN is more mature, so a decision is to be made when it comes to deployment. I personally never used policy-based VPN outside this lab because I often need complex routing policies and NAT rules that policy VPNs are bad at, but YMMV.
 
 ## Troubleshooting
 
-Finally, if you are going to use my article as a hand-on tutorial for setting up a similar lab, some troubleshooting experiences and tips would certainly turn useful.
+Finally, if you are going to use my article as a hands-on tutorial for setting up a similar lab, some troubleshooting experiences and tips would certainly turn useful.
 
 - Creating `ip xfrm state` results in *Protocol not supported*: Check on the Proxmox VE host if `modprobe xfrm4_tunnel` works correctly. It may fail with *Unknown symbol in module* or *Invalid argument*. In either case, update the Linux kernel package to the latest and reboot the host.
 - Decrypted packets not found except in `tcpdump`: Check `/proc/net/xfrm_stat` and see which number is going up. This kernel interface provides statistics for packets dropped by the XFRM framework. Refer to [the kernel documentation][4] to see what each number means.

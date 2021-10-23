@@ -39,14 +39,14 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 <details open markdown="1">
 <summary> **Advanced knowledge**
 </summary>
-- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow), JavaScript and Ruby
+- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow), JavaScript (browser) and Ruby
 - **Software**: Git, Jekyll, OpenSSH
 </details>
 
 <details markdown="1">
 <summary> **Intermediate knowledge**
 </summary>
-- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Verilog, VBScript
+- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Node.js, Verilog, VBScript, Go
 - **Framework**:
   Ruby on Rails,
   Bootstrap,
@@ -57,11 +57,12 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 - **Software**:
   Vim,
   Nginx,
+  Systemd,
   Docker,
+  [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
   Linux <abbr title="Logical Volume Manager">LVM</abbr>,
   Make,
   LXD,
-  Systemd,
   [Singularity](https://sylabs.io/) (Container)
 - **Miscellaneous**: Linux Networking (routing, tunneling, firewall, iptables etc.)
   plus various networking protocols (HTTP and DNS in particular)
@@ -70,9 +71,9 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
-- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, Go, AWK, Wolfram Mathematica, Perl
+- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, AWK, Wolfram Mathematica, Perl
 - **Framework**: [Sinatra](https://sinatrarb.com), Django, React
-- **Software**: ZFS
+- **Software**: ZFS, Bind9
 - **Technology**: *something used to be here*,
 </details>
 
@@ -95,11 +96,11 @@ MSI produces high-performance gaming laptops with *very* comfortable and beautif
   - Chinese
     - Native to Simplified (written) and Mandarin (oral)
     - Reads Traditional without problem but limited in writing
-  - English (Proficient as a foreign language, prefer American flavor)
+  - English (Proficient as a foreign language, American flavor)
 - **Secondary languages**: French (advancing), Spanish (limited vocabulary)
-- **Minor language(s)**: Italian (can read with a dictionary)
-  - Also can identify a wide range of Latin-script languages, though without understanding a single word.
 {% comment %}
+- **Minor language(s)**: Italian (can read with the help of a dictionary)
+  - Also can identify a wide range of Latin-script languages, though usually without understanding a single word.
   - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
 {% endcomment %}
 - [My blog]({{ "/blog/" | relative_url }})
