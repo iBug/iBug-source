@@ -3,9 +3,9 @@ title: "About iBug"
 toc: true
 ---
 
-Undergraduate CS student at [USTC][USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
+Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
 
-Python, C and C++ are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
+Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
 
 Also loves casual and puzzle gaming.
 
