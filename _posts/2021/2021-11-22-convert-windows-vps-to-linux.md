@@ -37,7 +37,7 @@ Now it's time to start working!
 
 iPXE is an open-source PXE (network boot) firmware, and is built into QEMU, ready for use.
 
-I open up the noVNC console and start the VPS. When I see "Press F12 for boot options", I go for it for the iPXE menu.
+I open up the noVNC console and start the VPS. When I see "Press ESC for Boot Menu", I go for it for the iPXE menu.
 
 ![iPXE boot screen](/image/linux/ipxe/ipxe-boot.png)
 
@@ -92,6 +92,10 @@ If I replace `linux-image-amd64` with `linux-image-cloud-amd64`, I can free up s
 That's it. With just some small efforts, this is now an afforable, high-spec Linux VPS.
 
 While the VPS control panel would never offer Linux templates should anything go wrong, it's always possible to boot from iPXE again for a "rescue environment".
+
+## Easter Egg
+
+During Debian installation, the installer automatically added the `hyperv-daemon` package after examining hardware. After booting into Debian, `systemd-detect-virt` reports "microsoft" (i.e. Windows Hyper-V). This VPS hosting provider may have some black magic with their Windows VPS cluster so that QEMU/KVM behaves so. This issue doesn't seem to exist in their "native" Linux VPS, but it's worth noting.
 
 
   [aff]: https://go.ibugone.com/vps-hk
