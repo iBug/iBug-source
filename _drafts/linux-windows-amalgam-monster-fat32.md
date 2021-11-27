@@ -7,4 +7,7 @@ header:
   overlay_filter: 0.1
 ---
 
+In [my previous article]({% post_url 2021/2021-11-28-linux-windows-amalgam-monster-ntfs %}),
+
+
   [a]: https://bbs.archlinux.org/viewtopic.php?id=173748

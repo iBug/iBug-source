@@ -113,7 +113,7 @@ ln -s /lib/systemd/system/systemd-networkd.service multi-user.target.wants/
 
 All set, let's give it a try.
 
-## Arch Linux with Windows 10 usage experience {#usage-experience}
+## Usage experience
 
 Arch Linux plays surprisingly well with the new NTFS3 filesystem driver.
 
@@ -125,15 +125,17 @@ To keep things simple, I didn't install too much software. During my testing, th
 
 A non-issue is that there's no working `fsck` tool, and there's a systemd service "Fsck at boot" that consequently fails. It's not as useful so I just disabled it.
 
+The pioneer from r/archlinux said the system breaks after a few reboots, which didn't happen to me. On the contrary, my Arch Linux was considerably resistant to Windows, and survived multiple Windows Updates, one Microsoft Update, and a few more. It even survived a CHKDSK despite a bunch of files being reported for "invalid filename" because [Windows dislikes colons in filenames][windows-colon] (not that NTFS doesn't support).
+
 ## Thoughts
 
-I must admit I'm amazed at how exquisitely NTFS is designed. It's so mature that it hasn't even been updated [since Windows XP][ntfs-versions]. One important part of NTFS is its Extended Attributes (EA) for files. Every NTFS filesystem contains a special file named `$MFT` located under its root directory. This is the metadata for all files, including file names, "normal attributes" and ACL, among which is the EA. Every file has an associated EA entry, which can contain an arbitrary number of attributes (key-value pairs). In fact, the first generation of Windows Subsystem for Linux (WSL) stores Linux file modes and permissions [using custom EA keys][wsl-file], which gets adapted by the new NTFS3 driver. Other EA keys are also used as needed, like `security.capability`, which is a 20-byte bitset.
+I must admit I'm amazed at how exquisitely NTFS is designed. It's so mature that it hasn't even been updated [since Windows XP][ntfs-versions]. One important part of NTFS is its Extended Attributes (EA) for files. Every NTFS filesystem contains a special file named `$MFT` located under its root directory. This is the metadata for all files, including file names, "normal attributes" and ACL, among which is the EA. Every file has an associated entry for EA, which can contain an arbitrary number of attributes (key-value pairs). In fact, the first generation of Windows Subsystem for Linux (WSL) stores Linux file modes and permissions [using custom EA keys][wsl-file], which gets adapted by the new NTFS3 driver. Other EA keys are also used as needed, like `security.capability`, which is a 20-byte bitset. (Interestingly, EA was originally designed for compatibility with HPFS, which also has a similarly-extensible "Extended Attributes".)
 
 The new NTFS3 driver is a delighting improvement to the Linux ecosystem. Complaints about the classic NTFS-3G driver [have][1] [always][2] [been][3] [around][4]. Performance was one of the primary concerns because it not only is based on FUSE (Filesystem in USErspace), but also badly optimized. Use of FUSE means extra context switches when accessing files, which, paired with hard-coded 4 KiB read/write unit, delivers unusually slow access speeds.
 
 While the NTFS3 driver is a bit more optimized, concerns around compatibility are still encompassing. This is mainly because it's still built on knowledge obtained from reverse engineering than technical documentation and standard. Fortunately, stability for NTFS-3G is already at a satisfactory level, and the new driver is thought to be more reliable than the old one.
 
-Besides, this is a perfect example of Linux's inclusiveness. Years before the commencement of the new NTFS3 driver, [attempts were made][ntfs-3g-rootfs] to run Linux on top of NTFS using NTFS-3G. This leads to an interesting question: Will Linux run on top of FAT32? Technical difficulties are more conspicuous and crutial this time, like lack of support and extensibility for file modes and more. I'll explore into this challenge and share my findings in a subsequent blog post. Stay tuned!
+Besides, this is a perfect example of Linux's inclusiveness. Years before the commencement of the new NTFS3 driver, [attempts were made][ntfs-3g-rootfs] to run Linux on top of NTFS using NTFS-3G. This leads to an interesting question: Will Linux run on top of FAT32? Technical difficulties are more conspicuous and critical this time, like lack of support and extensibility for file modes and more. I'll explore into this challenge and share my findings in a subsequent blog post. Stay tuned!
 
 ## Links & Credits
 
@@ -147,6 +149,7 @@ Besides, this is a perfect example of Linux's inclusiveness. Years before the co
   [ntfs-3g]: https://en.wikipedia.org/wiki/NTFS-3G
   [ntfs-3g-rootfs]: https://github.com/CyanoHao/NTFS-as-rootfs
   [ntfs-versions]: https://en.wikipedia.org/wiki/NTFS#Versions
+  [windows-colon]: https://stackoverflow.com/a/25477235/5958455
   [wsl-file]: https://docs.microsoft.com/en-us/windows/wsl/file-permissions
 
   [1]: https://superuser.com/q/613869/688600
