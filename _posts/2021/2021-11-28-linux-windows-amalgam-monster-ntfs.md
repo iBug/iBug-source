@@ -2,6 +2,9 @@
 title: "New Pandora's box: Install Linux and Windows onto the same NTFS partition"
 tags: linux windows
 redirect_from: /p/47
+header:
+  overlay_image: /image/header/art-1.jpg
+  overlay_filter: 0.1
 ---
 
 Linux 5.15 is shipped with a brand new driver for Microsoft's classic NTFS filesystem, [NTFS3][ntfs3]. Unlike the decades-old open-source NTFS-3G project, which is based on FUSE and have always received criticism for breaking existing filesystems, NTFS3 is a new driver that is designed to be compatible with contemporary NTFS filesystems, while providing safer read/write operations. This makes it possible to install Linux onto NTFS (as is with most other filesystems), and opens up a whole new can of worms: run Linux alongside Windows, TOGETHER.
