@@ -131,7 +131,7 @@ I must admit I'm amazed at how exquisitely NTFS is designed. It's so mature that
 
 The new NTFS3 driver is a delighting improvement to the Linux ecosystem. Complaints about the classic NTFS-3G driver [have][1] [always][2] [been][3] [around][4]. Performance was one of the primary concerns because it not only is based on FUSE (Filesystem in USErspace), but also badly optimized. Use of FUSE means extra context switches when accessing files, which, paired with hard-coded 4 KiB read/write unit, delivers unusually slow access speeds.
 
-While the NTFS3 driver is a bit more optimized, concerns around compatibility are still around. This is mainly because it's still built on knowledge obtained from reverse engineering than technical documentation and standard. Fortunately, stability for NTFS-3G is already at a satisfactory level, and the new driver is thought to be more reliable than the old one.
+While the NTFS3 driver is a bit more optimized, concerns around compatibility are still encompassing. This is mainly because it's still built on knowledge obtained from reverse engineering than technical documentation and standard. Fortunately, stability for NTFS-3G is already at a satisfactory level, and the new driver is thought to be more reliable than the old one.
 
 Besides, this is a perfect example of Linux's inclusiveness. Years before the commencement of the new NTFS3 driver, [attempts were made][ntfs-3g-rootfs] to run Linux on top of NTFS using NTFS-3G. This leads to an interesting question: Will Linux run on top of FAT32? Technical difficulties are more conspicuous and crutial this time, like lack of support and extensibility for file modes and more. I'll explore into this challenge and share my findings in a subsequent blog post. Stay tuned!
 
