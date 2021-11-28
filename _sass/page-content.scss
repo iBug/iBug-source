@@ -154,6 +154,21 @@ section.page__content {
     }
   }
 
+  :not(pre) > code {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size: 0.8em;
+    //background: $code-background-color;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: $border-radius;
+
+    &::before,
+    &::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"; /* non-breaking space*/
+    }
+  }
+
   .notice,
   .notice--primary,
   .notice--info,
