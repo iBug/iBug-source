@@ -181,6 +181,7 @@ text-align: center;
 
     li a {
       @include pro-font;
+      font-size: 16px;
       transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
 
       &:not(disabled):hover {
@@ -206,7 +207,7 @@ text-align: center;
 
   .version-text {
     @include pro-font;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .version-code {
