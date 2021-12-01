@@ -6,7 +6,7 @@ toc: true
 
 ## Selected questions
 
-### C++ {#sq-c++}
+### C++ {#sq-cpp}
 
 - [How is the three-way comparison operator different from subtraction?](https://stackoverflow.com/q/48042955/5958455)
 - [Is it possible that a compiled program does not contain an instantiated template class?](https://stackoverflow.com/q/48032907/5958455)
@@ -30,7 +30,7 @@ toc: true
 
 ## Selected Answers
 
-### C++ {#sa-c++}
+### C++ {#sa-cpp}
 
 - [Append int to std::string](https://stackoverflow.com/a/45505795/5958455)
 - [Ternary operator implicit cast to base class](https://stackoverflow.com/a/49240226/5958455)
