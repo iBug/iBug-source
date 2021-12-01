@@ -3,7 +3,7 @@ title: "About iBug"
 toc: true
 ---
 
-Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.
+Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Mostly a developer, often a DevOps engineer and Linux SysAdmin.
 
 Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
 
@@ -16,10 +16,10 @@ I'm an active contributor on GitHub across various repositories. You can see a l
 I'm also an avid user on Stack Overflow:
 
 <p><center>
-<a href="https://stackoverflow.com/users/5958455" style="text-decoration: initial;">
+<a href="https://stackoverflow.com/users/5958455/ibug" style="text-decoration: initial;">
 <img alt="Profile for iBug at Stack Overflow, Q&A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;"/>
 </a>
-<a href="https://stackexchange.com/users/7886663" style="text-decoration: initial;">
+<a href="https://stackexchange.com/users/7886663/ibug" style="text-decoration: initial;">
 <img alt="Profile for iBug at Stack Exchange" src="https://stackexchange.com/users/flair/7886663.png" class="card" style="margin-top: 0.2rem;"/>
 </a>
 </center></p>
@@ -94,15 +94,10 @@ MSI produces high-performance gaming laptops with *very* comfortable and beautif
 
 - **Primary languages**:
   - Chinese
-    - Native to Simplified (written) and Mandarin (oral)
+    - Native to Simplified (written) and Mandarin (spoken)
     - Reads Traditional without problem but limited in writing
-  - English (Proficient as a foreign language, American flavor)
+  - English (proficient as a foreign language, preferred work language)
 - **Secondary languages**: French (advancing), Spanish (limited vocabulary)
-{% comment %}
-- **Minor language(s)**: Italian (can read with the help of a dictionary)
-  - Also can identify a wide range of Latin-script languages, though usually without understanding a single word.
-  - Note on contacting: Using Chinese usually infers a casual talk, so unless you write very formal Chinese documents (e-mails, GitHub issues, etc.) to me, you will likely get a casually-written response, in IM chat-flavor language, and sometimes incoherent. Meanwhile, I'm careful when writing English and often try to be serious. Prefer English if you expect professional talks.
-{% endcomment %}
 - [My blog]({{ "/blog/" | relative_url }})
 - [My entertainment]({{ "/entertainment/" | relative_url }})
 
