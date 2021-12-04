@@ -99,7 +99,7 @@ author:
   email            : null # "mailto:i@ibugone.com"
   links:
     - label: "Email"
-      icon: "far fa-fw fa-envelope"
+      icon: "fas fa-fw fa-envelope-square"
       url: "mailto:%69@ibugone.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
