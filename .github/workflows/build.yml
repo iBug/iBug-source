@@ -32,15 +32,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-bundler-3-
 
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 16
     - name: Setup cache for Node.js
       id: cache-npm
       uses: actions/cache@v2
       with:
         path: node_modules
         key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
-        restore-keys: |
-          ${{ runner.os }}-npm-
 
     - name: Install - Bundler
       run: |
