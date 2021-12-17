@@ -23,7 +23,7 @@ From my experiences in the past half year, GitHub Actions is, in all aspects, a 
 
 I just set up my GitHub Pages to be built with Travis CI. It's amazing. &rarr; [<img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;" />](https://travis-ci.org/iBug/iBug-source)
 
-This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the [source repository][src]. Some build information is available on an [About page][about] that I specifically designed for auditing purposes.
+This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the [source repository][src]. Some build information is available on a [Status page][status] that I specifically designed for auditing purposes.
 
 **Previous state**: A site that's previously hosted on GitHub Pages, with source files directly put in **_username_.github.io**, and uses one of [GitHub's official themes][3].
 
@@ -177,5 +177,5 @@ When building with Travis CI, it's much like a local environment. You are no lon
   [5]: https://help.github.com/articles/configuring-jekyll-plugins/
   [6]: https://github.com/planetjekyll/awesome-jekyll-plugins
   [src]: https://github.com/iBug/iBug-source
-  [about]: {{ site.url }}/about
+  [status]: {{ "/status" | relative_url }}
   [plugins]: https://github.com/iBug/iBug-source/blob/master/Gemfile
