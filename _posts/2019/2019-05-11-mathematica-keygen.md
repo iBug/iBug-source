@@ -1,5 +1,5 @@
 ---
-title: "Wolfram Mathematica 12 Key Generator Online"
+title: "Wolfram Mathematica 13 Key Generator Online"
 description: "Another JavaScript project"
 tagline: ""
 categories: keygen
@@ -8,20 +8,25 @@ redirect_from: /p/19
 toc: false
 ---
 
-### Supports Wolfram Mathematica 12.x
+This page provides:
 
-This includes any version that begins with 12, from 12.0 to 12.999 (if exist).
-
-<div class="notice--warning" markdown="1">
-#### <i class="fa fas fa-exclamation-circle"></i> Notice
-{: .no_toc }
-
-Does **not** work for other Wolfram products. It's for Mathematica only!
-</div>
+- Wolfram Mathematica 12 Key Generator
+- Wolfram Mathematica 13 Key Generator
+- Wolfram System Modeler 12 Key Generator
 
 {% include airport.html %}
 
-Enter your MathID (xxxx-xxxxx-xxxxx) below and press **Generate**.
+<div class="form-inline">
+<p style="margin-bottom: 0;">Select product:</p>
+<input type="radio" id="product-mma12" name="product" value="mma12">
+<label for="product-mma12">Mathematica 12</label><br>
+<input type="radio" id="product-mma13" name="product" value="mma13" checked>
+<label for="product-mma13">Mathematica 13</label><br>
+<input type="radio" id="product-sm" name="product" value="sm12">
+<label for="product-sm">System Modeler 12</label>
+</div>
+
+Enter your MathID below and press **Generate**.
 
 <input type="text" id="mathId" placeholder="xxxx-xxxxx-xxxxx" />
 
@@ -29,7 +34,14 @@ Enter your MathID (xxxx-xxxxx-xxxxx) below and press **Generate**.
 
 <p id="result">Press <b>Generate</b>!</p>
 
-<script data-ad-client="ca-pub-4203697973995702" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div><script data-ad-client="ca-pub-4203697973995702" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></div>
+
+<div class="notice--warning" markdown="1">
+#### <i class="fa fas fa-exclamation-circle"></i> Notice
+{: .no_toc }
+
+Someone appears to be *selling* these kinds of tools. This is immoral and evil.
+</div>
 
 <script type="text/javascript">
 function f1(n, byte, c) {
@@ -100,9 +112,6 @@ function genActivationKey() {
     return s;
 }
 
-Array.prototype.getRandom = function () {
-    return this[Math.floor(Math.random() * this.length)];
-}
 document.getElementById("generate").addEventListener("click", function () {
     var mathId = document.getElementById("mathId").value.trim();
     if (!checkMathId(mathId)) {
@@ -110,15 +119,19 @@ document.getElementById("generate").addEventListener("click", function () {
     } else {
         var activationKey = genActivationKey();
         var magicNumbers;
-        var software = "mma";
-        if (software === "mma") {
-            // Mathematica 12
+        var software = document.querySelector("input[name=product]:checked").value;
+        if (software === "mma12") {
             magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
-        } else if (software === "sm") {
-            // SystemModeler 12
+        } else if (software === "mma13") {
+            magicNumbers = [17649];
+        } else if (software === "sm12") {
             magicNumbers = [4912, 4961, 22384, 24968, 30046, 31889, 42446, 43787, 48967, 61182, 62774];
+        } else {
+            document.getElementById("result").innerHTML = `<p>Unknown software selected: ${software}.</p>`;
+            return;
         }
-        var password = genPassword(mathId + "$1&" + activationKey, magicNumbers.getRandom());
+        var magicNumber = magicNumbers[Math.floor(Math.random() * magicNumbers.length)]
+        var password = genPassword(mathId + "$1&" + activationKey, magicNumber);
         document.getElementById("result").innerHTML = `
         <p>
         <b>Activation Key</b>: ${activationKey}
@@ -127,7 +140,7 @@ document.getElementById("generate").addEventListener("click", function () {
         </p>
         <p>Don't forget to share your feelings below. Thanks for using!</p>
         <p>Need a VPN to get past GFW? Check out <a href="https://blinkload.me/">Blinkload</a> for free &amp; fast global internet access!</p>
-        <p>See an advert <a href="http://raboninco.com/1wNoI">here</a> if you want to support me!</p>
+        <p>Please consider <a href="https://www.wolfram.com/mathematica/pricing/">purchasing</a> the software if you find it useful. Piracy is never commendable.</p>
         `;
     }
 });
