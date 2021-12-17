@@ -16,7 +16,7 @@ I have since decommissioned Travis CI from all my repositories in response to [i
 #### <i class="fas fa-fw fa-lightbulb"></i> Update September 2020
 {: .no_toc }
 
-I wrote [another article](2020-09-19-build-github-pages-with-github-actions.md) two years later about building with GitHub Actions.
+I wrote [another article]({% post_url 2020/2020-09-19-build-github-pages-with-github-actions %}) two years later about building with GitHub Actions.
 
 From my experiences in the past half year, GitHub Actions is, in all aspects, a better option than Travis CI. So after getting the basic knowledge of building your site, it's recommended that you continue to that article instead.
 </div>
