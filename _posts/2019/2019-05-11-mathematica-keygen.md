@@ -10,20 +10,22 @@ toc: false
 
 This page provides:
 
+- Wolfram Mathematica 11 Key Generator
 - Wolfram Mathematica 12 Key Generator
 - Wolfram Mathematica 13 Key Generator
 - Wolfram System Modeler 12 Key Generator
+- Wolfram System Modeler 13 Key Generator
 
 {% include airport.html %}
 
 <div class="form-inline">
 <p style="margin-bottom: 0;">Select product:</p>
 <input type="radio" id="product-mma12" name="product" value="mma12">
-<label for="product-mma12">Mathematica 12</label><br>
+<label for="product-mma12">Mathematica 11/12</label><br>
 <input type="radio" id="product-mma13" name="product" value="mma13" checked>
 <label for="product-mma13">Mathematica 13</label><br>
 <input type="radio" id="product-sm" name="product" value="sm12">
-<label for="product-sm">System Modeler 12</label>
+<label for="product-sm">System Modeler 12/13</label>
 </div>
 
 Enter your MathID below and press **Generate**.
@@ -120,14 +122,12 @@ document.getElementById("generate").addEventListener("click", function () {
         var activationKey = genActivationKey();
         var magicNumbers;
         var software = document.querySelector("input[name=product]:checked").value;
-        if (software === "mma12") {
+        if (software === "mma12" || software === "mma13") {
             magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
-        } else if (software === "mma13") {
-            magicNumbers = [17649];
         } else if (software === "sm12") {
             magicNumbers = [4912, 4961, 22384, 24968, 30046, 31889, 42446, 43787, 48967, 61182, 62774];
         } else {
-            document.getElementById("result").innerHTML = `<p>Unknown software selected: ${software}.</p>`;
+            document.getElementById("result").innerHTML = `<p>Unknown software suite: ${software}.</p>`;
             return;
         }
         var magicNumber = magicNumbers[Math.floor(Math.random() * magicNumbers.length)]
@@ -140,7 +140,7 @@ document.getElementById("generate").addEventListener("click", function () {
         </p>
         <p>Don't forget to share your feelings below. Thanks for using!</p>
         <p>Need a VPN to get past GFW? Check out <a href="https://blinkload.me/">Blinkload</a> for free &amp; fast global internet access!</p>
-        <p>Please consider <a href="https://www.wolfram.com/mathematica/pricing/">purchasing</a> the software if you find it useful. Piracy is never commendable.</p>
+        <p>Please consider purchasing the software if you find it helpful to you. Support genuine software!</p>
         `;
     }
 });
