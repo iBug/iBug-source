@@ -3,7 +3,7 @@ title: Aurora Theme
 excerpt: "Aurora is a clean, responsive Jekyll theme for GitHub Pages."
 date: 1970-01-09
 header:
-  teaser: /image/teaser/aurora.jpg
+  teaser: /image/teaser/project/aurora.jpg
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/aurora-theme

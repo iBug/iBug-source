@@ -3,7 +3,7 @@ title: Jekyll Environment Variables
 excerpt: "A Jekyll plugin that enables the use of environment variables in templates. Also my first widely-welcome Ruby Gem."
 date: 1970-01-05
 header:
-  teaser: /image/teaser/jekyll.png
+  teaser: /image/teaser/project/jekyll.png
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/jekyll-environment-variables
