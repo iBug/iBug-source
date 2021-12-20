@@ -3,7 +3,7 @@ title: PyReversi
 excerpt: "An old Flash plane-shooting game that I made when I was 13"
 date: 1970-01-08
 header:
-  teaser: /image/project/teaser/reversi.jpg
+  teaser: /image/teaser/reversi.jpg
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/PyReversi

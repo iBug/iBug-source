@@ -3,7 +3,7 @@ title: SmokeDetector
 excerpt: "A community-driven chatbot that detects spam across the Stack Exchange Network and reports them so that they can be quickly removed."
 date: 1970-01-02
 header:
-  teaser: /image/project/teaser/charcoal-se.png
+  teaser: /image/teaser/charcoal-se.png
 redirect_to: "https://charcoal-se.org/"
 ---
 

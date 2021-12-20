@@ -3,7 +3,7 @@ title: USTC Virtualization Laboratory
 excerpt: "An in-school cloud computing provider that I set up from scratch. Provides virtual machines and block storage for students to do course experiments."
 date: 1970-01-03
 header:
-  teaser: /image/project/teaser/cloud-computing.jpg
+  teaser: /image/teaser/cloud-computing.jpg
 ---
 
 USTC Virtualization Laboratory (Vlab) is a unified course experiment platform involving code storage (GitLab CE) and experiment environment (virtual machines).

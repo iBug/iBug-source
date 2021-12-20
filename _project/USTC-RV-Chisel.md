@@ -3,7 +3,7 @@ title: Chisel RISC-V
 excerpt: "A RISC-V project aiming to pave the way for its application in teaching."
 date: 1970-01-04
 header:
-  teaser: /image/project/teaser/risc-v.jpg
+  teaser: /image/teaser/risc-v.jpg
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/USTC-RV-Chisel

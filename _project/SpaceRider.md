@@ -3,7 +3,7 @@ title: SpaceRider
 excerpt: "An old Flash plane-shooting game that I made when I was 13"
 date: 1970-01-07
 header:
-  teaser: /image/project/teaser/SpaceRider.jpg
+  teaser: /image/teaser/SpaceRider.jpg
   actions:
     - label: "<i class='fab fa-github'></i> GitHub"
       url: https://github.com/iBug/SpaceRider
