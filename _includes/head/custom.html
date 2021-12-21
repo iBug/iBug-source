@@ -30,7 +30,7 @@
 	</script>
 {% endif %}
 {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
-<script data-ad-client="ca-pub-4203697973995702" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{% unless page.noad %}<script data-ad-client="ca-pub-4203697973995702" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>{% endunless %}
 <!--
  Minimal Mistakes layout: {{ page.layout }}
  Page Path: {{ page.path }}
