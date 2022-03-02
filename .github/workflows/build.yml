@@ -31,27 +31,10 @@ jobs:
         key: ${{ runner.os }}-bundler-3-${{ hashFiles('Gemfile') }}
         restore-keys: |
           ${{ runner.os }}-bundler-3-
-
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 16
-    - name: Setup cache for Node.js
-      id: cache-npm
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
-
     - name: Install - Bundler
       run: |
         bundle install --path=vendor/bundle --jobs=4 --retry=3
         bundle clean
-
-    - name: Install - NPM
-      if: steps.cache-npm.outputs.cache-hit != 'true'
-      run: |
-        npm install --also=dev
-        npm prune
 
     - name: Prepare build
       run: bash script/prepare.sh
@@ -71,6 +54,21 @@ jobs:
 
     - name: Deploy to GitHub
       run: script/deploy-actions.sh
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 16
+    - name: Setup cache for Node.js
+      id: cache-npm
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
+    - name: Install - NPM
+      if: steps.cache-npm.outputs.cache-hit != 'true'
+      run: |
+        npm install --also=dev
+        npm prune
 
     - name: Deploy to Netlify
       env:
