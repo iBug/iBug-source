@@ -40,6 +40,56 @@ Now we have an empty OpenLDAP server. The admin user's DN is `cn=admin` followed
 
 The additional package `ldap-utils` provides tools like `ldapadd`, `ldapmodify` and `ldapdelete` which we'll be mostly using later. `slapd` provides `slapcat` that dumps the whole database and `ldapvi` provides an interactive editor, both of which come in handy for management and debugging.
 
+### Populating the database {#seeding}
+
+All interactions with the server are done through `ldap*` commands submitting text in LDIF (LDAP Data Interchange Format). Now that we have an empty database, we can create two directories for our users and groups. This is the first LDIF file to have.
+
+```yaml
+dn: ou=user,dc=ibug
+objectClass: organizationalUnit
+ou: user
+
+dn: ou=group,dc=ibug
+objectClass: organizationalUnit
+ou: group
+```
+
+Use `ldapadd -D cn=admin,dc=ibug -W -f base.ldif` to load the "change request" into the database.
+
+Now create the first user and group:
+
+```yaml
+dn: uid=ibug,ou=user,dc=ibug
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetOrgPerson
+cn: iBug
+sn: iBug
+uid: ibug
+uidNumber: 1000
+gidNumber: 1000
+homeDirectory: /home/ibug
+loginShell: /bin/bash
+gecos: iBug
+```
+
+```yaml
+dn: cn=staff,ou=group,dc=ibug
+objectClass: posixGroup
+cn: staff
+gidNumber: 1000
+description: My staff group
+```
+
+To add a user to a group, use `ldapmodify` with this LDIF file:
+
+```yaml
+dn: cn=staff,ou=group,dc=ibug
+changetype: modify
+add: memberUid
+memberUid: ibug
+```
+
 ## References
 
 - [使用 OpenLDAP 在 Linux 上进行中心化用户管理 - Harry Chen's blog](https://harrychen.xyz/2021/01/17/openldap-linux-auth/)
