@@ -1,5 +1,6 @@
 ---
-title: "Youth's first OpenLDAP server"
+# a-youth-s-first-ldap-server
+title: "Centralized Linux authentication with OpenLDAP"
 tags: linux server ldap
 redirect_from: /p/50
 ---
@@ -40,7 +41,7 @@ Now we have an empty OpenLDAP server. The admin user's DN is `cn=admin` followed
 
 The additional package `ldap-utils` provides tools like `ldapadd`, `ldapmodify` and `ldapdelete` which we'll be mostly using later. `slapd` provides `slapcat` that dumps the whole database and `ldapvi` provides an interactive editor, both of which come in handy for management and debugging.
 
-### Configuring LDAP client
+### Configuring LDAP tools {#ldap-utils}
 
 All interactions with the server are done through `ldap*` commands submitting text in LDIF (LDAP Data Interchange Format).
 
@@ -58,6 +59,8 @@ There are 3 ways to connect to an LDAP server
 - `ldap://` (plaintext TCP, default port 389)
 - `ldaps://` (over SSL/TLS, default port 636)
 - `ldapi://` (over IPC, or Unix domain socket, usually `/var/run/slapd/ldapi`)
+
+Once you have this file set up, you can omit the `-H <host>` option from all `ldap*` commands. Similarly, `BASE` is useful in `ldapsearch` or like.
 
 ### Populating the database {#seeding}
 
@@ -143,7 +146,36 @@ ldappasswd -D cn=admin,dc=ibug -W uid=ibug,ou=group,dc=ibug
 
 If you don't give the new password, `ldappasswd` will generate a random new one for you, which you can forward to the user themself.
 
-### Importing passwords from `/etc/shadow` {#import-passwords}
+### Importing passwords from Linux {#import-passwords}
+
+One great concern while migrating my lab's authentication completely onto LDAP was whether users can keep their passwords. LDAP uses another hashing scheme SSHA by default, while any supported hashing scheme may be imported.
+
+By default, modern Linux stores hashed user password in `/etc/shadow`, which is only accessible by root. It contains lines like this:
+
+```text
+root:$y$j9T$egdUbc2x4FiVY42xxEH4z.$OJA25VwJ2fIEZizIqUDkS/yUtz8z5tuRiSS3XLum/F3:19064:0:99999:7:::
+```
+
+The 2nd field, delimited by colons, is the hashed password in [Bcrypt][bcrypt] format. To import that into LDAP, prepend the hash with `{CRYPT}`, like this:
+
+```yaml
+dn: uid=ibug,ou=group,dc=ibug
+changetype: modify
+replace: userPassword
+userPassword: {CRYPT}$y$j9T$egdUbc2x4FiVY42xxEH4z.$OJA25VwJ2fIEZizIqUDkS/yUtz8z5tuRiSS3XLum/F3
+```
+
+It will be replaced with LDAP's default password hash type when the user changes their password for the next time.
+
+Now that we have our server set up and running, it's time to configure client machines to use it.
+
+## Client setup {#client}
+
+## Advanced topics {#advanced}
+
+### Securing LDAP server with TLS {#tls}
+
+### Managing permissions {#permissions}
 
 ## References
 
@@ -152,3 +184,4 @@ If you don't give the new password, `ldappasswd` will generate a random new one 
   [389ds]: https://directory.fedoraproject.org/
   [389ds-cert]: https://directory.fedoraproject.org/docs/389ds/howto/howto-ssl-archive.html#importing-an-existing-self-sign-keycert-or-3rd-party-cacert
   [rhds-cert]: https://access.redhat.com/documentation/en-us/red_hat_directory_server/11/html/administration_guide/managing_the_nss_database_used_by_directory_server
+  [bcrypt]: https://en.wikipedia.org/wiki/Bcrypt
