@@ -171,11 +171,25 @@ Now that we have our server set up and running, it's time to configure client ma
 
 ## Client setup {#client}
 
+There are two options for clients: More commonly `libnss-ldapd` and `libpam-ldapd` are used together, or `sssd` if you're familiar with it (which will not be described in this post). Note that are two old packages `libnss-ldap` and `libpam-ldap` (both missing the final `d`) that might confuse you.
+
+Start with `apt install libnss-ldapd libpam-ldapd`. You'll be asked for the LDAP server and the base DN, then "name services to configure". Select `passwd group shadow` for now.
+
+![Configure libnss-ldapd](/image/linux/libnss-ldapd.png)
+
+These two packages should also pull in `nscd` (Name Service Cache Daemon) and `nslcd` (Name Service LDAP Client Daemon). The former provides a local cache for name service lookup results, while the latter provides the ability to lookup items from an LDAP server.
+
+If the LDAP server is configured correctly (for `nslcd`), you should now be able to see LDAP users in the output of `getent passwd`, as well as `getent group`. LDAP users can also login via SSH or ttys.
+
+An LDAP user changes their password using the same `passwd` command, which will be stored in LDAP and immediately available to all machines connected to this LDAP server. In case it doesn't, `nscd -i passwd` and `nscd -i group` will refresh the cache and allow nslcd to pull in the latest information.
+
 ## Advanced topics {#advanced}
 
 ### Securing LDAP server with TLS {#tls}
 
 ### Managing permissions {#permissions}
+
+### Allow users to change login shell {#user-chsh}
 
 ## References
 
