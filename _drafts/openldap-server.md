@@ -40,9 +40,28 @@ Now we have an empty OpenLDAP server. The admin user's DN is `cn=admin` followed
 
 The additional package `ldap-utils` provides tools like `ldapadd`, `ldapmodify` and `ldapdelete` which we'll be mostly using later. `slapd` provides `slapcat` that dumps the whole database and `ldapvi` provides an interactive editor, both of which come in handy for management and debugging.
 
+### Configuring LDAP client
+
+All interactions with the server are done through `ldap*` commands submitting text in LDIF (LDAP Data Interchange Format).
+
+Before moving on to the next step, there are config files for common settings that simplifies later tasks.
+
+Open `/etc/ldap/ldap.conf` (the system-wide settings) and set these options:
+
+```text
+BASE    dc=ibug
+URI     ldapi:///
+```
+
+There are 3 ways to connect to an LDAP server
+
+- `ldap://` (plaintext TCP, default port 389)
+- `ldaps://` (over SSL/TLS, default port 636)
+- `ldapi://` (over IPC, or Unix domain socket, usually `/var/run/slapd/ldapi`)
+
 ### Populating the database {#seeding}
 
-All interactions with the server are done through `ldap*` commands submitting text in LDIF (LDAP Data Interchange Format). Now that we have an empty database, we can create two directories for our users and groups. This is the first LDIF file to have.
+Now that we have an empty database, we can create two directories for our users and groups. This is the first LDIF file to have.
 
 ```yaml
 dn: ou=user,dc=ibug
@@ -55,6 +74,8 @@ ou: group
 ```
 
 Use `ldapadd -D cn=admin,dc=ibug -W -f base.ldif` to load the "change request" into the database.
+
+### Managing users and groups {#users-and-groups}
 
 Now create the first user and group:
 
@@ -71,15 +92,15 @@ gidNumber: 1000
 homeDirectory: /home/ibug
 loginShell: /bin/bash
 gecos: iBug
-```
 
-```yaml
 dn: cn=staff,ou=group,dc=ibug
 objectClass: posixGroup
 cn: staff
 gidNumber: 1000
 description: My staff group
 ```
+
+For user objects, `inetOrgPerson` is a required "object class", and therefore the `cn` and `sn` fields. Linux uses `posixAccount` and `shadowAccount` for authentication, and the `gecos` field is the one that'll appear in output from commands like `getent passwd`.
 
 To add a user to a group, use `ldapmodify` with this LDIF file:
 
@@ -89,6 +110,40 @@ changetype: modify
 add: memberUid
 memberUid: ibug
 ```
+
+Similarly, to change user information, just use `replace` with `changetype: modify`:
+
+```yaml
+dn: cn=staff,ou=group,dc=ibug
+changetype: modify
+replace: gecos
+gecos: New iBug
+```
+
+If you're importing users and groups from an existing system, you may find the ability to preload the group with an initial set of users useful. When creating the group, you may supply any number of `memberUid`s. This has the same effect as adding them one by one.
+
+```yaml
+dn: cn=staff,ou=group,dc=ibug
+objectClass: posixGroup
+cn: staff
+gidNumber: 1000
+description: My staff group
+memberUid: ibug
+memberUid: user1
+memberUid: user2
+memberUid: user3
+memberUid: user4
+```
+
+Last but not least, `ldappasswd` sets or resets passwords for users:
+
+```shell
+ldappasswd -D cn=admin,dc=ibug -W uid=ibug,ou=group,dc=ibug
+```
+
+If you don't give the new password, `ldappasswd` will generate a random new one for you, which you can forward to the user themself.
+
+### Importing passwords from `/etc/shadow` {#import-passwords}
 
 ## References
 
