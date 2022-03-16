@@ -187,6 +187,10 @@ An LDAP user changes their password using the same `passwd` command, which will 
 
 ### Securing LDAP server with TLS {#tls}
 
+Nothing is "baseline secure" over unencrypted traffic, so the next thing is to add TLS certificates for the LDAP server. Certificates aren't hard to get. For example, if you have a public domain, [Let's Encrypt][letsencrypt] is the easiest way to get a universally-trusted certificate. Otherwise, you can create a self-signed certificate that can include any domain name or IP address. [XCA] is one of the best tools to manage a private Certificate Authority.
+
+Copy the certificate and private key files to the `/etc/ldap/` directory. Change the owner and group to `openldap` and file mode to `0644` (for the certificate) or `0400` (for the private key). This ensures only the OpenLDAP server can access them. Now you need to tell the server to *use* these files.
+
 ### Managing permissions {#permissions}
 
 ### Allow users to change login shell {#user-chsh}
@@ -199,3 +203,5 @@ An LDAP user changes their password using the same `passwd` command, which will 
   [389ds-cert]: https://directory.fedoraproject.org/docs/389ds/howto/howto-ssl-archive.html#importing-an-existing-self-sign-keycert-or-3rd-party-cacert
   [rhds-cert]: https://access.redhat.com/documentation/en-us/red_hat_directory_server/11/html/administration_guide/managing_the_nss_database_used_by_directory_server
   [bcrypt]: https://en.wikipedia.org/wiki/Bcrypt
+  [letsencrypt]: https://letsencrypt.org/
+  [xca]: https://hohnstaedt.de/xca/
