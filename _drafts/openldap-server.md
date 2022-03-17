@@ -179,6 +179,13 @@ Start with `apt install libnss-ldapd libpam-ldapd`. You'll be asked for the LDAP
 
 These two packages should also pull in `nscd` (Name Service Cache Daemon) and `nslcd` (Name Service LDAP Client Daemon). The former provides a local cache for name service lookup results, while the latter provides the ability to lookup items from an LDAP server.
 
+After configuring the packages, your `/etc/nslcd.conf` should contain two lines that are reminiscent of `/etc/ldap/ldap.conf`, except that the keys are in lowercase.
+
+```text
+uri ldap://ldap.example.com
+base dc=ibug
+```
+
 If the LDAP server is configured correctly (for `nslcd`), you should now be able to see LDAP users in the output of `getent passwd`, as well as `getent group`. LDAP users can also login via SSH or ttys.
 
 An LDAP user changes their password using the same `passwd` command, which will be stored in LDAP and immediately available to all machines connected to this LDAP server. In case it doesn't, `nscd -i passwd` and `nscd -i group` will refresh the cache and allow nslcd to pull in the latest information.
@@ -190,6 +197,46 @@ An LDAP user changes their password using the same `passwd` command, which will 
 Nothing is "baseline secure" over unencrypted traffic, so the next thing is to add TLS certificates for the LDAP server. Certificates aren't hard to get. For example, if you have a public domain, [Let's Encrypt][letsencrypt] is the easiest way to get a universally-trusted certificate. Otherwise, you can create a self-signed certificate that can include any domain name or IP address. [XCA] is one of the best tools to manage a private Certificate Authority.
 
 Copy the certificate and private key files to the `/etc/ldap/` directory. Change the owner and group to `openldap` and file mode to `0644` (for the certificate) or `0400` (for the private key). This ensures only the OpenLDAP server can access them. Now you need to tell the server to *use* these files.
+
+```yaml
+dn: cn=config
+changetype: modify
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/ldap/server.key
+-
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/ldap/server.crt
+-
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/ldap/server.crt
+```
+
+This time the LDAP "admin" user can't import these changes. You need to log in to the server as `root`, then use the following command:
+
+```shell
+ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif
+```
+
+<div class="notice--danger" markdown="1">
+#### <i class="fas fa-lightbuld"></i> "External" authentication method
+
+The "external" authentication method defers authentication to the transport layer. There are (at least) two kinds of supported methods: Unix domain socket option `SO_PEERCRED` (see [unix(7)][unix.7]) and TLS client certificate. When connecting over UDS, the server can retrieve the client's UID, GID and PID with that option.
+
+The `-H ldapi:///` tells the `ldap*` commands to connect over a local Unix domain socket, which is required for `-Y EXTERNAL` (we don't have TLS client certificates yet).
+</div>
+
+<div class="notice--danger" markdown="1">
+#### <i class="fas fa-exclamation-triangle"></i> Order is important
+{: .no_toc }
+
+The OpenLDAP documentation did not cover the detail that the private key must be added *before* the certificate. Otherwise you'll get this response:
+
+```text
+ldap_modify: Other (e.g., implementation specific) error (80)
+```
+
+References: [1](https://askubuntu.com/a/1103245/612877), [2](https://gist.github.com/ndlrx/edef4474ec9f5edac594cc5e37644559), [3](https://serverfault.com/a/1007262/450575)
+</div>
 
 ### Managing permissions {#permissions}
 
@@ -205,3 +252,4 @@ Copy the certificate and private key files to the `/etc/ldap/` directory. Change
   [bcrypt]: https://en.wikipedia.org/wiki/Bcrypt
   [letsencrypt]: https://letsencrypt.org/
   [xca]: https://hohnstaedt.de/xca/
+  [unix.7]: https://man7.org/linux/man-pages/man7/unix.7.html
