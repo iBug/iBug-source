@@ -15,7 +15,7 @@ LDAP solves this agony and ~~saves a lot of sysadmins' lives~~ by providing cent
 
 Thanks to a network outage a few days ago, I get to reinstall our NFS server into Proxmox VE (yes again) to allow more specialized applications to be deployed in a more flexible manner. So I can just launch a new Debian Bullseye (11) virtual machine and begin this journey. The rest of this blog post assumes this environment.
 
-## Interlude: 389 Directory Server {#389ds}
+## Interlude: 389 Directory Server {#i-389ds}
 
 A friend recommended Fedora's [389 Directory Server][389ds] after learning that I wanted to set up some LDAP server, indicating that it's easier to use and maintain.
 
@@ -179,7 +179,7 @@ Start with `apt install libnss-ldapd libpam-ldapd`. You'll be asked for the LDAP
 
 These two packages should also pull in `nscd` (Name Service Cache Daemon) and `nslcd` (Name Service LDAP Client Daemon). The former provides a local cache for name service lookup results, while the latter provides the ability to lookup items from an LDAP server.
 
-After configuring the packages, your `/etc/nslcd.conf` should contain two lines that are reminiscent of `/etc/ldap/ldap.conf`, except that the keys are in lowercase.
+After configuring the packages, your `/etc/nslcd.conf` should contain two lines that look similar to that of `/etc/ldap/ldap.conf`, except that the keys are in lowercase.
 
 ```text
 uri ldap://ldap.example.com
@@ -217,8 +217,8 @@ This time the LDAP "admin" user can't import these changes. You need to log in t
 ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif
 ```
 
-<div class="notice--danger" markdown="1">
-#### <i class="fas fa-lightbuld"></i> "External" authentication method
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-fw fa-lightbulb"></i> "External" authentication method
 
 The "external" authentication method defers authentication to the transport layer. There are (at least) two kinds of supported methods: Unix domain socket option `SO_PEERCRED` (see [unix(7)][unix.7]) and TLS client certificate. When connecting over UDS, the server can retrieve the client's UID, GID and PID with that option.
 
@@ -226,7 +226,7 @@ The `-H ldapi:///` tells the `ldap*` commands to connect over a local Unix domai
 </div>
 
 <div class="notice--danger" markdown="1">
-#### <i class="fas fa-exclamation-triangle"></i> Order is important
+#### <i class="fas fa-fw fa-exclamation-triangle"></i> Order is important
 {: .no_toc }
 
 The OpenLDAP documentation did not cover the detail that the private key must be added *before* the certificate. Otherwise you'll get this response:
@@ -238,13 +238,176 @@ ldap_modify: Other (e.g., implementation specific) error (80)
 References: [1](https://askubuntu.com/a/1103245/612877), [2](https://gist.github.com/ndlrx/edef4474ec9f5edac594cc5e37644559), [3](https://serverfault.com/a/1007262/450575)
 </div>
 
+After getting the certificates ready, we can now enable LDAP-over-TLS service. Somehow the Debian `slapd` package does not come with a native systemd service, but `/etc/init.d/slapd`, so "service settings" are configured at `/etc/default/slapd`. Locate that file and add `ldaps:///` for `SLAPD_SERVICES`. Optionally, though recommended, you can remove `ldap://` to disable the plaintext port. The line should now look like this:
+
+```shell
+SLAPD_SERVICES="ldaps:/// ldapi:///"
+```
+
+You can now use `systemctl restart slapd` to restart the server, and `netstat -tlpn` to verify that the server is listening on the correct port (TCP 636).
+
 ### Managing permissions {#permissions}
 
+By default,
+
+- The "admin" user (using `-D cn=admin,dc=... -W`) can modify the "database", where users, groups etc. are stored.
+- The local root user can modify server settings. Namely, anything under the tree `cn=config`. Note that Distinguished Name (DN) resolves from right to left, like domain names.
+
+For me, I found it a hinderance that the root user cannot edit the database directly, so I added some permissions to make this happen.
+
+As you may have noticed, we used the same LDIF format to change TLS settings, except for the server port. In fact, the whole `cn=config` tree is another LDAP database, just like the `mysql` database in MySQL. And this "config" database also has its metadata under `cn=config`.
+
+First we identify where the metadata for the "config" database is:
+
+```shell
+ldapsearch -Y EXTERNAL -b cn=config
+```
+
+You can pipe the above command to `less` or send to a file for easier inspection. Pay attention to lines beginning with `dn:`, which describes a directory "node". One of them will look like:
+
+```yaml
+dn: olcDatabase={1}mdb,cn=config
+```
+
+The `olc` prefix stands for **O**pen**L**DAP **C**onfiguration, and `{1}` indicates an entry from multiple of the same name. You'll probably notice there's `olcDatabase={0}config` as well, which we'll cover soon.
+
+This item has a lot of attributes, among which there are:
+
+```yaml
+dn: olcDatabase={1}mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: {1}mdb
+olcDbDirectory: /var/lib/ldap
+olcSuffix: dc=ibug
+olcAccess: {0}to attrs=userPassword by self write by anonymous auth by * none
+olcAccess: {1}to attrs=shadowLastChange by self write by * read
+olcAccess: {2}to * by * read
+olcRootDN: cn=admin,dc=ibug
+```
+
+The `olcAccess` key(s) describes its Access Control List (ACL), and apparently `{0}`, `{1}` and `{2}` have the same meaning as that of `olcDatabase={1}mdb`. The syntax is roughly as follows:
+
+```text
+olcAccess: {<index>}to <what> by <who> <how> [by <who> <how>]...
+```
+
+Notice that there's no explicit ACL to the "admin user", because the admin user is registered as `olcRootDN` for this database. The next thing we need to do is to insert an all-access rule for the local root user. The next question is, how to "refer to" the root user?
+
+If you looked through `olcDatabase={0}config`, you should have the answer now:
+
+```yaml
+dn: olcDatabase={0}config,cn=config
+...
+olcAccess: {0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth manage by * break
+...
+```
+
+Unfortunately LDIF does not allow modifying or inserting an item into a repeated attribute directly, so the way to do this is to replace all of them:
+
+```yaml
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth manage by * break
+olcAccess: to attrs=userPassword by self write by anonymous auth by * none
+olcAccess: to attrs=shadowLastChange by self write by * read
+olcAccess: to * by * read
+```
+
+Seen how the `<who>` part is reminiscent of the "External authentication method" described above? Send this LDIF to the server and you'll get the desired result. You can now try to modify the "user database" using root user and `-Y EXTERNAL`.
+
+For more detailed description, you can check out the [slapd.access][slapd.access] help page.
+
 ### Allow users to change login shell {#user-chsh}
+
+Changing the login shell is a basic privilege of a normal POSIX user. Unlike `passwd` that automatically handles LDAP users, `chsh` does not, and only complains about PAM authentication failed.
+
+It's easy to discover that there's a `chsh.ldap` command. It's even easier to discover that it doesn't work:
+
+```python
+ibug@ldap:~$ chsh.ldap
+LDAP password for ibug:
+Enter the new value, or press ENTER for the default
+Traceback (most recent call last):
+  File "/usr/bin/chsh.ldap", line 80, in <module>
+    main()
+  File "/usr/bin/chsh.ldap", line 69, in main
+    shell = ask_shell(user.shell)
+  File "/usr/bin/chsh.ldap", line 50, in ask_shell
+    shell = input('  Login Shell [%s]: ' % oldshell)
+UnboundLocalError: local variable 'input' referenced before assignment
+```
+
+If you look at `/usr/bin/chsh.ldap`, it contains this stupid assignment:
+
+```python
+```
+
+Removing this try-except block gets rid of the first error, but it's still not working:
+
+```text
+ibug@ldap:~$ chsh.ldap
+LDAP password for ibug:
+Enter the new value, or press ENTER for the default
+  Login Shell [/bin/bash]:
+/usr/bin/chsh.ldap: /bin/bash is an invalid shell
+```
+
+The second one is trickier to fix because you don't know where it's doing wrong.
+
+It took me some effort to find bug report [LP#1892482][lp-1892482], which provides a link to [this commit][nslcd-utils-fix] that fixes the problem. You can safely apply that commit to your local installation of `/usr/share/nslcd-utils`.
+
+Now `chsh.ldap` seems to be working, *except* that it doesn't save your selected shell.
+
+Remember how there's an ACL to allow users to change their passwords?
+
+```yaml
+olcAccess: {0}to attrs=userPassword by self write by anonymous auth by * none
+```
+
+That's right, the only thing left to do is to add another ACL to allow users to change their login shells as well, replacing all `olcAccess` keys *again*:
+
+```yaml
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth manage by * break
+olcAccess: to attrs=userPassword by self write by anonymous auth by * none
+olcAccess: to attrs=loginShell by self write by * none
+olcAccess: to attrs=shadowLastChange by self write by * read
+olcAccess: to * by * read
+```
+
+This time there's no need to include `by anonymous auth` because who checks the login shell for authentication?
+
+Now we can verify that `chsh.ldap` is working correctly:
+
+```text
+ibug@ldap:~$ chsh.ldap
+LDAP password for ibug:
+Enter the new value, or press ENTER for the default
+  Login Shell [/bin/bash]: /bin/zsh
+ibug@ldap:~$ getent passwd | grep ibug
+ibug:x:1000:1000:iBug:/home/ibug:/bin/zsh
+ibug@ldap:~$
+```
+
+## Afterword
+
+LDAP is a powerful tool to manage a wide range of things, including hosts (like `/etc/hosts`) and even Sudo rules, with increasing complexity to set up. There's also Active Directory on Windows platform that shares the same concepts and is even inter-operable with LDAP.
+
+LDAP also supports plugins that enables automatic configuration of certain attributes, like "group membership", where the plugin adds a corresponding `memberOf` for users when a `member` entry is created under a group. However, this plugin doesn't work with the `posixGroup` object class and requires the conflicting `groupOfNames` object class. Fortunately, this does not affect the ability to lookup groups from users, since traditionally the user-group relationship is stored one-way only in `/etc/group`, and PAM by default tries to look it up this way.
+
+If you need access control, OpenSSH supports [an `AllowGroup` directive][sshd_config.5] to restrict login to certain groups, which you can then remotely configure in LDAP.
 
 ## References
 
 - [使用 OpenLDAP 在 Linux 上进行中心化用户管理 - Harry Chen's blog](https://harrychen.xyz/2021/01/17/openldap-linux-auth/)
+- [9.3. Managing the NSS Database Used by Directory Server][rhds-cert] (Red Hat Documentation)
+- [Bcrypt - Wikipedia][bcrypt]
+- [XCA][xca]
+- [The commit][nslcd-utils-fix] that fixes `chsh.ldap`
 
   [389ds]: https://directory.fedoraproject.org/
   [389ds-cert]: https://directory.fedoraproject.org/docs/389ds/howto/howto-ssl-archive.html#importing-an-existing-self-sign-keycert-or-3rd-party-cacert
@@ -253,3 +416,7 @@ References: [1](https://askubuntu.com/a/1103245/612877), [2](https://gist.github
   [letsencrypt]: https://letsencrypt.org/
   [xca]: https://hohnstaedt.de/xca/
   [unix.7]: https://man7.org/linux/man-pages/man7/unix.7.html
+  [slapd.access]: https://www.openldap.org/doc/admin24/access-control.html
+  [lp-1892482]: https://bugs.launchpad.net/ubuntu/+source/nss-pam-ldapd/+bug/1892482
+  [nslcd-utils-fix]: https://github.com/arthurdejong/nss-pam-ldapd/commit/1025d5de336d8c9585b79df3154b5649da344281
+  [sshd_config.5]: https://man7.org/linux/man-pages/man5/sshd_config.5.html
