@@ -1,15 +1,14 @@
 ---
-# a-youth-s-first-ldap-server
 title: "Centralized Linux authentication with OpenLDAP"
 tags: linux server ldap
 redirect_from: /p/50
 ---
 
-LDAP, ~~the #1 way to get your graduation delayed~~ (as has always been the meme around Tsinghua University), is every SysAdmin's dream tool for their servers. As mighty as its rumors fly, LDAP takes the most serious dedication to set up and maintain, ~~yet the slightest agitation to fail.~~
+LDAP, ~~the #1 way to get your graduation delayed~~ (as has always been the meme around Tsinghua University), is every SysAdmin's dream tool for their servers. As mighty as its rumors fly, LDAP takes the most serious dedication to set up and maintain, yet the slightest agitation to fail.
 
-The correct story behind this opens up with our lab's messy machine management. While home directories across machines are shared from a common NFS server, user and group information is managed manually. To start with, whenever someone joins our lab, the other admin (thankfully not yet me) creates a user for them on *every* machine they'd access, while paying attention to the consistency of UID and GID. What's worse, we often grant temporary access to a selected set of machines to guest students to enable them to work on certain projects, or to participate in competitions on behalf of our lab. Not to mention the other admin himself has literally 5 different UIDs on different hosts.
+The *correct* story behind this opens up with our lab's messy machine management. While home directories across machines are shared from a common NFS server, user and group information is managed manually. To start with, whenever someone joins our lab, the other admin (thankfully not yet me) creates a user for them on *every* machine they'd access, while paying attention to the consistency of UID and GID. What's worse, we often grant temporary access to a selected set of machines to guest students to enable them to work on certain projects, or to participate in competitions on behalf of our lab. Not to mention the other admin himself has literally 5 different UIDs on different hosts.
 
-LDAP solves this agony and ~~saves a lot of sysadmins' lives~~ by providing centralized management to users, groups and some other organizational resources using a directory-structured database. While I previously used an existing GOsa² setup for simple management tasks, our lab's new cluster provides an excellent opportunity to try out LDAP anew.
+LDAP solves this agony and saves a lot of sysadmins' souls by providing centralized management to users, groups and some other organizational resources using a directory-structured database. While I previously used an existing GOsa² setup for simple management tasks, our lab's new cluster provides an excellent opportunity to try out LDAP anew.
 
 ## Prerequisites
 
@@ -35,7 +34,7 @@ This installs the OpenLDAP server with all recommended packages that'll aid conf
 
 This is because slapd tries to automatically determine the base Distinguished Name for the server, which often fails and falls back to the unpleasant `dc=nodomain`.
 
-Run `dpkg-reconfigure slapd` to specify a domain name that will be used to derive the base DN from. It's perfectly fine to have a short name like just `ibug`, or you can choose to be serious on this and use `example.com`. Either way, you probably don't want to have a long DN like `dc=protonlab,dc=research,dc=google,dc=com`, which will make manual querying a nightmare.
+Run `dpkg-reconfigure slapd` to specify a domain name that will be used to construct the base DN from. It's perfectly fine to have a short name like just `ibug`, or you can choose to be serious on this and use `example.com`. Either way, you probably don't want to have a long DN like `dc=protonlab,dc=research,dc=google,dc=com`, which will make manual querying a nightmare.
 
 Now we have an empty OpenLDAP server. The admin user's DN is `cn=admin` followed by your base DN, so most data manipulation tasks require the role to be bound to `cn=admin,dc=ibug` for me.
 
@@ -171,7 +170,7 @@ Now that we have our server set up and running, it's time to configure client ma
 
 ## Client setup {#client}
 
-There are two options for clients: More commonly `libnss-ldapd` and `libpam-ldapd` are used together, or `sssd` if you're familiar with it (which will not be described in this post). Note that are two old packages `libnss-ldap` and `libpam-ldap` (both missing the final `d`) that might confuse you.
+There are two options for clients: More commonly `libnss-ldapd` and `libpam-ldapd` are used together, or `sssd` if you're familiar with it (which will not be described in this post). Note that are two obsolete packages `libnss-ldap` and `libpam-ldap` (both missing the final `d`) that might confuse you.
 
 Start with `apt install libnss-ldapd libpam-ldapd`. You'll be asked for the LDAP server and the base DN, then "name services to configure". Select `passwd group shadow` for now.
 
@@ -342,11 +341,16 @@ UnboundLocalError: local variable 'input' referenced before assignment
 If you look at `/usr/bin/chsh.ldap`, it contains this stupid assignment:
 
 ```python
+# Provide Python 2 compatibility
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 Removing this try-except block gets rid of the first error, but it's still not working:
 
-```text
+```console
 ibug@ldap:~$ chsh.ldap
 LDAP password for ibug:
 Enter the new value, or press ENTER for the default
@@ -383,7 +387,7 @@ This time there's no need to include `by anonymous auth` because who checks the 
 
 Now we can verify that `chsh.ldap` is working correctly:
 
-```text
+```console
 ibug@ldap:~$ chsh.ldap
 LDAP password for ibug:
 Enter the new value, or press ENTER for the default
