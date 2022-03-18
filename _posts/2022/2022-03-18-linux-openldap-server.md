@@ -2,6 +2,9 @@
 title: "Centralized Linux authentication with OpenLDAP"
 tags: linux server ldap
 redirect_from: /p/50
+header:
+  overlay_filter: 0.1
+  overlay_image: /image/header/sunshine-1.jpg
 ---
 
 LDAP, ~~the #1 way to get your graduation delayed~~ (as has always been the meme around Tsinghua University), is every SysAdmin's dream tool for their servers. As mighty as its rumors fly, LDAP takes the most serious dedication to set up and maintain, yet the slightest agitation to fail.
