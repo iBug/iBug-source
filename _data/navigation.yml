@@ -29,6 +29,8 @@ home:
         url: "https://notes.ibug.io/"
       # title: '<i class="fas fa-fw fa-gamepad"></i> Entertainment'
       # url: "/entertainment/"
+      - title: '<i class="fas fa-fw fa-bookmark"></i> Bookmarks'
+        url: "/bookmarks/"
       - title: '<i class="fas fa-fw fa-user-friends"></i> Friends'
         url: "/friends/"
       - title: '<i class="fas fa-fw fa-yin-yang"></i> Chinese Content'
