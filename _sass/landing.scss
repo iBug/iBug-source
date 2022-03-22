@@ -74,7 +74,7 @@ body.landing {
           content: "";
           background: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.1)),
             url("/image/mm/splash.jpg") center / cover no-repeat fixed;
-          filter: blur(1.5px);
+          filter: blur(2px);
           position: absolute;
           z-index: -1;
           top: 0;
