@@ -119,9 +119,6 @@ author:
     - label: "Steam"
       icon: "fab fa-fw fa-steam"
       url: "https://steamcommunity.com/id/ibugone"
-    - label: "Telegram Channel"
-      icon: "fab fa-fw fa-telegram-plane"
-      url: "https://t.me/ibugthought"
 
 # Site Footer
 footer:

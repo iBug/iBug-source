@@ -54,8 +54,6 @@ disabled:
 
 ### Extra links
 
-- [My Telegram channel](https://t.me/ibugthought) where I share random ideas
-
 - [My public notebook](https://notes.ibug.io/) where I also share resources. Powered by [Notion](https://www.notion.so/).
 
 - [My YouTube channel](https://go.ibugone.com/youtube), though there's scarcely anything as I don't often produce videos.
