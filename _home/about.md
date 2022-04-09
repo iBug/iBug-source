@@ -81,7 +81,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 
 - **Linux distro**: Ubuntu (desktop / workstation) and Debian (server)
 - **Version control**: Git (and good at it)
-- **Text editor**: Visual Studio Code plus `<ESC>:wq` ([get my config](https://e.ibugone.com/conf/vimrc))
+- **Text editor**: Visual Studio Code plus `<ESC>:wq` ([get my config](https://e.ibugone.com/vimrc))
 - **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker, AWS Lambda
 
 ### Working environment
