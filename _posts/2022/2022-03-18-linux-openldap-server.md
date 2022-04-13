@@ -319,6 +319,12 @@ olcAccess: to * by * read
 
 Seen how the `<who>` part is reminiscent of the "External authentication method" described above? Send this LDIF to the server and you'll get the desired result. You can now try to modify the "user database" using root user and `-Y EXTERNAL`.
 
+To save some typing `-Y EXTERNAL` for `ldap*` commands, keep in mind that these commands read `/etc/ldap/ldap.conf`. This means there should be some kind of configuration for this, and indeed there is:
+
+```text
+SASL_MECH   EXTERNAL
+```
+
 For more detailed description, you can check out the [slapd.access][slapd.access] help page.
 
 ### Allow users to change login shell {#user-chsh}
