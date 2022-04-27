@@ -16,8 +16,10 @@ if command -v jq &>/dev/null; then
   mv /tmp/redirects.json "$SRC/redirects.json"
 fi
 
-e_info "Generating _redirects file"
+e_info "Generating Cloudflare Pages files"
 STYLE=cloudflare ruby script/generate-redirects.rb
+cat _data/headers.txt >> "$SRC/_headers"
+cat _data/cfp-redirects.txt >> "$SRC/_redirects"
 
 if command -v npx &>/dev/null && [ -e package.json ]; then
   e_info "Processing JavaScript and CSS"
