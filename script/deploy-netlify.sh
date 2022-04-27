@@ -12,7 +12,7 @@ if [ -r "_data/headers.txt" ]; then
 fi
 
 e_info "Generating Netlify _redirects file"
-ruby script/generate-redirects.rb
+STYLE=netlify ruby script/generate-redirects.rb
 
 e_info "Calling netlify-cli"
 exec npx netlify deploy --prod

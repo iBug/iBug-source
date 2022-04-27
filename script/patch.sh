@@ -11,14 +11,17 @@ cat REMOTE_README.md > "$SRC/README.md"
 cp LICENSE* "$SRC/"
 
 if command -v jq &>/dev/null; then
+  e_info "Formatting redirects.json"
   jq -S . < "$SRC/redirects.json" > /tmp/redirects.json
   mv /tmp/redirects.json "$SRC/redirects.json"
 fi
 
-if command -v npx &>/dev/null && [ -e package.json ]; then
-  # Combine all JS files into one
-  npx uglifyjs "$SRC"/assets/js/{main.min,clipboard,love,nav-scroll}.js -c -m -o "$SRC"/assets/js/main.min.js
+e_info "Generating _redirects file"
+STYLE=cloudflare ruby script/generate-redirects.rb
 
+if command -v npx &>/dev/null && [ -e package.json ]; then
+  e_info "Processing JavaScript and CSS"
+  npx uglifyjs "$SRC"/assets/js/{main.min,clipboard,love,nav-scroll}.js -c -m -o "$SRC"/assets/js/main.min.js
   npx postcss "$SRC"/assets/css/main.css --use autoprefixer --replace --no-map
 fi
 
