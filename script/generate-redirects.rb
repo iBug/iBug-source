@@ -17,6 +17,7 @@ when 'cloudflare'
   ''
 end
 
+redirects = nil
 File.open "#{site_dir}/redirects.json", 'r' do |f|
   redirects = JSON.load f
 end
