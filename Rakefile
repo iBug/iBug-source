@@ -12,12 +12,16 @@ task :build do |t, args|
   cmd << '--watch' if args.extras.include? 'watch'
   cmd.concat(%w[--config _config.yml,_local.yml]) if File.file? '_local.yml'
   begin
-    sh *cmd
+    sh(*cmd)
   rescue Interrupt
   end
 end
 
-task :serve, %i[port] do
+task :watch do
+  Rake::Task[:build].invoke('watch')
+end
+
+task :serve, %i[port] do |t, args|
   cmd = %w[bundle exec jekyll serve]
   cmd.concat(['--port', args.port]) unless args.port.nil?
   cmd.concat(%w[--config _config.yml,_local.yml]) if File.file? '_local.yml'
