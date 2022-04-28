@@ -62,5 +62,15 @@
       word-break: break-word;
       line-height: 1.5em;
     }
+
+    @include breakpoint($x-large) {
+      .archive__item-title {
+        font-size: 1em;
+      }
+
+      p.archive__item-excerpt {
+        font-size: $type-size-7;
+      }
+    }
   }
 }
