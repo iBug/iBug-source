@@ -216,6 +216,10 @@ text-align: center;
 
 /********** Misc **********/
 
+.sidebar p, .sidebar li {
+  font-size: $type-size-7;
+}
+
 .sidebar .social-icons, .sidebar .nav__list {
   .fas, .far, .fab, .fal {
     color: inherit;

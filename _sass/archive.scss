@@ -1,7 +1,11 @@
 .archive {
-  .entries-list {
-    .list__item:first-child {
-      margin-top: 0;
+  .entries-list .list__item:first-child {
+    margin-top: 0;
+  }
+
+  .list__item {
+    .page__meta, .comment__date {
+      font-size: $type-size-8;
     }
   }
 
@@ -29,6 +33,10 @@
         clear: none;
         margin-left: gutter(1 of 12);
       }
+    }
+
+    .archive__item-title {
+      font-size: $h-size-2;
     }
 
     .archive__item-teaser {
