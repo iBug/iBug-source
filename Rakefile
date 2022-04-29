@@ -18,6 +18,7 @@ task :build do |t, args|
 end
 
 task :watch do
+  ENV['JEKYLL_ENV'] ||= 'development'
   Rake::Task[:build].invoke('watch')
 end
 
