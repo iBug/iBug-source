@@ -258,17 +258,17 @@ pagination:
     after: 2
 
 autopages:
-  enabled: false
+  enabled: true
   categories:
-    layouts: ['category.html']
+    layouts: ['autopages.html']
     title: 'Posts in category :cat'
     permalink: '/category/:cat'
   collections:
-    layouts: ['collection.html']
+    layouts: ['autopages.html']
     title: 'Posts in collection :coll'
     permalink: '/collection/:coll'
   tags:
-    layouts: ['tags.html']
+    layouts: ['autopages.html']
     title: 'Posts tagged with :tag'
     permalink: '/tag/:tag'
 

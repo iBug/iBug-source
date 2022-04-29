@@ -2,11 +2,14 @@
 @import "fonts";
 
 @import "landing"; // Special layout for landing page
-@import "home";
 @import "masthead";
 @import "page-content";
 @import "archive";
 @import "toc";
+
+body.layout--home h3.archive__subtitle {
+  display: none;
+}
 
 blockquote {
   font-style: normal;

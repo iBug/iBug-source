@@ -1,11 +1,25 @@
 .archive {
-  .entries-list .list__item:first-child {
-    margin-top: 0;
+  .entries-list .list__item {
+    margin-top: 2.5em;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   .list__item {
     .page__meta, .comment__date {
       font-size: $type-size-8;
+    }
+
+    .archive__item-title {
+      margin-top: 0.3em;
+      padding-bottom: 0.2em;
+      border-bottom: 1px solid #cecfd1;
+
+      a {
+        text-decoration: none;
+      }
     }
   }
 
@@ -37,6 +51,10 @@
 
     .archive__item-title {
       font-size: $h-size-2;
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .archive__item-teaser {
