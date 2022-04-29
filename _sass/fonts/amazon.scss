@@ -25,11 +25,16 @@ $amazon-variantMap: (
 }
 
 @function url-amazonfont($displayname, $baseurl, $variant) {
-  @return local($displayname + " " + amazon-mapName($variant)),
+  $localname: amazon-mapName($variant);
+  $allurls: local($displayname + " " + $localname),
           url("#{$baseurl}_W_#{$variant}.eot") format("embedded-opentype"),
           url("#{$baseurl}_W_#{$variant}.woff2") format("woff2"),
           url("#{$baseurl}_W_#{$variant}.woff") format("woff"),
           url("#{$baseurl}_#{$variant}.ttf") format("truetype");
+  @if $localname == "Regular" {
+    @return local($displayname), $allurls;
+  }
+  @return $allurls;
 }
 
 $amazon-config: (
