@@ -261,15 +261,15 @@ autopages:
   enabled: true
   categories:
     layouts: ['autopages.html']
-    title: 'Posts in category :cat'
+    title: 'Category: :cat'
     permalink: '/category/:cat'
   collections:
     layouts: ['autopages.html']
-    title: 'Posts in collection :coll'
+    title: 'Collection: :coll'
     permalink: '/collection/:coll'
   tags:
     layouts: ['autopages.html']
-    title: 'Posts tagged with :tag'
+    title: 'Tag: :tag'
     permalink: '/tag/:tag'
 
 collections:
