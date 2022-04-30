@@ -4,6 +4,7 @@ categories: tech
 tags: linux server ldap
 redirect_from: /p/50
 header:
+  teaser: https://via.placeholder.com/480x320
   overlay_filter: 0.1
   overlay_image: /image/header/sunshine-1.jpg
 ---
