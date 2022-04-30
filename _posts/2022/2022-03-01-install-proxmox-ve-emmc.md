@@ -1,6 +1,6 @@
 ---
 title: "Install Proxmox VE on eMMC"
-categories: study-notes
+categories: tech
 tags: linux server
 redirect_from: /p/49
 ---

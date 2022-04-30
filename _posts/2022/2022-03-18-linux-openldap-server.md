@@ -1,6 +1,6 @@
 ---
 title: "Centralized Linux authentication with OpenLDAP"
-categories: study-notes
+categories: tech
 tags: linux server ldap
 redirect_from: /p/50
 header:

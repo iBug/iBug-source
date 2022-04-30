@@ -1,6 +1,6 @@
 ---
 title: 'Enabling better "Related Posts" with Jekyll'
-categories: study-notes
+categories: tech
 tags: jekyll
 redirect_from: /p/37
 ---

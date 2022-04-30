@@ -2,7 +2,7 @@
 title: "Filter manually installed packages from APT with AWK"
 description: null
 tagline: "How I replaced three text-processing commands with one"
-categories: study-notes
+categories: tech
 tags: linux
 redirect_from: /p/17
 toc: false

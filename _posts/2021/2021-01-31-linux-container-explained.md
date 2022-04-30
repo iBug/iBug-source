@@ -2,7 +2,7 @@
 title: "A Deep Dive into Containers"
 description: "Let's write our own container in C, from scratch"
 tagline: "Let's write our own container in C, from scratch"
-categories: study-notes
+categories: tech
 tags: linux container
 redirect_from: /p/23
 header:

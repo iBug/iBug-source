@@ -1,6 +1,6 @@
 ---
 title: "Converting DFA to Regular Expression"
-categories: study-notes
+categories: tech
 redirect_from: /p/27
 
 mathjax: true

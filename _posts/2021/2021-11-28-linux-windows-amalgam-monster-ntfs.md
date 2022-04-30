@@ -1,6 +1,6 @@
 ---
 title: "New Pandora's box: Install Linux and Windows onto the same NTFS partition"
-categories: study-notes
+categories: tech
 tags: linux windows
 redirect_from: /p/47
 header:

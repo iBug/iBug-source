@@ -1,6 +1,6 @@
 ---
 title: "Setting up a GitHub webhook on AWS Lambda"
-categories: study-notes
+categories: tech
 tags: github aws
 redirect_from: /p/41
 header:

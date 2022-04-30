@@ -1,7 +1,7 @@
 ---
 title: Alpha-Beta Pruning
 description: The boosting algorithm behind the heuristic searching in my Reversi game
-categories: study-notes
+categories: tech
 tags: algorithm
 redirect_from: /p/7
 

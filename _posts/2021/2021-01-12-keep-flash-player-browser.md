@@ -1,6 +1,6 @@
 ---
 title: "Keep using Flash Player in browsers in 2021"
-categories: study-notes
+categories: tech
 tags: web windows
 redirect_from: /p/39
 ---
