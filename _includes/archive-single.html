@@ -25,8 +25,8 @@
           <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
         {% endif %}
       </h2>
-      {% include page__meta.html type=include.type %}
       {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 200 }}</p>{% endif %}
+      {% include page__meta.html type=include.type %}
     </div>
   </article>
 </div>
