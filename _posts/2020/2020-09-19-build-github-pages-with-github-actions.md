@@ -1,7 +1,7 @@
 ---
 title: Build GitHub Pages with GitHub Actions
 excerpt: Why use an external service when there's an in-house GitHub service?
-tags: development github-pages
+tags: github-pages jekyll
 redirect_from: /p/38
 ---
 

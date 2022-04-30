@@ -3,7 +3,7 @@ title: "Bootstrapping Make"
 description: null
 tagline: "Using build automation tool"
 categories: study-notes
-tags: software development
+tags: development software
 redirect_from: /p/16
 ---
 

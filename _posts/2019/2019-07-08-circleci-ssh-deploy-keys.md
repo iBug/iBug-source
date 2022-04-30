@@ -1,6 +1,6 @@
 ---
 title: Using SSH deploy keys on CircleCI
-tags: development github-pages
+tags: github-pages ssh
 redirect_from:
   - /p/21
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Minimal, Complete, Verifiable Example"
 description: "A Stack Overflow help center article"
-categories: stack-overflow
+categories: stack-exchange
 redirect_from: /p/8
 
 header:

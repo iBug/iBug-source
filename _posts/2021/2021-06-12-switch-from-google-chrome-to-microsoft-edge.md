@@ -1,5 +1,6 @@
 ---
 title: "I switched from Google Chrome to Microsoft Edge"
+categories: life
 tags: software web
 redirect_from: /p/43
 header:

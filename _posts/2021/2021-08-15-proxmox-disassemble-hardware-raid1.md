@@ -1,6 +1,6 @@
 ---
 title: "Disassembling a hardware RAID 1 array in Proxmox VE"
-tags: linux
+tags: linux server
 redirect_from: /p/44
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 'Creating templated Systemd services'
+categories: study-notes
 tags: linux
 redirect_from: /p/22
 ---

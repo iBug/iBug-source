@@ -2,7 +2,7 @@
 title: RegEx match open tags except XHTML self-contained tags
 description: A famous Stack Overflow answer
 author: bobince
-categories: stack-overflow stack-exchange
+categories: stack-exchange
 redirect_from: /p/5
 toc: false
 header:

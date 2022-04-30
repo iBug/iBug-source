@@ -1,7 +1,7 @@
 ---
 title: Build GitHub Pages with Travis CI
 description: If you use a dedicated CI service, there'll be no more plugin restrictions.
-tags: development github-pages
+tags: github-pages jekyll
 redirect_from: /p/4
 ---
 

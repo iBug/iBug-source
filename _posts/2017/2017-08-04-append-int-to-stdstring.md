@@ -3,7 +3,7 @@ title: Append int to `std::string`
 description: Some confusion about templates in C++
 tagline: A Stack Overflow question & answer
 date: 2017-08-04 11:35:05Z
-categories: stack-overflow stack-exchange
+categories: stack-exchange
 tags: c++
 header:
   actions:

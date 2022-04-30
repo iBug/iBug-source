@@ -2,7 +2,7 @@
 title: "Wolfram Mathematica 13 Key Generator Online"
 description: "Another JavaScript project"
 tagline: ""
-categories: keygen
+categories: life
 tags: keygen
 redirect_from: /p/19
 toc: false

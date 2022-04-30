@@ -1,6 +1,6 @@
 ---
 title: "Make your GitHub Pages website faster with Cloudflare"
-tags: github-pages cloudflare
+tags: github-pages cloudflare web
 redirect_from: /p/28
 ---
 

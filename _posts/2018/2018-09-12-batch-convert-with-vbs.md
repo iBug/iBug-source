@@ -3,7 +3,7 @@ title: "Batch convert PowerPoint slideshow to PDF"
 description: "It could be a nightmare to process 30+ files by hand, opening each one and then saving as PDF. But that nightmare was bypassed, with a VBScript."
 tagline: "How scripting eases your work"
 categories: study-notes
-tags: development microsoft-office
+tags: development software
 redirect_from: /p/12
 toc: false
 ---

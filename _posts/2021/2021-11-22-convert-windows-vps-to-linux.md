@@ -1,6 +1,6 @@
 ---
 title: "Reinstall Windows VPS into Linux with iPXE network boot"
-tags: linux networking
+tags: linux server
 redirect_from: /p/46
 ---
 

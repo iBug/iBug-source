@@ -1,7 +1,7 @@
 ---
 title: "High-performance mass web crawling on AWS"
 categories: story
-tags: web web-scraping aws
+tags: web aws
 redirect_from: /p/31
 header:
   actions:

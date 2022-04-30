@@ -2,7 +2,8 @@
 title: "A Deep Dive into Containers"
 description: "Let's write our own container in C, from scratch"
 tagline: "Let's write our own container in C, from scratch"
-tags: linux container c
+categories: study-notes
+tags: linux container
 redirect_from: /p/23
 header:
   overlay_image: /image/header/path-1b.jpg

@@ -1,6 +1,6 @@
 ---
 title: "Fix traceroute not showing intermediate results in a virtual machine on Windows"
-tags: networking windows
+tags: windows networking
 redirect_from: /p/40
 ---
 
