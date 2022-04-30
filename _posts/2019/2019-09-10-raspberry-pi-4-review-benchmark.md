@@ -1,6 +1,6 @@
 ---
 title: "Raspberry Pi 4 B Review and Benchmark - What's improved over Pi 3 B+"
-categories: reviews
+categories: tech
 tags: raspberry-pi
 redirect_from: /p/26
 
