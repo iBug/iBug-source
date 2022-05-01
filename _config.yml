@@ -162,6 +162,7 @@ exclude:
   - .circleci/
   - .dockerignore
   - .git-metadata
+  - .github/
   - .gitignore
   - .jekyll-assets-cache
   - .sass-cache
@@ -179,6 +180,7 @@ exclude:
   - Gemfile.lock
   # Gruntfile.js
   # gulpfile.js
+  - i/
   - image/
   - "LICENSE*"
   # log
@@ -192,7 +194,6 @@ exclude:
   - /script
   # tmp
   - vendor/
-  - /vlab
 keep_files: [".git", ".nojekyll", "README.md", "CNAME", "image"]
 encoding: "UTF-8"
 future: true
