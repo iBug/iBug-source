@@ -1,6 +1,8 @@
 ---
 title: "Reinstall Windows VPS into Linux with iPXE network boot"
 tags: linux server
+header:
+  teaser: /image/teaser/linux-wipes-windows-in-seconds.webp
 redirect_from: /p/46
 ---
 

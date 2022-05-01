@@ -1,6 +1,8 @@
 ---
 title: "Disassembling a hardware RAID 1 array in Proxmox VE"
 tags: linux server
+header:
+  teaser: /image/proxmox.jpg
 redirect_from: /p/44
 ---
 

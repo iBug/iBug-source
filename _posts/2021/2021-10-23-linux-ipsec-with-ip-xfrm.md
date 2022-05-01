@@ -3,6 +3,7 @@ title: "Secure site-to-site connection with Linux IPsec VPN"
 tags: linux networking
 redirect_from: /p/45
 header:
+  teaser: /image/teaser/vpn-imagine.jpg
   overlay_image: /image/header/future-1.jpg
   overlay_filter: 0.5
 ---

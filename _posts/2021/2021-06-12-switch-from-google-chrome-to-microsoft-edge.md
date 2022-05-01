@@ -4,6 +4,7 @@ categories: life
 tags: software web
 redirect_from: /p/43
 header:
+  teaser: /image/teaser/chrome-edge.jpg
   overlay_image: /image/header/mountain-2.jpg
   overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
 ---

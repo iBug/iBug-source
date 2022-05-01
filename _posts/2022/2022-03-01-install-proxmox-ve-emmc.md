@@ -2,6 +2,8 @@
 title: "Install Proxmox VE on eMMC"
 categories: tech
 tags: linux server
+header:
+  teaser: /image/proxmox.jpg
 redirect_from: /p/49
 ---
 

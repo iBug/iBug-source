@@ -4,6 +4,7 @@ categories: tech
 tags: linux windows
 redirect_from: /p/47
 header:
+  teaser: /image/teaser/linux-windows.webp
   overlay_image: /image/header/art-1.jpg
   overlay_filter: 0.1
 ---
