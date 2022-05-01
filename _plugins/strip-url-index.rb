@@ -5,8 +5,7 @@ module Jekyll
         :template     => template,
         :placeholders => url_placeholders,
         :permalink    => permalink
-      ).to_s
-      @url = @url.chomp 'index.html'
+      ).to_s.chomp('index.html')
     end
   end
 end
