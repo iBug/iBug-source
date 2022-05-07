@@ -28,9 +28,9 @@ jobs:
         path: |
           Gemfile.lock
           vendor/bundle
-        key: ${{ runner.os }}-bundler-1-${{ hashFiles('Gemfile') }}
+        key: ${{ runner.os }}-bundler-2-${{ hashFiles('Gemfile') }}
         restore-keys: |
-          ${{ runner.os }}-bundler-1-
+          ${{ runner.os }}-bundler-2-
 
     - uses: actions/setup-node@v2
       with:
