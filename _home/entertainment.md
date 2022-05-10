@@ -5,12 +5,12 @@ header:
   overlay_filter: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
 
 gallery-msc:
-  - url: /image/mssolitaire/20210101-main.png
-    image_path: /image/mssolitaire/20210101-main.png
+  - url: /image/mssolitaire/20220510-main.png
+    image_path: /image/mssolitaire/20220510-main.png
     alt: &main-title "My game status as of January 1, 2021"
     title: *main-title
-  - url: /image/mssolitaire/20210101-starclub.png
-    image_path: /image/mssolitaire/20210101-starclub.png
+  - url: /image/mssolitaire/20220510-starclub.png
+    image_path: /image/mssolitaire/20220510-starclub.png
     alt: &sc-title "My Star Club status as of January 1, 2021"
     title: *sc-title
 ---
