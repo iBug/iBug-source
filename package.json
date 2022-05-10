@@ -10,12 +10,11 @@
   },
   "homepage": "https://ibug.io/",
   "devDependencies": {
-    "autoprefixer": "^10.1.0",
-    "glob": "^7.1.6",
-    "netlify-cli": "^8.0.15",
-    "postcss": "^8.2.1",
-    "postcss-cli": "^8.3.1",
-    "uglify-js": "^3.8.0"
+    "autoprefixer": "^10.4.7",
+    "glob": "^8.0.1",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "uglify-js": "^3.15.5"
   },
   "dependencies": {}
 }
