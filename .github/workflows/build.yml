@@ -70,16 +70,3 @@ jobs:
 
     - name: Deploy to GitHub
       run: script/deploy-actions.sh
-
-    - name: Prepare for Cloudflare Pages
-      run: ${{ github.workspace }}/script/build-cloudflare.sh
-      working-directory: _site
-
-    - name: Deploy to Cloudflare Pages
-      uses: cloudflare/pages-action@v1.0.0
-      with:
-        apiToken: ${{ secrets.CF_API_TOKEN }}
-        accountId: ${{ secrets.CF_ACCOUNT_ID }}
-        projectName: ibug-web
-        directory: _site
-        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
