@@ -86,7 +86,7 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
 
 ### Working environment
 
-My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 20.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Node.js and Go, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Node.js and Go, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 MSI produces high-performance gaming laptops with *very* comfortable and beautiful keyboards. Must buy!
 
