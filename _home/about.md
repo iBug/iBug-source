@@ -28,31 +28,30 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view [a selec
 
   [so-q]: https://stackoverflow.com/users/5958455/ibug?tab=questions "iBug's questions on Stack Overflow"
   [so-a]: https://stackoverflow.com/users/5958455/ibug?tab=answers "iBug's answers on Stack Overflow"
-  [so-sel]: /stack-overflow/
+  [so-sel]: {{ '/stack-overflow/' | relative_url }}
 
 ## Quick facts
 
 {::options parse_block_html="true" /}
 
-On the techie side (more about my skills [here]({{ "/skills" | relative_url }})):
+On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})):
 
 <details open markdown="1">
 <summary> **Advanced knowledge**
 </summary>
-- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow), JavaScript (browser) and Ruby
+- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow) and Ruby
 - **Software**: Git, Jekyll, OpenSSH
 </details>
 
 <details markdown="1">
 <summary> **Intermediate knowledge**
 </summary>
-- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Node.js, Verilog, VBScript, Go
+- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Go, Node.js, Verilog, VBScript
 - **Framework**:
   Ruby on Rails,
   Bootstrap,
   jQuery,
   Flask,
-  [Chisel](https://www.chisel-lang.org/),
   [Electron](https://www.electronjs.org/)
 - **Software**:
   Vim,
@@ -62,33 +61,39 @@ On the techie side (more about my skills [here]({{ "/skills" | relative_url }}))
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
   Linux <abbr title="Logical Volume Manager">LVM</abbr>,
   Make,
-  LXD,
+  LXC / LXD,
   [Singularity](https://sylabs.io/) (Container)
 - **Miscellaneous**: Linux Networking (routing, tunneling, firewall, iptables etc.)
-  plus various networking protocols (HTTP and DNS in particular)
+  plus various networking protocols (HTTP and DNS etc.)
 </details>
 
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
-- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), PHP, AWK, Wolfram Mathematica, Perl
-- **Framework**: [Sinatra](https://sinatrarb.com), Django, React
-- **Software**: ZFS, Bind9
+- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl, PHP, AWK, Wolfram Mathematica
+- **Framework**:
+  [Sinatra](https://sinatrarb.com/),
+  Django,
+  React,
+  [Chisel](https://www.chisel-lang.org/)
+- **Software**: ZFS *plus a long list*
 - **Technology**: *something used to be here*,
 </details>
 
 ### Preferences
 
-- **Linux distro**: Ubuntu (desktop / workstation) and Debian (server)
+- **Linux distro**: Ubuntu (desktop / workstation), Debian (server) and Proxmox VE (virtualization platform)
 - **Version control**: Git (and good at it)
-- **Text editor**: Visual Studio Code plus `<ESC>:wq` ([get my config](https://e.ibugone.com/vimrc))
-- **Automation**: Shell scripts, Make, Cron / At, Systemd Services, Docker, AWS Lambda
+- **Text editor**: Visual Studio Code and `<ESC>:wq` ([get my config](https://e.ibugone.com/vimrc))
+- **Automation**: Shell scripts, Make, Cron / At, Systemd services, Docker, AWS Lambda
 
 ### Working environment
 
-My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Node.js and Go, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
-MSI produces high-performance gaming laptops with *very* comfortable and beautiful keyboards. Must buy!
+[Windows Terminal](https://aka.ms/terminal) is the *best* terminal for Windows.
+
+MSI produces high-performance gaming laptops with very comfortable and beautiful keyboards.
 
 ## Personally
 

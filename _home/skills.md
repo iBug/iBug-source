@@ -14,7 +14,7 @@ Grading scale mechanism:
 | 3 - 4 | Comfortable working with this, have to check manual on some things. |
 | 1 - 2 | Have worked with it previously but either not much, or rusty. |
 
-(Copied from <https://www.cirosantilli.com/skills>, thanks Ciro!)
+(Taken from a Google interview from Ciro Santilli.)
 
 However, since I'm only an amateur CS student without too many years of *solid* development experiences
 (without the word *solid*, I may add a few years, but with it, I'd go conservative),
@@ -62,6 +62,14 @@ Ruby #1#
 
 : Barely touched Ruby, write short snippets to aid existing Ruby projects (my Jekyll website or other Rails apps)
 
+The Web Trilogy (HTML/CSS/JavaScript) #3#
+
+: [The ugly "previous" website](https://classic.ibugone.com) that I designed and wrote on my own. I also extensively modified the theme to suit my needs for a nice-looking personal website.
+
+Go #3#
+
+: My preferred language for small gadgets, especially when involving an HTTP server or non-trivial data structures.
+
 Verilog #1#
 
 : Learned from school courses *Digital Circuit labs* and *Computer Organization and Design labs*. Not practiced much
@@ -74,14 +82,6 @@ Flash ActionScript #2#
 
 : [A very addictive plane-shooting game](https://github.com/iBug/SpaceRider) when I wrote back when I was 14. ([Project home page](/SpaceRider))
 
-The Web Trilogy (HTML/CSS/JavaScript) #2#
-
-: [The ugly "previous" website](https://classic.ibugone.com) that I designed and wrote on my own. Also a few pages on this site contains short JS snippets serving for various purposes. jQuery included.
-
-Go #1#
-
-: Touched a little bit.
-
 Regular expressions #5#
 
 : The only item on this page that I dare claiming solid knowledge on. Still learned and practiced in the SmokeDetector project linked above.
@@ -93,7 +93,7 @@ Regular expressions #5#
 Git #3#
 
 : I was about to give myself a score of 5 on this when I realized that Ciro Santilli claimed the same score, but backed with [a huge tutorial](https://www.cirosantilli.com/git-tutorial/) he wrote on his own.
-Then I reevaluated myself and gave a score of only 3 - I can't even write a fifth of Ciro's tutorial.
+Then I reevaluated myself and gave a score of only 3 - I can't even write the smallest portion of Ciro's tutorial.
 
 Linux #3#
 
@@ -111,11 +111,11 @@ Vim #3#
 
 : My most-used text editor. With Vim coding is just so easy and I've always wondered why one would need VSCode or JetBrains stuff.
 
-NGINX #2#
+NGINX #3#
 
 : Preferred HTTP server over Apache. Have some experiences configuring and tuning it, as well as web optimization. Best paired with Docker.
 
-Docker #2#
+Docker #3#
 
 : My favorite application deployment solution, but haven't got much experience with it. I also have private CIs running in Docker containers.
 
@@ -139,16 +139,16 @@ DNS #4#
 
 Computer Networking #3#
 
-: CTO of [Linux User Group @ USTC](https://lug.ustc.edu.cn/) since 2019. We have a complex overlay network based on tinc as our intranet. We also help school staff with issues in our campus network. I have learned a lot from these experiences.
+: Managed technical infrastructure of [Linux User Group @ USTC](https://lug.ustc.edu.cn/) for years. We have a complex overlay network based on tinc as our intranet. We also help school staff with issues in our campus network. I have learned a lot from these experiences.
 
 Hardware maintenance #3#
 
 : I assembled several desktop computers, and I maintain all my hardware on my own, ranging from my laptop to my phones. I send them to repair shops only when I identify that I can't repair or replace it by myself.
 
-  - I disassembled new laptop even on day 1 of purchase for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (Dec 2018)
-  - I replaced a broken screen of an old phone manually. (Oct 2016)
-  - I dismantled a HDD to learn how it worked. (April 2016)
-  - I assembled my first desktop computer from parts. (May 2014)
+  - I disassembled new laptop even on day 1 of purchase for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (2018)
+  - I replaced a broken screen of an old phone manually. (2016)
+  - I dismantled a HDD to learn how it worked. (2016)
+  - I assembled my first desktop computer from parts. (2014)
 
 Cryptography #2#
 

@@ -153,6 +153,8 @@ footer_scripts:
 # Reading Files
 include: ["_pages"]
 exclude:
+  - "*.py"
+  - "*.rb"
   - "*.sh"
   - "*.sublime-project"
   - "*.sublime-workspace"
