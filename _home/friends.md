@@ -44,6 +44,11 @@ friends:
   - name: jiegec
     github: jiegec
     link: https://jia.je/
+    comment: from Tshinghua University
+  - name: Harry Chen
+    github: Harry-Chen
+    link: https://harrychen.xyz/
+    comment: from Tshinghua University
 
 net_friends:
   - name: ArtOfCode
