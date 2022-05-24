@@ -28,44 +28,44 @@ I wrote my initial versions of the 24 program in Go, and here’s the snippet on
 var target float64
 
 func CompareFloat(a, b, threshold float64) bool {
-	return math.Abs(a-b) < threshold
+    return math.Abs(a-b) < threshold
 }
 
 func Find24(nodes []*Expression) bool {
-	if len(nodes) == 1 {
-		result := CompareFloat(nodes[0].value, target, 1e-6)
-		if result {
-			fmt.Println(nodes[0].repr, "=", target)
-		}
-		return result
-	}
-	result := false
-	for i := 0; i < len(nodes); i++ {
-		for j := 0; j < len(nodes); j++ {
-			if i == j {
-				continue
-			}
-			newNodes := make([]*Expression, 0, len(nodes)-1)
-			for k := 0; k < len(nodes); k++ {
-				if k == i || k == j {
-					continue
-				}
-				newNodes = append(newNodes, nodes[k])
-			}
-			newNodes = append(newNodes, new(Expression))
-			if i < j {
-				newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '+')
-				result = result || Find24(newNodes)
-				newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '*')
-				result = result || Find24(newNodes)
-			}
-			newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '-')
-			result = result || Find24(newNodes)
-			newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '/')
-			result = result || Find24(newNodes)
-		}
-	}
-	return result
+    if len(nodes) == 1 {
+        result := CompareFloat(nodes[0].value, target, 1e-6)
+        if result {
+            fmt.Println(nodes[0].repr, "=", target)
+        }
+        return result
+    }
+    result := false
+    for i := 0; i < len(nodes); i++ {
+        for j := 0; j < len(nodes); j++ {
+            if i == j {
+                continue
+            }
+            newNodes := make([]*Expression, 0, len(nodes)-1)
+            for k := 0; k < len(nodes); k++ {
+                if k == i || k == j {
+                    continue
+                }
+                newNodes = append(newNodes, nodes[k])
+            }
+            newNodes = append(newNodes, new(Expression))
+            if i < j {
+                newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '+')
+                result = result || Find24(newNodes)
+                newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '*')
+                result = result || Find24(newNodes)
+            }
+            newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '-')
+            result = result || Find24(newNodes)
+            newNodes[len(nodes)-2] = JoinExpression(nodes[i], nodes[j], '/')
+            result = result || Find24(newNodes)
+        }
+    }
+    return result
 }
 ```
 
@@ -79,49 +79,49 @@ By enumerating all four operators and writing rules to carefully add parentheses
 
 ```go
 type Expression struct {
-	value float64
-	op    rune
-	repr  string
+    value float64
+    op    rune
+    repr  string
 }
 
 func JoinExpression(e1, e2 *Expression, op rune) *Expression {
-	var value float64
-	var repr string
-	switch op {
-	case '+':
-		value = e1.value + e2.value
-		repr = fmt.Sprintf("%s+%s", e1.repr, e2.repr)
-	case '-':
-		value = e1.value - e2.value
-		rhs := e2.repr
-		if e2.op == '+' || e2.op == '-' {
-			rhs = fmt.Sprintf("(%s)", e2.repr)
-		}
-		repr = fmt.Sprintf("%s-%s", e1.repr, rhs)
-	case '*':
-		value = e1.value * e2.value
-		lhs := e1.repr
-		if e1.op == '+' || e1.op == '-' {
-			lhs = fmt.Sprintf("(%s)", e1.repr)
-		}
-		rhs := e2.repr
-		if e2.op == '+' || e2.op == '-' {
-			rhs = fmt.Sprintf("(%s)", e2.repr)
-		}
-		repr = fmt.Sprintf("%s*%s", lhs, rhs)
-	case '/':
-		value = e1.value / e2.value
-		lhs := e1.repr
-		if e1.op == '+' || e1.op == '-' {
-			lhs = fmt.Sprintf("(%s)", e1.repr)
-		}
-		rhs := e2.repr
-		if e2.op == '+' || e2.op == '-' || e2.op == '*' || e2.op == '/' {
-			rhs = fmt.Sprintf("(%s)", e2.repr)
-		}
-		repr = fmt.Sprintf("%s/%s", lhs, rhs)
-	}
-	return &Expression{value: value, op: op, repr: repr}
+    var value float64
+    var repr string
+    switch op {
+    case '+':
+        value = e1.value + e2.value
+        repr = fmt.Sprintf("%s+%s", e1.repr, e2.repr)
+    case '-':
+        value = e1.value - e2.value
+        rhs := e2.repr
+        if e2.op == '+' || e2.op == '-' {
+            rhs = fmt.Sprintf("(%s)", e2.repr)
+        }
+        repr = fmt.Sprintf("%s-%s", e1.repr, rhs)
+    case '*':
+        value = e1.value * e2.value
+        lhs := e1.repr
+        if e1.op == '+' || e1.op == '-' {
+            lhs = fmt.Sprintf("(%s)", e1.repr)
+        }
+        rhs := e2.repr
+        if e2.op == '+' || e2.op == '-' {
+            rhs = fmt.Sprintf("(%s)", e2.repr)
+        }
+        repr = fmt.Sprintf("%s*%s", lhs, rhs)
+    case '/':
+        value = e1.value / e2.value
+        lhs := e1.repr
+        if e1.op == '+' || e1.op == '-' {
+            lhs = fmt.Sprintf("(%s)", e1.repr)
+        }
+        rhs := e2.repr
+        if e2.op == '+' || e2.op == '-' || e2.op == '*' || e2.op == '/' {
+            rhs = fmt.Sprintf("(%s)", e2.repr)
+        }
+        repr = fmt.Sprintf("%s/%s", lhs, rhs)
+    }
+    return &Expression{value: value, op: op, repr: repr}
 }
 ```
 
@@ -133,27 +133,27 @@ To avoid generating the same answer for any particular set of inputs, I shuffled
 
 ```go
 func main() {
-	flag.Float64Var(&target, "t", 24.0, "target value")
-	flag.Parse()
+    flag.Float64Var(&target, "t", 24.0, "target value")
+    flag.Parse()
 
-	nums := make([]*Expression, len(flag.Args()))
-	for i, arg := range flag.Args() {
-		value, err := strconv.ParseFloat(arg, 64)
-		if err != nil {
-			panic(err)
-		}
-		nums[i] = &Expression{value: value, op: '.', repr: arg}
-	}
+    nums := make([]*Expression, len(flag.Args()))
+    for i, arg := range flag.Args() {
+        value, err := strconv.ParseFloat(arg, 64)
+        if err != nil {
+            panic(err)
+        }
+        nums[i] = &Expression{value: value, op: '.', repr: arg}
+    }
 
-	rand.Seed(time.Now().UnixNano())
-	for i := range nums {
-		j := rand.Intn(i + 1)
-		nums[i], nums[j] = nums[j], nums[i]
-	}
+    rand.Seed(time.Now().UnixNano())
+    for i := range nums {
+        j := rand.Intn(i + 1)
+        nums[i], nums[j] = nums[j], nums[i]
+    }
 
-	if !Find24(nums) {
-		fmt.Println("No solution")
-	}
+    if !Find24(nums) {
+        fmt.Println("No solution")
+    }
 }
 ```
 
@@ -169,7 +169,7 @@ It’s easy to add a “show all answers” flag:
 var allAnswers bool
 
 func main() {
-	flag.BoolVar(&allAnswers, "a", false, "find all solutions")
+    flag.BoolVar(&allAnswers, "a", false, "find all solutions")
 }
 ```
 
@@ -201,23 +201,23 @@ To keep the logic straightforward, instead of binary trees, we can use lists to 
 
 ```go
 type Expression interface {
-	Value() float64
-	Repr() string
+    Value() float64
+    Repr() string
 }
 
 type AddGroup struct {
-	Pos []Expression
-	Neg []Expression
+    Pos []Expression
+    Neg []Expression
 }
 
 type MulGroup struct {
-	Pos []Expression
-	Neg []Expression
+    Pos []Expression
+    Neg []Expression
 }
 
 type Number struct {
-	Val float64
-	Str string
+    Val float64
+    Str string
 }
 ```
 
@@ -225,19 +225,19 @@ Sorting is easy as long as there’s a well-defined “order”:
 
 ```go
 func CompareExpression(e1, e2 Expression) bool {
-	if e1.Value() < e2.Value() {
-		return true
-	}
-	if e1.Value() > e2.Value() {
-		return false
-	}
-	return strings.Compare(e1.Repr(), e2.Repr()) < 0
+    if e1.Value() < e2.Value() {
+        return true
+    }
+    if e1.Value() > e2.Value() {
+        return false
+    }
+    return strings.Compare(e1.Repr(), e2.Repr()) < 0
 }
 
 func SortExpression(e []Expression) {
-	sort.Slice(e, func(i, j int) bool {
-		return CompareExpression(e[i], e[j])
-	})
+    sort.Slice(e, func(i, j int) bool {
+        return CompareExpression(e[i], e[j])
+    })
 }
 ```
 
@@ -245,25 +245,25 @@ Calculating the value is also easy:
 
 ```go
 func (e *AddGroup) Value() float64 {
-	var s float64 = 0
-	for _, ee := range e.Pos {
-		s += ee.Value()
-	}
-	for _, ee := range e.Neg {
-		s -= ee.Value()
-	}
-	return s
+    var s float64 = 0
+    for _, ee := range e.Pos {
+        s += ee.Value()
+    }
+    for _, ee := range e.Neg {
+        s -= ee.Value()
+    }
+    return s
 }
 
 func (e *MulGroup) Value() float64 {
-	var s float64 = 1
-	for _, ee := range e.Pos {
-		s *= ee.Value()
-	}
-	for _, ee := range e.Neg {
-		s /= ee.Value()
-	}
-	return s
+    var s float64 = 1
+    for _, ee := range e.Pos {
+        s *= ee.Value()
+    }
+    for _, ee := range e.Neg {
+        s /= ee.Value()
+    }
+    return s
 }
 ```
 
@@ -271,37 +271,37 @@ Generating representations for expressions has also been made easier and more co
 
 ```go
 func (e *AddGroup) Repr() string {
-	SortExpression(e.Pos)
-	SortExpression(e.Neg)
-	var s strings.Builder
-	for _, ee := range e.Pos {
-		s.WriteString("+" + ee.Repr())
-	}
-	for _, ee := range e.Neg {
-		s.WriteString("-" + ee.Repr())
-	}
-	return s.String()[1:]
+    SortExpression(e.Pos)
+    SortExpression(e.Neg)
+    var s strings.Builder
+    for _, ee := range e.Pos {
+        s.WriteString("+" + ee.Repr())
+    }
+    for _, ee := range e.Neg {
+        s.WriteString("-" + ee.Repr())
+    }
+    return s.String()[1:]
 }
 
 func (e *MulGroup) Repr() string {
-	SortExpression(e.Pos)
-	SortExpression(e.Neg)
-	var s strings.Builder
-	for _, ee := range e.Pos {
-		if _, ok := ee.(*Number); ok {
-			s.WriteString("*" + ee.Repr())
-		} else {
-			s.WriteString("*(" + ee.Repr() + ")")
-		}
-	}
-	for _, ee := range e.Neg {
-		if _, ok := ee.(*Number); ok {
-			s.WriteString("/" + ee.Repr())
-		} else {
-			s.WriteString("/(" + ee.Repr() + ")")
-		}
-	}
-	return s.String()[1:]
+    SortExpression(e.Pos)
+    SortExpression(e.Neg)
+    var s strings.Builder
+    for _, ee := range e.Pos {
+        if _, ok := ee.(*Number); ok {
+            s.WriteString("*" + ee.Repr())
+        } else {
+            s.WriteString("*(" + ee.Repr() + ")")
+        }
+    }
+    for _, ee := range e.Neg {
+        if _, ok := ee.(*Number); ok {
+            s.WriteString("/" + ee.Repr())
+        } else {
+            s.WriteString("/(" + ee.Repr() + ")")
+        }
+    }
+    return s.String()[1:]
 }
 ```
 
@@ -309,29 +309,29 @@ Joining two elements into a new expression is now a little bit more complex, sin
 
 ```go
 func JoinAddGroup(e1, e2 Expression, neg2 bool) *AddGroup {
-	e := new(AddGroup)
-	if a1, ok := e1.(*AddGroup); ok {
-		e.Pos = append(e.Pos, a1.Pos...)
-		e.Neg = append(e.Neg, a1.Neg...)
-	} else {
-		e.Pos = append(e.Pos, e1)
-	}
-	if a2, ok := e2.(*AddGroup); ok {
-		if neg2 {
-			e.Pos = append(e.Pos, a2.Neg...)
-			e.Neg = append(e.Neg, a2.Pos...)
-		} else {
-			e.Pos = append(e.Pos, a2.Pos...)
-			e.Neg = append(e.Neg, a2.Neg...)
-		}
-	} else {
-		if neg2 {
-			e.Neg = append(e.Neg, e2)
-		} else {
-			e.Pos = append(e.Pos, e2)
-		}
-	}
-	return e
+    e := new(AddGroup)
+    if a1, ok := e1.(*AddGroup); ok {
+        e.Pos = append(e.Pos, a1.Pos...)
+        e.Neg = append(e.Neg, a1.Neg...)
+    } else {
+        e.Pos = append(e.Pos, e1)
+    }
+    if a2, ok := e2.(*AddGroup); ok {
+        if neg2 {
+            e.Pos = append(e.Pos, a2.Neg...)
+            e.Neg = append(e.Neg, a2.Pos...)
+        } else {
+            e.Pos = append(e.Pos, a2.Pos...)
+            e.Neg = append(e.Neg, a2.Neg...)
+        }
+    } else {
+        if neg2 {
+            e.Neg = append(e.Neg, e2)
+        } else {
+            e.Pos = append(e.Pos, e2)
+        }
+    }
+    return e
 }
 ```
 
@@ -347,22 +347,22 @@ With reliable expression flattening and sorting in place, we can now deduplicate
 var answers []string
 
 func EvalResult(e Expression) bool {
-	result := CompareFloat(e.Value(), target, 1e-6)
-	if result {
-		s := e.Repr()
-		duplicate := false
-		for _, ans := range answers {
-			if ans == s {
-				duplicate = true
-				break
-			}
-		}
-		if !duplicate {
-			fmt.Println(s, "=", target)
-			answers = append(answers, s)
-		}
-	}
-	return result && !allAnswers
+    result := CompareFloat(e.Value(), target, 1e-6)
+    if result {
+        s := e.Repr()
+        duplicate := false
+        for _, ans := range answers {
+            if ans == s {
+                duplicate = true
+                break
+            }
+        }
+        if !duplicate {
+            fmt.Println(s, "=", target)
+            answers = append(answers, s)
+        }
+    }
+    return result && !allAnswers
 }
 ```
 
@@ -599,7 +599,7 @@ For multiplicative groups, we can go one step further and take care of `/(-1)` a
 ```cpp
 void MultiplicativeGroup::normalize() override {
     // ...
-		for (auto it = negative.begin(); it != negative.end();) {
+    for (auto it = negative.begin(); it != negative.end();) {
         auto& e = *it;
         if (is_equal(*e, 1.0) || is_equal(*e, -1.0)) {
             positive.push_back(e);
@@ -732,7 +732,7 @@ Additive groups are a bit complicated, as they could contain a (technically) sec
 
 ```cpp
 bool AdditiveGroup::is_canonical(bool is_top_level) const {
-	  if (is_top_level) {
+    if (is_top_level) {
         for (auto& e : positive)
             if (!e->is_canonical(dynamic_cast<MultiplicativeGroup*>(e) != nullptr))
                 return false;
