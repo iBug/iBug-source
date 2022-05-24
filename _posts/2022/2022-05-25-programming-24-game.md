@@ -1,7 +1,11 @@
 ---
-title: Taking 24-point game to the next level
+title: Taking the 24 puzzle game to the next level
 tags: development c++ algorithm
 redirect_from: /p/51
+header:
+  teaser: /image/teaser/24.png
+  overlay_filter: 0.1
+  overlay_image: /image/header/sunshine-1.jpg
 ---
 
 The [24 game][wp] is a classic math game where players try to arrange 4 integers into 24 using basic arithmetics (addition, subtraction, multiplication and division). Thanks to its popularity, it’s now also a common intermediate-level programming practice.
