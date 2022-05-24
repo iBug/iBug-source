@@ -12,7 +12,7 @@ The [24 game][wp] is a classic math game where players try to arrange 4 integers
 
 Getting a program that determines whether a set of 4 numbers is solvable is easy, as there are only as many possible combinations as 4 numbers can form. Even a simple brute-force search
 
-## Searching for answers
+## Searching for answers {#searching}
 
 Obviously it’s not going to be a good idea to enumerate all the arrangements and search by filling in the numbers, so we’re going to think about this from bottom-up.
 
@@ -69,7 +69,7 @@ func Find24(nodes []*Expression) bool {
 }
 ```
 
-## Generating the solution
+## Generating the solution {#stringify}
 
 Without displaying the solution, the program can only get as far as a simple [LeetCode challenge](https://leetcode.com/problems/24-game/) or another online judger. For anything to make the programming quiz more suitable as a school assignment, printing out the found solution is the next thing.
 
@@ -161,7 +161,7 @@ The complete program can be found [here](https://gist.github.com/iBug/62610c759f
 
 This program can output lines among `(1+3)*(2+4) = 24` and `1*2*3*4 = 24`, which looks good so far.
 
-## Next level: Reducing duplicate answers
+## Next level: Reducing duplicate answers {#next-level}
 
 It’s easy to add a “show all answers” flag:
 
@@ -191,7 +191,7 @@ It does, however, prints a *lot* of redundant answers:
 
 Under the hood it could just be `(1*4)*(2*3)` and `1*(4*(2*3))`, which we don’t know for sure since we only omitted the parentheses.
 
-### Redesigning data structure
+### Redesigning data structure {#data-structures}
 
 We could fix this by flattening expressions so each addition and multiplication operator can have multiple operands. This also enables reliable sorting of elements, which is also pretty obvious.
 
@@ -377,11 +377,11 @@ This is about as far as the new data structure can bring us. The current program
 
 The complete code so far can be found [here](https://gist.github.com/iBug/b0e3d7dc11e53ac53df5f6d0438ad3b5).
 
-## Advanced level: More deduplication, and optimization
+## Advanced level: More deduplication, and optimization {#advanced}
 
 On a side note, I switched to C++ at this point because I found Go’s comprehensive runtime *cumbersome*, and its lack of compiler optimization is specifically detrimental for such computing tasks. C++ has everything I need, including dynamic arrays (`vector`), dynamic typing (RTTI via `virtual` functions and `dynamic_cast`) and hash sets (`unordered_set`). C++ also has the advantage of supporting function templates and inheritance, which helps greatly with duplicate logic. The only thing missing from Go is a standard library for parsing command-line arguments, which bothers very little as I don’t need complex parsing rules. (There are external libraries that I want to avoid, such as POSIX `getopt()`.)
 
-### Switching to C++
+### Switching to C++ {#cpp}
 
 To mimic the `Expression` interface in Go, I created an abstract base class:
 
@@ -435,7 +435,7 @@ join_multiplicative_group(Expression* a,
 }
 ```
 
-### Double-negativity in multiplicative groups
+### Double-negativity in multiplicative groups {#double-negativity}
 
 When fed with input `1 1 4 9`, the above Go program produces 2 results:
 
@@ -519,7 +519,7 @@ bool eval_result(Expression* node) {
 }
 ```
 
-### Subtracting negative values
+### Subtracting negative values {#negative-subtraction}
 
 When fed with input `1 1 4 9`, the above Go program produces 7 results, among which are these two:
 
@@ -579,7 +579,7 @@ void AdditiveGroup::normalize() override {
 }
 ```
 
-### Substracting zeros and dividing by ones
+### Substracting zeros and dividing by ones {#identity-elements}
 
 Zero is the [identity element](https://en.wikipedia.org/wiki/Identity_element) of addition, and one is that of multiplication. This means `a+0=a-0=a` and `a*1=a/1=a`. We can normalize `-0` into `+0` and `/1` into `*1`. This one’s even easier since it only moves elements from the negative list to the positive list.
 
@@ -612,7 +612,7 @@ void MultiplicativeGroup::normalize() override {
 }
 ```
 
-### Memoizing intermediate results
+### Memoizing intermediate results {#memoization}
 
 For small inputs like only 4 numbers, there are only up to 36×18×6=3,888 leaf nodes to search, so any working algorithm shouldn’t run for more than tens of milliseconds. But why limit to 4 input numbers, a pretty artificial value, when the algorithm is designed to scale and handle inputs of any sizes?
 
@@ -655,7 +655,7 @@ use_states = nums.size() >= 5;
 
 Because generating and hashing strings could be expensive, and there aren’t enough duplicates for small inputs, I chose to enable mid-way deduplication only for inputs with 5 or more numbers.
 
-### Placement of zeros and ones
+### Placement of zeros and ones {#placement}
 
 The last thing to handle is the placement of no-ops, like `*1` and `+3-3`. While it could be arithmetically different between `a+b-b` and `a*b/b`, or between `a*1+b` and `(a+b)*1`, one would think the difference is minimal when playing with cards in reality.
 
