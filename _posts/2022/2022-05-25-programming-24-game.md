@@ -20,7 +20,7 @@ Starting from two numbers, it’s easy to enumerate all 4 arithmetic operators f
 
 Taking this to a three-number setup. We can reduce it to the two-number case by picking two of the numbers and applying an operation. This can be generalized to an arbitrary number of inputs. As long as we’re cutting down a number at every recursion, we’ll eventually cover all possible combinations of all inputs and come to a conclusion.
 
-With only one input number, we compare it with our search target to see if it’s an answer we want. One little note here is that `[0.1 + 0.2 != 0.3](https://stackoverflow.com/q/588004/5958455)`, so floating-point number equality must be handled with caution.
+With only one input number, we compare it with our search target to see if it’s an answer we want. One little note here is that [`0.1 + 0.2 != 0.3`](https://stackoverflow.com/q/588004/5958455), so floating-point number equality must be handled with caution.
 
 I wrote my initial versions of the 24 program in Go, and here’s the snippet on recursive searching:
 
@@ -157,7 +157,7 @@ func main() {
 }
 ```
 
-The complete program can be found [here](https://gist.github.com/iBug/62610c759f7702071baaf884301ae067) and ready to compile & run.
+The complete program can be found [here](https://gist.github.com/iBug/62610c759f7702071baaf884301ae067) and is ready to compile & run.
 
 This program can output lines among `(1+3)*(2+4) = 24` and `1*2*3*4 = 24`, which looks good so far.
 
