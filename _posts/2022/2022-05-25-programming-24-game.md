@@ -10,7 +10,7 @@ header:
 
 The [24 game][wp] is a classic math game where players try to arrange 4 integers into 24 using basic arithmetics (addition, subtraction, multiplication and division). Thanks to its popularity, it’s now also a common intermediate-level programming practice.
 
-Getting a program that determines whether a set of 4 numbers is solvable is easy, as there are only as many possible combinations as 4 numbers can form. Even a simple brute-force search
+Getting a program that determines whether a set of 4 numbers is solvable is easy, as there are only as many possible combinations as 4 numbers can form. Even a simple brute-force search won't take long to determine the solution. So I will go through the search algorithm and see how much improvement can be made.
 
 ## Searching for answers {#searching}
 
