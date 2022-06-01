@@ -157,9 +157,11 @@ func main() {
 }
 ```
 
+<div class="notice--primary" markdown="1">
 The complete program can be found [here](https://gist.github.com/iBug/62610c759f7702071baaf884301ae067) and is ready to compile & run.
 
 This program can output lines among `(1+3)*(2+4) = 24` and `1*2*3*4 = 24`, which looks good so far.
+</div>
 
 ## Next level: Reducing duplicate answers {#next-level}
 
@@ -376,6 +378,7 @@ This is about as far as the new data structure can bring us. The current program
 ```
 
 The complete code so far can be found [here](https://gist.github.com/iBug/b0e3d7dc11e53ac53df5f6d0438ad3b5).
+{: .notice--primary }
 
 ## Advanced level: More deduplication, and optimization {#advanced}
 
@@ -659,7 +662,7 @@ Because generating and hashing strings could be expensive, and there aren’t en
 
 The last thing to handle is the placement of no-ops, like `*1` and `+3-3`. While it could be arithmetically different between `a+b-b` and `a*b/b`, or between `a*1+b` and `(a+b)*1`, one would think the difference is minimal when playing with cards in reality.
 
-Taking the same convention as on the [4 Numbers](https://www.4nums.com/theory/) website, points 7 and 8, the following rules is defined as “preferences for duplicates”:
+Taking the same convention as on the [*4 Numbers*](https://www.4nums.com/theory/) website, points 7 and 8, the following rules is defined as “preferences for duplicates”:
 
 - Multiplying by ±1 happens on the topmost multiplication group, so `1*2+3*4` becomes `1*(2+3*4)`, except when there’s a pair of additive no-ops: `(a+b)*1+c-c` is preferred over `(a+b+c-c)*1`.
 - A pair of same numbers cancelling each other must be done with addition and subtraction, and must happen at the topmost layer, so `a*b/b+c` becomes `a+c+b-b`. This applies to ones.
@@ -775,16 +778,16 @@ if (positive.size() > 1) { /* check for ones */ }
 
 ## Postface
 
-The 4 Numbers website provides a comprehensive list of all 1362 solvable quadruples from 1 to 13 (i.e. formed with a standard 52-card set). Just grab the page and do some HTML processing, and a good test suite is readily available.
+The *4 Numbers* website provides a comprehensive list of all 1362 solvable quadruples from 1 to 13 (i.e. formed with a standard 52-card set). Just grab the page and do some HTML processing, and a good test suite is readily available.
 
-[Here][gist-cpp]’s the final version of the C++ code. It gives identical solutions to all 1362 test cases.
+[Here][gist-cpp]’s the final version of the C++ code. It gives solutions to 1362 test cases where all of them are identical to those on the *4 Numbers* website.
 
 The problem originates from a course *Program Design II* where a friend of mine works as a TA this semester.
 
 ## References
 
 - [24 (puzzle) - Wikipedia][wp]
-- [Definition of "distinct" by 4 Numbers website][4nums]
+- [Definition of "distinct" by *4 Numbers* website][4nums]
 
 
   [wp]: https://en.wikipedia.org/wiki/24_(puzzle)
