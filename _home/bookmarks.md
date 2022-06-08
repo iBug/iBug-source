@@ -13,6 +13,7 @@ header:
 
 - Android Platform Tools (`adb`, `fastboot` etc.): [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) / [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip) / [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
 - [Intel Graphics Windows DCH Drivers](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
+- [VirtIO drivers for Windows](https://github.com/virtio-win/virtio-win-pkg-scripts)
 
 ## <i class="fas fa-fw fa-gamepad"></i> Entertainment
 
@@ -20,6 +21,7 @@ header:
 - [Online Freecell solver](https://fc-solve.shlomifish.org/js-fc-solve/text/)
 - [Simon Tatham's Portable Puzzle Collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)
 - [Stardew Valley 1.4 NPC Paths - Imgur](https://imgur.com/a/JlRXGlc)
+- [Video Game Music Downloads](https://downloads.khinsider.com/)
 - [The Witness Environmental Puzzle Hint Guide](https://4wxf73.axshare.com/)
 
 ### Grand Theft Auto V
