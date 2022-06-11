@@ -311,8 +311,8 @@ tag_archive:
 jekyll-archives:
   enabled:
     - year
-    - categories
-    - tags
+    # categories
+    # tags
   layout: archive-taxonomy
   layouts: {}
   permalinks:
