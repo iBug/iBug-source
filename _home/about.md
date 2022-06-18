@@ -89,7 +89,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 
 ### Working environment
 
-My <i class="fad fa-fw fa-desktop fa-swap-opacity" style="--fa-secondary-opacity: 0.2"></i> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 [Windows Terminal](https://aka.ms/terminal) is the *best* terminal for Windows.
 

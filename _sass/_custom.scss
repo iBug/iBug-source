@@ -227,6 +227,14 @@ text-align: center;
 
 /********** Misc **********/
 
+.svg-inline {
+  display: inline-block;
+
+  > svg {
+    height: 1em;
+  }
+}
+
 .sidebar p, .sidebar li {
   font-size: $type-size-7;
 }
