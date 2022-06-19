@@ -1,3 +1,6 @@
+/*
+  Referrer-Policy: same-origin
+
 /image/*
   Cache-Control: public,max-age=31536000
 
