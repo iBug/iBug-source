@@ -11,10 +11,9 @@
   "homepage": "https://ibug.io/",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
-    "glob": "^8.0.1",
-    "postcss": "^8.4.13",
+    "glob": "^8.0.3",
+    "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0",
-    "uglify-js": "^3.15.5"
-  },
-  "dependencies": {}
+    "uglify-js": "^3.16.1"
+  }
 }
