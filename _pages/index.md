@@ -50,17 +50,12 @@ disabled:
     btn_class: "btn--primary"
 ---
 
-{% include feature_row %}
+### Extra links {#links}
 
-### Extra links
+- [My <i class="fas fa-fw fa-book-spells"></i> public notebook](https://notes.ibug.io/) where I also share resources. Powered by [Notion](https://www.notion.so/).
 
-- [My public notebook](https://notes.ibug.io/) where I also share resources. Powered by [Notion](https://www.notion.so/).
+- [My <i class="fab fa-fw fa-youtube"></i> YouTube channel](https://go.ibugone.com/youtube), though there's scarcely anything as I don't often produce videos.
 
-- [My YouTube channel](https://go.ibugone.com/youtube), though there's scarcely anything as I don't often produce videos.
-
-- My roommate, [<i class="fas fa-globe-americas"></i> TaoKY's personal site](https://blog.taoky.moe/)  
-  (He writes Simplified Chinese, while I prefer English)
-
-  And [websites of my friends](/friends/).
+- And [<i class="fas fa-fw fa-globe-americas"></i> my friends' websites]({{ "/friends/" | relative_url }}).
 
 <script type="text/javascript">document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>
