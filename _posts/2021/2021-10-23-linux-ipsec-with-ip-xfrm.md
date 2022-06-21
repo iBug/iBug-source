@@ -256,7 +256,7 @@ I take the Pcap file from the container to my (Windows) computer, and open it wi
 
 The captured packets are correct - they're encrypted in ESP format.
 
-I then head to **Edit → Preferences**, locate **Protocol » ESP** on the left, and add the Security Associations used in this experiment. I also tick the "*Attempt to detect/decode ecnrypted ESP payloads*" checkbox.
+I then head to **Edit → Preferences**, locate **Protocol » ESP** on the left, and add the Security Associations used in this experiment. I also tick the "*Attempt to detect/decode encrypted ESP payloads*" checkbox.
 
 ![Add ESP SA in Wireshark](/image/linux/ipsec/wireshark-import-esp-sa.png)
 
@@ -274,7 +274,7 @@ Before loading SAs into Wireshark, I noticed it showing an interesting note for 
 
 ![Wireshark suggesting alternative sequence number](/image/linux/ipsec/wireshark-expected-sn.png)
 
-This is because Wireshark is identifying streams by SPI, which is normally different for every IPsec stream, including both directions between the same pair of tunnel endpoints. When I'm using the same SPI for both directions, Wireshark gets confused and mistakes them for one stream, and suggests incrementing sequence numbers for "repeated" packets.
+This is because Wireshark identifies streams by SPI, which is normally different for every IPsec stream, including both directions between the same pair of tunnel endpoints. When I'm using the same SPI for both directions, Wireshark gets confused and mistakes them for one stream, and suggests incrementing sequence numbers for duplicated packets.
 
 ## Bonus: IPsec tunnel mode vs. IP-in-IP tunneling inside IPsec transport mode
 
