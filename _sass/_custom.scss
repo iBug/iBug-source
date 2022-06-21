@@ -38,12 +38,20 @@ kbd {
   text-align: center;
   font-family: $sans-serif;
   font-size: 0.8em;
-  padding: 0 0.2em;
+  line-height: 1.4;
+  padding: 0.1em 0.4em;
   margin: 0 2px;
   border: 1px solid black;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
 }
 
 ul, ol {
