@@ -13,7 +13,7 @@ gem "mimemagic"
 if ENV['LSI'] == 'true'
   gem "classifier-reborn"
 
-  if Gem::Version.new(RUBY_VERSION) > Gem::Version.new('3.0.0')
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.0.0')
     gem 'gsl', git: 'https://github.com/SciRuby/rb-gsl.git', ref: '103a3e1'
   else
     gem 'gsl'
