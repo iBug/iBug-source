@@ -61,7 +61,7 @@
 
     {% comment %} Link next page {% endcomment %}
     {% if paginator.next_page %}
-      <li><a href="{{ paginator.next_page_path | relative_url | remove: 'index.html' }}"><i class="fas fa-arrow-alt-right"></i> <span class="sr-only">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></span></a></li>
+      <li><a href="{{ paginator.next_page_path | relative_url | remove: 'index.html' }}"><i class="fas fa-arrow-alt-right"></i> <span class="sr-only">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></a></li>
     {% else %}
       <li><a href="#" class="disabled"><span aria-hidden="true"><i class="fas fa-arrow-alt-right"></i> <span class="sr-only">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></span></a></li>
     {% endif %}
