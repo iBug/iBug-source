@@ -102,7 +102,7 @@ MSI produces high-performance gaming laptops with very comfortable and beautiful
     - Native to Simplified (written) and Mandarin (spoken)
     - Reads Traditional without problem but limited in writing
   - English (proficient as a foreign language, preferred work language)
-- **Secondary languages**: French (advancing), Spanish (limited vocabulary)
+- **Secondary languages**: French and Spanish (both limited usage)
 - [My blog]({{ "/blog/" | relative_url }})
 - [My entertainment]({{ "/entertainment/" | relative_url }})
 
