@@ -198,7 +198,6 @@ exclude:
   - vendor/
 keep_files: [".git", ".nojekyll", "README.md", "CNAME", "image"]
 encoding: "UTF-8"
-future: true
 
 
 # Conversion
