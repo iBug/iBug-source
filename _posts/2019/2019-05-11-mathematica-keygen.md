@@ -138,9 +138,7 @@ document.getElementById("generate").addEventListener("click", function () {
         <br>
         <b>Password</b>: ${password}
         </p>
-        <p>Don't forget to share your feelings below. Thanks for using!</p>
-        <p>Need a VPN to get past GFW? Check out <a href="https://blinkload.me/">Blinkload</a> for free &amp; fast global internet access!</p>
-        <p>Please consider purchasing the software if you find it helpful to you. Support genuine software!</p>
+        <p>Thanks for using! Please consider purchasing the software if you find it helpful to you. We support genuine software.</p>
         `;
     }
 });
