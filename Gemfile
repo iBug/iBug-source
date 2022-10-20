@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
-gem "jekyll", '~> 4.2', '> 4.2'
+gem "jekyll", '~> 4.3'
 gem "minimal-mistakes-jekyll", '>= 4.24.0'
 
 gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
-gem "rouge", '~> 3.29'
+gem "rouge", '~> 4.0'
 
 gem "mimemagic"
 
