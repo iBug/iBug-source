@@ -14,7 +14,7 @@ jobs:
       LSI: 'true'
       TZ: Etc/UTC
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -23,7 +23,7 @@ jobs:
         ruby-version: "3.0"
     - name: Setup cache for Bundler
       id: cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           Gemfile.lock
@@ -32,7 +32,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-bundler-2-
 
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
       with:
         node-version: 16
     - name: Setup cache for Node.js
@@ -76,7 +76,7 @@ jobs:
       working-directory: _site
 
     - name: Deploy to Cloudflare Pages
-      uses: cloudflare/pages-action@v1.0.0
+      uses: cloudflare/pages-action@v1.1.0
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         accountId: ${{ secrets.CF_ACCOUNT_ID }}
