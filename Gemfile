@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", '~> 4.3'
+gem "jekyll", '~> 4.3', '>= 4.3.1'
 gem "minimal-mistakes-jekyll", '>= 4.24.0'
 
 gem "kramdown", '>= 2.3.0'
