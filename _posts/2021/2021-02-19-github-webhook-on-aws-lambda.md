@@ -73,6 +73,28 @@ ubuntu@iBug-Server:~ $ curl https://nad73szpz7.execute-api.us-east-1.amazonaws.c
 ubuntu@iBug-Server:~ $
 ```
 
+<div class="notice--primary" markdown="1">
+#### <i class="fas fa-fw fa-lightbulb"></i> Update 2022
+
+As of April 2022, Lambda meets [Function URLs][lambda-function-urls] that acts as a direct endpoint to the function. You can use it to replace the API Gateway part.
+
+Benefits of using Function URLs include:
+
+- Zero setup, instant access possible
+- Zero extra cost (invocation is free, compared to API Gateway's $1 per million requests)
+
+However, there are more advanced usages only possible with API Gateway, such as:
+
+- Custom domain names (though you can put CloudFront in front of the Function URL to achieve the same effect)
+    - In particular, multiple APIs under the same domain
+- API keys and access control
+- Throttling
+
+Special thanks to user **xxgj** for pointing this out in the comments.
+</div>
+
+  [lambda-function-urls]: https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/
+
 ## Coding for Lambda {#lambda-code}
 
 With the infrastructure set up, we should now write our code for the GitHub webhook receiver.
