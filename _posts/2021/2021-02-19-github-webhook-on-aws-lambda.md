@@ -75,8 +75,9 @@ ubuntu@iBug-Server:~ $
 
 <div class="notice--primary" markdown="1">
 #### <i class="fas fa-fw fa-lightbulb"></i> Update 2022
+{: .no_toc }
 
-As of April 2022, Lambda meets [Function URLs][lambda-function-urls] that acts as a direct endpoint to the function. You can use it to replace the API Gateway part.
+As of April 2022, Lambda meets [Function URLs][lambda-function-urls] that act as a direct endpoint to the function. You can use it to replace the API Gateway part.
 
 Benefits of using Function URLs include:
 
@@ -103,7 +104,7 @@ We need to first know how the client request is passed to our Lambda function. T
 
 <details markdown="1">
 <summary markdown="1">
-Example content of `event` object
+Example content of the `event` object
 </summary>
 
 ```json
@@ -160,7 +161,7 @@ Example content of `event` object
 
 A few notes about the content:
 
-- `isBase64Encoded` refers to the `body` item. In the above example, the actual POST content is a single newline.-
+- `isBase64Encoded` refers to the `body` item. In the above example, the actual POST content is a single newline.
 - `body` may be absent for requests that doesn't send data, like a GET request.
 - `headers` are all in lowercase which is in line with HTTP/2 specifications. **It could be due to me placing my custom domain behind Cloudflare.**
 
