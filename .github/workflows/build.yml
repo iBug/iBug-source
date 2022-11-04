@@ -43,6 +43,8 @@ jobs:
         key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
 
     - name: Install - Bundler
+      env:
+        MAKE: make -j2
       run: |
         bundle install --path=vendor/bundle --jobs=4 --retry=3
         bundle clean
