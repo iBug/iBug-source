@@ -59,7 +59,7 @@ This indicates that the region file is not a single, complete NBT file, so I hav
 
 Google-ing for `minecraft region site:github.com` leads me to Fenixin/Minecraft-Region-Fixer, of which an included [nbt library](https://github.com/Fenixin/Minecraft-Region-Fixer/tree/master/nbt) seems promising. I grab this repository and take the `nbt` directory out, throwing away everything else. The `region.py` file provides a `RegionFile` class that can be used to access region files, so I start playing with it:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> import nbt
 >>> r = nbt.region.RegionFile('r.-1.0.mca')
 >>> r.get_chunk(-1,10)
@@ -78,14 +78,14 @@ Now that I have access to an NBT tag, it's time to study its structure. The [Chu
 
 I know that `c` holds the "root tag" of the chunk I'm looking for. This is easily verified:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> c['xPos'].value, c['zPos'].value
 (-1, 10)
 ```
 
 I find the vertical section containing the offending block:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> [s for s in c['sections'] if s['Y'].value == 4]
 [<TAG_Compound('') at 0x7f8a8d44c1c0>]
 >>> s = _[0]
@@ -93,7 +93,7 @@ I find the vertical section containing the offending block:
 
 The [Anvil file format](https://minecraft.fandom.com/wiki/Anvil_file_format) page shows that block data is ordered in YZX order, so I try to find the block data from the `data` key:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> s['block_states']['data'][256 + 12*16 + 1]
 72624976668147841
 ```
@@ -106,7 +106,7 @@ I look closely to the description of the `data` tag:
 
 So not only was that number *not* for a single block, but also was I looking for a wrong index. I need to inspect the block palette first:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> len(s['block_states']['palette'])
 95
 >>> [(i, b) for i, b in enumerate(s['block_states']['palette']) if b['Name'].value == "create:brass_funnel"]
@@ -115,7 +115,7 @@ So not only was that number *not* for a single block, but also was I looking for
 
 There are two indices allotted for the funnel block, but at this point it's cannot be determined which one is correct. I look inside the packed `data` array, recalculating the index from the block coordinates using information above:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> s['block_states']['data'][(256 + 12*16 + 1) // 9]
 3963735054717000501
 >>> i = _
@@ -123,7 +123,7 @@ There are two indices allotted for the funnel block, but at this point it's cann
 
 Because there are 95 blocks in the palette, 7 bits is enough to hold an index, and a 64-bit integer holds 9 indices. The caculation can be verified by the following:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> len(s['block_states']['data'])
 456
 >>> 456 * 9
@@ -133,7 +133,7 @@ Because there are 95 blocks in the palette, 7 bits is enough to hold an index, a
 
 Now I unpack that large integer into 9 indices, and try to translate them into blocks:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> [(i >> (7*x))& 0x7F for x in range(9)]
 [53, 54, 46, 1, 1, 1, 1, 1, 55]
 >>> [s['block_states']['palette'][((i >> (7*x))& 0x7F)]['Name'].value for x in range(9)]
@@ -154,7 +154,7 @@ It starts to make sense now. I can recall a [Smeltery](https://tinkers-construct
 
 The offending Brass Funnel is the last index within this packed 64-bit integer. I can replace it with air (index = 1) using bit manipulation:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> ii = i ^ ((55 ^ 1) << (7*8))
 >>> ii
 72624976668891957
@@ -163,7 +163,7 @@ The offending Brass Funnel is the last index within this packed 64-bit integer. 
 
 Now I try to save the file, only to find that `nbt.region.RegionFile` offers no `.save()` or `.write()` methods:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> f.<TAB><TAB>
 f.STATUS_CHUNK_IN_HEADER           f.get_chunk_coords()
 f.STATUS_CHUNK_MISMATCHED_LENGTHS  f.get_chunks()
@@ -188,7 +188,7 @@ f.get_chunk(
 
 Reading [Region file format](https://minecraft.fandom.com/wiki/Region_file_format), I learn that each chunk is compressed (using Zlib) separately and stored together in the region file, and that `f.write_chunk` is the method I am looking for.
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> f.write_chunk(31, 10, c)
 >>>
 ```
@@ -203,7 +203,7 @@ With uncertainty, I make a backup of the broken world, and replace `r.-1.0.mca` 
 
 To convince myself that I have successfully changed the correct block, I decide that I need to replace it with something visible, not just air. I look inside the palette of the section, and found a few blocks available for use.
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> s['block_states']['palette'][25]['Name']
 minecraft:grass_block
 >>> ii = i ^ ((55 ^ 25) << (7*8))
@@ -228,7 +228,7 @@ According to [Chunk format][chunk-format], block entities are stored in a `block
 
 So the coordinates for block entities are absolute, not relative to the chunk. Now find the Brass Funnel:
 
-```console?lang=python&prompt=>>>,...
+```console?lang=python&prompt=>>>%20,...%20
 >>> [be for be in c['block_entities']
 ...  if be['x'].value == -15 and be['y'].value == 65 and be['z'].value == 172]
 [<TAG_Compound('') at 0x7f8a8d4afd30>]
@@ -250,7 +250,7 @@ More than half of these keys are familiar: They are common to all block entities
 
 So the `Filter` key is an item. In my case it's a [Filter](https://create.fandom.com/wiki/Filter) (normal filter, with Iron Nuggets). The contents of the filter can be further inspected:
 
-```console?lang=python&prompt=>>>
+```console?lang=python&prompt=>>>%20
 >>> be['Filter']['tag'].keys()
 ['RespectNBT', 'Blacklist', 'Items']
 >>> be['Filter']['tag']['Blacklist'].value
