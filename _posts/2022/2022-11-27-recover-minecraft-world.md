@@ -8,7 +8,7 @@ While a friend was building an automatic brewing pipeline, our [Create: Astral](
 
 ## Gathering information
 
-If at all possible, we would like to salvage this broken world, so we start with an inspection of the crash log. It appears to be an infinite recursion with Create.
+If at all possible, we would like to salvage this broken world, so we start with an investigation of the crash log. It appears to be an infinite recursion with Create.
 
 ```text
 at com.simibubi.create.foundation.item.ItemHelper.extract(ItemHelper.java:219)
@@ -72,7 +72,9 @@ KeyError: (-1, 10)
 
 So this Python library arranges chunks by offset *within the region file*. That's fine.
 
-Now that I have access to an NBT tag, it's time to study its structure. The [Chunk format](https://minecraft.fandom.com/wiki/Chunk_format) page from Minecraft Wiki is the ultimate reference here.
+Now that I have access to an NBT tag, it's time to study its structure. The [Chunk format][chunk-format] page from Minecraft Wiki is the ultimate reference here.
+
+  [chunk-format]: https://minecraft.fandom.com/wiki/Chunk_format
 
 I know that `c` holds the "root tag" of the chunk I'm looking for. This is easily verified:
 
@@ -213,6 +215,62 @@ I then copy the file back to the server, and start it again. As expected, the bl
 
 ![Block replaced with Grass Block](/image/minecraft/createastral-2.jpg)
 
+## Additional information
+
+According to [Chunk format][chunk-format], block entities are stored in a `block_entity` tag under the root tag of the chunk. It's possible to inspect the block entity data for the offending Brass Funnel, using information provided under the [Block entity format](https://minecraft.fandom.com/wiki/Chunk_format#Block_entity_format) section.
+
+```console?lang=python&prompt=>>>
+>>> len(c['block_entities'])
+420
+>>> c['block_entities'][0]['x'].value
+-14
+```
+
+So the coordinates for block entities are absolute, not relative to the chunk. Now find the Brass Funnel:
+
+```console?lang=python&prompt=>>>,...
+>>> [be for be in c['block_entities']
+...  if be['x'].value == -15 and be['y'].value == 65 and be['z'].value == 172]
+[<TAG_Compound('') at 0x7f8a8d4afd30>]
+>>> be = _[0]
+>>> be.keys()
+['z', 'x', 'TransferCooldown', 'id', 'y', 'FilterAmount', 'keepPacked', 'Filter']
+```
+
+More than half of these keys are familiar: They are common to all block entities. Another one `TransferCooldown` is also present for Hoppers. The names of the remaining two tags are self-explanatory.
+
+```console?lang=python&prompt=>>>
+>>> be['FilterAmount'].value
+2
+>>> be['Filter']
+<TAG_Compound('Filter') at 0x7f8a8d1000a0>
+>>> be['Filter'].keys()
+['id', 'tag', 'Count']
+```
+
+So the `Filter` key is an item. In my case it's a [Filter](https://create.fandom.com/wiki/Filter) (normal filter, with Iron Nuggets). The contents of the filter can be further inspected:
+
+```console?lang=python&prompt=>>>
+>>> be['Filter']['tag'].keys()
+['RespectNBT', 'Blacklist', 'Items']
+>>> be['Filter']['tag']['Blacklist'].value
+1
+>>> be['Filter']['tag']['Items']
+<TAG_Compound('Items') at 0x7f8a8d100070>
+>>> be['Filter']['tag']['Items'].keys()
+['Size', 'Items']
+>>> be['Filter']['tag']['Items']['Items']
+2 entries of type TAG_Compound
+>>> be['Filter']['tag']['Items']['Items'][0]
+<TAG_Compound('') at 0x7f8a8d1003d0>
+>>> be['Filter']['tag']['Items']['Items'][0].keys()
+['Slot', 'id', 'Count']
+>>> [it['id'] for it in be['Filter']['tag']['Items']['Items']]
+[create:cinder_flour, minecraft:glass_bottle]
+```
+
+Now the mystery has been completely uncovered. The Brass Funnel is configured to take everything but Cinder Flour and Glass Bottles. Considering that the Depot behind is part of a brewing system, there will be brewed Potions, which are unstackable. A friend helped us find the GitHub issue [<i class="fab fa-github"></i> Create#570](https://github.com/Fabricators-of-Create/Create/issues/570), confirming that we hit the same bug as reported in that thread.
+
 ## Epilogue
 
 The use of block/item names since Java Edition 1.7.2 ([13w37a](https://minecraft.fandom.com/wiki/Java_Edition_13w37a)) hinted that block/item IDs would eventually become dynamic, which actually took place in [the Flattening](https://minecraft.fandom.com/wiki/Java_Edition_1.13/Flattening) in Java Edition 1.13. The smart use of the "palette + array of indices" paves the way for mods and future expansions to add new blocks without having to worry about the block ID limit, which is also reminiscent of the [Color table](https://en.wikipedia.org/wiki/BMP_file_format#Color_table) in 8-bit (256 colors) BMP bitmap images.
@@ -220,8 +278,8 @@ The use of block/item names since Java Edition 1.7.2 ([13w37a](https://minecraft
 Contrary to player data (`playerdata/*.dat`), the region file is a lot more complicated. Thanks to the large fan base of Minecraft, libraries for handling the file format are readily available. I am inclined to believe that a few steps taken and decisions made here are critical to the success of salvaging our save.
 
 - First and foremost, checking the logs: We know which block is going wrong, and *have faith in ourselves that we can fix it*.
-- Looking in the correct direction: Instead of using a complete "world edit" tool, we decide to find some library on GitHub and improvise from there
+- Looking in the correct direction: Instead of using a complete "world edit" tool, we decide to find some library on GitHub and improvise from there.
 - Reading the documentation carefully and in detail.
 - Doing math correctly (LOL...)
 
-Finally, I want to credit my friend [sirius](https://sirius1242.github.io/) for his in-depth knowledge of Minecraft, without whose help I would not have been able to take on this wonderful adventure.
+Finally, I want to credit my friend [sirius](https://sirius1242.github.io/) for his unsurpassed knowledge of Minecraft, without whose help I would not have been able to take on this wonderful adventure.
