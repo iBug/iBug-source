@@ -257,6 +257,10 @@ a.site-logo > img, div.author__avatar:hover > img {
   animation: spin-periodically 5000ms infinite ease-in-out;
 }
 
+.language-console .highlight .gp {
+  user-select: none;
+}
+
 /********** Animations **********/
 
 @import "loading-animation";
