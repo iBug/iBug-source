@@ -17,7 +17,6 @@ Before putting this crap into action, it's necessary to determine the feasibilit
 
 It wouldn't take long before landing on [this Super User question][su-comment] when searching around for "installing Linux in FAT32".
 
-
   [reddit]: https://www.reddit.com/r/archlinux/comments/r0k4ye/arch_windows_xp_on_the_same_fat32_partition/
   [a]: https://bbs.archlinux.org/viewtopic.php?id=173748
   [su-comment]: https://superuser.com/posts/comments/2349156

@@ -197,7 +197,7 @@ With uncertainty, I make a backup of the broken world, and replace `r.-1.0.mca` 
 
 ![Block removed](/image/minecraft/createastral-1.jpg)
 
-## Additional verification
+## Extra tests
 
 To convince myself that I have successfully changed the correct block, I decide that I need to replace it with something visible, not just air. I look inside the palette of the section, and found a few blocks available for use.
 
@@ -214,6 +214,8 @@ I then copy the file back to the server, and start it again. As expected, the bl
 ![Block replaced with Grass Block](/image/minecraft/createastral-2.jpg)
 
 ## Epilogue
+
+The use of block/item names since Java Edition 1.7.2 ([13w37a](https://minecraft.fandom.com/wiki/Java_Edition_13w37a)) hinted that block/item IDs would eventually become dynamic, which actually took place in [the Flattening](https://minecraft.fandom.com/wiki/Java_Edition_1.13/Flattening) in Java Edition 1.13. The smart use of the "palette + array of indices" paves the way for mods and future expansions to add new blocks without having to worry about the block ID limit, which is also reminiscent of the [Color table](https://en.wikipedia.org/wiki/BMP_file_format#Color_table) in 8-bit (256 colors) BMP bitmap images.
 
 Contrary to player data (`playerdata/*.dat`), the region file is a lot more complicated. Thanks to the large fan base of Minecraft, libraries for handling the file format are readily available. I am inclined to believe that a few steps taken and decisions made here are critical to the success of salvaging our save.
 
