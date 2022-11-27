@@ -1,7 +1,7 @@
 ---
 title: "Paper Reading: Are You Sure You Want to Use MMAP in Your Database Management System?"
 tags: paper-reading
-redirect_from: /p/49
+redirect_from: /p/53
 header:
   overlay_image: /image/header/water-5.jpg
   overlay_filter: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1))
