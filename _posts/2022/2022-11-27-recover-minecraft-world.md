@@ -21,7 +21,7 @@ at com.simibubi.create.foundation.item.ItemHelper.extract(ItemHelper.java:223)
 at com.simibubi.create.foundation.item.ItemHelper.extract(ItemHelper.java:223)
 ```
 
-None of us has any knowledge in Java, but fortunately the crash log gives a hint on which block is going wrong, as shown below:
+None of us has any knowledge in Java, but fortunately with [Not Enough Crashes (Fabric)](https://www.curseforge.com/minecraft/mc-mods/not-enough-crashes), the crash log gives a hint on which block is going wrong, as shown below:
 
 ```text
 -- Block entity being ticked --
@@ -57,7 +57,9 @@ This indicates that the region file is not a single, complete NBT file, so I hav
 
 ## Reading the world file
 
-Google-ing for `minecraft region site:github.com` leads me to Fenixin/Minecraft-Region-Fixer, of which an included [nbt library](https://github.com/Fenixin/Minecraft-Region-Fixer/tree/master/nbt) seems promising. I grab this repository and take the `nbt` directory out, throwing away everything else. The `region.py` file provides a `RegionFile` class that can be used to access region files, so I start playing with it:
+Google-ing for `minecraft region site:github.com` leads me to Fenixin/Minecraft-Region-Fixer, of which an included [NBT library](https://github.com/Fenixin/Minecraft-Region-Fixer/tree/master/nbt) seems promising. I grab this repository and take the `nbt` directory out, throwing away everything else.
+
+The `region.py` file provides a `RegionFile` class that can be used to access region files, so I start playing with it:
 
 ```console?lang=python&prompt=>>>%20
 >>> import nbt
@@ -109,11 +111,12 @@ So not only was that number *not* for a single block, but also was I looking for
 ```console?lang=python&prompt=>>>%20
 >>> len(s['block_states']['palette'])
 95
->>> [(i, b) for i, b in enumerate(s['block_states']['palette']) if b['Name'].value == "create:brass_funnel"]
+>>> [(i, b) for i, b in enumerate(s['block_states']['palette'])
+...  if b['Name'].value == "create:brass_funnel"]
 [(55, <TAG_Compound('') at 0x7f8a8d49d120>), (77, <TAG_Compound('') at 0x7f8a8d49ff40>)]
 ```
 
-There are two indices allotted for the funnel block, but at this point it's cannot be determined which one is correct. I look inside the packed `data` array, recalculating the index from the block coordinates using information above:
+There are two indices allotted for the funnel block, but at this point it cannot be determined which one is correct. I look inside the packed `data` array, recalculating the index from the block coordinates using information above:
 
 ```console?lang=python&prompt=>>>%20
 >>> s['block_states']['data'][(256 + 12*16 + 1) // 9]
@@ -134,9 +137,10 @@ Because there are 95 blocks in the palette, 7 bits is enough to hold an index, a
 Now I unpack that large integer into 9 indices, and try to translate them into blocks:
 
 ```console?lang=python&prompt=>>>%20
->>> [(i >> (7*x))& 0x7F for x in range(9)]
+>>> [(i >> (7*x)) & 0x7F for x in range(9)]
 [53, 54, 46, 1, 1, 1, 1, 1, 55]
->>> [s['block_states']['palette'][((i >> (7*x))& 0x7F)]['Name'].value for x in range(9)]
+>>> [s['block_states']['palette'][((i >> (7*x)) & 0x7F)]['Name'].value
+...  for x in range(9)]
 ['create:spout',
  'create:mechanical_pump',
  'tconstruct:seared_drain',
@@ -248,7 +252,7 @@ More than half of these keys are familiar: They are common to all block entities
 ['id', 'tag', 'Count']
 ```
 
-So the `Filter` key is an item. In my case it's a [Filter](https://create.fandom.com/wiki/Filter) (normal filter, with Iron Nuggets). The contents of the filter can be further inspected:
+So the `Filter` key is an item. In my case it's a [Filter](https://create.fandom.com/wiki/Filter) (normal filter, crafted with Iron Nuggets). The contents of the filter can be further inspected:
 
 ```console?lang=python&prompt=>>>%20
 >>> be['Filter']['tag'].keys()
@@ -269,11 +273,11 @@ So the `Filter` key is an item. In my case it's a [Filter](https://create.fandom
 [create:cinder_flour, minecraft:glass_bottle]
 ```
 
-Now the mystery has been completely uncovered. The Brass Funnel is configured to take everything but Cinder Flour and Glass Bottles. Considering that the Depot behind is part of a brewing system, there will be brewed Potions, which are unstackable. A friend helped us find the GitHub issue [<i class="fab fa-github"></i> Create#570](https://github.com/Fabricators-of-Create/Create/issues/570), confirming that we hit the same bug as reported in that thread.
+Now the mystery has been completely uncovered. The Brass Funnel is configured to take everything but Cinder Flour and Glass Bottles, 2 at a time. Considering that the Depot behind is part of a brewing system, there will be brewed Potions, which are unstackable. A friend helped us find the GitHub issue [<i class="fab fa-github"></i> Create#570](https://github.com/Fabricators-of-Create/Create/issues/570), confirming that we ran into the same bug as reported in that thread.
 
 ## Epilogue
 
-The use of block/item names since Java Edition 1.7.2 ([13w37a](https://minecraft.fandom.com/wiki/Java_Edition_13w37a)) hinted that block/item IDs would eventually become dynamic, which actually took place in [the Flattening](https://minecraft.fandom.com/wiki/Java_Edition_1.13/Flattening) in Java Edition 1.13. The smart use of the "palette + array of indices" paves the way for mods and future expansions to add new blocks without having to worry about the block ID limit, which is also reminiscent of the [Color table](https://en.wikipedia.org/wiki/BMP_file_format#Color_table) in 8-bit (256 colors) BMP bitmap images.
+The use of block/item names since Java Edition 1.7.2 ([13w37a](https://minecraft.fandom.com/wiki/Java_Edition_13w37a)) hinted that block/item IDs would eventually become dynamic, which actually took place in [the Flattening](https://minecraft.fandom.com/wiki/Java_Edition_1.13/Flattening) in Java Edition 1.13. The smart use of the "palette + array of indices" paves the way for mods and future expansions to add new blocks without having to worry about the block ID limit, which is also reminiscent of the [color table](https://en.wikipedia.org/wiki/BMP_file_format#Color_table) in 8-bit (256 colors) BMP bitmap images.
 
 Contrary to player data (`playerdata/*.dat`), the region file is a lot more complicated. Thanks to the large fan base of Minecraft, libraries for handling the file format are readily available. I am inclined to believe that a few steps taken and decisions made here are critical to the success of salvaging our save.
 
