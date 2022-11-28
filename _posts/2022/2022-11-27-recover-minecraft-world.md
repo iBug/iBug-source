@@ -124,7 +124,7 @@ There are two indices allotted for the funnel block, but at this point it cannot
 >>> i = _
 ```
 
-Because there are 95 blocks in the palette, 7 bits is enough to hold an index, and a 64-bit integer holds 9 indices. The caculation can be verified by the following:
+Because there are 95 blocks in the palette, 7 bits is enough to hold an index, and a 64-bit integer holds 9 indices. The calculation can be verified by the following:
 
 ```console?lang=python&prompt=>>>%20
 >>> len(s['block_states']['data'])
@@ -152,7 +152,7 @@ Now I unpack that large integer into 9 indices, and try to translate them into b
  'create:brass_funnel']
 ```
 
-It starts to make sense now. I can recall a [Smeltery](https://tinkers-construct.fandom.com/wiki/Smeltery) structure that we built together near this region.
+It starts to make sense now. I can recall a [Smeltery](https://tinkers-construct.fandom.com/wiki/Smeltery) structure that we built together near this area.
 
 ## Replacing the block
 
