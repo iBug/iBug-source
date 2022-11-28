@@ -108,7 +108,7 @@ I look closely to the description of the `data` tag:
 
 So not only was that number *not* for a single block, but also was I looking for a wrong index. I need to inspect the block palette first:
 
-```console?lang=python&prompt=>>>%20
+```console?lang=python&prompt=>>>%20,...%20
 >>> len(s['block_states']['palette'])
 95
 >>> [(i, b) for i, b in enumerate(s['block_states']['palette'])
@@ -136,7 +136,7 @@ Because there are 95 blocks in the palette, 7 bits is enough to hold an index, a
 
 Now I unpack that large integer into 9 indices, and try to translate them into blocks:
 
-```console?lang=python&prompt=>>>%20
+```console?lang=python&prompt=>>>%20,...%20
 >>> [(i >> (7*x)) & 0x7F for x in range(9)]
 [53, 54, 46, 1, 1, 1, 1, 1, 55]
 >>> [s['block_states']['palette'][((i >> (7*x)) & 0x7F)]['Name'].value
