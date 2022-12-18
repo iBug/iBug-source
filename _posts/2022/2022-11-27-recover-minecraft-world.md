@@ -2,6 +2,8 @@
 title: "Recovering a Minecraft world from a crash, the technician way"
 tags: games minecraft
 redirect_from: /p/54
+header:
+  teaser: /image/minecraft/create-mod-1.jpg
 ---
 
 While a friend was building an automatic brewing pipeline, our [Create: Astral](https://www.curseforge.com/minecraft/modpacks/create-astral) server crashed and wouldn't start again. At first we thought it'd be easy to restore our world from a backup, only to find that the automatic backup mechanism wasn't working at all due to misconfiguration. The last manual backup was taken a few days ago, so reverting to that backup means a lot of progress loss, which is undesirable for us.
