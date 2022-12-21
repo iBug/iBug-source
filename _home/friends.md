@@ -41,6 +41,9 @@ friends:
   - name: ksqsf
     github: ksqsf
     link: https://ksqsf.moe/
+  - name: Catoverflow
+    github: Catoverflow
+    link: https://c-j.dev/
   - name: jiegec
     github: jiegec
     link: https://jia.je/
