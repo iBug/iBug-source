@@ -10,6 +10,8 @@ header:
 
 *Advent of Code* ([Wikipedia](https://en.wikipedia.org/wiki/Advent_of_Code), [link](https://adventofcode.com/)) is an annual event that releases a programming puzzle every day from December 1 to December 25. It's a great chance to learn a new language or practice your skills.
 
+![Image](/image/adventofcode-2022.png)
+
 Considering that all the puzzles are designed to be lightweight, meaning that if implemented correctly, they're solvable in no more than a few seconds with a reasonably small memory footprint, I picked Go as my language of choice. Go has been my preference over Python for a while, for being compiled into machine code and thus more performant, and a decent set of standard libraries.
 
 ## Notes on puzzles {#puzzles}
