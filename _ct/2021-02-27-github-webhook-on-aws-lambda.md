@@ -42,7 +42,7 @@ def lambda_handler(event, context):
     }
 ```
 
-现在我们还不知道这个代码能赶啥或者怎么改，所以先去看 API Gateway，毕竟那个才是 webhook 的接收端入口。
+现在我们还不知道这个代码能干啥或者怎么改，所以先去看 API Gateway，毕竟那个才是 webhook 的接收端入口。
 
 ## Setting up AWS API Gateway {#api-gateway}
 
