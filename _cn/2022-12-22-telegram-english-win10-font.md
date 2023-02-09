@@ -32,10 +32,10 @@ Telegram Desktop 在英文版 Windows 10 中字体显示可以说是十分糟糕
 
 进入 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes`，把 `MS Shell Dlg` 和 `MS Shell Dlg 2` 的值都改成 `Microsoft YaHei`，然后重启 TG Desktop，问题解决。
 
-对于 Telegram Desktop v4.6，以上方法可能不起作用，此时新建一个名为 `DAOpenSansRegular` 字符串值，填入 `Microsoft YaHei` 即可。
+对于 Telegram Desktop v4.6.0 和 v4.6.1，此方法会失效，**只需要更新到 v4.6.2 以上即可**。详情见 [<i class="fab fa-github"></i> TDesktop#25825](https://github.com/telegramdesktop/tdesktop/issues/25825) 的讨论。
 {: .notice }
 
-这个方法应该是我之前尝试解决 Windows 资源管理器显示中文字体异常时找到的，没想到它居然是解决 TG Desktop 字体问题的关键。详情见 [<i class="fab fa-github"></i> TDesktop#25825](https://github.com/telegramdesktop/tdesktop/issues/25825) 的讨论。
+这个方法应该是我之前尝试解决 Windows 资源管理器显示中文字体异常时找到的，没想到它居然是解决 TG Desktop 字体问题的关键。
 
 P.S. 截至本文发稿时，这个方法应该是全网首发。
 
