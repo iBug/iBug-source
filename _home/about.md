@@ -39,14 +39,14 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 <details open markdown="1">
 <summary> **Advanced knowledge**
 </summary>
-- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow) and Ruby
+- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow) and Go, Ruby
 - **Software**: Git, Jekyll, OpenSSH
 </details>
 
 <details markdown="1">
 <summary> **Intermediate knowledge**
 </summary>
-- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Go, Node.js, Verilog, VBScript
+- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Node.js, VBScript
 - **Framework**:
   Ruby on Rails,
   Bootstrap,
@@ -70,7 +70,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
-- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl, PHP, AWK, Wolfram Mathematica
+- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl, Verilog,
 - **Framework**:
   [Sinatra](https://sinatrarb.com/),
   Django,
@@ -85,7 +85,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 - **Linux distro**: Ubuntu (desktop / workstation), Debian (server) and Proxmox VE (virtualization platform)
 - **Version control**: Git (and good at it)
 - **Text editor**: Visual Studio Code and `<ESC>:wq` ([get my config](https://e.ibugone.com/vimrc))
-- **Automation**: Shell scripts, Make, Cron / At, Systemd services, Docker, AWS Lambda
+- **Automation**: Shell scripts, Make, Systemd services, Docker, AWS Lambda
 
 ### Working environment
 

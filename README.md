@@ -4,7 +4,7 @@
 [![CircleCI](https://circleci.com/gh/iBug/iBug-source.svg?style=shield)](https://circleci.com/gh/iBug/iBug-source)
 [![GitHub Actions](https://github.com/iBug/iBug-source/workflows/build/badge.svg)](https://github.com/iBug/iBug-source/actions)
 
-This is the source of my GitHub Pages website.  
+This is the source of my website.  
 You can visit it [here][site].
 
 My website content is licensed under the Creative Commons Attribution-ShareAlike 4.0 International Public License, see [LICENSE.md](LICENSE.md) for details.
