@@ -197,7 +197,7 @@ body = event.get('body', "")
 if event['isBase64Encoded']:
     body = base64.b64decode(body)
 
-hashsum = hmac.new(signature, secret, hashlib.sha1).hexdigest()
+hashsum = hmac.new(secret, body, hashlib.sha1).hexdigest()
 if hashsum != signature:
     return {
         'statusCode': 401,
