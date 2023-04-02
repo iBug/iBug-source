@@ -22,7 +22,7 @@ Telegram Desktop 在英文版 Windows 10 中字体显示可以说是十分糟糕
 > MSYH.TTC,Microsoft YaHei UI
 > ```
 
-很遗憾这个方法在我这里试了无效，最后辗转找到了 [Font problem with the display of Chinese content in the Telegram Windows client \| QuantumAlgorithm's Portal](https://qamoe.cyou/2021/11/10/17/30) 这篇文章，把 Regional format 改成了 Chinese (Simplified, China)，重启 TG Desktop，成功了。
+很遗憾这个方法在我这里试了无效，最后辗转找到了 [Font problem with the display of Chinese content in the Telegram Windows client \| QuantumAlgorithm's Portal](https://qamoe.cyou/blog/2021/11/10/17/30) 这篇文章，把 Regional format 改成了 Chinese (Simplified, China)，重启 TG Desktop，成功了。
 
 但是这带来了另一个问题：系统中的各种时间货币显示方式（即地区相关的内容）都变成了中文，这我也不喜欢；但是只要把 Regional format 改回 English (United States)，那么问题又回来了。
 
