@@ -57,6 +57,10 @@ net_friends:
   - name: ArtOfCode
     github: ArtOfCode-
     link: https://artofcode.co.uk/
+  - name: H3arn
+    description: "I suppose we all thought that, one way or another."
+    link: "https://h3a.moe"
+    github: H3arn
 ---
 
 Friends:
