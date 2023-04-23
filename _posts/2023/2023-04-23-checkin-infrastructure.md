@@ -92,6 +92,8 @@ After all this complexity, here's what I've got:
 
 The script runs every day at a random time in a configured time span, and I get a notification on Telegram regardless of whether it succeeds or fails. If the script fails I also have the required information to look into it. The script also uploads the health QR code screenshots to the reporting platform, and I can update the images from my phone through a secured connection.
 
+Of all these tasks, only taking the screenshots and uploading them to the server is manual, denoted in the image by blue arrows. All black arrows are automated and require no attention to function.
+
 As the zero-COVID policy [came crumbling down][zcp-end] in December 2022, our school also put an end to the daily health reporting system. As a result, I can safely share my setup here without fearing repercussions. I hope this article brings you some inspiration for your next automation project.
 
   [zcp-end]: https://en.wikipedia.org/wiki/Chinese_government_response_to_COVID-19#2022_outbreaks_and_end_of_zero-COVID_policy
