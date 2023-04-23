@@ -1,22 +1,22 @@
 ---
-title: My «Daily Health Report» infrastructure
+title: My automated Daily Health Report infrastructure
 tags: server networking development
 redirect_from: /p/57
 ---
 
-Back in the days when the [Zero COVID policy][zcp] was still relevant, our university implemented a *Daily Health Report* system. Students and faculty were required to submit a form online every day, providing various information about their health status. Failure to do so resulted in denied entry to the school, and during the harshest periods, forced quarantine. Thanks to the complete lockdown of the campuses, we had literally nothing to do besides staying at school, and as a result the data we had to submit on each day were pratically invariant. It's a colossal waste of time to do it manually (and some anecdotes later on), so I decided to automate the process.
+Back in the days when the [Zero COVID policy][zcp] was prevailing, our university introduced a *Daily Health Report* system. Students and faculty were mandated to submit a daily online form detailing their health status. Noncompliance resulted in denied campus access, and in more stringent times, forced quarantine. Thanks to the comprehensive lockdown of campuses, our activity were strictly confined. Consequently, our daily data submission were pratically invariant. It's a colossal waste of effort to do it manually (with some anecdotes later on), so I opted to automate the process.
 
-As the policies changed over time, so did our school's reporting platform. I had to update the reporting script multiple times implementing various new features matching that of the reporting platform.
+As the policies evolved, our school's reporting platform also underwent changes. I had to update the reporting script multiple times with new features to align those of the reporting platform.
 
-Similar to my [previous article]({% post_url 2023/2023-01-08-overengineering-adventofcode %}), there's a substantial difference between making it work and making it work *elegantly*. So in this article, I'll share my infrastructure that composes the automated daily report system, and discuss some of the design options and decisions I made.
+Much like my [previous article]({% post_url 2023/2023-01-08-overengineering-adventofcode %}), there's a significant distinction between making something work and making it work with elegance. So in this article, I'll share my infrastructure for the automated daily report system, and delve into some design options and decisions I made in the way.
 
   [zcp]: https://en.wikipedia.org/wiki/Chinese_government_response_to_COVID-19
 
 ## The reporting script {#script}
 
-Writing a script is about the easiest thing in the whole system, and it's the one with the least technical content. Anyone who knows how to write one can do it well, so I [open-sourced mine][github]. It's just a few minutes of work to open the Developer Tools on your browser, identifying the request that comes from the \[Submit\] buttom, copying its payload out and put that into a script, and it's ready to service. If anything marginally fancy were to be added, it'd  be saving certain data to a separate file so that others can adopt the script more easily.
+Writing a script is about the easiest thing in the whole system with the least technical complexity. Anyone with basic scripting abilities can do it well, so I [open-sourced mine][github]. It only takes a few minutes to open the Developer Tools on your browser, identify the request originating from the \[Submit\] button, copy its payload out and put that into a script, and it's ready to service. If anything marginally fancy were to be added, it'd be saving certain data to a separate file so that others can adopt the script more easily.
 
-The next thing is to run the script every day at a desired time. A common solution is to use Cron, simple and easy. [Systemd timers][timer] is a modern alternative with a few more features at the cost of a more complex configuration. I chose the latter for its `RandomizedDelaySec` option, so that the script won't be run at the exact same time every day.
+The next thing is to run the script every day at a desired time. A common solution is to use Cron that is simple and easy. [Systemd timers][timer] is a modern alternative offering more features at the expense of a more complex configuration. I chose the latter for its `RandomizedDelaySec` option, so that the script won't be run at the exact same time every day.
 
 At the beginning I also had a sample GitHub Actions workflow file so that others can fork my repository and start automating their reports with minimal effort. However, I scrapped it later on realizing it's against GitHub's ToS.
 
@@ -27,13 +27,13 @@ At the beginning I also had a sample GitHub Actions workflow file so that others
 
 ## Status report {#status}
 
-The next thing is to know whether the script is working properly. Logging in to the server and reading logs every day is not fun. Assuming that it worked and ended up denied entry to the school is even worse, so it'd be nice to be notified of everything it does.
+The next thing is to stay informed of whether the script is working properly. Logging in to the server and reading logs every day is not fun. Assuming that it worked and ending up being denied entry to the school is even worse. So it'd be nice to be notified of everything it does.
 
-A common choice is via email, but it's missing a bit of instantness. I chose Telegram because I'm active on it and it provides a bot API. Adding `python-telegram-bot` to the script and a few lines of code, I can get a notification on my Telegram every time the script runs.
+A common choice is via email, but it's lacking a bit of timeliness. I chose Telegram because I'm actively using it and it provides a bot API. Adding `python-telegram-bot` to the script and a few lines of code, I can get a notification on my Telegram every time the script runs.
 
 My actual setup differs slightly, with an extra component between the script and the bot: an AWS Lambda serverless function. I did this for two reasons:
 
-- Minor reason: Telegram servers (`api.telegram.org`) is not directly accessible from mainland China.
+- Minor reason: Telegram servers (`api.telegram.org`) is not directly accessible from mainland China for well-known reasons.
 - **Major reason**: I already have a [GitHub webhook]({% post_url 2021/2021-02-19-github-webhook-on-aws-lambda %}) running on AWS Lambda. It is much less involved to add another URL handler to that function and reuse the existing codebase, like credentials and message formatting. This allows me to simplify the notification to a single `requests.post`.
 
 ![Second step](/image/server/checkin-2.png)
@@ -50,9 +50,9 @@ As a bonus feature, I also send the error message and the line number in case of
 
 ## Uploading images {#image}
 
-Some time later, our school began to demand our [health QR code][health-code] be uploaded regularly. The QR code is generated by a govermental mobile app and unfortunately, it's difficult to automate its retrieval. Before stepping over the line of producing fake QR codes, I decided to take the screenshots manually and have my script upload them to the reporting platform. The good news is, there's no measures on the platform to validate the uploaded images, so uploading an outdated screenshot yields no consequences most of the time, and I don't have to constantly update the screenshots for the script.
+Sometime later, our school began to demand regular uploads of our [health QR code][health-code]. The QR code is generated by a govermental mobile app whose retrieval is, unfortunately, difficult to automate. Before stepping over the line of producing fake QR codes, I decided to take the screenshots manually and have my script upload them to the reporting platform. The good news is, there's no measures on the platform to validate the uploaded images, so uploading an outdated screenshot yields no consequences most of the time, and I don't have to constantly update the screenshots for the script.
 
-Image uploading is nothing new to the `requests` Python library, but I have to deliver the files from my phone somehow. There are many ways to transfer files from an Android phone to a Linux server, and for me I found SMB the most convenient. [Root Explorer][root-explorer] is the file manager that I've been using for a decade, so I could just set up Samba on my server to receive the files.
+Image uploading is nothing new to the `requests` Python library, but I have to deliver the files from my phone somehow. Options to transfer files from an Android phone to a Linux server are abundant, and for me I found SMB the most convenient. [Root Explorer][root-explorer] is the file manager that I've been using for a decade, so I could just set up Samba on my server to receive the files from it.
 
 > **[THU Checkin]** Success: 2023-02-25 08:33:36  
 > Checkin: Success  
@@ -63,18 +63,18 @@ Image uploading is nothing new to the `requests` Python library, but I have to d
 
 ![Third step](/image/server/checkin-3.png)
 
-Alternatively, I could have my Telegram bot accept the images and forward them to the server. This would be more convenient in terms of using, but I didn't do it because I didn't have any code in my Telegram bot that handles images. Meanwhile, I already had Samba running on my server so I in fact did not set it up anew.
+Alternatively, I could have my Telegram bot accept the images and forward them to the server. This would be more convenient in terms of using, but much less in coding as I didn't have any existing code in my Telegram bot that handles images. Meanwhile, I already had Samba running on my server so I in fact did not set it up anew.
 
   [health-code]: https://en.wikipedia.org/wiki/Health_Code
   [root-explorer]: https://play.google.com/store/apps/details?id=com.speedsoftware.rootexplorer
 
 ## Securing the server {#security}
 
-At this point everything is working, with one detail missing: The SMB protocol is not known for being secure. Exposure of the SMB port to the Internet is prone to troubles and connecting to a VPN every time is not convenient. Luckily I have Clash for Android running on my phone 24/7 that I can use to proxy Root Explorer. I set up a shadowsocks-libev server and configured Clash to route traffic targeting my server through it, and then closed the SMB port in my server firewall.
+At this point everything is operational, with one detail missing: The SMB protocol is not known for being secure. Exposing the SMB port to the Internet is prone to troubles and connecting to a VPN every time is not convenient. Luckily I have Clash for Android running on my phone 24/7 that I can use to proxy Root Explorer. I set up a shadowsocks-libev server and configured Clash to route traffic targeting my server through it, and then closed the SMB port in my server firewall.
 
-There's one last detail with Clash: It's a rule-based proxy software that reads configurations. My airport[^1] service provides their configuration through a subscription URL, but Clash for Android doesn't support editing subscribed config. Another background story comes up here: I have another Lambda function serving as my own Clash config subscription. It fetches the airport config and modifies it to my liking, and then serves it to Clash. It also makes updating the config easier, as I can just update the Lambda function code and the changes will be reflected in Clash.
+There's a noteworthy thing about Clash: It's a rule-based proxy software that reads configurations. My airport[^1] service provides their configuration through a subscription URL, but Clash for Android doesn't support editing subscribed config. Another background story comes up here: I have another Lambda function serving as my own Clash config subscription. It fetches the airport config and modifies it to my preferences, and then serves it to Clash. It also makes updating the config easier, as I can just update the Lambda function code and the changes will be reflected in Clash.
 
-Fun fact: My custom subscription is also used with Clash for Windows on my computer, which completely bypassed two RCE vulnerabilities ([1][clash-rce-1], [2][clash-rce-2]).
+Fun fact: My custom subscription is also used with Clash for Windows on my computer, which helped me completely bypass two RCE vulnerabilities ([1][clash-rce-1], [2][clash-rce-2]).
 
   [^1]: Shadowsocks service providers are commonly called "airports" because the icon of Shadowsocks is a paper plane, and every provider has multiple "plane servers" that you can use.
   [clash-rce-1]: https://github.com/Fndroid/clash_for_windows_pkg/issues/2710
@@ -86,9 +86,9 @@ After all this complexity, here's what I've got:
 
 ![Final state](/image/server/checkin-infra.png)
 
-The script runs every day at a random time in a configured time span, and I get a notification on Telegram regardless of whether it succeeds or fails. If the script fails I also have the required information to look into it. The script also uploads the health QR code images to the reporting platform, and I can upload updated images on my phone through a secured connection.
+The script runs every day at a random time in a configured time span, and I get a notification on Telegram regardless of whether it succeeds or fails. If the script fails I also have the required information to look into it. The script also uploads the health QR code screenshots to the reporting platform, and I can update the images from my phone through a secured connection.
 
-As the zero-COVID policy [came crumbling down][zcp-end] in December 2022, our school also put an end to the daily health reporting system. As a result, I can safely share my setup here without fearing punishment. I hope this article brings you some inspiration for your next automation project.
+As the zero-COVID policy [came crumbling down][zcp-end] in December 2022, our school also put an end to the daily health reporting system. As a result, I can safely share my setup here without fearing repercussions. I hope this article brings you some inspiration for your next automation project.
 
   [zcp-end]: https://en.wikipedia.org/wiki/Chinese_government_response_to_COVID-19#2022_outbreaks_and_end_of_zero-COVID_policy
 
