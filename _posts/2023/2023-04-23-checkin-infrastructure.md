@@ -1,7 +1,11 @@
 ---
 title: My automated Daily Health Report infrastructure
+tagline: Automation done right
+categories: tech
 tags: server networking development
 redirect_from: /p/57
+header:
+  overlay_image: /image/header/mountain-5.jpg
 ---
 
 Back in the days when the [Zero COVID policy][zcp] was prevailing, our university introduced a *Daily Health Report* system. Students and faculty were mandated to submit a daily online form detailing their health status. Noncompliance resulted in denied campus access, and in more stringent times, forced quarantine. Thanks to the comprehensive lockdown of campuses, our activity were strictly confined. Consequently, our daily data submission were pratically invariant. It's a colossal waste of effort to do it manually (with some anecdotes later on), so I opted to automate the process.
