@@ -52,6 +52,8 @@ disabled:
 
 ### Extra links {#links}
 
+- [My <i class="fab fa-fw fa-telegram-plane"></i> Telegram channel](https://t.me/iBugThought/) where I share random ideas.
+
 - [My <i class="fas fa-fw fa-book-spells"></i> public notebook](https://notes.ibug.io/) where I also share resources. Powered by [Notion](https://www.notion.so/).
 
 - [My <i class="fab fa-fw fa-youtube"></i> YouTube channel](https://go.ibugone.com/youtube), though there's scarcely anything as I don't often produce videos.
