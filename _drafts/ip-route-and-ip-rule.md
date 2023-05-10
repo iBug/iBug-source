@@ -1,9 +1,7 @@
 ---
-title: "Linux IP routing and routing rules"
+title: "Linux networking: My setup"
 tags: linux networking
 redirect_from: /p/32
-
-published: false
 ---
 
 In larger organizations and corporations, it's common to have multiple ISPs connected to one datacenter. It's important to provide faster connectivity to users by optimizing for different networks, which is called **routing**. This article explains how a Linux system route network traffic to different networks. I'll start with the basic.
