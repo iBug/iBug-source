@@ -42,5 +42,5 @@ P.S. 截至本文发稿时，这个方法应该是全网首发。
 <div class="notice--primary" markdown="1">
 This blog article is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-Part of this article is adapted from <https://qamoe.cyou/2021/11/10/17/30>.
+Part of this article is adapted from <https://qamoe.cyou/blog/2021/11/10/17/30>.
 </div>
