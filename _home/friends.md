@@ -27,6 +27,9 @@ friends:
   - name: totoro
     github: yuanyiwei
     link: https://yyw.moe/
+  - name: amezzz
+    github: bc-li
+    link: https://bc-li.github.io/
   - name: myl7
     github: myl7
     link: https://myl.moe/
