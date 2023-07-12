@@ -56,6 +56,10 @@ kbd {
 
 ul, ol {
   padding-inline-start: 1em;
+
+  .notice {
+    margin: 1em 0 !important;
+  }
 }
 
 .card {

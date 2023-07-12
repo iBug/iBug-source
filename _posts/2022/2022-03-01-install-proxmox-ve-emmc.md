@@ -26,6 +26,11 @@ Turns out it's hard-coded into Proxmox VE's Perl installer script, so all you ha
 1. Boot the installer ISO to the first menu, select the second option `Install Proxmox VE (Debug mode)`
 2. The first time you're present with a command-line prompt, type `exit` and Enter to skip it. This is a very early stage and you can't do much here.
 3. The second time you have a shell, locate `/usr/bin/proxinstall` and open it. Text editors such as `vi` and `nano` are available.
+
+   <div class="notice notice--primary" markdown="1">
+     **For Proxmox VE 8 installer**, the file you're going for is `/usr/share/perl5/Proxmox/Sys/Block.pm`.
+   </div>
+
 4. Search for `unable to get device` and you should find some code like this:
 
     ```perl
