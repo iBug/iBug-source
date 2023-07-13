@@ -5,6 +5,7 @@ on:
     branches:
       - master
   workflow_dispatch: {}
+  repository_dispatch: {}
 
 jobs:
   build:
@@ -72,13 +73,14 @@ jobs:
 
     - name: Deploy to GitHub
       run: script/deploy-actions.sh
+      continue-on-error: true
 
     - name: Prepare for Cloudflare Pages
       run: ${{ github.workspace }}/script/build-cloudflare.sh
       working-directory: _site
 
     - name: Deploy to Cloudflare Pages
-      uses: cloudflare/pages-action@v1.2.0
+      uses: cloudflare/pages-action@v1
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         accountId: ${{ secrets.CF_ACCOUNT_ID }}
