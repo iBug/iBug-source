@@ -6,7 +6,7 @@ header:
   teaser: /image/proxmox.jpg
 ---
 
-Since my blog on [installing Proxmox VE on eMMC](/p/49), there's been a lot of discussion over the Internet on this. I suspect that Proxmox decided not to include eMMCs in their hardware options by design, as eMMCs typically do not offer the same level of performance as anything better than USB flash drives. Among many concerns, the most important one is the limited number of write cycles that an eMMC can sustain, while Proxmox VE, being an enterprise-grade product, has to constantly write stuff like logs to the storage. I came across [this blog (fat-nerds.com)][src] on reducing eMMC writes on a Proxmox VE installation on a single-board computer from a Hong Kong guy, so I figure I'd share my ideas here.
+Since my blog on [installing Proxmox VE on eMMC](/p/49), there's been a lot of discussion over the Internet on this. I suspect that Proxmox decided not to include eMMCs in their hardware options by design, as eMMCs typically do not offer the level of endurance as anything better than USB flash drives. Among many concerns, the most important one is the limited number of write cycles that an eMMC can sustain, while Proxmox VE, being an enterprise-grade product, has to constantly write stuff like logs to the storage. I came across [this blog (fat-nerds.com)][src] on reducing eMMC writes on a Proxmox VE installation on a single-board computer from a Hong Kong guy, so I figure I'd share my ideas here.
 
   [src]: https://fat-nerds.com/dot-nerd/cut-down-proxmox-ve-emmc-sd-read-write/
 
@@ -16,7 +16,7 @@ As a courtesy, here's the disclaimer from the original blog:
 
 > 警告：下面的設定不應該被應用於有重大價值的伺服器上面！這只是筆者強行在便宜硬件上塞進PVE並以更暴力的方式去為其續命的手段。
 
-> WARNING: The following settings should not be applied to production servers! This is just a method for the author to force Proxmox VE onto cheap hardware and to prolong its life span.
+> WARNING: The following settings should not be applied to valuable production servers! This is just a method for the author to force Proxmox VE onto cheap hardware and to prolong its life span.
 
 ## Disable swap {#swap}
 
@@ -78,7 +78,7 @@ The original blog suggests replacing a few file with symlinks to `/dev/null`, wh
 
 If you're on Proxmox VE 8+, you can create an "override" file for systemd-journald by adding your customizations to `/etc/systemd/journald.conf.d/override.conf`. This will save some trouble when the stock configuration file gets updated and you're asked to merge the changes.
 
-For other logs, you can simple replace them with symlinks to `/dev/null`. For example:
+For other logs, you can simply replace them with symlinks to `/dev/null`. For example:
 
 ```shell
 ln -sfn /dev/null /var/log/lastlog
@@ -109,7 +109,7 @@ Except for `pvefw-logger`, stopping these services will not save you much disk w
   - Comment out `JOURNAL_PATH` so it stops writing journals (not the data itself).
   - Add `FLUSH_TIMEOUT=7200` (timeout for `flush` command, not sure how useful it is).
 - Edit `/etc/init.d/rrdcached` for it to pick up the new `FLUSH_TIMEOUT` value:
-  
+
   Find these lines:
 
   ```shell
