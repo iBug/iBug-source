@@ -15,6 +15,10 @@ header:
 - [Intel Graphics Windows DCH Drivers](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
 - [VirtIO drivers for Windows](https://github.com/virtio-win/virtio-win-pkg-scripts)
 
+### <i class="fas fa-fw fa-wrench"></i> Software Utilities
+
+- [A `docker inspect` format that produces the `docker run` command](https://gist.github.com/efrecon/8ce9c75d518b6eb863f667442d7bc679)
+
 ## <i class="fas fa-fw fa-gamepad"></i> Entertainment
 
 - [Guide/FAQ Dungeon Defense: Invasion of Heroes - Google Docs](https://docs.google.com/document/d/12FdKgqNX8wS94ORBb7ArmBY_-6KibqoR8iPB9z_ENXA/edit)
