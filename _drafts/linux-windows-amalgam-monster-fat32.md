@@ -13,7 +13,7 @@ To put it in a nutshell, [it *IS* possible][reddit] but only after struggling th
 
 ## Background research
 
-Before putting this crap into action, it's necessary to determine the feasibility of the idea. The first thing to come to mind is that FAT32 lacks virtually everything you need for a normal Linux system, such as POSIX permission system (owner and mode), special files like symbolic links, sockets etc. In fact, an attempt to `pacstrap` onto a FAT32 filesystem errors at virtually every step for failing to create some files.
+Before putting this crap into action, it's necessary to determine the feasibility of the idea. The first thing to come to mind is that FAT32 lacks literally everything you need for a normal Linux system, such as POSIX permission system (owner and mode), special files like symbolic links, sockets etc. In fact, an attempt to `pacstrap` onto a FAT32 filesystem errors at virtually every step for failing to create some files.
 
 It wouldn't take long before landing on [this Super User question][su-comment] when searching around for "installing Linux in FAT32".
 
