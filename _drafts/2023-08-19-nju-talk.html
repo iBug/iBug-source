@@ -1,0 +1,378 @@
+---
+title: "Vlab 远程教学云桌面"
+layout: reveal
+tags: tags tags
+redirect_from: /p/59
+hidden: true
+---
+
+{% assign image_base = "https://image.ibugone.com/vlab" %}
+
+<section id="title">
+  <h1 class="title">Vlab<br>远程教学云桌面</h1>
+  <p class="date">iBug @ USTC</p>
+  <p class="date">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}<br />南京大学</p>
+  <p><small>本页面的链接：<a href="https://ibug.io/p/59">ibug.io/p/59</a></small></p>
+</section>
+
+<section id="cover-image">
+  <style>
+    :root {
+      --r-heading-font-weight: bold;
+    }
+
+    .slides section {
+      max-height: 100%;
+    }
+
+    #title-slide+section {
+      height: 100%;
+    }
+
+    li img {
+      vertical-align: middle;
+    }
+
+    li+li {
+      margin-top: 0.25em;
+    }
+
+    .img-container {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .img-container img {
+      display: block;
+      max-height: 100%;
+      margin: auto !important;
+      object-fit: contain;
+    }
+
+    .reveal section>img {
+      display: block;
+      margin: auto !important;
+      max-height: 95vh;
+    }
+
+    .border {
+      border: 1px solid black;
+    }
+  </style>
+  <div class="img-container">
+    <img src="{{ image_base }}/vlab-in-browser.jpg" />
+  </div>
+</section>
+
+<section id="目录">
+  <h2>目录</h2>
+  <ol>
+    <li>背景</li>
+    <li>第一代</li>
+    <li>第二代</li>
+    <li>成果</li>
+    <li>后续</li>
+  </ol>
+</section>
+
+<section>
+  <section id="background">
+    <h2>背景</h2>
+    <p>计算机实验的环境配置问题：</p>
+    <ul>
+      <li>学校机房开放时间有限，利用率低</li>
+      <li>部分实验软件体积大、对配置要求高（如 Vivado）</li>
+      <li>学生使用的系统环境不同，导致安装与使用时出现奇怪的问题</li>
+      <li>部分实验环境安装时容易损坏（如双系统安装）</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section id="1st-gen">
+    <h2>第一代 Vlab</h2>
+    <ul>
+      <li>2019 年暑假搭建完成<br />
+        秋季学期小范围运营</li>
+      <li>接入校园网，提供 VNC 连接</li>
+      <li>打包虚拟机镜像预装 Vivado 方便实验</li>
+    </ul>
+  </section>
+
+  <section id="1st-gen-features">
+    <h3>平台特点</h3>
+    <ul>
+      <li>单台 E5 2630 v4 (×2)，<s>64</s> 128 GB 内存，一些固态和机械</li>
+      <li>Ubuntu 18.04 + uname 3.10.0-957.el7🤔 + LXD snap</li>
+      <li>lxdbr0 &lt;-&gt; USTCnet</li>
+    </ul>
+    <hr />
+    <ul>
+      <li>校园网接入：可以使用网络通选择出口或从校外连接
+        <ul>
+          <li><s>也可以挂 Terraria 服务器</s></li>
+        </ul>
+      </li>
+      <li>虚拟机镜像：(Ubuntu 1 GB) + Xfce4 (2 GB) + Vivado (18 GB)</li>
+      <li>用 Django 糊了个面板（@taoky），使用统一身份认证登录</li>
+    </ul>
+  </section>
+  <section id="1st-gen-sumup">
+    <h3>总结经验</h3>
+    <ul>
+      <li><s>一台母鸡超卖也卖不动多少啊</s></li>
+      <li>避免将用户虚拟机直接连接在校园网上
+        <ul>
+          <li>这样既不方便使用，也不安全</li>
+          <li>开个 NAT</li>
+        </ul>
+      </li>
+      <li>提供桌面和命令行的统一登录接口，方便用户连接使用</li>
+      <li>配备更多实验软件</li>
+      <li>完善用户文档</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section id="2nd-gen">
+    <h2>第二代 Vlab</h2>
+    <ul>
+      <li>2020 年寒假基本配置完成<br />
+        春季学期投入使用</li>
+      <li>改进了第一代 Vlab 的许多不足点</li>
+    </ul>
+  </section>
+
+  <section id="2nd-gen-infrastructure">
+    <h3>基础设施</h3>
+    <ul>
+      <li>采购：HPE MSA 1050，Gen10 节点 ×8, WAH-WAY 交换机</li>
+      <li>Ubuntu ❌ Proxmox VE ✔</li>
+      <li>iSCSI 存储共享：LVM（no thin provisioning）</li>
+      <li>网络：VXLAN、NAT 网关</li>
+      <li>超卖能力++++</li>
+    </ul>
+  </section>
+
+  <section id="2nd-gen-network">
+    <div class="img-container">
+      <img src="{{ image_base }}/network-external-1.png" />
+    </div>
+  </section>
+
+  <section id="2nd-gen-network-internal">
+    <div class="img-container">
+      <img src="{{ image_base }}/network-internal.png" />
+    </div>
+  </section>
+</section>
+
+<section>
+  <section id="login">
+    <h2>登录方式</h2>
+    <p>不开放端口，各种协议都需要转发</p>
+    <p>VNC, SSH, and what?</p>
+  </section>
+
+  <section id="login-ssh-1">
+    <h3>SSH 统一登录</h3>
+    <ul>
+      <li>SSH 没有 Host header 怎么办：来点 PubkeyAuthentication</li>
+      <li><code>ssh <b>-i vm-114514.pem</b> ubuntu@vlab.ustc.edu.cn</code></li>
+      <li>鉴权：就像 GitHub / GitLab 一样直接按公钥区分用户（VM）
+        <ul>
+          <li>Django 提供一个 pubkey → VM IP address 的接口</li>
+        </ul>
+      </li>
+      <li>后端：<code>golang.org/x/crypto/ssh</code>
+        <ul>
+          <li>初版：Forked from <a href="https://github.com/tg123/sshpiper"><i class="fab fa-github"></i>
+              tg123/sshpiper</a></li>
+          <li>现在：<a href="https://github.com/USTC-vlab/sshmux"><i class="fab fa-github"></i> USTC-vlab/sshmux</a>
+          </li>
+          <li>sshpiper 重构了，不好用了 QwQ</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="login-ssh-2">
+    <h3>SSH 统一登录</h3>
+    <ul>
+      <li>恢复模式（LXC）：<code>ssh <b>recovery</b>@vlab.ustc.edu.cn</code>
+        <ul>
+          <li>后台转接到 <code>pct enter &lt;vmid&gt;</code></li>
+        </ul>
+      </li>
+      <li>控制台模式（LXC）：<code>ssh <b>console</b>@vlab.ustc.edu.cn</code>
+        <ul>
+          <li>后台转接到 <code>pct console &lt;vmid&gt;</code></li>
+        </ul>
+      </li>
+      <li>控制台模式（KVM）：<code>ssh <b>serial</b>@vlab.ustc.edu.cn</code>
+        <ul>
+          <li>后台转接到 <code>qm serial &lt;vmid&gt;</code></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="login-vnc-1">
+    <h3>VNC 统一登录</h3>
+    <ul>
+      <li>请出神仙：<a href="https://github.com/pdlan"><i class="fab fa-github"></i> pdlan</a>
+        <ul>
+          <li>逆向了 RealVNC，写了 10,000 行 C艹，到处 <code>co_await</code>，……</li>
+          <li>顺带还实现了 TLS 加密</li>
+          <li>顺带还实现了……</li>
+          <li>外加一个 unix-domain socket 发送管理指令</li>
+        </ul>
+      </li>
+      <li><s>一起来大受震撼吧</s></li>
+      <li>使用 VNC 软件连接：
+        <ul>
+          <li>服务器：<code>vlab.ustc.edu.cn</code>（标准端口 5900/tcp）</li>
+          <li>用户名：<code>PB17000001:114514</code>（用户名 + VM ID，如果用户有多个 VM 的话）</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="login-vnc-2">
+    <h3>VNC 统一登录</h3>
+    <ul>
+      <li>开源贡献：</li>
+      <li>
+        <img src="{{ image_base }}/tigervnc-pr-pdlan.png" />
+        <img src="{{ image_base }}/novnc-pr-pdlan.png" />
+      </li>
+    </ul>
+  </section>
+
+  <section id="login-rdp">
+    <h3>RDP 统一登录</h3>
+    <ul>
+      <li><s>咕咕咕了，Windows VM 支持还没搞定</s></li>
+      <li>RDP 一大坨非常起夜级的协议，<s>不是很想逆向</s></li>
+      <li><i class="fas fa-fw fa-lightbulb-on"></i> 计划规格：<code>loadbalanceinfo</code></li>
+    </ul>
+  </section>
+
+  <section id="login-browser">
+    <h3>浏览器登录</h3>
+    <ul>
+      <li>VNC：魔改版 noVNC
+        <ul>
+          <li>没错，vncmux 顺带还实现了 WebSocket</li>
+        </ul>
+      </li>
+      <li>SSH：Go → WASM</li>
+      <li>RDP：从入门到放弃</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section id="hearses">
+    <h2>灵车时间</h2>
+  </section>
+
+  <section id="vlab-software-1">
+    <h3>磁盘容量</h3>
+    <ul>
+      <li>一个虚拟机镜像就已经 21 GB 了</li>
+      <li>+MATLAB, +Mathematica, +<a href="{{ image_base }}/node_modules-meme.png">node_modules</a></li>
+      <li>我们的存储阵列里就有 114514 份 Vivado</li>
+    </ul>
+  </section>
+
+  <section id="vlab-software-2">
+    <h3>Bind mount!</h3>
+    <ul>
+      <li>local-lvm 开个新卷给 <code>/opt/vlab</code></li>
+      <li>mp0: /opt/vlab,mp=/opt/vlab,ro=1</li>
+      <li>易于维护：Rsync cron job</li>
+    </ul>
+  </section>
+
+  <section id="novnc-fun">
+    <h3>No... VNC?</h3>
+    <p><img src="{{ image_base }}/no-vnc.png" /></p>
+  </section>
+
+  <section>
+    <img src="{{ image_base }}/502.png" />
+  </section>
+
+  <section id="lvm-metadata-full">
+    <h3>Everything breaks if pushed too hard...</h3>
+    <pre style="font-size: 1em;"><code>VG test 1723 metadata on /dev/sdc1 (521759 bytes) exceeds maximum metadata size (521472 bytes)
+Failed to write VG test.</code></pre>
+    <p><a href="https://ibug.io/p/52"><i class="fas fa-fw fa-arrow-alt-circle-right"></i> ibug.io/p/52</a></p>
+  </section>
+
+  <section id="iowait-spike">
+    <h3>IOWait（<code>%wa</code>）午夜准时爆炸</h3>
+    <p style="width: 100%; height: 8em; display: flex; justify-content: space-evenly;">
+      <img src="{{ image_base }}/iowait-load-average.png" />
+      <img src="{{ image_base }}/iowait-iowait.png" />
+    </p>
+    <p>
+      替用户停掉了 <code>man-db.timer</code> 和 <code>apt-daily-upgrade.timer</code>，
+      <br />
+      给 <code>logrotate.timer</code> 补上了 <code>RandomizedDelaySec=3h</code>。
+    </p>
+  </section>
+
+  <section id="other-software-gore">
+    <h3>其他灵异事件</h3>
+    <ul>
+      <li>
+        一运行备份，网卡就掉了 😦<br />
+        解决方法：两边开启 jumbo frame，MTU 拉到 9000 字节
+      </li>
+      <li>存储服务器的密码掉了</li>
+      <li>PVE HA 过于热情（+<code>nofailback</code>）</li>
+      <li>Vivado 又双叒叕炸了
+        <ol type="1">
+          <li><code>LD_PRELOAD</code> += <code>libudev.so.1</code></li>
+          <li><code>LD_PRELOAD</code> += <code>libdbus-glib-1.so.2</code></li>
+        </ol>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section id="results">
+    <h2>成果</h2>
+    <ul>
+      <li>自 2020 年春季学期运行至今</li>
+      <li>Grafana：<a href="https://monitor.ibugone.com/grafana/d/2">monitor.ibugone.com/grafana/d/2</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="img-container">
+      <img src="{{ image_base }}/containers-2023-08.png" />
+    </div>
+  </section>
+
+  <section>
+    <h3>学习资料</h3>
+    <ul>
+      <li>用户文档：<a href="https://vlab.ustc.edu.cn/docs/">vlab.ustc.edu.cn/docs</a></li>
+      <li>维护文档：<a href="https://vlab.ibugone.com/">vlab.ibugone.com</a></li>
+      <li>GitHub Org：<a href="https://github.com/USTC-vlab"><i class="fab fa-github"></i> USTC-vlab</a></li>
+    </ul>
+  </section>
+</section>
+
+<section id="outro">
+  <h1>谢谢！</h1>
+</section>

@@ -180,6 +180,7 @@ exclude:
   # CHANGELOG
   # config
   - Dockerfile
+  - etc/
   - ext/
   - Gemfile
   - Gemfile.lock
