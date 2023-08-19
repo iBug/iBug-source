@@ -12,7 +12,6 @@ hidden: true
   <h1 class="title">Vlab<br>远程教学云桌面</h1>
   <p class="date">iBug @ USTC</p>
   <p class="date">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}<br />南京大学</p>
-  <p><small>本页面的链接：<a href="https://ibug.io/p/59">ibug.io/p/59</a></small></p>
 </section>
 
 <section id="cover-image">
@@ -23,10 +22,6 @@ hidden: true
 
     .slides section {
       max-height: 100%;
-    }
-
-    #title-slide+section {
-      height: 100%;
     }
 
     li img {
@@ -70,12 +65,13 @@ hidden: true
 
 <section id="目录">
   <h2>目录</h2>
-  <ol>
+  <ol type="1">
     <li>背景</li>
-    <li>第一代</li>
-    <li>第二代</li>
+    <li>第一代 Vlab</li>
+    <li>第二代 Vlab</li>
+    <li>技术分享</li>
+    <li>共享灵车</li>
     <li>成果</li>
-    <li>后续</li>
   </ol>
 </section>
 
@@ -88,6 +84,17 @@ hidden: true
       <li>部分实验软件体积大、对配置要求高（如 Vivado）</li>
       <li>学生使用的系统环境不同，导致安装与使用时出现奇怪的问题</li>
       <li>部分实验环境安装时容易损坏（如双系统安装）</li>
+    </ul>
+  </section>
+
+  <section id="background-idea">
+    <h2>思考</h2>
+    <p>能不能通过提供预先配置好实验环境的虚拟机来解决这个问题呢？</p>
+    <ul>
+      <li>Linux 虚拟机还是 Windows 虚拟机？</li>
+      <li>实验软件怎么配？</li>
+      <li>给学生分配多少系统资源？主机需要多少硬件配置？</li>
+      <li>单位支持：计算机实验教学中心</li>
     </ul>
   </section>
 </section>
@@ -106,18 +113,22 @@ hidden: true
   <section id="1st-gen-features">
     <h3>平台特点</h3>
     <ul>
-      <li>单台 E5 2630 v4 (×2)，<s>64</s> 128 GB 内存，一些固态和机械</li>
-      <li>Ubuntu 18.04 + uname 3.10.0-957.el7🤔 + LXD snap</li>
-      <li>lxdbr0 &lt;-&gt; USTCnet</li>
+      <li>单台 E5 2630 v4 (2S)，<s>64</s> 128 GB 内存，一些固态和机械</li>
+      <li>Ubuntu 18.04 + 3.10.0-957.el7🤔 + LXD snap</li>
+      <li>lxdbr0 ↔ USTCnet</li>
     </ul>
     <hr />
     <ul>
       <li>校园网接入：可以使用网络通选择出口或从校外连接
         <ul>
-          <li><s>也可以挂 Terraria 服务器</s></li>
+          <li><s>也可以挂 Minecraft 服务器、Terraria 服务器、……</s></li>
         </ul>
       </li>
-      <li>虚拟机镜像：(Ubuntu 1 GB) + Xfce4 (2 GB) + Vivado (18 GB)</li>
+      <li>虚拟机镜像：(Ubuntu 1 GB) + Xfce4 (2 GB) + Vivado (<b>18 GB</b>)
+        <ul>
+          <li>好在单机有 ZFS 可以用</li>
+        </ul>
+      </li>
       <li>用 Django 糊了个面板（@taoky），使用统一身份认证登录</li>
     </ul>
   </section>
@@ -128,6 +139,7 @@ hidden: true
       <li>避免将用户虚拟机直接连接在校园网上
         <ul>
           <li>这样既不方便使用，也不安全</li>
+          <li>机房 IP 早晚会不够用的（3× /24）</li>
           <li>开个 NAT</li>
         </ul>
       </li>
@@ -151,10 +163,11 @@ hidden: true
   <section id="2nd-gen-infrastructure">
     <h3>基础设施</h3>
     <ul>
-      <li>采购：HPE MSA 1050，Gen10 节点 ×8, WAH-WAY 交换机</li>
+      <li>采购：HPE MSA 1050，Gen10 节点 ×8, 251 交换机</li>
       <li>Ubuntu ❌ Proxmox VE ✔</li>
       <li>iSCSI 存储共享：LVM（no thin provisioning）</li>
       <li>网络：VXLAN、NAT 网关</li>
+      <li><s>小修小补的</s> Django 面板</li>
       <li>超卖能力++++</li>
     </ul>
   </section>
@@ -169,6 +182,40 @@ hidden: true
     <div class="img-container">
       <img src="{{ image_base }}/network-internal.png" />
     </div>
+  </section>
+
+  <section id="gateway">
+    <h3>年轻人的第一次卵路由实践</h3>
+    <ul>
+      <li>基础功能：为虚拟机提供 NAT 上网</li>
+      <li>基本操作：Debian LXC + 手搓 iproute2 + iptables（其实也没那么复杂）</li>
+      <li>DNS + 监控：AdGuard Home</li>
+      <li>流量记录：<code>-m conntrack --ctstate NEW -j NFLOG</code>
+        <ul>
+          <li>没有磁带，不宜全量镜像</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="lxc-build">
+    <h3>稳定可靠的 LXC 镜像构建技术</h3>
+    <ul>
+      <li>Docker 提供 build environment，PVE 提供 base image</li>
+      <li>基于 shell 脚本和 GitHub Actions 的自动化流程
+        <ul>
+          <li><code>add_file</code>, <code>add_package</code>, <code>run</code> 等“指令”</li>
+          <li><s>就差发明一个 <code>Lxcfile</code> DSL 了</s></li>
+        </ul>
+      </li>
+      <li>Repository：<a href="https://github.com/USTC-vlab/labstrap"><i class="fab fa-github"></i>
+          USTC-vlab/labstrap</a>
+        <ul>
+          <li>精神前辈：图书馆查询🐔的 PXE 镜像构建：<a href="https://github.com/ustclug/liimstrap"><i class="fab fa-github"></i>
+              ustclug/liimstrap</a></li>
+        </ul>
+      </li>
+    </ul>
   </section>
 </section>
 
@@ -353,6 +400,8 @@ Failed to write VG test.</code></pre>
     <h2>成果</h2>
     <ul>
       <li>自 2020 年春季学期运行至今</li>
+      <li>与 <a href="https://fpgaol.ustc.edu.cn/">FPGA Online</a> 和 <a href="https://verilogoj.ustc.edu.cn/">Verilog
+          OJ</a> 等项目结合，实现纯在线 FPGA 编程教学</li>
       <li>Grafana：<a href="https://monitor.ibugone.com/grafana/d/2">monitor.ibugone.com/grafana/d/2</a></li>
     </ul>
   </section>
@@ -375,4 +424,5 @@ Failed to write VG test.</code></pre>
 
 <section id="outro">
   <h1>谢谢！</h1>
+  <p><small>本页面的链接：<a href="https://ibug.io/p/59"><i class="fas fa-fw fa-link"></i> ibug.io/p/59</a></small></p>
 </section>
