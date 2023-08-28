@@ -47,7 +47,7 @@ iPXE tries to configure network automatically using DHCP, but since the VPS envi
 
 ![iPXE configure IP address](/image/linux/ipxe/ipxe-config.png)
 
-Now it's time to load some boot source. [Netboot.xyz][netboot] is the first Google result for "publix pxe boot server", so I'll trust it for good.
+Now it's time to load some boot source. [Netboot.xyz][netboot] is the first Google result for "public pxe boot server", so I'll trust it for good.
 
 <div class="notice--danger" markdown="1">
 #### <i class="fas fa-bug"></i> Trap
