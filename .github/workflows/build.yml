@@ -76,7 +76,7 @@ jobs:
       continue-on-error: true
 
     - name: Prepare for Cloudflare Pages
-      run: ${{ github.workspace }}/script/build-cloudflare.sh
+      run: ${{ github.workspace }}/script/prepare-cloudflare.sh
       working-directory: _site
 
     - name: Deploy to Cloudflare Pages

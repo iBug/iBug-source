@@ -59,7 +59,7 @@ Turns out it's hard-coded into Proxmox VE's Perl installer script, so all you ha
     }
     ```
 
-6. Save your edits and type `exit`. Proceed with the installation as normal. Select `/dev/mmcblk0` (without the `bootX` suffix) as the install target. You may want to disable swap to avoid rapid wearing of the eMMC.
+6. Save your edits and type `exit`. Proceed with the installation as normal. Select `/dev/mmcblk0` (without the `bootX` suffix) as the install target. You may want to disable swap to avoid [rapid wearing of the eMMC]({% post_url 2023/2023-07-15-prolonging-emmc-life-span-with-proxmox-ve %}).
 7. The next time you have a shell, use `exit` to skip it. Nothing to do here.
 
 ## Rambling
