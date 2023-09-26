@@ -2,6 +2,10 @@
 title: "Running a dual-protocol OpenVPN/WireGuard VPN server on one port"
 tags: linux networking
 redirect_from: /p/60
+header:
+  teaser: /image/teaser/wireguard-openvpn.jpg
+  overlay_filter: 0.1
+  overlay_image: /image/header/sunshine-1.jpg
 ---
 
 Public Wi-Fi and some campus network typically block traffic from unauthenticated clients, but more often allow traffic targeting UDP port 53 to pass through, which is normally used for DNS queries. This feature can be exploited to bypass authentication by connecting to a VPN server that's also running on UDP 53.
