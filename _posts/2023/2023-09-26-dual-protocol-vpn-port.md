@@ -4,15 +4,15 @@ tags: linux networking
 redirect_from: /p/60
 ---
 
-Many public Wi-Fi and some campus network block all traffic from unauthenticated clients, but more often allow traffic targeting UDP port 53 to pass through, which is normally used for DNS queries. This feature can be exploited to bypass authentication by connecting to a VPN server that's also running on UDP 53.
+Public Wi-Fi and some campus network typically block traffic from unauthenticated clients, but more often allow traffic targeting UDP port 53 to pass through, which is normally used for DNS queries. This feature can be exploited to bypass authentication by connecting to a VPN server that's also running on UDP 53.
 
-In previous times, people mostly used OpenVPN for their personal VPN service, but since the emergence of WireGuard, it has gained significant popularity for its simplicity and performance. However, there's only one UDP port numbered 53, so at first it doesn't seem possible to run both OpenVPN and WireGuard on the same port.
+In previous times, OpenVPN was the general preference for personal VPN services. Since the emergence of WireGuard, however, popularity has shifted significantly for its simplicity and performance. A challenge presents itself as there's only one UDP port numbered 53, making it seemingly impossible to run both OpenVPN and WireGuard on the same port.
 
-There's only one little thing you need to make it work: just some insights.
+There solution hinges itself on a little bit of insights.
 
 ## Inspiration
 
-In a similar situation, a wide range of local proxy software like Shadowsocks and V2ray supports a feature called "mixed mode", which accepts both HTTP and SOCKS5 connections on the same port. This also seems impossible at first glance, but with a bit of knowledge in both protocols, it's actually practical to make it work.
+In a similar situation, many local proxy software like Shadowsocks and V2ray support a feature called "mixed mode", which accepts both HTTP and SOCKS5 connections on the same TCP port. This also seems impossible at first glance, but with a bit of knowledge in both protocols, it's actually easy to pull it off.
 
 - An HTTP proxy request, just like other HTTP requests, begins with an HTTP verb. In proxy requests, it's either `GET` or `CONNECT`,
 - A SOCKS proxy request begins with a 1-byte header containing its version, which is `0x04` for SOCKS4 or `0x05` for SOCKS5.
@@ -48,13 +48,13 @@ struct header_byte {
 }
 ```
 
-It's worth noting that 0 is not a defined opcode, so the smallest valid value for this byte is 8.
+It's worth noting that 0 is not a defined opcode, so the smallest valid value for this byte is 8, as `key_id` can be anything from 0 to 7.
 
 ## Implementation
 
-Now that we have the packet format for both protocols understood, we can implement an identifier that filters traffic in one protocol from the other.
+Now that we have the packet format for both protocols understood, we can implement a classifier that filters traffic in one protocol from the other.
 
-Considering that the WireGuard packet format is much simpler than that of OpenVPN, I choose to identify WireGuard. With `iptables`, options are abundant, though I find `u32` the easiest:
+Considering that the WireGuard packet format is much simpler than that of OpenVPN, I choose to identify WireGuard. With kernel firewall `iptables`, options are abundant, though I find `u32` the easiest:
 
 ```sh
 *nat
