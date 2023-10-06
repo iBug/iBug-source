@@ -2,6 +2,8 @@
 title: "Debugging Proxmox VE Firewall Dropping TCP Reset Packets"
 tags: linux networking proxmox-ve
 redirect_from: /p/61
+header:
+  teaser: /image/proxmox.jpg
 ---
 
 A few days back when I was setting up a new VM to host some extra websites, I noticed an unexpected Nginx error page. As I don't administer the new websites, I just added reverse proxy rules on the gateway Nginx server, and deferred the actual configuration to whoever is in charge of them.
@@ -45,13 +47,13 @@ I reviewed the two helpful workarounds and made myself abundantly clear about th
 
 - Disabling the firewall on the virtual network device stops PVE from bridging the interface an extra time, as shown in the following diagram:
 
-    ![PVE Firewall Diagram](/image/pve-firewall/pve-fwbr.png)
+  ![PVE Firewall Diagram](/image/pve-firewall/pve-fwbr.png)
 
 - Adding `nf_conntrack_allow_invalid: 1` removes one single iptables rule:
 
-    ```shell
-    -A PVEFW-FORWARD -m conntrack --ctstate INVALID -j DROP
-    ```
+  ```shell
+  -A PVEFW-FORWARD -m conntrack --ctstate INVALID -j DROP
+  ```
 
 I couldn't figure out how the first difference was relevant, but the second one provided an important clue: The firewall was dropping TCP Reset packets because conntrack considered them invalid.
 
@@ -82,6 +84,8 @@ listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
 0 packets dropped by kernel
 ```
 
+![Diagram](/image/pve-firewall/fw-diagram-1.png)
+
 The first thing to notice is the ACK number. After coming from `tap811i0`, it suddenly became 1 with no apparent reason. I struggled on this for a good while and temporarily put it aside.
 
 Adding `nf_conntrack_allow_invalid: 1` to the firewall options and capturing packets again, I got the following:
@@ -103,7 +107,9 @@ listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
 ^C
 ```
 
-This time while the ACK number was still wrong, the RST packet somehow got through. Ignoring the ACK numbers for now, the output suggested that the RST packet was dropped between `fwpr811p0 P` and `fwln811i0 Out`. That was the main bridge `vmbr0`. All right then, that was where the `PVEFW-FORWARD` chain kicked in, so at this point the RST packet was `--ctstate INVALID`. Everything was logical up to this point.
+![Diagram](/image/pve-firewall/fw-diagram-2.png)
+
+This time while the ACK number was still wrong, the RST packet somehow got through. Ignoring the ACK numbers for now, the output suggested that the RST packet was dropped between `fwpr811p0 P` and `fwln811i0 Out`. That was the main bridge `vmbr0`. All right then, that was where the `PVEFW-FORWARD` chain kicked in, so at this point the RST packet was `--ctstate INVALID`. Everything was logical so far.
 
 So how about disabling firewall for the interface on VM 811?
 
@@ -120,12 +126,14 @@ listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
 ^C
 ```
 
+![Diagram](/image/pve-firewall/fw-diagram-3.png)
+
 This time `fwbr811i0` was missing, and the RST packet didn't get dropped at `vmbr0`. I was left totally confused.
 
 I decided to sort out the ACK number issue, but ended up asking my friends for help. It turned out this was well documented in `tcpdump(8)`:
 
-> -S  
-> --absolute-tcp-sequence-numbers  
+> `-S`  
+> `--absolute-tcp-sequence-numbers`  
 > Print absolute, rather than relative, TCP sequence numbers.
 
 This certainly came out unexpected, but at least I was assured there was nothing wrong with the ACK numbers.
@@ -180,6 +188,8 @@ listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
 ```
 
 The artificial delays and the timestamps were absolutely useful: It was clear that the corresponding conntrack connection was destroyed as soon as the RST packet passed through `fwbr811i0`, before it came out via `fwln811i0`. When it reached `vmbr0`, the connection was already gone, and the RST packet was considered invalid.
+
+![Diagram](/image/pve-firewall/fw-diagram-4.png)
 
 It also became explainable how `firewall=0` on the virtual network device remedied the issue: It removed an extra bridge `fwbr811i0`, so the connection stayed alive when the RST packet reached `vmbr0`, at which point a previous rule for `--ctstate ESTABLISHED` gave an `ACCEPT` verdict. While it was still `INVALID` when passing through `fwbr101i1`, there was no rule concerning `--ctstate` at play, so it slipped through this stage with no problem.
 
