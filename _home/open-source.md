@@ -122,4 +122,4 @@ toc: true
 - [gostor/awesome-go-storage#39](https://github.com/gostor/awesome-go-storage/pull/39)
 - [python-telegram-bot/rules-bot#111](https://github.com/python-telegram-bot/rules-bot/pull/111)
 
-*Created in imitation of [Jiajie Chen](https://jia.je/open-source-contributions/).*
+*Inspired by [Jiajie Chen](https://jia.je/open-source-contributions/).*
