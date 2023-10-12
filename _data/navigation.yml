@@ -23,6 +23,8 @@ home:
         url: "/blog/"
       - title: '<i class="fas fa-fw fa-wrench"></i> Skills'
         url: "/skills/"
+      - title: '<i class="fas fa-fw fa-box-open"></i> Open Source'
+        url: "/open-source/"
       - title: '<i class="fas fa-fw fa-puzzle-piece"></i> Projects'
         url: "/projects/"
       - title: '<i class="fas fa-fw fa-sticky-note"></i> Notes'

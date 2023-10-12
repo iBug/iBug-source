@@ -48,10 +48,13 @@ toc: true
 ### General {#sa-general}
 
 - [Will printf still have a cost even if I redirect output to /dev/null?](https://stackoverflow.com/a/54196303/5958455)
+- [how to copy lines 10 to 15 of a file into another file, in unix?](https://stackoverflow.com/a/47298493/5958455)
+- [Why can HTTP/HTTPS proxy and Socks proxy work on one single port?](https://stackoverflow.com/a/77175557/5958455) (and a related [blog article](/p/60))
 
 ### Other {#sa-other}
 
-- [Windows SSH: Permissions for 'private-key' are too open](https://superuser.com/a/1296046/688600) (Super User, score 200+)
+- [Windows SSH: Permissions for 'private-key' are too open](https://superuser.com/a/1296046/688600) (Super User, **score 500+**)
+- [Can you go to a website by typing the IP address into the address bar?](https://superuser.com/a/1810956/688600) (In-depth explanation of DNS and HTTP)
 - [How are Core iX names like Core i5, i7 related to Haswell, Ivy Bridge?](https://superuser.com/a/1434948/688600)
 - [traceroute shows just \* \* \* in linux (in a virtual machine), although displays all IPs in windows correctly](https://superuser.com/a/1623001/688600) (Networking, Windows)
 - [Prevent user from installing software](https://superuser.com/a/1279935/688600)

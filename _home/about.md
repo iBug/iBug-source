@@ -39,8 +39,24 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 <details open markdown="1">
 <summary> **Advanced knowledge**
 </summary>
-- **Programming**: Python, C++, C, Bash (these are also my top tags on Stack Overflow) and Go, Ruby
-- **Software**: Git, Jekyll, OpenSSH
+- **Programming**:
+  Python,
+  C++,
+  C,
+  Bash
+  (these are also my top tags on Stack Overflow) and
+  Go,
+  Ruby
+- **Software**:
+  Docker,
+  Git,
+  Jekyll,
+  Nginx,
+  OpenSSH,
+  Systemd,
+  Vim
+- **Other**: Linux Networking (routing, tunneling, firewall, iptables etc.)
+  plus various networking protocols (HTTP and DNS etc.)
 </details>
 
 <details markdown="1">
@@ -54,30 +70,23 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
   Flask,
   [Electron](https://www.electronjs.org/)
 - **Software**:
-  Vim,
-  Nginx,
-  Systemd,
-  Docker,
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
   Linux <abbr title="Logical Volume Manager">LVM</abbr>,
   Make,
   LXC / LXD,
-  [Singularity](https://sylabs.io/) (Container)
-- **Miscellaneous**: Linux Networking (routing, tunneling, firewall, iptables etc.)
-  plus various networking protocols (HTTP and DNS etc.)
+  ZFS
 </details>
 
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
-- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl, Verilog,
+- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl, Verilog
 - **Framework**:
   [Sinatra](https://sinatrarb.com/),
   Django,
   React,
   [Chisel](https://www.chisel-lang.org/)
-- **Software**: ZFS *plus a long list*
-- **Technology**: *something used to be here*,
+- **Software**: *omitted for brevity*
 </details>
 
 ### Preferences
@@ -101,6 +110,7 @@ MSI produces high-performance gaming laptops with very comfortable and beautiful
   - Chinese:
     - Native to Simplified (written) and Mandarin (spoken)
     - Reads Traditional fluently
+    - No dialects
   - English: Proficient as a foreign language, preferred language for working and entertainment
     - Why I blog in English: So that my blog reaches a wider audience <i class="fas fa-users"></i>
 - **Secondary languages**: French and Spanish (both limited usage)
