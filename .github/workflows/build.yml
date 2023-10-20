@@ -35,7 +35,7 @@ jobs:
 
     - uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 20
     - name: Setup cache for Node.js
       id: cache-npm
       uses: actions/cache@v3
