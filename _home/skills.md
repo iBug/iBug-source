@@ -66,7 +66,7 @@ The Web Trilogy (HTML/CSS/JavaScript) #3#
 
 : [The ugly "previous" website](https://classic.ibugone.com) that I designed and wrote on my own. I also extensively modified the theme to suit my needs for a nice-looking personal website.
 
-Go #3#
+Go #4#
 
 : My preferred language for small gadgets, especially when involving an HTTP server or non-trivial data structures.
 
@@ -76,11 +76,11 @@ Verilog #1#
 
 Scala / Chisel #1#
 
-: Assigned a research on Chisel for performing particularly well in *Digital Circuit labs*, and have worked on a few entry-level projects ([my COD <i class="fab fa-github"></i> repo](https://github.com/iBug/COD-2019) and [this RISC-V project](https://github.com/iBug/USTC-RV-Chisel)).
+: Assigned a research on Chisel for performing particularly well in *Digital Circuit labs*, and have worked on a few entry-level projects ([my *Cmputer Organization and Design* <i class="fab fa-github"></i> repo](https://github.com/iBug/COD-2019) and [this RISC-V project](https://github.com/iBug/USTC-RV-Chisel)).
 
 Flash ActionScript #2#
 
-: [A very addictive plane-shooting game](https://github.com/iBug/SpaceRider) when I wrote back when I was 14. ([Project home page](/SpaceRider))
+: [A very addictive plane-shooting game](https://github.com/iBug/SpaceRider) when I wrote back when I was 14. ([Project home page](/projects/SpaceRider))
 
 Regular expressions #5#
 
@@ -90,12 +90,12 @@ Regular expressions #5#
 
 {: .rating-table }
 
-Git #3#
+Git #4#
 
 : I was about to give myself a score of 5 on this when I realized that Ciro Santilli claimed the same score, but backed with [a huge tutorial](https://www.cirosantilli.com/git-tutorial/) he wrote on his own.
-Then I reevaluated myself and gave a score of only 3 - I can't even write the smallest portion of Ciro's tutorial.
+Then I reevaluated myself and calibrated the score to 4 - I can't even write the smallest portion of Ciro's tutorial.
 
-Linux #3#
+Linux #4#
 
 : Daily working environment (WSL) with enough supporting knowledge. Ironically, I don't have a preferred desktop environment because I mostly work in CLI. I have a few Ubuntu and Debian servers that I maintain personally, including a <i class="fab fa-raspberry-pi"></i> Raspberry Pi.
 
@@ -107,25 +107,25 @@ Windows Desktop #4#
 
   Still using a Windows laptop (by MSI) for day-to-day working, yet heavily relies on WSL.
 
-Vim #3#
+Vim #4#
 
 : My most-used text editor. With Vim coding is just so easy and I've always wondered why one would need VSCode or JetBrains stuff.
 
-NGINX #3#
+NGINX #4#
 
 : Preferred HTTP server over Apache. Have some experiences configuring and tuning it, as well as web optimization. Best paired with Docker.
 
-Docker #3#
+Docker #4#
 
 : My favorite application deployment solution, but haven't got much experience with it. I also have private CIs running in Docker containers.
 
   Haven't yet touched Kubernetes.
 
-LXC / LXD ([Linux Containers](https://linuxcontainers.org/) #2#
+LXC / LXD ([Linux Containers](https://linuxcontainers.org/) #3#
 
 : Did [a project](/project/vlab) organizing LXD containers as VMs for students to do their course experiments on. Wrote a Django frontent with the help of `pylxd` library. Also manages a small cluster of LXD containers for own and friends' use.
 
-Make #1#
+Make #2#
 
 : My preferred build automation system. Usually writes `Makefile` for personal projects.
 
@@ -133,11 +133,7 @@ Make #1#
 
 {: .rating-table }
 
-DNS #4#
-
-: Have a deep understanding of how DNS works, and set up and maintained different kinds of DNS services (local recursive `dnsmasq` / authoritative-only `bind9`), and manages more than 8 domains and some server clusters on my own.
-
-Computer Networking #3#
+Computer Networking #4#
 
 : Managed technical infrastructure of [Linux User Group @ USTC](https://lug.ustc.edu.cn/) for years. We have a complex overlay network based on tinc as our intranet. We also help school staff with issues in our campus network. I have learned a lot from these experiences.
 
