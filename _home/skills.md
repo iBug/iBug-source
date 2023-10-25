@@ -135,16 +135,16 @@ Make #2#
 
 Computer Networking #4#
 
-: Managed technical infrastructure of [Linux User Group @ USTC](https://lug.ustc.edu.cn/) for years. We have a complex overlay network based on tinc as our intranet. We also help school staff with issues in our campus network. I have learned a lot from these experiences.
+:   Managed technical infrastructure of [Linux User Group @ USTC](https://lug.ustc.edu.cn/) for years. We have a complex overlay network based on tinc as our intranet. We also help school staff with issues in our campus network. I have learned a lot from these experiences.
 
 Hardware maintenance #3#
 
-: I assembled several desktop computers, and I maintain all my hardware on my own, ranging from my laptop to my phones. I send them to repair shops only when I identify that I can't repair or replace it by myself.
+:   I assembled several desktop computers, and I maintain all my hardware on my own, ranging from my laptop to my phones. I send them to repair shops only when I identify that I can't repair or replace it by myself.
 
-  - I disassembled new laptop even on day 1 of purchase for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (2018)
-  - I replaced a broken screen of an old phone manually. (2016)
-  - I dismantled a HDD to learn how it worked. (2016)
-  - I assembled my first desktop computer from parts. (2014)
+    - I disassembled new laptop even on day 1 of purchase for an immediate upgrade (e.g. SSD 256 GB → 1 TB). (2018)
+    - I replaced a broken screen of an old phone manually. (2016)
+    - I dismantled a HDD to learn how it worked. (2016)
+    - I assembled my first desktop computer from parts. (2014)
 
 Cryptography #2#
 
