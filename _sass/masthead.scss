@@ -8,12 +8,12 @@ div.masthead {
     background: transparent;
 
     a.site-logo {
-      @include noselect;
+      @include no-select;
     }
 
     a.site-title {
       @include cute-font;
-      @include noselect;
+      @include no-select;
       font-size: 1.18532em;
     }
   }
