@@ -12,7 +12,7 @@ header:
 ## <i class="fas fa-fw fa-save"></i> Software and Drivers
 
 - Android Platform Tools (`adb`, `fastboot` etc.): [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) / [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip) / [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
-- [Intel Graphics Windows DCH Drivers](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
+- [Intel Graphics Windows Drivers](https://www.intel.com/content/www/us/en/support/articles/000090440/graphics.html)
 - [VirtIO drivers for Windows](https://github.com/virtio-win/virtio-win-pkg-scripts)
 
 ### <i class="fas fa-fw fa-wrench"></i> Software Utilities
