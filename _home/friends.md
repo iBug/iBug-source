@@ -60,6 +60,9 @@ net_friends:
   - name: ArtOfCode
     github: ArtOfCode-
     link: https://artofcode.co.uk/
+  - name: cyyself
+    github: cyyself
+    link: https://blog.cyyself.name/
   - name: H3arn
     description: "I suppose we all thought that, one way or another."
     link: "https://h3a.moe"
