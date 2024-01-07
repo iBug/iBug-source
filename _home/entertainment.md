@@ -26,7 +26,7 @@ gallery-msc:
 - [Minecraft](https://minecraft.net) - Needs no explanation! (My username: `iBugOne`)
 - [LIMBO](https://store.steampowered.com/app/48000/LIMBO/) and [INSIDE](https://store.steampowered.com/app/304430/INSIDE/) - Two great 2D "adventure" game with some puzzling components
 
-For a more complete list, please visit [my notebook](https://notes.ibug.io/games) but be aware that part of the content there is in Chinese.
+For a more complete list, please visit [my notebook](https://notes.ibugone.com/games) but be aware that part of the content there is in Chinese.
 
 ### Microsoft Solitaire Collection
 

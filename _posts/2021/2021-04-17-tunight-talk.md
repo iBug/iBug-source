@@ -10,7 +10,7 @@ class: center, middle
 
 # Tech Talk
 
-[iBug](//ibug.io)
+[iBug](//ibugone.com)
 <br>
 [LUG @ USTC](https://lug.ustc.edu.cn)
 <br>

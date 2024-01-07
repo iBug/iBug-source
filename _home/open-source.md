@@ -106,7 +106,7 @@ toc: true
 
 ### Proxmox VE
 
-- Firewall dropping TCP RST packets: [Forum post](https://forum.proxmox.com/threads/tcp-rst-packets-dropped-by-pve-firewall.134423/) and [my write-up](https://ibug.io/p/61)
+- Firewall dropping TCP RST packets: [Forum post](https://forum.proxmox.com/threads/tcp-rst-packets-dropped-by-pve-firewall.134423/) and [my write-up](https://ibugone.com/p/61)
 
 ### Stardew Valley Mods
 

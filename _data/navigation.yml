@@ -28,7 +28,7 @@ home:
       - title: '<i class="fas fa-fw fa-puzzle-piece"></i> Projects'
         url: "/projects/"
       - title: '<i class="fas fa-fw fa-sticky-note"></i> Notes'
-        url: "https://notes.ibug.io/"
+        url: "https://notes.ibugone.com/"
       # title: '<i class="fas fa-fw fa-gamepad"></i> Entertainment'
       # url: "/entertainment/"
       - title: '<i class="fas fa-fw fa-bookmark"></i> Bookmarks'

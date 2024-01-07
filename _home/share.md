@@ -1,3 +1,3 @@
 ---
-redirect_to: https://notes.ibug.io/
+redirect_to: https://notes.ibugone.com/
 ---
