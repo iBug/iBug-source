@@ -50,7 +50,7 @@ toc: true
 
 ### markondej/fm_transmitter
 
-- [Fix logical error](https://github.com/markondej/fm_transmitter/pull/61)
+- [Fix logical error](https://github.com/markondej/fm_transmitter/pull/61) (My first PR on GitHub, guided by [@taoky](https://taoky.moe))
 
 ### Material for MkDocs
 
@@ -111,6 +111,10 @@ toc: true
 ### Stardew Valley Mods
 
 - [Pathoschild/StardewMods#751](https://github.com/Pathoschild/StardewMods/pull/751): \[Lookup Anything\] Fix child birthday in future
+
+### Telegraf (InfluxData)
+
+- [feat(inputs.kernel): Add Pressure Stall Information](https://github.com/influxdata/telegraf/pull/14507)
 
 ### TUNA Mirror Website
 
