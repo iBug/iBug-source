@@ -8,6 +8,8 @@ redirect_from: /p/19
 toc: false
 ---
 
+<p class="notice--primary">As iBug no longer uses Mathematica himself, this keygen will not be updated or maintained anymore.</p>
+
 This page provides:
 
 - Wolfram Mathematica 11 Key Generator
