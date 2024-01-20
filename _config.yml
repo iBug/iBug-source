@@ -159,12 +159,9 @@ exclude:
   - "*.py"
   - "*.rb"
   - "*.sh"
-  - "*.sublime-project"
-  - "*.sublime-workspace"
   - "*.yml"
   - .asset-cache
   - .bundle
-  - .circleci/
   - .dockerignore
   - .git-metadata
   - .github/
@@ -181,7 +178,6 @@ exclude:
   # config
   - Dockerfile
   - etc/
-  - ext/
   - Gemfile
   - Gemfile.lock
   # Gruntfile.js
@@ -190,7 +186,6 @@ exclude:
   - image/
   - "LICENSE*"
   # log
-  - netlify.toml
   - node_modules
   - package.json
   - package-lock.json

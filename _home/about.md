@@ -3,7 +3,7 @@ title: "About iBug"
 toc: true
 ---
 
-Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Mostly a developer, often a DevOps engineer and Linux SysAdmin.
+Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Mostly a developer, often a DevOps engineer and Linux system administrator.
 
 Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
 
@@ -53,7 +53,6 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
   Jekyll,
   Nginx,
   OpenSSH,
-  Systemd,
   Vim
 - **Other**: Linux Networking (routing, tunneling, firewall, iptables etc.)
   plus various networking protocols (HTTP and DNS etc.)
@@ -71,7 +70,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
   [Electron](https://www.electronjs.org/)
 - **Software**:
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
-  Linux <abbr title="Logical Volume Manager">LVM</abbr>,
+  a little bit of everything on Ubuntu and Debian servers,
   Make,
   LXC / LXD,
   ZFS
