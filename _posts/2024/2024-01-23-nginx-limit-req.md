@@ -101,7 +101,9 @@ Still only the first 6 requests are served, but the 2nd to the 6th are delayed b
 
 Under this model, the `nodelay` option can be understood as `delay=infinity`, while still respecting the `burst` limit.
 
-One last question: Why is the burst limit specified at use time, instead of at zone definition? Only experiments can find out:
+## One more question
+
+Why is the burst limit specified at use time, instead of at zone definition? Only experiments can find out:
 
 ```nginx
 location /a {
@@ -179,6 +181,43 @@ This time the batch to `/b` is served as usual, but the entire batch to `/a` is 
 I am now convinced that the queue itself is shared between `/a` and `/b`, and each `limit_req` directive decides for itself whether and when to serve the requests. So when `/a` is served first, the queue holds one burst request, and `/b` fills the queue up to 5 requests. When `/b` is served first, the queue is already holding 5 requests and leaves no room for `/a`. Similarly, with the `delay` option, each `limit_req` directive can still decide when the request is ready to serve.
 
 This is probably not the most straightforward design, and I can't come up with a use case for this behavior. But at least now I understand how it works.
+
+## One last thing
+
+I originally wanted to set up a 403 page for banned clients, and wanted to limit the rate of log writing in case of an influx of requests. The limit\_req module does provide a `$limit_req_status` variable which appears to be useful. This is what I ended up with:
+
+```nginx
+limit_req_zone $binary_remote_addr zone=403:64k rate=1r/s;
+
+map $limit_req_status $loggable_403 {
+    default 0;
+    PASSED 1;
+    DELAYED 1;
+    DELAYED_DRY_RUN 1;
+}
+
+server {
+    access_log /var/log/nginx/403/access.log main if=$loggable_403;
+    error_log /var/log/nginx/403/error.log warn;
+    error_page 403 /403.html;
+    error_page 404 =403 /403.html;
+    limit_req zone=403;
+    limit_req_status 403;
+    limit_req_log_level info;
+
+    location / {
+        return 403;
+    }
+    location = /403.html {
+        internal;
+        root /srv/nginx;
+        sub_filter "%remote_addr%" "$remote_addr";
+        sub_filter_once off;
+    }
+}
+```
+
+With this setup, excessive requests are rejected by `limit_req` with a 403 status. Only `1r/s` passes through the rate limiting, which will carry the `PASSED` status and be logged, albeit still seeing the 403 page from the `return 403` rule. This does exactly what I want, so time to call it a day.
 
 
   [doc]: https://nginx.org/en/docs/http/ngx_http_limit_req_module.html
