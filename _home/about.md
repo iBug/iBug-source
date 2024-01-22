@@ -79,7 +79,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
-- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl, Verilog
+- **Programming**: SQL (MySQL 5.7+ / MariaDB 10.1+, SQLite 3), Perl
 - **Framework**:
   [Sinatra](https://sinatrarb.com/),
   Django,
