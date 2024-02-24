@@ -115,6 +115,7 @@ toc: true
 ### Telegraf (InfluxData)
 
 - [feat(inputs.kernel): Add Pressure Stall Information](https://github.com/influxdata/telegraf/pull/14507)
+- [chore(inputs.minecraft): Migrate plugin to new maintained version of rcon](https://github.com/influxdata/telegraf/pull/14868)
 
 ### TUNA Mirror Website
 
