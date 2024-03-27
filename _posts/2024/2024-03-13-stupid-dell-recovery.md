@@ -44,13 +44,13 @@ And better yet, this iDRAC 9 can change BIOS settings, most notably the boot ord
 
 After some trial and error, I got myself into the GRUB command line, and it didn't look quite well:
 
-```shell
+```console
 grub rescue> 
 ```
 
 There's pretty much just the `ls` command, and it doesn't even recognize the EFI partition (FAT32 filesystem). With some more twiddling, I found this "rescue mode" capable of reading ext4, which shed some light to the situation.
 
-```shell
+```console
 grub rescue> set root=(hd0,gpt2)
 grub rescue> ls /boot/grub
 fonts  grub.cfg  grubenv  locale  unicode.pf2  x86_64-efi
@@ -58,7 +58,7 @@ fonts  grub.cfg  grubenv  locale  unicode.pf2  x86_64-efi
 
 Now things began to turn to the upswing.
 
-```shell
+```console
 grub rescue> set prefix=/boot/grub
 grub rescue> insmod normal
 grub rescue> normal
