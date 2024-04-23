@@ -64,11 +64,13 @@ toc: true
 
 ### Minimal Mistakes
 
+**Taken over as maintainer as of April 2024.**
+
 - Auto-close invalid PRs: [#3313](https://github.com/mmistakes/minimal-mistakes/pull/3313), [#3713](https://github.com/mmistakes/minimal-mistakes/pull/3713)
 - [Add `alt` attribute to site logo in masthead](https://github.com/mmistakes/minimal-mistakes/pull/2824)
 - [Add guide on applying Front Matter defaults to jekyll-archives pages](https://github.com/mmistakes/minimal-mistakes/pull/2466)
 - [Add note on TOC heading level issue](https://github.com/mmistakes/minimal-mistakes/pull/2902)
-- [Add proper support for sverrirs' Jekyll Paginate V2 plugin (excl. AutoPages)](https://github.com/mmistakes/minimal-mistakes/pull/2636) (not merged due to owner's preference)
+- [Add proper support for sverrirs' Jekyll Paginate V2 plugin (excl. AutoPages)](https://github.com/mmistakes/minimal-mistakes/pull/2636) (pending)
 - [Allow custom gradient in page header overlays](https://github.com/mmistakes/minimal-mistakes/pull/2806)
 - [box-shadow on radio buttons and checkboxes look ugly](https://github.com/mmistakes/minimal-mistakes/pull/2398)
 - [Change "fa" to "fas" for Font Awesome 5](https://github.com/mmistakes/minimal-mistakes/pull/2649)
