@@ -3,7 +3,9 @@ title: "About iBug"
 toc: true
 ---
 
-Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Mostly a developer, often a DevOps engineer and Linux system administrator.
+Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Mostly a developer and Linux system administrator.
+
+  [USTC]: https://en.ustc.edu.cn/
 
 Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
 
@@ -11,7 +13,10 @@ Also loves casual and puzzle gaming.
 
 ## In action
 
-I'm an active contributor on GitHub across various repositories. You can see a list of all my pull requests [using GitHub search][all-prs].
+I'm an active contributor on GitHub across various repositories, and *the* current maintainer of [Minimal Mistakes][mm]. You can see a list of all my pull requests [using GitHub search][all-prs].
+
+  [mm]: https://mmistakes.github.io/minimal-mistakes/
+  [all-prs]: https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3AiBug+archived%3Afalse "All of iBug's pull requests on GitHub"
 
 I'm also an avid user on Stack Overflow:
 
@@ -97,7 +102,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 
 ### Working environment
 
-My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> workstation in office (headless) is equipped with Ryzen 9 3900X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> workstation in office (headless) is equipped with Ryzen 9 5950X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 [Windows Terminal](https://aka.ms/terminal) is the *best* terminal for Windows.
 
@@ -115,7 +120,3 @@ MSI produces high-performance gaming laptops with very comfortable and beautiful
 - **Secondary languages**: French and Spanish (both limited usage)
 - [My blog]({{ "/blog/" | relative_url }})
 - [My entertainment]({{ "/entertainment/" | relative_url }})
-
-
-  [USTC]: https://en.ustc.edu.cn/
-  [all-prs]: https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3AiBug+archived%3Afalse "All of iBug's pull requests on GitHub"
