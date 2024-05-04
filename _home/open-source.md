@@ -14,6 +14,8 @@ toc: true
   - [Metasmoke](https://github.com/Charcoal-SE/metasmoke): Web dashboard for SmokeDetector.
   - [Charcoal Website](https://github.com/Charcoal-SE/charcoal-se.github.io)
 
+- [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/): I started contributing to the theme since 2020, and I took over as maintainer in April 2024 as Michael Rose stepped down.
+
 ## Contributions
 
 ### Adafruit_CircuitPython_ADS1x15
