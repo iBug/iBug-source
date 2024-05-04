@@ -70,7 +70,7 @@ toc: true
 - [Add `alt` attribute to site logo in masthead](https://github.com/mmistakes/minimal-mistakes/pull/2824)
 - [Add guide on applying Front Matter defaults to jekyll-archives pages](https://github.com/mmistakes/minimal-mistakes/pull/2466)
 - [Add note on TOC heading level issue](https://github.com/mmistakes/minimal-mistakes/pull/2902)
-- [Add proper support for sverrirs' Jekyll Paginate V2 plugin (excl. AutoPages)](https://github.com/mmistakes/minimal-mistakes/pull/2636) (pending)
+- <i class="fas fa-star"></i> [Add proper support for sverrirs' Jekyll Paginate V2 plugin (excl. AutoPages)](https://github.com/mmistakes/minimal-mistakes/pull/2636)
 - [Allow custom gradient in page header overlays](https://github.com/mmistakes/minimal-mistakes/pull/2806)
 - [box-shadow on radio buttons and checkboxes look ugly](https://github.com/mmistakes/minimal-mistakes/pull/2398)
 - [Change "fa" to "fas" for Font Awesome 5](https://github.com/mmistakes/minimal-mistakes/pull/2649)
