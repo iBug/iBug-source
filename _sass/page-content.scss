@@ -121,36 +121,27 @@ section.page__content {
   }
 
   pre {
-    .copy-button {
-      position: absolute;
-      top: 0.6em;
-      right: 0.5em;
-      z-index: 1;
-      background: none;
-      border: none;
-      border-radius: 0.1em;
-      padding: 0.2em 0.5em;
-      color: white;
-      opacity: 0.5;
-      transition: color 0.25s linear -0.25s, opacity 0.25s linear;
+    .clipboard-copy-button {
+      width: 1.8em;
+      height: 1.5em;
 
-      &:hover {
-        color: #ffffca;
-      }
-
-      &:before {
-        content: "";
+      i {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
+        top: 0.25em;
+        right: 0.25em;
       }
-    }
 
-    &:hover .copy-button {
-      opacity: 1;
+      i.copied {
+        opacity: 0;
+      }
+
+      &.copied i {
+        opacity: 0;
+
+        &.copied {
+          opacity: 1;
+        }
+      }
     }
   }
 

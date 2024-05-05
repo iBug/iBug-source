@@ -32,8 +32,3 @@
     {% endif %}
   </p>
 </div>
-
-{% comment %} Load extra scripts *except* CI {% endcomment %}
-{% unless site.env.CI %}
-  <script src="{{ "/assets/js/love.js" | relative_url }}" async defer></script>
-{% endunless %}
