@@ -1,4 +1,5 @@
 #!/bin/bash
 
-git clone --depth=1 --branch=master --single-branch https://github.com/iBug/image.git image
-rm -rf image/.git CNAME .nojekyll LICENSE.md README.md
+wget -qO - https://github.com/iBug/image/archive/master.tar.gz | tar zxf -
+mv -f image-master image
+rm -f CNAME .nojekyll LICENSE.md README.md
