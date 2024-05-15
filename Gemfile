@@ -1,8 +1,13 @@
 source "https://rubygems.org"
 
-gem "jekyll", '~> 4.3', '>= 4.3.3'
-gem "minimal-mistakes-jekyll", '>= 4.26.0'
+MM_REPO_PATH = '../minimal-mistakes'
+if File.directory?(MM_REPO_PATH) then
+  gem "minimal-mistakes-jekyll", path: MM_REPO_PATH
+else
+  gem "minimal-mistakes-jekyll", '>= 4.26.1'
+end
 
+gem "jekyll", '~> 4.3', '>= 4.3.3'
 gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
 gem "rouge", '~> 4.0'

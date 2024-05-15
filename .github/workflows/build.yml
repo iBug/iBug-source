@@ -9,22 +9,22 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       SSH_KEY_E: ${{ secrets.SSH_KEY_E }}
       LSI: 'true'
       TZ: Etc/UTC
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0'
+        ruby-version: '3.2'
     - name: Setup cache for Bundler
       id: cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           Gemfile.lock
@@ -33,7 +33,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-bundler-2-
 
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version: 20
     - name: Setup cache for Node.js
@@ -47,7 +47,8 @@ jobs:
       env:
         MAKE: make -j2
       run: |
-        bundle install --path=vendor/bundle --jobs=4 --retry=3
+        bundle config set path vendor/bundle
+        bundle install --jobs=4 --retry=3
         bundle clean
 
     - name: Install - NPM
