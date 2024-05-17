@@ -152,8 +152,6 @@ footer:
 
 footer_scripts:
   - /assets/js/main.min.js
-  - /assets/js/love.js
-  - /assets/js/clipboard.js
 
 
 # Reading Files
