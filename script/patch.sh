@@ -23,7 +23,7 @@ cat _data/cfp-redirects.txt >> "$SRC/_redirects"
 
 if command -v npx &>/dev/null && [ -e package.json ]; then
   e_info "Processing JavaScript and CSS"
-  npx uglifyjs "$SRC"/assets/js/{main.min,clipboard,love,nav-scroll}.js -c -m -o "$SRC"/assets/js/main.min.js
+  npx uglifyjs "$SRC"/assets/js/{main.min,clipboard,love}.js -c -m -o "$SRC"/assets/js/main.min.js
   npx postcss "$SRC"/assets/css/main.css --use autoprefixer --replace --no-map
 fi
 
