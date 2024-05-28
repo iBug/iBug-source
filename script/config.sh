@@ -1,2 +1,2 @@
-GH_REPO=iBug-web/iBug-web.github.io
+GH_REPO=iBugOne/iBugOne.github.io
 BRANCH=master
