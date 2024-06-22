@@ -19,12 +19,14 @@ gallery-msc:
 
 [Check me out on Steam!](https://steamcommunity.com/id/ibugone)
 
-### Recommended games
+### My recommendations
 
-- [Baba Is You](https://store.steampowered.com/app/736260/Baba_Is_You/) by Arvi Teikari - Best indie puzzling game of 2019
-- [Grand Theft Auto V](https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/) - My first legal copy of game bought from Steam
+- [Stardew Valley](https://store.steampowered.com/app/413150/Stardew_Valley/) by ConcernedApe - The only farm simulation game you'll ever need
+- [Baba Is You](https://store.steampowered.com/app/736260/Baba_Is_You/) by Arvi Teikari - The best indie puzzling game of 2019
+- [Grand Theft Auto V](https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/) - My first legitimate game bought from Steam
 - [Minecraft](https://minecraft.net) - Needs no explanation! (My username: `iBugOne`)
-- [LIMBO](https://store.steampowered.com/app/48000/LIMBO/) and [INSIDE](https://store.steampowered.com/app/304430/INSIDE/) - Two great 2D "adventure" game with some puzzling components
+- [Human Fall Flat](https://store.steampowered.com/app/477160/Human_Fall_Flat/) - Some entertaining physics-based puzzles
+- [LIMBO](https://store.steampowered.com/app/48000/LIMBO/) and [INSIDE](https://store.steampowered.com/app/304430/INSIDE/) - Two great 2D "adventure" games with some puzzling components
 
 For a more complete list, please visit [my notebook](https://notes.ibug.io/games) but be aware that part of the content there is in Chinese.
 
@@ -36,7 +38,7 @@ Here are my stats:
 
 {% include gallery id="gallery-msc" %}
 
-I particularly like FreeCell and I've completed all FC challenges in Star Club. The Expert level FC games are very enjoyable! I'm currently working on getting 100% on Pyramids challenges because it's almost as fun.
+I particularly like FreeCell and I've completed all FC challenges in Star Club. The Expert level FC games are very enjoyable!
 
 ### Minesweeper
 
@@ -44,13 +46,23 @@ I started practicing Minesweeper when I was 15, and I can complete a Hard board 
 
 ## Music
 
-- *Mixtape* by Barcella ([<i class="fab fa-fw fa-youtube"></i> YouTube](https://www.youtube.com/watch?v=lavSP2spE14))
-- *Stardew Valley* OST ([Buy from <i class="fab fa-fw fa-steam"></i> Steam](https://store.steampowered.com/app/440820/Stardew_Valley_Soundtrack/))
+- Various game OSTs:
+  - *Plants vs. Zombies* (2009) OST ([Video Game Music](https://downloads.khinsider.com/game-soundtracks/album/plants-vs.-zombies))
+  - *Stardew Valley* OST ([Buy from <i class="fab fa-fw fa-steam"></i> Steam](https://store.steampowered.com/app/440820/Stardew_Valley_Soundtrack/))
 
 ## Movies & TV
 
 - *Mr. Bean* series from the 1990s
   - I particularly like the scene where Mr. Bean drives off sitting on the roof of his Mini. ([YouTube](https://www.youtube.com/watch?v=e6VaYr7xOsw&t=12m11s))
+  - Also includes the movie *Bean* (1997).
 - *Johnny English* (2003), also by Rowan Atkinson
-- *The Lion King* (1994), **not** the 2019-refurbished version
+- Most (if not all) documentaries by David Attenborough, BBC, such as *Planet Earth* series and *Blue Planet* series
+- *The Lion King* (1994), but **not** the 2019-refurbished version
 - *The Big Bang Theory*
+
+## Online videos
+
+- [GrayStillPlays](https://www.youtube.com/@GrayStillPlays) - A YouTuber who plays games in the most unconventional ways
+- [3Blue1Brown](https://www.youtube.com/@3Blue1Brown) - Math and science explained visually
+- [DoodleChaos](https://www.youtube.com/@DoodleChaos) - All kinds of music videos made with games (mostly Minecraft)
+- [Half as Interesting](https://www.youtube.com/@HalfAsInteresting) - Interesting facts and stories

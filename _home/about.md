@@ -7,7 +7,7 @@ Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionat
 
   [USTC]: https://en.ustc.edu.cn/
 
-Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little taste of everything).
+Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little bit of taste of everything).
 
 Also loves casual and puzzle gaming.
 
@@ -102,7 +102,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 
 ### Working environment
 
-My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> workstation in office (headless) is equipped with Ryzen 9 5950X, Ubuntu 22.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> workstation in office (headless) is equipped with Ryzen 9 5950X, Ubuntu 24.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 [Windows Terminal](https://aka.ms/terminal) is the *best* terminal for Windows.
 
@@ -118,5 +118,5 @@ MSI produces high-performance gaming laptops with very comfortable and beautiful
   - English: Proficient as a foreign language, preferred language for working and entertainment
     - Why I blog in English: So that my blog reaches a wider audience <i class="fas fa-users"></i>
 - **Secondary languages**: French and Spanish (both limited usage)
-- [My blog]({{ "/blog/" | relative_url }})
-- [My entertainment]({{ "/entertainment/" | relative_url }})
+- [My blog](/blog/)
+- [My entertainment](/entertainment/)
