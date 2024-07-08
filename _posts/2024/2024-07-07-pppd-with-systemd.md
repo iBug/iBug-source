@@ -49,7 +49,7 @@ DHCP=yes
 # ...
 ```
 
-After restarting systemd-networkd, I was disappointed to see that the PPP-negotiated IP address was removed, only leaving an SLAAC IPv6 address behind. With some searching through `systemd.network(5)`, I found `KeepConfiguration=yes` was what I was looking for.
+After restarting systemd-networkd, I was disappointed to see the PPP-negotiated IP address removed, only leaving an SLAAC IPv6 address behind. With some searching through `systemd.network(5)`, I found `KeepConfiguration=yes` was what I was looking for.
 
 ## Start order
 
@@ -94,7 +94,7 @@ After multiple reboots and manual restarts of `pppd@dsl-provider.service`, I'm c
 
 ## Extra: IPv6 PD {#extra}
 
-As the home ISP provides IPv6 Prefix Delegation (but my school didn't), it would be nice to take it and distribute it to the LAN. Online tutorials are abundant, e.g. [this one](https://major.io/p/dhcpv6-prefix-delegation-with-systemd-networkd/){: rel="nofollow noopener" }. With everything set supposedly up, I was disappointed to see only a single SLAAC IPv6 address on `ppp0` itself, and `journalctl -eu systemd-networkd` shows no sign of receiving a PD allocation.
+As the home ISP provides IPv6 Prefix Delegation (but my school didn't), it would be nice to take it and distribute it to the LAN. Online tutorials are abundant, e.g. [this one](https://major.io/p/dhcpv6-prefix-delegation-with-systemd-networkd/){: rel="nofollow noopener" }. With everything set supposedly up, I was again disappointed to see only a single SLAAC IPv6 address on `ppp0` itself, and `journalctl -eu systemd-networkd` shows no sign of receiving a PD allocation.
 
 After poking around with `IPv6AcceptRA=` and `[DHCPv6] PrefixDelegationHint=` settings for a while, I decided to capture some packets for investigation. I started `tcpdump -i ppp0 -w /tmp/ppp0.pcap icmp6 or udp port 546` and restarted `systemd-networkd`. After a few seconds, the pcap file contains exactly 4 packets that I need (some items omitted for brevity):
 
@@ -150,6 +150,7 @@ systemd-networkd[528]: enp2s0: DHCP-PD address 2001:db8:0:a01:2a0:c9ff:feee:c4c/
 
 - Use systemd to start `pppd` as a system service.
   - Order it before `network.target`, but don't bother with `systemd-networkd.service`.
+- Add `KeepConfiguration=yes` to systemd-networkd.
 - Use a custom script in `ip-up.d` to invoke systemd-networkd to reconfigure after it's up.
 - For IPv6 PD, use both:
 
