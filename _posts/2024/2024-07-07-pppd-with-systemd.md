@@ -146,12 +146,23 @@ systemd-networkd[528]: enp1s0: DHCP-PD address 2001:db8:0:a00:2a0:c9ff:feee:c4b/
 systemd-networkd[528]: enp2s0: DHCP-PD address 2001:db8:0:a01:2a0:c9ff:feee:c4c/64 (valid for 2d 23h 59min 59s, preferred for 1d 23h 59min 59s)
 ```
 
+## Update: Stuck booting {#update-1}
+
+A few days after this blog post, my local ISP ran into an outage that rendered the PPPoE connection unoperational.
+When I couldn't identify the issue initially, I tried rebooting the router and it never came back up again.
+I plugged in a monitor and a keyboard, only to find systemd repeatedly trying to bring up `pppd@dsl-provider.service` when it would not succeed.
+The failure to start `pppd` resulted in complete unavailability of the network stack.
+
+I recalled that with OpenWRT this wasn't the case, as the PPPoE interface being down would not impact any other interfaces.
+So I ended up removing all dependencies on `pppd@.service`, making it an ordinary system service that's only `WantedBy=multi-user.target`.
+Considering that pppd will call `networkctl reconfigure` when it establishes the `ppp0` interface, the removal of systemd dependences shouldn't have any consequences.
+
 ## Sum up
 
 - Use systemd to start `pppd` as a system service.
-  - Order it before `network.target`, but don't bother with `systemd-networkd.service`.
-- Add `KeepConfiguration=yes` to systemd-networkd.
-- Use a custom script in `ip-up.d` to invoke systemd-networkd to reconfigure after it's up.
+  - No need to bother with ordering.
+- Add `KeepConfiguration=yes` to `ppp0.network`.
+- Use a custom script in `ip-up.d` to invoake systemd-networkd to reconfigure after it's up.
 - For IPv6 PD, use both:
 
   ```ini
