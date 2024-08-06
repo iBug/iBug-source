@@ -5,6 +5,7 @@ tagline: ""
 categories: life
 tags: keygen
 redirect_from: /p/19
+noindex: true
 toc: false
 ---
 
