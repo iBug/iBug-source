@@ -1,0 +1,630 @@
+---
+title: "镜像站 ZFS 调优实践"
+layout: reveal
+redirect_from: /p/72
+hidden: true
+---
+
+{% assign image_base = "https://image.ibugone.com" %}
+
+<style>
+  :root {
+    --r-heading-font-weight: bold;
+  }
+
+  .slides section {
+    max-height: 100%;
+  }
+
+  li img {
+    vertical-align: middle;
+  }
+
+  li+li {
+    margin-top: 0.25em;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .img-container img {
+    display: block;
+    max-height: 100%;
+    margin: auto !important;
+    object-fit: contain;
+  }
+
+  .img-container img + p {
+    font-size: 0.8em;
+    opacity: 0.5;
+  }
+
+  .reveal section>img {
+    display: block;
+    margin: auto !important;
+    max-height: 95vh;
+  }
+
+  .border {
+    border: 1px solid black;
+  }
+</style>
+
+<section id="title">
+  <h1 class="title">2000 元的机械硬盘 &gt; 3000 元的固态硬盘？</h1>
+  <h2 style="font-weight: normal;">A.K.A. 镜像站 ZFS 调优实践</h2>
+  <hr />
+  <p class="date">iBug @ USTC</p>
+  <p class="date">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}<br />南京大学 开源软件论坛</p>
+</section>
+
+<section>
+  <section id="background">
+    <h2>USTC Mirrors</h2>
+    <ul>
+      <li>日均服务量：（2024-05 ~ 2024-06）
+        <ul>
+          <li>出流量 ~36 TiB</li>
+          <li>HTTP 请求数 17M，响应流量 19 TiB</li>
+          <li>Rsync 请求数 147.8K（21.8K），输出流量 10.3 TiB</li>
+        </ul>
+      </li>
+      <li>极限情况的仓库容量：
+        <ul>
+          <li>HTTP 服务器（XFS）：63.3 TiB / 66.0 TiB (96%, 2023-12-18)</li>
+          <li>Rsync 服务器（ZFS）：42.4 TiB / 43.2 TiB (98%, 2023-11-21)</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="background-2">
+    <h2>背景</h2>
+    <ul>
+      <li>HTTP 服务器：
+        <ul>
+          <li>2020 年下半年搭建</li>
+          <li>10 TB <i class="fas fa-compact-disc fa-spin"></i> &times; 12</li>
+          <li>2 TB <i class="fas fa-floppy-disk"></i> &times; 1</li>
+          <li>XFS on LVM on HW RAID</li>
+          <li>考虑到 XFS 不能缩，VG 留了 free PE</li>
+        </ul>
+      </li>
+      <li>Rsync 服务器：
+        <ul>
+          <li>2016 年下半年搭建</li>
+          <li>6 TB <i class="fas fa-compact-disc fa-spin"></i> &times; 12</li>
+          <li>240 GB <i class="fas fa-floppy-disk"></i> &times; 2 + 480 GB <i class="fas fa-floppy-disk"></i> &times; 1 (Optane 900p)</li>
+          <li>RAID-Z3（8 data + 3 parity + 1 hot spare）</li>
+          <li>全默认参数（除了 <code>zfs_arc_max</code>）</li>
+        </ul>
+      </li>
+    </ul>
+    <p>硬盘 I/O 日常 &gt; 90%，校内下载 iso 不足 50 MB/s</p>
+  </section>
+
+  <section id="background-2-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors-io-utilization-may-2024.png" />
+      <p>USTC 镜像站两台服务器在 2024 年 5 月期间的磁盘负载</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section id="zfs">
+    <h2>ZFS</h2>
+    <ul>
+      <li>单机存储的终极解决方案</li>
+      <li>集 RAID、LVM、FS 于一体</li>
+      <li>所有数据都有 checksum</li>
+      <li><s>Fire and forget</s></li>
+      <li>好多参数啊</li>
+    </ul>
+  </section>
+
+  <section id="zfs-learning">
+    <h3>前期学习与实验</h3>
+    <ul>
+      <li><s>从（另一个）老师那嫖了点盘</s>装上了 ZFS，用于 研&ensp;究&ensp;学&ensp;习</li>
+      <li>I/O 负载来源？<s>上 PT 站</s></li>
+      <li>练习时长两年半的成果：<i class="fas fa-arrow-up"></i> 1.20 PiB, <i class="fas fa-arrow-down"></i> 1.83 TiB</li>
+    </ul>
+    <hr />
+    <p>重要学习资料：</p>
+    <ul>
+      <li><a href="https://utcc.utoronto.ca/~cks/space/blog/">Chris Siebenmann's blog</a></li>
+      <li><a href="https://openzfs.github.io/openzfs-docs/">OpenZFS Documentation</a></li>
+      <li>iBug's blog: <a href="{{ "/p/62" | relative_url }}">Understanding ZFS block sizes</a> (<a href="{{ "/p/62" | relative_url }}">{{ "/p/62" | absolute_url | remove: "https://" }}</a>)
+        <ul>
+          <li>以及这篇 blog 底下的众多参考文献</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="zfs-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/qb/2024-06-05.png" />
+      <p>好像给什么奇怪的东西加入了 Grafana</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section id="mirrors">
+    <h2>镜像站</h2>
+    <ul>
+      <li>提供文件下载服务</li>
+      <li><s>也提供「家庭宽带上下行流量比例平衡」服务</s></li>
+      <li>读多写少，并且几乎所有操作都是整个文件顺序读写</li>
+      <li>少量的数据损坏没啥不良后果</li>
+    </ul>
+  </section>
+
+  <section id="mirrors-file-distrib">
+    <div class="img-container">
+      <img src="{{ image_base }}/server/mirrors-file-size-distribution-2024-08.png" />
+      <p>2024 年 8 月 USTC 镜像仓库内的文件大小分布
+        <br>
+        其中中位数为 9.83 KiB，平均大小为 1.60 MiB</p>
+    </div>
+  </section>
+
+  <section id="mirrors2-rebuild">
+    <h3>重建 Rsync 服务器</h3>
+    <ul>
+      <li>RAID-Z3 的 overhead 较高，而且拆成两组 RAID-Z2 = 两倍的 IOPS</li>
+      <li>镜像站调优计划：
+        <ul>
+          <li><code>recordsize=1M</code>：反正都是全文件顺序读</li>
+          <li><code>compression=zstd</code>：至少可以压掉 &gt; 1M 文件的 padding
+            <ul>
+              <li>OpenZFS 2.2 将 early abort 机制推广到了 Zstd 3+，不必担心性能问题</li>
+            </ul>
+          </li>
+          <li><code>xattr=off</code>：谁家镜像需要 xattr？</li>
+          <li><code>atime=off</code>, <code>setuid=off</code>, <code>exec=off</code>, <code>devices=off</code>：开着干啥？</li>
+          <li><code>secondarycache=metadata</code>：Rsync 就别来消耗固态寿命了</li>
+        </ul>
+      </li>
+      <li>Danger Zone：
+        <ul>
+          <li><code>sync=disabled</code>：囤到 <code>zfs_txg_timeout</code> 再写盘</li>
+          <li><code>redundant_metadata=some</code>：偶尔坏个文件也没事</li>
+        </ul>
+      </li>
+      <li>Full version: <a href="https://docs.ustclug.org/services/mirrors/zfs/#setup">LUG @ USTC Documentation</a></li>
+    </ul>
+  </section>
+
+  <section id="zfs-parameters">
+    <h3>ZFS 参数</h3>
+    <ul>
+      <li>290+ 参数不能个个都学习嘛（感谢 Aron Xu @ BFSU）</li>
+      <li>ARC 容量：
+        <pre><code class="language-sh" data-trim>
+# Set ARC size to 160-200 GiB, keep 16 GiB free for OS
+options zfs zfs_arc_max=214748364800
+options zfs zfs_arc_min=171798691840
+options zfs zfs_arc_sys_free=17179869184
+        </code></pre>
+      </li>
+      <li>ARC 内容：
+        <pre><code class="language-sh" data-trim>
+# Favor metadata to data by 20x (OpenZFS 2.2+)
+options zfs zfs_arc_meta_balance=2000
+
+# Allow up to 80% of ARC to be used for dnodes
+options zfs zfs_arc_dnode_limit_percent=80
+        </code></pre>
+      </li>
+      <li>I/O 队列深度：
+        <pre><code class="language-sh" data-trim>
+# See man page section "ZFS I/O Scheduler"
+options zfs zfs_vdev_async_read_max_active=8
+options zfs zfs_vdev_async_read_min_active=2
+options zfs zfs_vdev_scrub_max_active=5
+options zfs zfs_vdev_max_active=20000
+        </code></pre>
+      </li>
+      <li>Full version: <a href="https://docs.ustclug.org/services/mirrors/zfs/#zfs-kernel-module">LUG @ USTC Documentation</a></li>
+    </ul>
+  </section>
+
+  <section id="mirrors2-rebuild-results">
+    <h3>重建成果</h3>
+    <ul>
+      <li>略感惊喜的压缩率：39.5T / 37.1T = 1.07x
+        <ul>
+          <li>正确用法：<code>zfs list -po name,logicalused,used</code></li>
+          <li>实际压缩率：1 + 6.57%（-2.67 TB / -2.43 TiB）</li>
+          <li><s>等于删了 <a href="{{ image_base }}/teaser/lenovo-legion-wechat-data.jpg">9 份微信数据</a></s></li>
+        </ul>
+      </li>
+      <li>合理的磁盘 I/O</li>
+    </ul>
+  </section>
+
+  <section id="mirrors2-io-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors2-io-utilization-and-free-space-june-july-2024.png" />
+      <p>重建前后 Rsync 服务器的磁盘负载与空闲空间比较</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section id="mirrors4">
+    <h2>HTTP 服务器</h2>
+    <ul>
+      <li>硬件 RAID + LVM + XFS + Kernel page cache（开箱即用？）</li>
+      <li>SSD？LVMCache！
+        <ul>
+          <li>1M extents? Block size? Algorithm?</li>
+          <li><i class="fas fa-skull"></i> GRUB2</li>
+          <li><i class="fas fa-skull"></i> "oldssd"</li>
+        </ul>
+      </li>
+      <li>XFS 不能缩，所以 VG 和 FS 两层都要留空间备用</li>
+    </ul>
+  </section>
+
+  <section id="mirrors4-dmcache-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors4-dmcache-may-june-2024.png" />
+      <p>重建前 HTTP 服务器采用的 LVMcache 方案的命中率</p>
+    </div>
+  </section>
+
+  <section id="mirrors4-rebuild">
+    <h2>如法炮制</h2>
+    <ul>
+      <li>体验一下更加先进的 kernel：<code>6.8.8-3-pve</code>（无需 DKMS 哦）</li>
+      <li>重建为两组 RAID-Z2，开压缩
+        <ul>
+          <li>面向 HTTP 用户的服务器，所以 <code>secondarycache=all</code>（放着不动）</li>
+          <li>更好的 CPU，所以 <code>compression=zstd-8</code></li>
+        </ul>
+      </li>
+      <li>更快的 <code>zfs send -Lcp</code>：36 小时倒完 50+ TiB 仓库</li>
+      <li>压缩率：1 + 3.93%（-2.42 TB / -2.20 TiB）</li>
+    </ul>
+  </section>
+
+  <section id="mirrors2-4-io-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors2-4-io-utilization-june-july-2024.png" />
+      <p>重建前后两台服务器的磁盘负载比较
+        <br>
+        左边为重建前，中间为仅 Rsync 服务器重建后，右边为两台服务器均重建后的负载</p>
+    </div>
+  </section>
+
+  <section id="mirrors2-4-zfs-arc-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors2-4-zfs-arc-hit-rate.png" />
+      <p>两台服务器的 ZFS ARC 命中率</p>
+    </div>
+  </section>
+
+  <section id="mirrors2-4-recent-io-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors2-4-disk-io-after-rebuild.png" />
+      <p>两台服务器重建后稳定的磁盘利用率</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section id="misc">
+    <h2>杂项</h2>
+  </section>
+
+  <section id="zfs-compressratio">
+    <h3>ZFS 压缩率</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>LUSED</th>
+          <th>USED</th>
+          <th>RATIO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>pool0/repo/crates.io-index</td>
+          <td>2.19G</td>
+          <td>1.65G</td>
+          <td>3.01x</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/elpa</td>
+          <td>3.35G</td>
+          <td>2.32G</td>
+          <td>1.67x</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/rfc</td>
+          <td>4.37G</td>
+          <td>3.01G</td>
+          <td>1.56x</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/debian-cdimage</td>
+          <td>1.58T</td>
+          <td>1.04T</td>
+          <td>1.54x</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/tldp</td>
+          <td>4.89G</td>
+          <td>3.78G</td>
+          <td>1.48x</td>
+        </tr>
+        <td>pool0/repo/loongnix</td>
+        <td>438G</td>
+        <td>332G</td>
+        <td>1.34x</td>
+      </tr>
+        <tr>
+          <td>pool0/repo/rosdistro</td>
+          <td>32.2M</td>
+          <td>26.6M</td>
+          <td>1.31x</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    <p>我数学不好：<a href="https://github.com/openzfs/zfs/issues/7639"><i class="fab fa-github"></i> openzfs/zfs#7639</a></p>
+  </section>
+
+
+  <section id="zfs-compressratio-diff">
+    <h3>ZFS 压缩量</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>LUSED</th>
+          <th>USED</th>
+          <th>DIFF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>pool0/repo</td>
+          <td>58.3T</td>
+          <td>56.1T</td>
+          <td>2.2T</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/debian-cdimage</td>
+          <td>1.6T</td>
+          <td>1.0T</td>
+          <td>549.6G</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/opensuse</td>
+          <td>2.5T</td>
+          <td>2.3T</td>
+          <td>279.7G</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/turnkeylinux</td>
+          <td>1.2T</td>
+          <td>1.0T</td>
+          <td>155.2G</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/loongnix</td>
+          <td>438.2G</td>
+          <td>331.9G</td>
+          <td>106.3G</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/alpine</td>
+          <td>3.0T</td>
+          <td>2.9T</td>
+          <td>103.9G</td>
+        </tr>
+        <tr>
+          <td>pool0/repo/openwrt</td>
+          <td>1.8T</td>
+          <td>1.7T</td>
+          <td>70.0G</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="grafana-zfs-io">
+    <h3>Grafana I/O 统计</h3>
+    <pre><code data-trim>
+SELECT
+  non_negative_derivative(sum("reads"), 1s) AS "read",
+  non_negative_derivative(sum("writes"), 1s) AS "write"
+FROM (
+  SELECT
+    first("reads") AS "reads",
+    first("writes") AS "writes"
+  FROM "zfs_pool"
+  WHERE ("host" = 'taokystrong' AND "pool" = 'pool0') AND $timeFilter
+  GROUP BY time($interval), "host"::tag, "pool"::tag, "dataset"::tag fill(null)
+)
+WHERE $timeFilter
+GROUP BY time($interval), "pool"::tag fill(linear)
+</code></pre>
+    <p>跑得有点慢（毕竟要先 <code>GROUP BY</code> 每个 ZFS dataset 再一起 <code>sum</code>）</p>
+    <p>I/O 带宽：把里层的 <code>reads</code> 和 <code>writes</code> 换成 <code>nread</code> 和 <code>nwritten</code> 即可</p>
+  </section>
+
+  <section id="grafana-zfs-io-image">
+    <div class="img-container">
+      <img src="{{ image_base }}/grafana/mirrors2-4-zfs-io-count.png" />
+    </div>
+    <p></p>
+    <ul>
+      <li>如何用机械盘跑出平均 15K、最高 50K 的 IOPS？</li>
+      <li><s>把 ARC hit 算进去</s></li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section id="hearse">
+    <h2>灵车时间</h2>
+  </section>
+
+  <section id="pve-kernel">
+    <h2>Proxmox Kernel</h2>
+    <ul>
+      <li>≈ Ubuntu Kernel</li>
+      <li><i class="fas fa-skull"></i> Rsync 容器</li>
+      <li><code>security/apparmor/af_unix.c</code>???</li>
+      <li><a href="https://docs.ustclug.org/faq/apparmor/">LUG Documentation: AppArmor</a></li>
+    </ul>
+    <pre><code class="language-sh" data-trim>
+dpkg-divert --package lxc-pve --rename --divert /usr/share/apparmor-features/features.stock --add /usr/share/apparmor-features/features
+wget -O /usr/share/apparmor-features/features https://github.com/proxmox/lxc/raw/master/debian/features
+    </code></pre>
+  </section>
+
+  <section id="zerotier-data">
+    <div class="img-container">
+      <img src="{{ image_base }}/server/ls-zerotier-redhar-el.png" />
+      <p>ZeroTier 仓库中一眼重复的内容</p>
+    </div>
+  </section>
+
+  <section id="dedup">
+    <h3>Dedup!</h3>
+    <pre><code class="language-sh">zfs create -o dedup=on pool0/repo/zerotier</code></pre>
+    <pre><code class="language-sh" data-trim>
+# zdb -DDD pool0
+dedup = 4.93, compress = 1.23, copies = 1.00, dedup * compress / copies = 6.04
+    </code></pre>
+    <p>效果倒是不错，但是不想像 ZFS dedup 这么灵怎么办？</p>
+  </section>
+
+  <section id="jdupes">
+    <h3>jdupes</h3>
+    <pre><code class="language-sh" data-trim>
+# post-sync.sh
+# Do file-level deduplication for select repos
+case "$NAME" in
+  docker-ce|influxdata|nginx|openresty|proxmox|salt|tailscale|zerotier)
+    jdupes -L -Q -r -q "$DIR" ;;
+esac
+    </code></pre>
+  </section>
+
+  <section id="jdupes-table">
+    <h3>jdupes 效果</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Orig</th>
+          <th>Dedup</th>
+          <th>Diff</th>
+          <th>Ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>proxmox</td>
+          <td>395.4G</td>
+          <td>162.6G</td>
+          <td>232.9G</td>
+          <td>2.43x</td>
+        </tr>
+        <tr>
+          <td>docker-ce</td>
+          <td>539.6G</td>
+          <td>318.2G</td>
+          <td>221.4G</td>
+          <td>1.70x</td>
+        </tr>
+        <tr>
+          <td>influxdata</td>
+          <td>248.4G</td>
+          <td>54.8G</td>
+          <td>193.6G</td>
+          <td>4.54x</td>
+        </tr>
+        <tr>
+          <td>salt</td>
+          <td>139.0G</td>
+          <td>87.2G</td>
+          <td>51.9G</td>
+          <td>1.59x</td>
+        </tr>
+        <tr>
+          <td>nginx</td>
+          <td>94.9G</td>
+          <td>59.7G</td>
+          <td>35.2G</td>
+          <td>1.59x</td>
+        </tr>
+        <tr>
+          <td>zerotier</td>
+          <td>29.8G</td>
+          <td>6.1G</td>
+          <td>23.7G</td>
+          <td>4.88x</td>
+        </tr>
+        <tr>
+          <td>mysql-repo</td>
+          <td>647.8G</td>
+          <td>632.5G</td>
+          <td>15.2G</td>
+          <td>1.02x</td>
+        </tr>
+        <tr>
+          <td>openresty</td>
+          <td>65.1G</td>
+          <td>53.4G</td>
+          <td>11.7G</td>
+          <td>1.22x</td>
+        </tr>
+        <tr>
+          <td>tailscale</td>
+          <td>17.9G</td>
+          <td>9.0G</td>
+          <td>9.0G</td>
+          <td>2.00x</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section id="conclusion">
+  <h2>只要 ZFS 用得好</h2>
+  <ul>
+    <li>妈妈再也不用担心我的硬盘分区</li>
+    <li>机械硬盘 <s>比西方的固态硬盘跑得还快</s></li>
+    <li>免费的额外容量
+      <ul>
+        <li>Dedup 会员红包</li>
+      </ul>
+    </li>
+    <li>碎片率？</li>
+  </ul>
+</section>
+
+<section id="outro">
+  <h1>谢谢！</h1>
+  <small>
+    <p>本页面的链接：<a href="{{ page.redirect_from }}"><i class="fas fa-fw fa-link"></i> {{ page.redirect_from | absolute_url | remove: "https://" }}</a></p>
+    <p>友情链接：2023 年南京大学报告：<a href="{{ "/p/59" | relative_url }}"><i class="fas fa-fw fa-link"></i> {{ "/p/59" | absolute_url | remove: "https://" }}</a></p>
+  </small>
+</section>
