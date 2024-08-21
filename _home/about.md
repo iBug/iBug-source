@@ -42,7 +42,8 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view [a selec
 On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})):
 
 <details open markdown="1">
-<summary> **Advanced knowledge** </summary>
+<summary> **Advanced knowledge**
+</summary>
 - **Programming**:
   Python,
   C++,
@@ -63,7 +64,8 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 </details>
 
 <details markdown="1">
-<summary> **Basic knowledge** </summary>
+<summary> **Basic knowledge**
+</summary>
 - **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Node.js, VBScript
 - **Framework**:
   Ruby on Rails,
