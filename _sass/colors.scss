@@ -1,0 +1,6 @@
+$color-codes: red, darkred, orangered, green, limegreen, cyan, darkcyan, blue;
+@each $color in $color-codes {
+  .#{"" + $color}, .#{"" + $color}-important {
+    color: #{$color} !important;
+  }
+}

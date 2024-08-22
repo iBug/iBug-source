@@ -1,0 +1,85 @@
+---
+---
+
+@import "colors";
+
+:root {
+  --r-heading-font: "Amazon Ember Display";
+  --r-heading-font-weight: bold;
+  --r-heading-text-transform: none;
+  --r-main-font: "Amazon Ember";
+  --r-code-font: "Amazon Ember Mono";
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.reveal {
+  code {
+    font-size: 0.833333em;
+    padding: 0.2em 0.3em;
+    border-radius: 6px;
+    /* background-color: #eee; */
+  }
+
+  pre > code {
+    font-size: 0.9em;
+    /* background-color: unset; */
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  section > img {
+    display: block;
+    margin: auto !important;
+    max-height: 95vh;
+  }
+}
+
+.muted {
+  opacity: 0.4;
+}
+
+.slides section {
+  max-height: 100%;
+}
+
+li img {
+  vertical-align: middle;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    display: block;
+    max-height: 100%;
+    margin: auto !important;
+    object-fit: contain;
+    + p {
+      font-size: 0.8em;
+      opacity: 0.5;
+    }
+  }
+}
+
+.border {
+  border: 1px solid black;
+}
