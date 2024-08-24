@@ -3,12 +3,15 @@
 
 @import "colors";
 
+$reset-fonts: -apple-system, BlinkMacSystemFont, Segoe UI, Microsoft YaHei, Arial, sans-serif;
+$reset-mono-fonts: Monaco, Consolas, Lucida Console, monospace;
+
 :root {
-  --r-heading-font: "Amazon Ember Display";
+  --r-heading-font: "Amazon Ember Display", #{$reset-fonts};
   --r-heading-font-weight: bold;
   --r-heading-text-transform: none;
-  --r-main-font: "Amazon Ember";
-  --r-code-font: "Amazon Ember Mono";
+  --r-main-font: "Amazon Ember", #{$reset-fonts};
+  --r-code-font: "Amazon Ember Mono", #{$reset-mono-fonts};
 }
 
 a {
