@@ -17,7 +17,7 @@ layout: none
   <link rel="stylesheet" href="https://static.ibugone.com/webfonts/amazon/stylesheet.css">
   <link rel="stylesheet" href="https://static.ibugone.com/fontawesome/6/css/all.min.css" media="none"
     onload="if(media!='all')media='all'">
-  <link rel="stylesheet" href="{{ "/assets/css/reveal.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/reveal.css" | relative_url | append: "?v=" | append: site.git.last_commit.short_sha }}">
 </head>
 
 <body>
