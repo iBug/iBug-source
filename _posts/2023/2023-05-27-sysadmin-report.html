@@ -1,0 +1,500 @@
+---
+title: "ACSA SysAdmin report"
+layout: reveal
+hidden: true
+---
+
+<section class="center">
+  <h1>ACSA SysAdmin report</h1>
+  <p>
+    iBug
+    <br>
+    May 27, 2023
+  </p>
+</section>
+
+<section>
+  <h2>Overview</h2>
+	<ul>
+    <li>Server administration
+      <ul>
+        <li>IP and hostname</li>
+        <li>Remote management (IPMI)</li>
+        <li>Internet access</li>
+      </ul>
+    </li>
+    <li>NFS and storage
+      <ul>
+        <li>ZFS</li>
+        <li>Proxmox VE</li>
+      </ul>
+    </li>
+    <li>Server authentication</li>
+    <li>Administrative policies</li>
+    <li>Miscellaneous</li>
+  </ul>
+</section>
+
+<section>
+  <section>
+    <h2>Server administration</h2>
+    <p>Problem 1: Looking up server IP addresses every once in a while</p>
+    <ul>
+      <li><i class="fas fa-fw fa-face-thinking"></i> A redundant step before starting working</li>
+      <li><i class="fas fa-fw fa-face-thinking"></i> Need to keep the IP info page up-to-date</li>
+      <li><i class="fas fa-fw fa-face-thinking"></i> Not friendly to automation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>IP address and hostname</h2>
+    <p>Solution 1: Assign static IP addresses to servers</p>
+    <ul>
+      <li>Permission from USTCnet architecture</li>
+      <li>Slightly more reliable</li>
+      <li>Still not easy to remember</li>
+      <li>Still requires intervention in certain cases</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>IP address and hostname</h2>
+    <p>Solution 2: Assign DNS resolution to servers</p>
+    <ul>
+      <li>Minimal technical barrier</li>
+      <li>Our internal domain: <code>acsalab.com</code></li>
+      <li>Easy to remember</li>
+      <li>Friendly to automation</li>
+      <li>IPv6 enabled <i class="fas fa-check"></i></li>
+    </ul>
+    <p>Current state: <i class="fas fa-check-double"></i> Both solutions applied</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Server administration</h2>
+    <p>Problem 2: Any server outage requires a visit to the datacenter</p>
+    <ul>
+      <li><i class="fas fa-fw fa-face-tired"></i> Tedious for humans
+        <ul>
+          <li><i class="fas fa-fw fa-taxi"></i> Extra traffic expenses</li>
+          <li><i class="fas fa-fw fa-ban-bug"></i> Pandemic control policies further aggravates the problem</li>
+        </ul>
+      </li>
+      <li><i class="fas fa-fw fa-trash-clock"></i> Extended downtime</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>IPMI</h2>
+    <p><b>Intelligent Platform Management Interface</b>: Computer interface for remote management</p>
+    <ul>
+      <li>Independent from host CPU, firmware and OS</li>
+      <li>Two-way access with the main system</li>
+      <li>Literally everything you need to manage a server
+        <ul>
+          <li>Remote control (KVM or serial)</li>
+          <li>Virtual Media</li>
+          <li>Event logging</li>
+          <li>SNMP</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Usually implemented through a <b>Baseboard Management Controller</b> (BMC)</p>
+    <ul>
+      <li>Network access through IPMI or web</li>
+      <li>Comes with dedicated NIC</li>
+    </ul>
+  </section>
+
+  <section>
+    <img src="https://image.ibugone.com/server/ipmi-kvm.png" />
+  </section>
+
+  <section>
+    <pre><code>root@rosemary:~# ipmitool lan print 1
+Set in Progress         : Set Complete
+Auth Type Support       : MD5
+Auth Type Enable        : Callback : MD5
+                : User     : MD5
+                : Operator : MD5
+                : Admin    : MD5
+                : OEM      : MD5
+IP Address Source       : Static Address
+IP Address              : 10.38.79.1
+Subnet Mask             : 255.255.255.0
+MAC Address             : d0:50:99:f1:92:d4
+SNMP Community String   : AMI
+IP Header               : TTL=0x40 Flags=0x40 Precedence=0x00 TOS=0x10
+BMC ARP Control         : ARP Responses Enabled, Gratuitous ARP Disabled
+Gratituous ARP Intrvl   : 0.0 seconds
+Default Gateway IP      : 10.38.79.254
+Default Gateway MAC     : d8:67:d9:70:e9:41
+Backup Gateway IP       : 0.0.0.0
+Backup Gateway MAC      : 00:00:00:00:00:00
+802.1q VLAN ID          : Disabled
+802.1q VLAN Priority    : 0
+Bad Password Threshold  : 0
+Invalid password disable: no
+Attempt Count Reset Int.: 0
+User Lockout Interval   : 0
+root@rosemary:~#
+      </code></pre>
+  </section>
+
+  <section>
+    <h2>Problem: Remote management</h2>
+    <p>Solution: Obvious</p>
+    <p>Benefits:</p>
+    <ul>
+      <li>Physical access required only for hardware maintenance
+        <ul>
+          <li>... plus the <i class="fas fa-fw fa-air-conditioner"></i> air conditioner</li>
+        </ul>
+      </li>
+      <li>Access hardware information without powering on main system</li>
+      <li>Provides additional information for troubleshooting</li>
+    </ul>
+  </section>
+
+  <section>
+    <img src="https://image.ibugone.com/server/ipmi-log.png" />
+  </section>
+
+  <section>
+    <img src="https://image.ibugone.com/server/ipmi-nic.png" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Server administration</h2>
+    <p>Problem 3: Internet access for servers</p>
+    <ul>
+      <li>A wide range of tasks on the server requires <i class="fas fa-globe"></i> internet access
+        <ul>
+          <li><i class="fas fa-fw fa-download"></i> System update (although USTC Mirrors provides <i>some</i> of them)</li>
+          <li><i class="fas fa-fw fa-download"></i> Installing environments</li>
+          <li><i class="fas fa-fw fa-download"></i> Downloading datasets</li>
+          <li><i class="fas fa-fw fa-download"></i> Cloning Git repositories</li>
+          <li>&hellip;</li>
+        </ul>
+      </li>
+      <li><i class="fas fa-fw fa-face-frown-slight"></i> WLT is limited to 1 IP per user</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Internet access</h2>
+    <ul>
+      <li>(Almost) All servers are connected to NFS</li>
+      <li><i class="fas fa-fw fa-shake fa-lightbulb-on"></i> Why not use NFS as a gateway?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Internet access</h2>
+    <p>Linux has a full-fledged network stack with routing and NAT capabilities.</p>
+    <p>Care must be taken when setting up the network</p>
+    <ul>
+      <li>Server-initiated connections go through NFS</li>
+      <li>Incoming connections go same way back</li>
+      <li>Nice to have: USTCnet is reachable directly</li>
+      <li>Nice to have: Google and GitHub access</li>
+    </ul>
+  </section>
+
+  <section>
+    <pre><code>ibug@snode6:~$ ip ru
+0:      from all lookup local
+2:      from all lookup main
+3:      from 202.38.72.23 lookup 1
+10:     from all lookup 2
+32766:  from all lookup main
+32767:  from all lookup default</code></pre>
+
+    <pre><code>ibug@snode6:~$ ip r s t 1
+default via 202.38.72.126 dev enp0 proto static</code></pre>
+
+    <pre><code>ibug@snode6:~$ ip r s t 2
+114.214.160.0/19 via 202.38.72.126 dev enp0 proto static
+114.214.192.0/18 via 202.38.72.126 dev enp0 proto static
+202.38.64.0/19 via 202.38.72.126 dev enp0 proto static
+210.45.64.0/20 via 202.38.72.126 dev enp0 proto static
+210.45.112.0/20 via 202.38.72.126 dev enp0 proto static
+211.86.144.0/20 via 202.38.72.126 dev enp0 proto static
+222.195.64.0/19 via 202.38.72.126 dev enp0 proto static</code></pre>
+
+    <pre><code>ibug@snode6:~$ ip r s t default
+default via 10.1.13.1 dev ibs1 proto static metric 50
+default via 202.38.72.126 dev enp0 proto static metric 100</code></pre>
+  </section>
+
+  <section>
+    <img src="https://image.ibugone.com/server/server-network.png" />
+  </section>
+
+  <section>
+    <h2>Internet access</h2>
+    <p>Solution: Route server internet access through NFS server. Further routing and splitting only needs to be done there.</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>NFS and storage</h2>
+    <p>Problem: NFS was slow and frequently running out of space</p>
+    <ul>
+      <li>Two-step migration (October 2022)</li>
+      <li>Old setup: 8× 4 TB SAS HDD</li>
+      <li>New setup: 6× 18 TB SATA HDD + 2× 4 TB SSD</li>
+      <li>Current usage (May 22): 14.3 TiB / 49.1 TiB (29%)
+        <ul>
+          <li>Compression ratio: 1.72</li>
+          <li>Used: 14.3T / Logical used: 24.2T</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>NFS: Old setup</h2>
+    <ul>
+      <li>8 spinny boi: <i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i></li>
+      <li>4 TB each</li>
+      <li>RAID 10 using built-in RAID controller (13.4 TiB usable)</li>
+      <li>Single-partition layout, using ext4</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>NFS: New setup</h2>
+    <ul>
+      <li>6 spinny boi + 2 SSD: <i class="fas fa-save"></i><i class="fas fa-save"></i> <i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i><i class="fas fa-compact-disc fa-spin"></i></li>
+      <li>HDDs are 18 TB each, SSDs are 4 TB each</li>
+      <li>HDD <i class="fas fa-compact-disc fa-spin"></i>: RAID 10 using <b>ZFS</b> (49.1 TiB usable)</li>
+      <li>SSD <i class="fas fa-save"></i>: OS (16 GiB), Read cache (4 TB), Write cache (64 GiB)</li>
+      <li><i class="fas fa-beat fa-star"></i> NFS over RDMA</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>ZFS</h2>
+    <ul>
+      <li><b>Zettabyte File System</b> with volume management features</li>
+      <li>Originally developed by <i>Sun Microsystems</i>, for Solaris</li>
+      <li>Open-source implementation by the OpenZFS community</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>ZFS</h2>
+    <ul>
+      <li>Separate logical and physical layers
+        <ul>
+          <li>Datasets (subvolumes) and ZVOLs</li>
+          <li>Striped, Mirrored, RAIDZ, RAIDZ2, RAIDZ3 vdevs</li>
+        </ul>
+      </li>
+      <li><b>Log-structured filesystem</b> design
+        <ul>
+          <li>Automatically consistent</li>
+          <li>Instant snapshots &amp; restoration</li>
+        </ul>
+      </li>
+      <li>Data integrity
+        <ul>
+          <li>Hierarchical checksum</li>
+          <li>Self-healing (in mirrored and RAID modes)</li>
+          <li><b>No <code>fsck</code> required</b></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>ZFS</h2>
+    <ul>
+      <li class="muted">Separate logical and physical layers</li>
+      <li class="muted">Log-structured filesystem design</li>
+      <li class="muted">Data integrity</li>
+      <li>Efficient RAID rebuilding</li>
+      <li>Intelligent caching
+        <ul>
+          <li>Separate read and write caching strategies</li>
+          <li>Multi-layered caching (Tiered storage)</li>
+          <li>High cache hit rate (typ. &gt;90%)</li>
+        </ul>
+      </li>
+      <li>Tunable</li>
+      <li>Hidden perks?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>ZFS</h2>
+    <ul>
+      <li>High CPU and memory usage
+        <ul>
+          <li>Native <b>transparent compression</b></li>
+          <li>Native data deduplication</li>
+          <li>Native encryption</li>
+        </ul>
+      </li>
+      <li>Fragmentation after long run
+        <ul>
+          <li>Inherent problem to LFS</li>
+          <li>Mitigated by large cache</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>NFS server</h2>
+    <ul>
+      <li>2× Xeon Silver 4208 CPU</li>
+      <li>128 GB RAM</li>
+      <li>Dedicated to storage: Good for ZFS</li>
+      <li>Daily snapshots: <code>ls ~/.zfs</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Performance</h2>
+    <ul>
+      <li>Test file span: 4 GiB</li>
+      <li>1 MiB Sequential
+        <ul>
+          <li>830 MiB/s Read (1.15±0.75 ms)</li>
+          <li>493 MiB/s Write (0.89±1.84 ms)</li>
+        </ul>
+      </li>
+      <li>512K Random
+        <ul>
+          <li>327 MiB/s Read (1.47±0.6 ms)</li>
+          <li>480 MiB/s Write (0.62±5.15 ms)</li>
+        </ul>
+      </li>
+      <li>4K Random QD32
+        <ul>
+          <li>36.1 MiB/s Read (9200 IOPS, 0.1±0.06 ms)</li>
+          <li>213 MiB/s Write (55k IOPS, 8±480 <b>μs</b>)</li>
+        </ul>
+      </li>
+      <li>4K Random QD1
+        <ul>
+          <li>26.5 MiB/s Read (6800 IOPS, 0.14±0.1 ms)</li>
+          <li>443 MiB/s Write (113k IOPS, 3.8±1.5 <b>μs</b>)</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Proxmox VE</h2>
+    <ul>
+      <li><b>Proxmox Virtual Environment</b> (Proxmox VE or PVE) is an open-source software server for virtualization management.</li>
+      <li>Based on Debian GNU/Linux, featuring kernel support for virtualization, containers and networking</li>
+      <li>Provides ZFS kmod out-of-the-box (thanks to Ubuntu)</li>
+    </ul>
+  </section>
+
+  <section>
+    <img src="https://pve.proxmox.com/mediawiki/images/a/a3/Proxmox-VE-Cluster-Summary.png" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Server authentication</h2>
+    <p>Problem: Server access is very inconsistent.</p>
+    <ul>
+      <li>Access to any server, by anyone, must be provided by the administrator.</li>
+      <li>UID and GID assignment is manually done, and sometimes inconsistent.</li>
+      <li>Revoking access to departed members is another messy job.</li>
+      <li><i class="fas fa-server"></i> Synology?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>LDAP</h2>
+    <p>The <b>Lightweight Directory Access Protocol</b> is an industry standard protocol for managing directory information services.</p>
+    <ul>
+      <li>Originally designed for hostnames</li>
+      <li>Also stores people, groups, and other objects</li>
+      <li>Centralized management</li>
+      <li>Client-server protocol</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>PAM and NSS</h2>
+    <ul>
+      <li><b>Pluggable Authentication Modules</b>: configurable user authentication</li>
+      <li>The <b>Name Service Switch</b> is a <code>libc</code> module for integrating various information providers
+        <br>
+        Hosts, users (passwd), groups, and other identifiers
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>LDAP setup</h2>
+    <ul>
+      <li>Server: OpenLDAP <code>slapd</code> server</li>
+      <li>Client: <code>libpam-ldapd</code> + <code>libnss-ldapd</code></li>
+    </ul>
+    <p>Where to install server software?</p>
+  </section>
+
+  <section>
+    <img src="https://image.ibugone.com/server/pve-ldap.png" />
+  </section>
+</section>
+
+<section>
+  <h2>Policies</h2>
+  <p>Sudo rule: Trust-based, granted on request.</p>
+  <ul>
+    <li>Admin sudo is granted from LDAP (i.e. on all servers).</li>
+    <li>Normal users' sudo granted on per-node basis (via <code>usermod -aG</code>).</li>
+  </ul>
+  <hr>
+  <p>The famous "sudo warning":</p>
+  <pre><code>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:
+
+#1) Respect the privacy of others.
+
+#2) Think before you type.
+
+#3) With great power comes great responsibility.</code></pre>
+</section>
+
+<section>
+  <h2>Miscellaneous</h2>
+  <ul>
+    <li><i class="fab fa-fw fa-spin fa-ubuntu"></i> System upgrade (Ubuntu 20.04 / 22.04)</li>
+    <li><i class="fas fa-fw fa-users"></i> GitHub org: <a href="https://github.com/ACSAlab">ACSAlab</a></li>
+    <li><i class="fas fa-fw fa-folder-magnifying-glass"></i> Hostname lookup: <a href="https://hosts.acsalab.com/">hosts.acsalab.com</a>
+      <ul>
+        <li>Mostly automated updates</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-fw fa-file-lines"></i> Documentation: <a href="https://docs.acsalab.com/">docs.acsalab.com</a>
+      <ul>
+        <li>Thanks to <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> for providing a <i class="fas fa-file-heart"></i> great theme!</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="center">
+  <h1>Thank you!</h1>
+  <h2><i class="fas fa-beat fa-heart"></i></h2>
+</section>
