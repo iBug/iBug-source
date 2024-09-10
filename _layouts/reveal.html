@@ -2,6 +2,9 @@
 layout: none
 ---
 
+{%- assign reveal_version = page.reveal_version | default: "4" -%}
+{%- assign reveal_url = "https://cdn.jsdelivr.net/npm/reveal.js@" | append: reveal_version -%}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +14,9 @@ layout: none
   {% if page.noindex or page.hidden %}
     <meta name="robots" content="noindex">
   {% endif %}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/{{ page.theme | default: "white" }}.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/monokai.css" />
+  <link rel="stylesheet" href="{{ reveal_url }}/dist/reveal.css">
+  <link rel="stylesheet" href="{{ reveal_url }}/dist/theme/{{ page.theme | default: "white" }}.css">
+  <link rel="stylesheet" href="{{ reveal_url }}/plugin/highlight/monokai.css" />
   <link rel="stylesheet" href="https://static.ibugone.com/webfonts/amazon/stylesheet.css">
   <link rel="stylesheet" href="https://static.ibugone.com/fontawesome/6/css/all.min.css" media="none"
     onload="if(media!='all')media='all'">
@@ -26,11 +29,11 @@ layout: none
       {{ page.content }}
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/notes/notes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/search/search.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/zoom/zoom.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.js"></script>
+  <script src="{{ reveal_url }}/dist/reveal.js"></script>
+  <script src="{{ reveal_url }}/plugin/notes/notes.js"></script>
+  <script src="{{ reveal_url }}/plugin/search/search.js"></script>
+  <script src="{{ reveal_url }}/plugin/zoom/zoom.js"></script>
+  <script src="{{ reveal_url }}/plugin/highlight/highlight.js"></script>
   <script>
     Reveal.initialize({
       width: "100%", height: "100%",
