@@ -329,6 +329,12 @@ compress_html:
     envs: development
 
 
+# jekyll-relative-links
+relative_links:
+  enabled:     true
+  collections: true
+
+
 # Defaults
 defaults:
   - scope:
