@@ -168,6 +168,7 @@ exclude:
   - .github/
   - .gitignore
   - .jekyll-assets-cache
+  - .ruby-lsp/
   - .sass-cache
   - .travis.yml
   - .vscode

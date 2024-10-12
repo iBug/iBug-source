@@ -15,10 +15,11 @@ source_msg="$(git log -1 --pretty="[%h] %B")"
 
 pushd "$SRC" &>/dev/null
 e_info "Adding commit info"
-git config user.name "${GIT_USER:-GitHub}"
-git config user.email "${GIT_EMAIL:-noreply@github.com}"
 git add --all
-git commit --quiet --message "${COMMIT_MSG}" --message "$source_msg"
+git \
+  -c user.name "${GIT_USER:-GitHub}" \
+  -c user.email "${GIT_EMAIL:-noreply@github.com}" \
+  commit --quiet --message "${COMMIT_MSG}" --message "$source_msg"
 
 e_info "Pushing to GitHub"
 SSH_AUTH_SOCK=none \

@@ -10,7 +10,9 @@ task :build do |t, args|
   cmd << '--trace'
   cmd << '--lsi' if ENV['LSI']
   cmd << '--watch' if args.extras.include? 'watch'
-  cmd.concat(%w[--config _config.yml,_local.yml]) if File.file? '_local.yml'
+  unless ENV['JEKYLL_ENV'] == 'production'
+    cmd.concat(%w[--config _config.yml,_local.yml]) if File.file? '_local.yml'
+  end
   begin
     sh(*cmd)
   rescue Interrupt

@@ -7,7 +7,7 @@ require 'yaml'
 yaml_file = ARGV[0] || '_config.yml'
 config = YAML.load_file yaml_file, aliases: true
 site_url = config['url'] || ''
-site_dir = ARGV[1] || config['destination'] || '_site'
+site_dir = ARGV[1] || ENV['SRC'] || config['destination'] || '_site'
 style = ENV['STYLE'] || 'cloudflare'
 
 rcode = case style
