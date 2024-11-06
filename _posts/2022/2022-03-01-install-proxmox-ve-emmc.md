@@ -17,7 +17,7 @@ Unable to get device for partition 1 on device /dev/mmcblk0
 
 ## Solution
 
-The Proxmox VE forum is *completely unhelpful* this time ([1][1], [2][2]) with staff keeping on saying "it's not supported", so I had to look around for alternatives. Fortunately this article is right there:
+The Proxmox VE forum is *completely unhelpful* this time ([1][1], [2][2]) with staff keeping on saying "it's not supported", so I had to look around for alternatives. Fortunately this article is right there (for Proxmox VE 7):
 
 - [解决 Proxmox VE 无法安装到 eMMC 上的问题 - lookas2001](https://lookas2001.com/%E8%A7%A3%E5%86%B3-proxmox-ve-%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%88%B0-emmc-%E4%B8%8A%E7%9A%84%E9%97%AE%E9%A2%98/)
 
@@ -25,12 +25,7 @@ Turns out it's hard-coded into Proxmox VE's Perl installer script, so all you ha
 
 1. Boot the installer ISO to the first menu, select the second option `Install Proxmox VE (Debug mode)`
 2. The first time you're present with a command-line prompt, type `exit` and Enter to skip it. This is a very early stage and you can't do much here.
-3. The second time you have a shell, locate `/usr/bin/proxinstall` and open it. Text editors such as `vi` and `nano` are available.
-
-   <div class="notice notice--primary" markdown="1">
-     **For Proxmox VE 8 installer**, the file you're going for is `/usr/share/perl5/Proxmox/Sys/Block.pm`.
-   </div>
-
+3. The second time you have a shell, locate `/usr/share/perl5/Proxmox/Sys/Block.pm`[^pve-7] (for Proxmox VE 8) and open it. Text editors such as `vi` and `nano` are available.
 4. Search for `unable to get device` and you should find some code like this:
 
     ```perl
@@ -43,7 +38,7 @@ Turns out it's hard-coded into Proxmox VE's Perl installer script, so all you ha
     }
     ```
 
-    The full code can be found [on GitHub](https://github.com/proxmox/pve-installer/blob/b04864ece2654c6ecf794f9c3ad1cedede351532/proxinstall#L729) if you'd like.
+    The full code can be found [on GitHub](https://github.com/proxmox/pve-installer/blob/3e40eefada905f62635ef3315e02959c93e3f7b2/Proxmox/Sys/Block.pm#L156) if you'd like.
 
 5. See how different kinds of storage devices are enumerated? Now add `/dev/mmcblk` to the list like this:
 
@@ -68,6 +63,7 @@ While it's possible to install Proxmox VE on top of a matching version of Debian
 
 It's also possible to modify the installer script beforehand, but you need to unpack `pve-installer.squashfs` and re-pack it into the ISO. You should think more seriously if you want to install PVE on a lot of eMMC devices.
 
+  [^pve-7]: For Proxmox VE 7, you should go for `/usr/bin/proxinstall` instead.
 
   [1]: https://forum.proxmox.com/threads/unable-to-get-device-for-partition-1-on-device-dev-mmcblk0.42348/
   [2]: https://forum.proxmox.com/threads/unable-to-get-device-for-partition-1.43234/

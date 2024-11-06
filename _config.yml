@@ -172,6 +172,7 @@ exclude:
   - .sass-cache
   - .travis.yml
   - .vscode
+  - _site/
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
