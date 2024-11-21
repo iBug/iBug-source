@@ -95,7 +95,7 @@ With those in mind, we analyzed our mirror content. As can be seen from the grap
 
 In June, we set out to rebuild the Rsync server as it had a lower service traffic and importance, yet a disproportionately higher disk usage. We laid out the following plan:
 
-- First, the RAID overhead of RAID-Z3 was too high (reiterating: half of the files are less than 10 KiB, and the disks have 4 KiB sectors), so we decided to switch to RAID-Z2 as well as split the RAID group into two. Two RAIDZ vdevs also implies double the IOPS, as each "block" is stored on only one vdev.
+- First, the RAID overhead of RAID-Z3 was too high (reiterating: half of the files are less than 10 KiB, and the disks have 4 KiB sectors), so we decided to switch to RAID-Z2 as well as split the RAID group into two. Two RAIDZ vdevs also implies double the IOPS, as each "block" (in ZFS parlance) is stored on only one vdev.
 - We then carefully select dataset properties to optimize for our workload:
   - `recordsize=1M` to maximize sequential throughput and minimize fragmentation
   - `compression=zstd` to (try to) save some disk space
