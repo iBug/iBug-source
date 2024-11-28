@@ -9,13 +9,14 @@ Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionat
 
 Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little bit of taste of everything).
 
-Also loves casual and puzzle gaming.
+Also loves casual gaming, puzzle gaming, and Counter-Strike 2.
 
 ## In action
 
-I'm an active contributor on GitHub across various repositories, and *the* current maintainer of [Minimal Mistakes][mm]. You can see a list of all my pull requests [using GitHub search][all-prs].
+I'm an active contributor on GitHub across various repositories, and *the* current maintainer of [Minimal Mistakes][mm]. You can see a list of [my open-source contributions][open-source] if you're interested.
 
   [mm]: https://mmistakes.github.io/minimal-mistakes/
+  [open-source]: {{ "/open-source/" | relative_url }}
   [all-prs]: https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3AiBug+archived%3Afalse "All of iBug's pull requests on GitHub"
 
 I'm also an avid user on Stack Overflow:
@@ -39,7 +40,7 @@ See my [questions][so-q] and [answers][so-a] on Stack Overflow, or view [a selec
 
 {::options parse_block_html="true" /}
 
-On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})):
+On the technical side ([more about my skills]({{ "/skills/" | relative_url }})):
 
 <details open markdown="1">
 <summary> **Advanced knowledge**
@@ -49,7 +50,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
   C++,
   C,
   Bash
-  (these are also my top tags on Stack Overflow) and
+  (those are also my top tags on Stack Overflow) and
   Go,
   Ruby
 - **Software**:
@@ -59,8 +60,8 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
   Nginx,
   OpenSSH,
   Vim
-- **Other**: Linux Networking (routing, tunneling, firewall, iptables etc.)
-  plus various networking protocols (HTTP and DNS etc.)
+- **Other**: Linux Networking (routing, tunneling, firewall, iptables, nftables etc.)
+  and general network service administration.
 </details>
 
 <details markdown="1">
@@ -71,8 +72,7 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
   Ruby on Rails,
   Bootstrap,
   jQuery,
-  Flask,
-  [Electron](https://www.electronjs.org/)
+  Flask
 - **Software**:
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
   a little bit of everything on Ubuntu and Debian servers,
@@ -90,11 +90,11 @@ On the techie side (more about my skills [here]({{ "/skills/" | relative_url }})
 
 ### Working environment
 
-My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> workstation in office (headless) is equipped with Ryzen 9 5950X, Ubuntu 24.04 LTS, Docker, LXD, KVM (libvirt), plus Python, Ruby, Go and Node.js, etc, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> headless workstation in office is equipped with Ryzen 9 5950X, Ubuntu 24.04 LTS, Docker, LXD, KVM (libvirt), plus all the bells and whistles, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 [Windows Terminal](https://aka.ms/terminal) is the *best* terminal for Windows.
 
-MSI produces high-performance gaming laptops with very comfortable and beautiful keyboards.
+MSI produces high-performance gaming laptops with very comfortable and beautiful keyboards and *used to* be my personal preference.
 
 ## Personally
 
