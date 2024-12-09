@@ -311,12 +311,12 @@ wget -O /usr/share/apparmor-features/features https://github.com/proxmox/lxc/raw
 For a small set of repositories, possibly due to limitations of syncing methods, we noticed a lot of identically-looking directories.
 
 {% include figure
-  image_path="https://image.ibugone.com/server/ls-zerotier-redhar-el.png"
+  image_path="https://image.ibugone.com/server/ls-zerotier-redhat-el.png"
   popup=true
   alt="Some folders from ZeroTier repository"
   caption="Some folders from ZeroTier repository" %}
 
-ZFS deduplication immediately came to our mind, so we made a preliminary test on a ZT:
+ZFS deduplication immediately came to our mind, so we made a preliminary test on ZT:
 
 ```shell
 zfs create -o dedup=on pool0/repo/zerotier
