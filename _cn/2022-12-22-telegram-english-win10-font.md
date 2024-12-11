@@ -2,7 +2,6 @@
 title: "修复 Telegram Desktop 在英文版 Windows 10 中字体显示不正常的问题"
 tags: windows
 redirect_from: /p/55
-toc: false
 ---
 
 Telegram Desktop 在英文版 Windows 10 中字体显示可以说是十分糟糕的了。例如，由成功人士 K 教授发的这样一段话：
