@@ -31,6 +31,7 @@ The servers have the following configurations:
 <dt>HTTP server</dt>
 <dd markdown="1">
 - Set up in Fall 2020
+- Intel Cascade Lake CPU, 256 GB DDR4 RAM
 - Twelve 10 TB HDDs + One 2 TB SSD
 - XFS on LVM on hardware RAID
 - Reserved free PEs on LVM VG level as XFS cannot be shrunk
@@ -39,6 +40,7 @@ The servers have the following configurations:
 <dt>Rsync server</dt>
 <dd markdown="1">
 - Set up in Winter 2016
+- Intel Broadwell CPU, 256 GB DDR4 RAM
 - Twelve 6 TB HDDs + some smaller SSDs for OS and cache
 - RAID-Z3 on ZFS, 8 data disks + 3 parity disks + 1 hot spare
 - All default parameters (except `zfs_arc_max`)
