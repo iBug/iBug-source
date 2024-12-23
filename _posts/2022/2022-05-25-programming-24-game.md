@@ -778,7 +778,7 @@ if (positive.size() > 1) { /* check for ones */ }
 
 ## Postface
 
-The *4 Numbers* website provides a comprehensive list of all 1362 solvable quadruples from 1 to 13 (i.e. formed with a standard 52-card set). Just grab the page and do some HTML processing, and a good test suite is readily available.
+The *4 Numbers* website provides [a comprehensive list][4nums-list] of all 1362 solvable quadruples from 1 to 13 (i.e. formed with a standard 52-card set). Just grab the page and do some HTML processing, and a good test suite is readily available.
 
 [Here][gist-cpp]’s the final version of the C++ code. It gives solutions to 1362 test cases where all of them are identical to those on the *4 Numbers* website.
 
@@ -792,4 +792,5 @@ The problem originates from a course *Program Design II* where a friend of mine 
 
   [wp]: https://en.wikipedia.org/wiki/24_(puzzle)
   [4nums]: https://www.4nums.com/theory/
+  [4nums-list]: https://www.4nums.com/solutions/allsolvables/
   [gist-cpp]: https://gist.github.com/iBug/ea958ca7f1270128d58b5176858d71cb
