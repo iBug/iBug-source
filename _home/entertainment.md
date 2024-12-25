@@ -52,7 +52,7 @@ I started practicing Minesweeper when I was 15, and I can complete a Hard board 
 
 ## Movies & TV
 
-- *Mr. Bean* series from the 1990s
+- [*Mr. Bean* series](https://www.youtube.com/watch?v=7Im2I6STbms&list=PLN0WNYpy2vjI3EWQG1YXHSIoAMvmDgYTX) from the 1990s
   - I particularly like the scene where Mr. Bean drives off sitting on the roof of his Mini. ([YouTube](https://www.youtube.com/watch?v=e6VaYr7xOsw&t=12m11s))
   - Also includes the movie *Bean* (1997).
 - *Johnny English* (2003), also by Rowan Atkinson
