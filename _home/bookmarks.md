@@ -39,6 +39,11 @@ header:
 - [Vehicle codes - RAGE.MP](https://wiki.rage.mp/index.php?title=Vehicles)
 - [GTA OL 解封教程 - Steam Community](https://steamcommunity.com/sharedfiles/filedetails/?id=2355545564)
 
+### Minecraft
+
+- [Self-building Nether Tunnel (1.16)](https://www.youtube.com/watch?v=jSCMTvSEWnE)
+
 ## <i class="fas fa-fw fa-book-open"></i> Reading
 
 - [BBR: Congestion-Based Congestion Control](https://queue.acm.org/detail.cfm?id=3022184)
+- [Awesome PhD Advices](https://github.com/pliang279/awesome-phd-advice)
