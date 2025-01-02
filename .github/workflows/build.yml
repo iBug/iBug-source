@@ -45,7 +45,7 @@ jobs:
 
     - name: Install - Bundler
       env:
-        MAKE: make -j2
+        MAKE: make -j4
       run: |
         bundle config set path vendor/bundle
         bundle install --jobs=4 --retry=3
