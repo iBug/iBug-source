@@ -155,7 +155,8 @@ footer_scripts:
 
 
 # Reading Files
-include: ["_pages"]
+include:
+  - _pages/
 exclude:
   - "*.py"
   - "*.rb"
@@ -198,7 +199,12 @@ exclude:
   - /script
   # tmp
   - vendor/
-keep_files: [".git", ".nojekyll", "README.md", "CNAME", "image"]
+keep_files:
+  - .git
+  - .nojekyll
+  - CNAME
+  - README.md
+  - image
 encoding: "UTF-8"
 
 
