@@ -47,3 +47,4 @@ header:
 
 - [BBR: Congestion-Based Congestion Control](https://queue.acm.org/detail.cfm?id=3022184)
 - [Awesome PhD Advices](https://github.com/pliang279/awesome-phd-advice)
+- [Optimizing SQLite for servers](https://kerkour.com/sqlite-for-servers)
