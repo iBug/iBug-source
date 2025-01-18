@@ -43,6 +43,14 @@ jobs:
         path: node_modules
         key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
 
+    - name: Install - APT
+      run: |
+          sudo debconf-communicate <<< "set man-db/auto-update false"
+          sudo dpkg-reconfigure man-db
+          sudo apt update
+          sudo NEEDRESTART_SUSPEND=1 \
+            apt install -y libgsl-dev
+
     - name: Install - Bundler
       env:
         MAKE: make -j4
