@@ -17,8 +17,8 @@ pushd "$SRC" &>/dev/null
 e_info "Adding commit info"
 git add --all
 git \
-  -c user.name "${GIT_USER:-GitHub}" \
-  -c user.email "${GIT_EMAIL:-noreply@github.com}" \
+  -c user.name="${GIT_USER:-GitHub}" \
+  -c user.email="${GIT_EMAIL:-noreply@github.com}" \
   commit --quiet --message "${COMMIT_MSG}" --message "$source_msg"
 
 e_info "Pushing to GitHub"
