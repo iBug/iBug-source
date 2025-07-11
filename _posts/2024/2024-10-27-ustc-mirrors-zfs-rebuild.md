@@ -11,6 +11,8 @@ header:
 
 A.K.A. Practical ZFS application on USTC Mirrors. A writeup of the talk I gave at Nanjing University this August.
 
+Also, a [Chinese version](https://lug.ustc.edu.cn/planet/2024/12/ustc-mirrors-zfs-rebuild/) is available if you want.
+
 {% assign image_base = "https://image.ibugone.com" %}
 
 ## Background
