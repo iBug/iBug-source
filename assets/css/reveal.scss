@@ -45,6 +45,14 @@ a {
     margin: auto !important;
     max-height: 95vh;
   }
+
+  small * {
+    vertical-align: initial;
+  }
+
+  small > * {
+    vertical-align: top;
+  }
 }
 
 .muted {
