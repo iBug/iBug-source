@@ -22,11 +22,13 @@
       <a href="{{ img.url | relative_url }}"
         {% if img.title %}title="{{ img.title | escape_once }}"{% endif %}>
           <img src="{{ img.image_path | relative_url }}"
-               alt="{% if img.alt %}{{ img.alt | escape_once }}{% endif %}">
+               alt="{% if img.alt %}{{ img.alt | escape_once }}{% endif %}"
+               loading="lazy">
       </a>
     {% else %}
       <img src="{{ img.image_path | relative_url }}"
-           alt="{% if img.alt %}{{ img.alt | escape_once }}{% endif %}">
+           alt="{% if img.alt %}{{ img.alt | escape_once }}{% endif %}"
+           loading="lazy">
     {% endif %}
   {% endfor %}
   {% if include.caption %}
