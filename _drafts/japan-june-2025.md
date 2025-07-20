@@ -118,8 +118,8 @@ tokyo_skytree:
     title: "The wish stand for tying wish strips at Tokyo Skytree"
   - url: "https://image.ibugone.com/jp-2025/IMG20250609115324.webp"
     image_path: "https://image.ibugone.com/jp-2025/IMG20250609115324.webp"
-    alt: "A *Case Closed* display stand at the observation deck of Tokyo Skytree"
-    title: "A *Case Closed* display stand at the observation deck of Tokyo Skytree"
+    alt: "A *Detective Conan* display stand at the observation deck of Tokyo Skytree"
+    title: "A *Detective Conan* display stand at the observation deck of Tokyo Skytree"
 
 akihabara:
   - url: "https://image.ibugone.com/jp-2025/IMG20250609144851.webp"
@@ -808,12 +808,12 @@ For the afternoon, we visited the Sunshine City in Ikebukuro.
 It's a large shopping mall, though most of the stores were not of our interest.
 We briefly browsed through an anime merchandise store, and then headed towards the Sunshine Aquarium on the top floor.
 
-As famous as it is, the first thing to notice is the *Case Closed* wall at the entrance of the aquarium.
+As famous as it is, the first thing to notice is the *Detective Conan* (a.k.a. *Case Closed*) wall at the entrance of the aquarium.
 
 {% include figure popup=true
    image_path="https://image.ibugone.com/jp-2025/IMG20250607143116.webp"
-   alt="Case Closed decorations at the entrance of Sunshine Aquarium"
-   caption="Case Closed decorations at the entrance of Sunshine Aquarium" %}
+   alt="Detective Conan decorations at the entrance of Sunshine Aquarium"
+   caption="Detective Conan decorations at the entrance of Sunshine Aquarium" %}
 
 And a horror-looking vending machine for edible insects.
 
@@ -1391,4 +1391,4 @@ This trip to Japan surely brought an unforgettable experience and broadened my h
 The culture and the people were all amazing, and food and dining were all delicious.
 Given Japan's proximity to China, it definitely stands out as a great destination for short trips, and time permitting, I will for sure visit Japan again in the future.
 
-<s>Also I previously arranged a Chinese version of this article, but it has since been scrapped as *why wouldn't the English version suffice alone?*</s>
+<s>Also I previously arranged a Chinese version of this article, but it has since been scrapped as <i>why wouldn't the English version suffice alone?</i></s>
