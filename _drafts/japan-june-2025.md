@@ -388,8 +388,8 @@ kaiseki:
     image_path: "https://image.ibugone.com/jp-2025/IMG20250612185414.webp"
     alt: "Fifth dish of the Kaiseki meal, a shrimp ball and some vegetables"
     title: "Fifth dish of the Kaiseki meal, a shrimp ball and some vegetables"
-  - url: "https://image.ibugone.com/jp-2025/IMG20250612163204.webp"
-    image_path: "https://image.ibugone.com/jp-2025/IMG20250612163204.webp"
+  - url: "https://image.ibugone.com/jp-2025/IMG20250612190836.webp"
+    image_path: "https://image.ibugone.com/jp-2025/IMG20250612190836.webp"
     alt: "The main dish of the Kaiseki meal, a bowl of unadon with rice"
     title: "The main dish of the Kaiseki meal, a bowl of unadon with rice"
 
