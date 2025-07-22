@@ -1,0 +1,159 @@
+---
+title: "iBug"
+layout: reveal
+hidden: true
+---
+
+<section id="title">
+  <h1 class="title">自我介绍</h1>
+  <h2 style="font-weight: normal;">iBug</h2>
+</section>
+
+<section id="information">
+  <h2>介绍</h2>
+  <ul>
+    <li>教育经历：
+      <ul>
+        <li>硕士：<span class="blue">中国科学技术大学</span>，计算机系统结构方向</li>
+        <li>本科：<span class="blue">中国科学技术大学</span>，计算机科学与技术</li>
+      </ul>
+    </li>
+    <li>专业兴趣：
+      <ul>
+        <li>Linux 服务器搭建与运维（Debian、Ubuntu、Proxmox VE）</li>
+        <li>计算机网络（Debian 软路由、OpenWRT）</li>
+        <li>个人网站兼<span class="green">英文</span>技术博客：<a href="https://ibug.io/"><i class="fas fa-link"></i> ibug.io</a></li>
+        <li>喜欢且擅长将各种设施自动化（CI/CD、crontab、systemd services/timers）</li>
+        <li><span class="red">对 Linux 有浓厚兴趣和钻研精神</span></li>
+        <li>有良好的信息安全意识</li>
+        <li>Proficient in English</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section id="vlab">
+  <h2><a href="https://vlab.ustc.edu.cn/slides/">Vlab 远程教学云桌面</a></h2>
+  <ul>
+    <li>项目负责人（2019 年 7 月至今）</li>
+    <li>从零搭建了基于 LXC 容器的一套校内云</li>
+    <li>负责调研选型、存储和网络方案的实施</li>
+    <li>撰写详细的<a href="https://vlab.ustc.edu.cn/docs/">用户文档</a>与<a href="https://vlab.ibugone.com/">维护文档</a></li>
+    <li>软件开发：<a href="https://github.com/USTC-vlab/sshmux">sshmux</a>（Go）</li>
+    <li>2023 年在南京大学开源软件论坛分享：
+      <br>
+      <a href="{{ "/p/59" | relative_url }}">Vlab 远程教学云桌面</a>
+    </li>
+  </ul>
+</section>
+
+<section id="ustclug">
+  <h2><a href="https://lug.ustc.edu.cn/">Linux 用户协会（USTCLUG）</a></h2>
+  <ul>
+    <li>技术部部长（2019 年 5 月至 2020 年 5 月，持续参与运维至今）</li>
+    <li>日常运维社团的技术设施，包括：
+      <ul>
+        <li><a href="https://mirrors.ustc.edu.cn/">USTC Mirrors</a>（镜像仓库维护、日志分析等）
+          <ul>
+            <li>2024 年在南京大学开源软件论坛分享：
+              <br>
+              <a href="{{ "/p/72" | relative_url }}">镜像站 ZFS 调优实践</a>
+              <p>将 USTC 的 ZFS 经验推广到了清华大学和南京大学等多所友校的镜像站和社团</p>
+            </li>
+          </ul>
+        </li>
+        <li>回校 VPN（策略路由、iptables、OpenVPN / WireGuard 等接入方式、LDAP 认证）</li>
+        <li>为各种仓库配置 GitHub Actions 等 CI/CD 服务，简化从代码到部署的流程</li>
+        <li>GitLab、权威 DNS、PXE 网络启动服务等</li>
+      </ul>
+    </li>
+    <li>Linux 与开源软件的推广：
+      <ul>
+        <li><a href="https://101.lug.ustc.edu.cn/">Linux 101</a> 教程编写</li>
+        <li><a href="https://201.ustclug.org/">Linux 201</a> 教程编写</li>
+        <li><a href="https://hack.lug.ustc.edu.cn/">信息安全大赛</a>的命题与运维</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section id="open-source">
+  <h2><a href="{{ "/open-source/" | relative_url }}">开源贡献</a></h2>
+  <ul>
+    <li>GitHub: <a href="https://github.com/iBug"><i class="fab fa-github"></i> iBug</a></li>
+    <li>SmokeDetector（2018 - 2019）
+      <ul>
+        <li>从 Stack Overflow 通过 WebSocket 实时获取最新 Q/A，使用丰富的正则表达式规则扫描垃圾信息</li>
+        <li>使用 Python decorator 重构了规则列表，使其更清晰更易维护</li>
+      </ul>
+    </li>
+    <li>Minimal Mistakes（2020 至今）
+      <ul>
+        <li><a href="{{ "/" | relative_url }}">个人网站</a>所使用的 Jekyll 主题</li>
+        <li>被合并 PR 超过 30 个，于 2024 年 4 月成为维护者</li>
+      </ul>
+    </li>
+    <li>Vlab sshmux
+      <ul>
+        <li>Vlab 根据平台用户名和密码（<code>keyboard-interactive</code>）或公钥将不同的 SSH 会话“反代”到不同的虚拟机上</li>
+        <li>修改 <code>golang.org/x/crypto/ssh</code> 暴露出其内部接口，然后自己调用</li>
+        <li>有用户为我们提交 PR</li>
+      </ul>
+    </li>
+    <li>Linux Kernel：<a href="https://github.com/torvalds/linux/commit/e89086c43f0500bc7c4ce225495b73b8ce234c1f">添加一个硬件 quirk</a></li>
+    <li>更多经历：<a href="{{ "/open-source/" | relative_url }}">Open Source contributions</a></li>
+  </ul>
+</section>
+
+<section id="exp">
+  <h2>实战经验</h2>
+  <ul>
+    <li><a href="{{ "/p/71" | relative_url }}">Why my IPv4 gets stuck? - Debugging network issues with bpftrace</a>
+      <ul>
+        <li>使用 bpftrace 在 conntrack destroy 处打印 kstack，发现连接反复中断的原因</li>
+      </ul>
+    </li>
+    <li><a href="{{ "/p/61" | relative_url }}">Debugging Proxmox VE Firewall Dropping TCP Reset Packets</a>
+      <ul>
+        <li>通过观察对比 tcpdump 和 conntrack -E 事件的时间戳，发现 PVE 防火墙丢弃 TCP RST 包的原因并提出解决方案</li>
+      </ul>
+    </li>
+    <li><a href="{{ "/p/60" | relative_url }}">Running a dual-protocol OpenVPN/WireGuard VPN server on one port</a>
+      <ul>
+        <li>通过分析合法的 OpenVPN（UDP）包和 WireGuard 结构，设计基于匹配字节将不同协议的数据包从一个端口上分流的方案</li>
+      </ul>
+    </li>
+    <li>etc.</li>
+  </ul>
+</section>
+
+<section id="other">
+  <h2>其他经验</h2>
+  <ul>
+    <li>《操作系统原理与设计（H）》助教（2020 年春季学期）
+      <ul>
+        <li>负责设计《使用 C 语言编写 Linux 容器》实验</li>
+        <li>调研并实现了一个类似 <code>systemd-nspawn</code> 的容器程序，覆盖了现代容器的基本原理和关键技术</li>
+        <li>Blog: <a href="{{ "/p/23" | relative_url }}">A Deep Dive into Containers</a> (January 31, 2021)</li>
+      </ul>
+    </li>
+    <li>参与 Stack Overflow 问答
+      <br>
+      <img src="https://stackoverflow.com/users/flair/5958455.png" width="312" height="87" />
+      <img src="https://stackexchange.com/users/flair/7886663.png" width="312" height="87" />
+    </li>
+    <li>基于腾讯云 CVM + CDN 的 WordPress 企业门户网站
+      <ul>
+        <li>将网站的年运营成本从￥1200 压缩至￥400</li>
+        <li>利用腾讯云 CDN，获得了更好的访问性能和 HTTPS 等安全方面的进步</li>
+      </ul>
+    </li>
+    <li>2023 年 11 月 ICPC 合肥站运维</li>
+    <li>实验室服务器的规划与运维
+      <ul>
+        <li>将实验室的中心存储节点重装为 Proxmox VE，使用 ZFS 提供存储服务</li>
+        <li>搭建 OpenLDAP 为集群提供统一的账号系统，并接入其他外部服务</li>
+      </ul>
+    </li>
+  </ul>
+</section>
