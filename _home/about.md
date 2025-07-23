@@ -3,17 +3,20 @@ title: "About iBug"
 toc: true
 ---
 
-Master student majoring in CS at [USTC][USTC], hobbiest programmer and passionate geek. Mostly a developer and Linux system administrator.
+Hobbiest programmer, passionate geek, and Linux system administrator.
+Currently working as a software developer.
+Also holds a Master's degree in Computer Science and Technology from [University of Science and Technology of China][ustc],
 
-  [USTC]: https://en.ustc.edu.cn/
+  [ustc]: https://en.wikipedia.org/wiki/University_of_Science_and_Technology_of_China
 
-Python, C, C++ and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little bit of taste of everything).
+Python and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little bit of taste of everything).
 
-Also loves casual gaming, puzzle gaming, and Counter-Strike 2.
+Also loves puzzle games and *Counter-Strike 2*.
 
 ## In action
 
-I'm an active contributor on GitHub across various repositories, and *the* current maintainer of [Minimal Mistakes][mm]. You can see a list of [my open-source contributions][open-source] if you're interested.
+I'm an active contributor on GitHub across various projects, and *the* current maintainer of [Minimal Mistakes][mm].
+You can see a list of [my open-source contributions][open-source] if you're interested.
 
   [mm]: https://mmistakes.github.io/minimal-mistakes/
   [open-source]: {{ "/open-source/" | relative_url }}
