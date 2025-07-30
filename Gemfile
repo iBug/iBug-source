@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem "minimal-mistakes-jekyll", '>= 4.27.2'
-gem "jekyll", '~> 4.3', '>= 4.3.3'
+gem "minimal-mistakes-jekyll", '>= 4.27.3'
+gem "jekyll", '~> 4.4', '>= 4.4.1'
 gem "kramdown", '>= 2.3.0'
 gem "liquid-c", '~> 4.0'
 gem "rouge", '~> 4.0'
