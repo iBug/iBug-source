@@ -5,7 +5,7 @@ toc: true
 
 Hobbiest programmer, passionate geek, and Linux system administrator.
 Currently working as a software developer.
-Also holds a Master's degree in Computer Science and Technology from [University of Science and Technology of China][ustc],
+Also holds a Master's degree in Computer Science and Technology from [University of Science and Technology of China][ustc].
 
   [ustc]: https://en.wikipedia.org/wiki/University_of_Science_and_Technology_of_China
 
