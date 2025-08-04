@@ -47,6 +47,9 @@ friends:
   - name: Catoverflow
     github: Catoverflow
     link: https://c-j.dev/
+  - name: MirageTurtle
+    github: MirageTurtle
+    link: https://mirageturtle.top/
   - name: jiegec
     github: jiegec
     link: https://jia.je/
