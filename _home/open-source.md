@@ -125,6 +125,10 @@ toc: true
 
 - [HTML Title: Respect site.title and site.brand if set](https://github.com/tuna/mirror-web/pull/153)
 
+### VSCode Python Extension
+
+- [Fix microsoft/vscode#232420: Python REPL cursor drifting](https://github.com/microsoft/vscode-python/pull/25521)
+
 ### Other minor contributions
 
 - [gorilla/handlers#243](https://github.com/gorilla/handlers/pull/243)
