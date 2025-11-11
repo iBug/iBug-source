@@ -131,7 +131,8 @@ toc: true
   - [microsoft/vscode#232420](https://github.com/microsoft/vscode/issues/232420): Terminal Cursor is at the wrong place with Python3.13
   - [python/cpython#126131](https://github.com/python/cpython/issues/126131): Python3.13 is mishandling OSC 633 sequences
   - [microsoft/vscode#25502](https://github.com/microsoft/vscode-python/issues/25502): Improper line wrapping in Python terminal
-
+  - And also enabled the Microsoft team to push forward with [Enable PyREPL for 3.13 and above](https://github.com/microsoft/vscode-python/issues/25577).
+- Plus a follow-up: [Add `__repr__` to custom PS1 class](https://github.com/microsoft/vscode-python/pull/25568)
 
 ### Other minor contributions
 
