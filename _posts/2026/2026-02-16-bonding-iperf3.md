@@ -3,11 +3,14 @@ title: "BanD Width! It's MyBOND!!"
 tagline: "Can bonding bring double upload?"
 tags: linux networking
 redirect_from: /p/78
+header:
+  overlay_image: /image/header/band-width-mygo.jpg
+  overlay_filter: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1))
 ---
 
 My workstation in my univerity lab has consistently generated some 600 TiB of annual upload across two PT sites. After an upgrade to the room a few months back, it received the most wanted upgrade for years: A second 1 Gbps line to the campus network. I immediately made the two NICs into one bonded 2 Gbps interface, and it has shined for many times with multiple popular torrents.
 
-Inspired by my friend [TheRainstorm](https://blog.yfycloud.site/) who managed to double his upload by load-balancing WireGuard over two lines from the same ISP (China Mobile), I figured I'd leverage this chance and make a better understanding though some more detailed experiments.
+Inspired by my friend [@TheRainstorm](https://blog.yfycloud.site/about/) who managed to double his upload by load-balancing WireGuard over two lines from the same ISP (China Mobile), I figured I'd leverage this chance and make a better understanding though some more detailed experiments.
 
 ## Setup
 
@@ -96,7 +99,14 @@ For 4 parallel streams, the result looks much better:
 | C | 4 | CUBIC | 1.74 Gbps | 1.82 Gbps | 20 | 17 | 2.91 MB | 2.89 MB |
 
 The gap between RR and TLB no longer exists, and differences in retransmissions and Cwnd size can be attributed entirely to the CC algorithms themselves.
-In particular, due to Cwnd falling under 4 MiB, or maybe just random network fluctuation, retransmission to destination C is observed for the first time.
+In particular, due to Cwnd falling under 4 MiB, or possibly just random network fluctuation, retransmission to destination C is observed for the first time.
 It's also interesting to note that the difference in Cwnd size between BBR and CUBIC increased to 5x, compared to some 3 ~ 3.5x in single-stream case.
 
 ## Bottom line
+
+I did a set of rudimentary experiments in this article, and TCP upload is only a very generic use case.
+For example, @TheRainstorm is running Sunshine streaming inside load-balanced WireGuard tunnel, and turning up forward error correction (FEC) level is one way to offset fluctuation and packet loss.
+I've been running qBittorrent uploads under `balance-tlb` mode for months, and it's been very stable because qBittorrent uploads torrent content over many connections.
+
+If anyone wants a more reliable multi-NIC bonding setup, I'd definitely recommend getting a capable switch and doing bonding in `802.3ad` (LACP) mode.
+But for a small homelab, `balance-rr` + BBR would probably suffice for optimizing single-stream transmission speed, at the cost of some overhead on bandwidth.
