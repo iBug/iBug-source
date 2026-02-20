@@ -102,6 +102,9 @@ The gap between RR and TLB no longer exists, and differences in retransmissions 
 In particular, due to Cwnd falling under 4 MiB, or possibly just random network fluctuation, retransmission to destination C is observed for the first time.
 It's also interesting to note that the difference in Cwnd size between BBR and CUBIC increased to 5x, compared to some 3 ~ 3.5x in single-stream case.
 
+However, the numbers of retransmissions are lower by magnitudes in TLB bond mode than in RR mode.
+I believe this is because the latencies to destinations A and B have very high variation compared to their means (averages), which will result in high number of reordered packets when packets from the same stream are distributed through two underlying interfaces.
+
 ## Bottom line
 
 I did a set of rudimentary experiments in this article, and TCP upload is only a very generic use case.
