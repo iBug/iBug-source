@@ -71,11 +71,11 @@ We cannot attach too much importance to the bond mode when testing bonding perfo
 | C | 1 | BBR | 1.11 Gbps | 935 Mbps | 0 | 0 | 8.87 MB | 7.67 MB |
 | C | 1 | CUBIC | 1.16 Gbps | 931 Mbps | 0 | 0 | 6.44 MB | 4.20 MB |
 
-We first look at `balance-tlb` mode.
+We first look at TLB bond mode.
 As expected, with one single stream, it runs on only one slave interface (confirmed by watching `bmon -p eth0,eth1,bond0` during execution).
 And with the entire route being able to carry nearly 1.8 Gbps, there's no surprise that different congestion algorithms don't affect single-stream performance in all scenarios.
 
-We then note the huge difference between the BBR and CUBIC algorithms.
+We then note the huge difference between the BBR and CUBIC algorithms in RR bond mode.
 Because destinations A and B both have a very low BDP, any fluctuation in latency hits hard on CUBIC in forms of out-of-order packet deliveries, which reflects clearly in the difference of retransmitted packets and the Cwnd size.
 In TLB mode, with only one active NIC, retransmission is kept low, but in RR mode it skyrocketed.
 
