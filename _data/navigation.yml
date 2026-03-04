@@ -13,7 +13,7 @@ main:
     url: /cn/
 
 home:
-  - title: "iBug on the Web"
+  - title: "iBug"
     children:
       - title: '<i class="fas fa-fw fa-home"></i> Home'
         url: "/"
@@ -39,7 +39,7 @@ home:
         url: "/cn/"
 
 share:
-  - title: "iBug on the Web"
+  - title: "iBug"
     children:
       - title: '<i class="fas fa-fw fa-home"></i> Home'
         url: "/"
