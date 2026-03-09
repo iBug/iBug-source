@@ -28,7 +28,7 @@ toc: true
 
 ### Cloudflare
 
-- Cloudflare Tunnel [Issue #352](https://github.com/cloudflare/cloudflared/issue/352) and [PR #870](https://github.com/cloudflare/cloudflared/pull/870): Add Tunnel CLI option "edge-bind-address"
+- Cloudflare Tunnel [Issue #352](https://github.com/cloudflare/cloudflared/issues/352) and [PR #870](https://github.com/cloudflare/cloudflared/pull/870): Add Tunnel CLI option "edge-bind-address"
 - Cloudflare Docs [PR #9783](https://github.com/cloudflare/cloudflare-docs/pull/9783): Documentation for the above feature
 - Cloudflare Docs [PR #4235](https://github.com/cloudflare/cloudflare-docs/pull/4235): Invalid heading levels
 
@@ -56,7 +56,7 @@ toc: true
 
 ### Material for MkDocs
 
-- [Issue #3644](https://github.com/squidfunk/mkdocs-material/issue/3644) and [PR #3648](https://github.com/squidfunk/mkdocs-material/pull/3648): Admonitions in list items have extra margin-top on Chrome and Edge
+- [Issue #3644](https://github.com/squidfunk/mkdocs-material/issues/3644) and [PR #3648](https://github.com/squidfunk/mkdocs-material/pull/3648): Admonitions in list items have extra margin-top on Chrome and Edge
 - Multiple minor fixes in the documentation:
   [#1561](https://github.com/squidfunk/mkdocs-material/pull/1561),
   [#1580](https://github.com/squidfunk/mkdocs-material/pull/1580),
