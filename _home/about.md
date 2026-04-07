@@ -5,11 +5,11 @@ toc: true
 
 Hobbiest programmer, passionate geek, and Linux system administrator.
 Currently working as a software developer.
-Also holds a Master's degree in Computer Science and Technology from [University of Science and Technology of China][ustc].
+Also holds a Master's degree in *Computer Science and Technology* from [University of Science and Technology of China][ustc].
 
   [ustc]: https://en.wikipedia.org/wiki/University_of_Science_and_Technology_of_China
 
-Python and Go are my primary options for course labs and new projects, though I always like trying something new (and that's why I have a little bit of taste of everything).
+Python and Go are my primary options for course labs and new projects, though I always like to try something new.
 
 Also loves puzzle games and *Counter-Strike 2*.
 
@@ -55,14 +55,14 @@ On the technical side ([more about my skills]({{ "/skills/" | relative_url }})):
   Bash
   (those are also my top tags on Stack Overflow) and
   Go,
-  Ruby
+  Ruby.
 - **Software**:
   Docker,
   Git,
   Jekyll,
   Nginx,
   OpenSSH,
-  Vim
+  Vim.
 - **Other**: Linux Networking (routing, tunneling, firewall, iptables, nftables etc.)
   and general network service administration.
 </details>
@@ -70,26 +70,26 @@ On the technical side ([more about my skills]({{ "/skills/" | relative_url }})):
 <details markdown="1">
 <summary> **Basic knowledge**
 </summary>
-- **Programming**: the Web Trilogy (HTML / CSS / JavaScript), Node.js, VBScript
+- **Programming**: the Web Trilogy (HTML / CSS / JavaScript).
 - **Framework**:
   Ruby on Rails,
   Bootstrap,
   jQuery,
-  Flask
+  Flask.
 - **Software**:
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
   a little bit of everything on Ubuntu and Debian servers,
   Make,
   LXC / LXD,
-  ZFS
+  ZFS.
 </details>
 
 ### Preferences
 
-- **Linux distro**: Ubuntu (desktop / workstation), Debian (server) and Proxmox VE (virtualization platform)
-- **Version control**: Git (and good at it)
-- **Text editor**: Visual Studio Code and `<ESC>:wq` ([get my config](https://i.ibug.io/conf/vimrc))
-- **Automation**: Shell scripts, Make, Systemd services, Docker, AWS Lambda
+- **Linux distro**: Ubuntu (desktop / workstation), Debian (server) and Proxmox VE (virtualization platform).
+- **Version control**: Git (and good at it).
+- **Text editor**: Visual Studio Code and `<ESC>:wq` ([get my config](https://i.ibug.io/conf/vimrc)).
+- **Automation**: Shell scripts, Make, Systemd services, Docker, AWS Lambda.
 
 ### Working environment
 
