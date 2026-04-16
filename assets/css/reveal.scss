@@ -3,8 +3,18 @@
 
 @import "colors";
 
-$reset-fonts: -apple-system, BlinkMacSystemFont, Segoe UI, Microsoft YaHei, Arial, sans-serif;
-$reset-mono-fonts: Monaco, Consolas, Lucida Console, monospace;
+$reset-fonts:
+  -apple-system,
+  BlinkMacSystemFont,
+  Segoe UI,
+  Microsoft YaHei,
+  Arial,
+  sans-serif;
+$reset-mono-fonts:
+  Monaco,
+  Consolas,
+  Lucida Console,
+  monospace;
 
 :root {
   --r-heading-font: "Amazon Ember Display", #{$reset-fonts};
@@ -46,12 +56,16 @@ a {
     max-height: 95vh;
   }
 
-  small * {
-    vertical-align: initial;
-  }
+  small {
+    vertical-align: baseline;
 
-  small > * {
-    vertical-align: top;
+    * {
+      vertical-align: initial;
+    }
+
+    > * {
+      vertical-align: top;
+    }
   }
 }
 

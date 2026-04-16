@@ -19,6 +19,11 @@ date: "2024-10-07"
         <li>本科：<span class="blue">中国科学技术大学</span>，计算机科学与技术</li>
       </ul>
     </li>
+    <li>工作经历：
+      <ul>
+        <li><span title="脸萌技术（深圳）有限公司">字节跳动</span><small>（网络中台 / 服务平台）</small> 2025 年 7 月～2026 年 4 月</li>
+      </ul>
+    </li>
     <li>专业兴趣：
       <ul>
         <li>Linux 服务器搭建与运维（Debian、Ubuntu、Proxmox VE）</li>
@@ -30,6 +35,21 @@ date: "2024-10-07"
         <li>Proficient in English</li>
       </ul>
     </li>
+  </ul>
+</section>
+
+<section id="bytedance">
+  <h2>字节跳动</h2>
+  <ul>
+    <li><b>弱网模拟</b>项目：
+      <ul>
+        <li>生产网 manager + 工区服务器 agent 结构</li>
+        <li>工区 agent 的容器化改造</li>
+        <li>与 IT 部门沟通协作，将 agent 部署至 IT 的工区容器平台</li>
+      </ul>
+    </li>
+    <li>修复和校准网络性能优化平台的多项数据分析工具，同时降低数据库负载</li>
+    <li>Vendor 数据库部门的查询 SDK，并将新功能贡献回去</li>
   </ul>
 </section>
 
@@ -72,7 +92,7 @@ date: "2024-10-07"
     <li>Linux 与开源软件的推广：
       <ul>
         <li><a href="https://101.lug.ustc.edu.cn/">Linux 101</a> 教程编写</li>
-        <li><a href="https://201.ustclug.org/">Linux 201</a> 教程编写</li>
+        <li><a href="https://201.ustclug.org/">Linux 201</a> 教程编写（特别是 <a href="https://201.ustclug.org/ops/network/">网络系统</a> 部分）</li>
         <li><a href="https://hack.lug.ustc.edu.cn/">信息安全大赛</a>的命题与运维</li>
       </ul>
     </li>
@@ -110,6 +130,11 @@ date: "2024-10-07"
 <section id="exp">
   <h2>实战经验</h2>
   <ul>
+    <li><a href="{{ "/p/78" | relative_url }}">BanD Width! It’s MyBOND!!</a>
+      <ul>
+        <li>将两个物理网卡聚合（bond），比较不同的 bond mode 与 TCP CC 算法在不同场景下的性能表现</li>
+      </ul>
+    </li>
     <li><a href="{{ "/p/71" | relative_url }}">Why my IPv4 gets stuck? - Debugging network issues with bpftrace</a>
       <ul>
         <li>使用 bpftrace 在 conntrack destroy 处打印 kstack，发现连接反复中断的原因</li>
@@ -144,14 +169,14 @@ date: "2024-10-07"
       <img src="https://stackoverflow.com/users/flair/5958455.png" width="312" height="87" />
       <img src="https://stackexchange.com/users/flair/7886663.png" width="312" height="87" />
     </li>
-    <li>基于腾讯云 CVM + CDN 的 WordPress 企业门户网站
+    <!-- li>基于腾讯云 CVM + CDN 的 WordPress 企业门户网站
       <ul>
         <li>将网站的年运营成本从￥1200 压缩至￥400</li>
         <li>利用腾讯云 CDN，获得了更好的访问性能和 HTTPS 等安全方面的进步</li>
       </ul>
-    </li>
-    <li>2023 年 11 月 ICPC 合肥站运维</li>
-    <li>实验室服务器的规划与运维
+    </li -->
+    <!-- li>2023 年 11 月 ICPC 合肥站运维</li -->
+    <li>实验室服务器的规划与运维（2022 年～2025 年）
       <ul>
         <li>将实验室的中心存储节点重装为 Proxmox VE，使用 ZFS 提供存储服务</li>
         <li>搭建 OpenLDAP 为集群提供统一的账号系统，并接入其他外部服务</li>
