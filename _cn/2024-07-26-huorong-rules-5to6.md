@@ -18,8 +18,6 @@ hidden: true
 - 同样的 `ver` 从 `5.0` 变成了 `6.0`
 - 每条自动处理规则多了 `cmdline`（完整的命令行）、`p_procname`（父进程名）、`p_cmdline`（父进程的完整命令行）、`res_cmdline`（不知道干嘛的）四个字段
 
-```html
-
 <input id="fileInput" type="file" name="file" accept=".json" />
 <a id="download" class="btn btn--primary">下载</a>
 
