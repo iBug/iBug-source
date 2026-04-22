@@ -49,6 +49,7 @@ toc: true
 - [Build docs site with GitHub Actions](https://github.com/jekyll/jekyll/pull/8201)
 - [Fix `rake console` generating LoadError](https://github.com/jekyll/jekyll/pull/8312)
 - [Make number_of_words respect CJK characters](https://github.com/jekyll/jekyll/pull/7813)
+- [fix: Run release-please workflow only in jekyll/jekyll repo](https://github.com/jekyll/jekyll/pull/9969)
 
 ### markondej/fm_transmitter
 
