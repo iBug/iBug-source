@@ -93,7 +93,7 @@ On the technical side ([more about my skills]({{ "/skills/" | relative_url }})):
 
 ### Working environment
 
-My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> headless workstation in office is equipped with Ryzen 9 5950X, Ubuntu 24.04 LTS, Docker, LXD, KVM (libvirt), plus all the bells and whistles, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
+My <span class="svg-inline" style="transform: translateY(0.166667em);">{% include assets/desktop.svg %}</span> headless workstation in office is equipped with Ryzen 9 5950X, Ubuntu 26.04 LTS, Docker, LXD, KVM (libvirt), plus all the bells and whistles, and I do my work over SSH (and [VS Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)) every day.
 
 [Windows Terminal](https://aka.ms/terminal) is the *best* terminal for Windows.
 
@@ -105,7 +105,6 @@ MSI produces high-performance gaming laptops with very comfortable and beautiful
   - Chinese:
     - Native to Simplified (written) and Mandarin (spoken)
     - Reads Traditional fluently
-    - No dialects
   - English: Proficient as a foreign language, preferred language for working and entertainment
     - Why I blog in English: So that my blog reaches a wider audience <i class="fas fa-users"></i>
 - [My blog]({{ "/blog/" | relative_url }})
