@@ -44,7 +44,8 @@ date: "2024-10-07"
     <li><b>弱网模拟</b>项目：
       <ul>
         <li>生产网 manager + 工区服务器 agent 结构</li>
-        <li>工区 agent 的容器化改造</li>
+        <li>iptables 过滤 + 打标，tc 整形实现弱网模拟</li>
+        <li>负责工区 agent 的容器化改造</li>
         <li>与 IT 部门沟通协作，将 agent 部署至 IT 的工区容器平台</li>
       </ul>
     </li>
@@ -59,8 +60,9 @@ date: "2024-10-07"
     <li>项目负责人（2019 年 7 月至今）</li>
     <li>从零搭建了基于 LXC 容器的一套校内云</li>
     <li>负责调研选型、存储和网络方案的实施</li>
+    <li>流程化的 <a href="https://github.com/USTC-vlab/labstrap/blob/master/labstrap">LXC 容器镜像构建方案</a>与定制的 <a href="https://github.com/USTC-vlab/deb">Debian 软件包</a></li>
     <li>撰写详细的<a href="https://vlab.ustc.edu.cn/docs/">用户文档</a>与<a href="https://vlab.ibugone.com/">维护文档</a></li>
-    <li>软件开发：<a href="https://github.com/USTC-vlab/sshmux">sshmux</a>（Go）</li>
+    <li>自研组件：<a href="https://github.com/USTC-vlab/sshmux">SSH 统一登录网关</a>（Go）</li>
     <li>2023 年在南京大学开源软件论坛分享：
       <br>
       <a href="{{ "/p/59" | relative_url }}">Vlab 远程教学云桌面</a>
@@ -86,7 +88,7 @@ date: "2024-10-07"
         </li>
         <li>回校 VPN（策略路由、iptables、OpenVPN / WireGuard 等接入方式、LDAP 认证）</li>
         <li>为各种仓库配置 GitHub Actions 等 CI/CD 服务，简化从代码到部署的流程</li>
-        <li>GitLab、权威 DNS、PXE 网络启动服务等</li>
+        <li>维护 GitLab、权威 DNS、PXE 网络启动服务等</li>
       </ul>
     </li>
     <li>Linux 与开源软件的推广：
@@ -118,7 +120,7 @@ date: "2024-10-07"
     <li>Vlab sshmux
       <ul>
         <li>Vlab 根据平台用户名和密码（<code>keyboard-interactive</code>）或公钥将不同的 SSH 会话“反代”到不同的虚拟机上</li>
-        <li>修改 <code>golang.org/x/crypto/ssh</code> 暴露出其内部接口，然后自己调用</li>
+        <li>修改 <code>golang.org/x/crypto/ssh</code> 暴露出其内部接口，然后自己调用这些接口解析和转发 SSH packets</li>
         <li>有用户为我们提交 PR</li>
       </ul>
     </li>
