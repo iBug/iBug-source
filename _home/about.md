@@ -61,9 +61,8 @@ On the technical side ([more about my skills]({{ "/skills/" | relative_url }})):
   Git,
   Jekyll,
   Nginx,
-  OpenSSH,
-  Vim.
-- **Other**: Linux Networking (routing, tunneling, firewall, iptables, nftables etc.)
+  OpenSSH.
+- **Other**: Linux Networking (routing, tunneling, firewall, iptables etc.)
   and general network service administration.
 </details>
 
@@ -89,7 +88,7 @@ On the technical side ([more about my skills]({{ "/skills/" | relative_url }})):
 - **Linux distro**: Ubuntu (desktop / workstation), Debian (server) and Proxmox VE (virtualization platform).
 - **Version control**: Git (and good at it).
 - **Text editor**: Visual Studio Code and `<ESC>:wq` ([get my config](https://i.ibug.io/conf/vimrc)).
-- **Automation**: Shell scripts, Make, Systemd services, Docker, AWS Lambda.
+- **Automation**: Shell scripts, Ansible playbooks, Makefiles, Systemd services, Cron, Docker, and AWS Lambda.
 
 ### Working environment
 
