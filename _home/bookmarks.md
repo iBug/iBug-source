@@ -21,6 +21,10 @@ header:
 
 ## <i class="fas fa-fw fa-gamepad"></i> Entertainment
 
+- [<i class="fas fa-fw fa-database"></i> SteamDB](https://steamdb.info/)
+
+### Miscellaneous
+
 - [Guide/FAQ Dungeon Defense: Invasion of Heroes - Google Docs](https://docs.google.com/document/d/12FdKgqNX8wS94ORBb7ArmBY_-6KibqoR8iPB9z_ENXA/edit)
 - [Online Freecell solver](https://fc-solve.shlomifish.org/js-fc-solve/text/)
 - [Simon Tatham's Portable Puzzle Collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)
@@ -32,7 +36,7 @@ header:
 
 - [GTA5 Mods](https://www.gta5-mods.com/) (Sort by [most downloaded](https://www.gta5-mods.com/all/tags/featured/most-downloaded))
   - [Enhanced Native Trainer](https://www.gta5-mods.com/scripts/enhanced-native-trainer-zemanez-and-others)
-- [GTA Wiki](http://gta.wikia.com/wiki/Main_Page)
+- [GTA Wiki](http://gta.wiki/)
 - [Grand Theft Auto V PC Graphics & Performance Guide - GeForce](https://www.geforce.com/whats-new/guides/grand-theft-auto-v-pc-graphics-and-performance-guide#grand-theft-auto-v-system-requirements)
 - [GTA V PC Benchmark - 1080, 1440, & 4K Tested on Titan X, 960, R9 290X, 270X, & More - GamerNexus](https://www.gamersnexus.net/game-bench/1905-gta-v-pc-fps-benchmark-graphics-cards)
 - [Kiddion's Modest External Menu](https://www.unknowncheats.me/forum/grand-theft-auto-v/433685-kiddions-modest-external-menu.html) ([Thread 2](https://www.unknowncheats.me/forum/grand-theft-auto-v/464657-kiddions-modest-external-menu-thread-2-a.html)) (usable Online)
@@ -41,7 +45,12 @@ header:
 
 ### Minecraft
 
+- [Minecraft Wiki](https://minecraft.wiki/)
 - [Self-building Nether Tunnel (1.16)](https://www.youtube.com/watch?v=jSCMTvSEWnE)
+
+### Counter-Strike 2
+
+- [CS2 Weapon Spreadsheet](https://docs.google.com/spreadsheets/d/11tDzUNBq9zIX6_9Rel__fdAUezAQzSnh5AVYzCP060c/edit)
 
 ## <i class="fas fa-fw fa-book-open"></i> Reading
 

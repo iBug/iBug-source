@@ -41,4 +41,58 @@ Since there's only one default prefix at `/home/linuxbrew/.linuxbrew` and its co
 The first thing that came to my mind is `CLONE_NEWNS`, so that I can bind-mount the actual installation onto Homebrew's prefix in each user's own namespace.
 To make things usable, this has to be implemented through systemd-logind so the mount namespace is applied on user login, possibly onto user service manager (i.e. `user@.service`).
 
+After some careful research, I decided that while this is possible, it's not going to be elegant:
+
+There is `BindPaths=` in systemd services that is exactly what I was looking for, with two major issues that make it unreliable:
+
+- While it may apply to `user@.service`, the use of private mount namespace means only processes spawned by the user service manager can see the bind mounts.
+  In particular, this may not always include login shell sessions, which is the most common way to use Homebrew.
+- There's no variable for "user's home directory" to be used in `BindPaths=`. Note that `user@.service` is managed by the system manager, so systemd template variables like `%h`, `%u` etc. all refer to the root user.
+  Even if `%i` can be used to refer to the instance name (in this case, user UID), it's still not the home directory, and at best I can refer to `/home/linuxbrew/1000` with `%i`.
+  Far from ideal.
+
 ## The solution {#solution}
+
+If all I need is a `/home/linuxbrew/.linuxbrew` directory that presents the actual Homebrew installation in the user's home directory, a FUSE program that presents a symlink should suffice.
+
+So here it goes: [<i class="fab fa-github"></i> iBug/linuxbrew-fuse](https://github.com/iBug/linuxbrew-fuse)
+
+Showcase:
+
+```console
+root@iBug-Server:~$ df -h /home/linuxbrew/
+Filesystem      Size  Used Avail Use% Mounted on
+linuxbrew-fuse   512   512     0 100% /home/linuxbrew
+
+root@iBug-Server:~$ ls -lA /home/linuxbrew/
+total 0
+lrw-r--r-- 0 root root 0 Jan  1  1970 .linuxbrew -> /root/.linuxbrew
+
+root@iBug-Server:~$ sudo -iu ubuntu ls -lA /home/linuxbrew/
+total 0
+lrw-r--r-- 0 root root 0 Jan  1  1970 .linuxbrew -> /home/ubuntu/.linuxbrew
+
+root@iBug-Server:~$ sudo -iu ibug ls -lA /home/linuxbrew/
+total 0
+lrw-r--r-- 0 root root 0 Jan  1  1970 .linuxbrew -> /home/ibug/.linuxbrew
+```
+
+Now any unprivileged user can install their own Homebrew using the provided Bash script, by creating a `.linuxbrew` directory beforehand:
+
+```shell
+mkdir -p ~/.linuxbrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+```text
+==> Checking for `sudo` access (which may request your password)...
+==> This script will install:
+/home/linuxbrew/.linuxbrew/bin/brew
+/home/linuxbrew/.linuxbrew/share/doc/homebrew
+/home/linuxbrew/.linuxbrew/share/man/man1/brew.1
+/home/linuxbrew/.linuxbrew/share/zsh/site-functions/_brew
+/home/linuxbrew/.linuxbrew/etc/bash_completion.d/brew
+/home/linuxbrew/.linuxbrew/Homebrew
+```
+
+A systemd service definition is also provided to automatically start the FUSE program on boot.
