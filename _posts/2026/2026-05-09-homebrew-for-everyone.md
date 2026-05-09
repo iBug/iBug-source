@@ -21,7 +21,7 @@ Namely,
 
 3. Create a shared user for Homebrew and have everyone `sudo` into it.
 
-  [codejam]: https://www.codejam.info/2021/11/homebrew-multi-user.html 
+  [codejam]: https://www.codejam.info/2021/11/homebrew-multi-user.html
 
 The last option is indeed the best, and with shell aliasing to automatically prepend `brew` commands with `sudo`, usage experience is as smooth as regular single-user setup.
 
