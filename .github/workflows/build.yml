@@ -15,16 +15,16 @@ jobs:
       LSI: 'true'
       TZ: Etc/UTC
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0
 
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.2'
+        ruby-version: '3.4'
     - name: Setup cache for Bundler
       id: cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: |
           Gemfile.lock
@@ -33,23 +33,23 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-bundler-2-
 
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v7
       with:
-        node-version: 20
+        node-version: 24
     - name: Setup cache for Node.js
       id: cache-npm
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: node_modules
         key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
 
     - name: Install - APT
       run: |
-          sudo debconf-communicate <<< "set man-db/auto-update false"
-          sudo dpkg-reconfigure man-db
-          sudo apt update
-          sudo NEEDRESTART_SUSPEND=1 \
-            apt install -y libgsl-dev
+        sudo debconf-communicate <<< "set man-db/auto-update false"
+        sudo dpkg-reconfigure man-db
+        sudo apt update
+        sudo NEEDRESTART_SUSPEND=1 \
+          apt install -y libgsl-dev
 
     - name: Install - Bundler
       env:
@@ -89,7 +89,7 @@ jobs:
       working-directory: _site
 
     - name: Deploy to Cloudflare Pages
-      uses: cloudflare/wrangler-action@v3
+      uses: cloudflare/wrangler-action@v4
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         accountId: ${{ secrets.CF_ACCOUNT_ID }}
