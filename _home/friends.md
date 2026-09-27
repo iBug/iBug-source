@@ -84,4 +84,7 @@ Other good folks online:
 - {{ item.name }}{% if item.github %} [<i class="fab fa-github"></i>](https://github.com/{{ item.github }}){% endif %}\: [<i class="fas fa-globe-americas"></i> {{ item.link }}]({{ item.link }}){: rel="noopener" }
 {% endfor %}{: .friends-list }
 
+And a special mention for [Showfom](https://u.sb): Owner of *a lot* of `.sb` domain names, operator of [SB.SB Forum](https://sb.sb), [IP.SB](https://ip.sb) and [S.EE](https://s.ee).
+You can also buy a VPS from [V.PS](https://v.ps).
+
 <style>.friends-list { list-style-type: none; padding-left: 1em; }</style>
