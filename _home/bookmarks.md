@@ -57,3 +57,13 @@ header:
 - [BBR: Congestion-Based Congestion Control](https://queue.acm.org/detail.cfm?id=3022184)
 - [Awesome PhD Advices](https://github.com/pliang279/awesome-phd-advice)
 - [Optimizing SQLite for servers](https://kerkour.com/sqlite-for-servers)
+
+## Misc
+
+Unicode characters for:
+
+- macOS Command key: &#x2318;
+- macOS Option key: &#x2325;
+- macOS Control key: &#x2303;
+- Shift key: &#x21E7;
+- Aaron Patterson: &#xFFFD;
